@@ -18,7 +18,7 @@ import {
   Sparkles,
 } from "lucide-react";
 
-const heroBg = "/0004.jpg"; // hero image from public
+const heroBg = "/DD.png"; // hero image from public
 
 /** Optional YouTube auto-scroll component */
 function YouTubeAutoScroller({
