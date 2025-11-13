@@ -20,6 +20,7 @@ import {
 
 const heroBg = "/main banners.jpg";
 
+/* ------------ Small presentational helpers ------------ */
 function CardShell({
   title,
   icon,
@@ -75,6 +76,7 @@ function Stat({ value, label }: { value: string; label: string }) {
   );
 }
 
+/* ------------ Page ------------ */
 export default function IstharaDining() {
   useEffect(() => {
     document.title =
@@ -85,10 +87,10 @@ export default function IstharaDining() {
     <div className="min-h-screen bg-background text-foreground">
       <Header />
 
-      {/* ===== HERO ===== */}
-      <section className="relative py-32 md:py-[18rem] overflow-hidden">
+      {/* ===== HERO (slightly smaller) ===== */}
+      <section className="relative py-24 md:py-40 overflow-hidden">
         <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-[1.15]"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-[1.05]"
           style={{ backgroundImage: `url('${heroBg}')` }}
           aria-hidden
         >
@@ -136,7 +138,7 @@ export default function IstharaDining() {
         </div>
       </section>
 
-      {/* ===== MERGED BOX: CHALLENGE (TOP) + OUR APPROACH (BOTTOM) ===== */}
+      {/* ===== CHALLENGE (top) + OUR APPROACH (bottom) IN ONE BOX ===== */}
       <section className="py-6">
         <div className="container mx-auto px-6">
           <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
@@ -168,7 +170,7 @@ export default function IstharaDining() {
 
             <div className="h-px w-full bg-gray-200 mb-6" />
 
-            {/* Our Approach — moved below */}
+            {/* Our Approach */}
             <div>
               <h3 className="text-lg font-semibold flex items-center gap-2 mb-3">
                 <Sparkles className="h-5 w-5 text-primary" />
@@ -210,7 +212,10 @@ export default function IstharaDining() {
       {/* ===== VISUAL DIRECTIONS ===== */}
       <section className="py-8">
         <div className="container mx-auto px-6">
-          <CardShell title="Key Visual Directions" icon={<Palette className="h-5 w-5" />}>
+          <CardShell
+            title="Key Visual Directions"
+            icon={<Palette className="h-5 w-5" />}
+          >
             <ul className="space-y-2 text-gray-700">
               <li>
                 <span className="font-semibold">Photography Style:</span> Clean,
@@ -235,7 +240,10 @@ export default function IstharaDining() {
       {/* ===== RESULTS ===== */}
       <section className="py-8">
         <div className="container mx-auto px-6">
-          <CardShell title="Results Achieved" icon={<BarChart3 className="h-5 w-5" />}>
+          <CardShell
+            title="Results Achieved"
+            icon={<BarChart3 className="h-5 w-5" />}
+          >
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
               <Stat value="200%" label="Increase in website visits (3 months)" />
               <Stat value="150%" label="Growth in Instagram engagement" />
@@ -250,7 +258,10 @@ export default function IstharaDining() {
       <section className="py-8 pb-16">
         <div className="container mx-auto px-6">
           <div className="grid gap-6 md:grid-cols-2">
-            <CardShell title="Experience Highlights" icon={<ChefHat className="h-5 w-5" />}>
+            <CardShell
+              title="Experience Highlights"
+              icon={<ChefHat className="h-5 w-5" />}
+            >
               <ul className="list-disc list-inside text-gray-700 space-y-2">
                 <li>
                   Chef specials calendar and seasonal menus integrated to
@@ -264,7 +275,10 @@ export default function IstharaDining() {
               </ul>
             </CardShell>
 
-            <CardShell title="Practical Details" icon={<Clock className="h-5 w-5" />}>
+            <CardShell
+              title="Practical Details"
+              icon={<Clock className="h-5 w-5" />}
+            >
               <ul className="space-y-2 text-gray-700">
                 <li className="flex items-start gap-2">
                   <MapPin className="h-4 w-4 mt-1 text-primary" />
