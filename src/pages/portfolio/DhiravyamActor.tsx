@@ -18,9 +18,9 @@ import {
   Sparkles,
 } from "lucide-react";
 
-const heroBg = "/dhiravyam-hero.jpg"; // replace with your 16:9 hero image
+const heroBg = "/0004.jpg"; // UPDATED — hero image from public folder
 
-/** Optional: simple (non-cropping) YouTube scroller. Leave urls empty or plug later. */
+/** Optional YouTube auto-scroll component */
 function YouTubeAutoScroller({
   urls,
   intervalMs = 5000,
@@ -130,7 +130,7 @@ function YouTubeAutoScroller({
   );
 }
 
-/* ------------ Small helpers (matching Swathi page vibe) ------------ */
+/* ------------ Helpers ------------ */
 function Pillar({ title, desc }: { title: string; desc: string }) {
   return (
     <div className="rounded-lg border border-gray-200 p-4 bg-white">
@@ -165,16 +165,14 @@ export default function DhiravyamActor() {
     document.title = "Dhiravyam — Actor | Trends & Tactics";
   }, []);
 
-  const YOUTUBE_VIDEOS: string[] = [
-    // Add Dhiravyam reels when ready, e.g. "https://www.youtube.com/watch?v=XXXX"
-  ];
+  const YOUTUBE_VIDEOS: string[] = [];
 
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Header />
 
-      {/* ===== Hero ===== */}
-      <section className="relative py-20 md:py-28 overflow-hidden">
+      {/* ===== HERO SECTION ===== */}
+      <section className="relative h-[420px] md:h-[460px] w-full overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: `url('${heroBg}')` }}
@@ -182,7 +180,7 @@ export default function DhiravyamActor() {
           <div className="absolute inset-0 bg-black/40" />
         </div>
 
-        <div className="relative z-10 container mx-auto px-6 text-center">
+        <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6">
           <motion.h1
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
@@ -191,6 +189,7 @@ export default function DhiravyamActor() {
           >
             Dhiravyam — Actor
           </motion.h1>
+
           <motion.p
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
@@ -202,7 +201,7 @@ export default function DhiravyamActor() {
         </div>
       </section>
 
-      {/* ===== Short Bio ===== */}
+      {/* ===== SHORT BIO ===== */}
       <section className="py-10">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
@@ -211,14 +210,15 @@ export default function DhiravyamActor() {
               <h2 className="text-2xl font-semibold">Short Bio</h2>
             </div>
             <p className="text-gray-700 leading-relaxed">
-              A dynamic new talent in Indian cinema, Dhiravyam is known for his magnetic screen
-              presence, versatile performances, and authentic storytelling.
+              A dynamic new talent in Indian cinema, Dhiravyam is known for his
+              magnetic screen presence, versatile performances, and authentic
+              storytelling.
             </p>
           </div>
         </div>
       </section>
 
-      {/* ===== Extended Profile & Brand Narrative ===== */}
+      {/* ===== PROFILE & BRAND ===== */}
       <section className="py-8">
         <div className="container mx-auto px-6">
           <div className="grid gap-6 md:grid-cols-2">
@@ -228,8 +228,9 @@ export default function DhiravyamActor() {
                 <h3 className="text-xl font-semibold">Extended Profile</h3>
               </div>
               <p className="text-gray-700 leading-relaxed">
-                From theatre beginnings to notable on-screen roles, Dhiravyam combines training and passion
-                to deliver layered, emotionally compelling portrayals.
+                From theatre beginnings to notable on-screen roles, Dhiravyam
+                combines training and passion to deliver layered, emotionally
+                compelling portrayals.
               </p>
             </div>
 
@@ -238,18 +239,19 @@ export default function DhiravyamActor() {
                 <Star className="h-5 w-5 text-primary" />
                 <h3 className="text-xl font-semibold">Brand Narrative</h3>
               </div>
+
               <div className="grid gap-4">
                 <Pillar
                   title="Versatility"
-                  desc="Excels in both commercial projects and nuanced, character-driven roles."
+                  desc="Excels in both commercial and character-driven roles."
                 />
                 <Pillar
                   title="Authentic Connection"
-                  desc="Connects with audiences through honesty and realism."
+                  desc="Deep emotional realism that resonates with audiences."
                 />
                 <Pillar
                   title="Emerging Star"
-                  desc="Confident, passionate, and committed to the craft."
+                  desc="Driven by passion, discipline, and continuous craft improvement."
                 />
               </div>
             </div>
@@ -257,69 +259,37 @@ export default function DhiravyamActor() {
         </div>
       </section>
 
-      {/* ===== PR & Digital Strategy ===== */}
-      <section className="py-8">
-        <div className="container mx-auto px-6">
-          <div className="rounded-2xl border border-gray-200 bg-white p-6">
-            <div className="flex items-center gap-3 mb-3">
-              <Megaphone className="h-5 w-5 text-primary" />
-              <h3 className="text-xl font-semibold">PR &amp; Digital Strategy</h3>
-            </div>
-
-            <div className="grid gap-6 md:grid-cols-2">
-              <div>
-                <h4 className="font-semibold mb-2 flex items-center gap-2">
-                  <Clapperboard className="h-4 w-4 text-primary" /> Public Relations Focus
-                </h4>
-                <ul className="list-disc list-inside text-gray-700 space-y-2">
-                  <li>Press releases, interviews, and podcast features.</li>
-                </ul>
-              </div>
-              <div>
-                <h4 className="font-semibold mb-2 flex items-center gap-2">
-                  <Hash className="h-4 w-4 text-primary" /> Digital &amp; Social Presence
-                </h4>
-                <ul className="list-disc list-inside text-gray-700 space-y-2">
-                  <li>Instagram Reels &amp; YouTube Shorts, fan engagement campaigns.</li>
-                  <li>Collaborations with fashion, lifestyle, and grooming brands.</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ===== Video & Editing Services ===== */}
+      {/* ===== VIDEO SERVICES ===== */}
       <section className="py-8">
         <div className="container mx-auto px-6">
           <div className="rounded-2xl border border-gray-200 bg-white p-6">
             <div className="flex items-center gap-3 mb-3">
               <VideoIcon className="h-5 w-5 text-primary" />
-              <h3 className="text-xl font-semibold">Video &amp; Editing Services</h3>
+              <h3 className="text-xl font-semibold">Video & Editing Services</h3>
             </div>
 
             <div className="grid gap-6 md:grid-cols-3">
               <Service
                 icon={<Film className="h-5 w-5" />}
                 title="Cinematic Reels"
-                desc="15–30s highlights that capture performance and range."
+                desc="30s–60s edits highlighting depth, energy, and emotion."
               />
               <Service
                 icon={<Camera className="h-5 w-5" />}
                 title="BTS Stories"
-                desc="Quick-turnaround clips to keep audiences engaged."
+                desc="Raw behind-the-scenes moments crafted into engaging clips."
               />
               <Service
                 icon={<Megaphone className="h-5 w-5" />}
-                title="Interview & Press Packages"
-                desc="Media-ready edits for portals and PR drops."
+                title="Press & Interview Packages"
+                desc="Fully edited media-ready content tailored for PR rollout."
               />
             </div>
           </div>
         </div>
       </section>
 
-      {/* ===== Social Copy ===== */}
+      {/* ===== SOCIAL COPY ===== */}
       <section className="py-8">
         <div className="container mx-auto px-6">
           <div className="rounded-2xl border border-gray-200 bg-white p-6">
@@ -333,17 +303,16 @@ export default function DhiravyamActor() {
                 <h4 className="font-semibold mb-2">Instagram Bio Idea</h4>
                 <ul className="space-y-1 text-sm text-gray-800">
                   <li>🎬 Actor | Storyteller</li>
-                  <li>✨ Living every frame with passion</li>
-                  <li>📩 For PR &amp; collaborations: [email]</li>
+                  <li>✨ Every frame with honesty</li>
+                  <li>📩 PR & collabs: [email]</li>
                 </ul>
               </div>
 
               <div className="rounded-lg border border-gray-200 p-4 bg-gray-50">
                 <h4 className="font-semibold mb-2">Launch Caption</h4>
                 <p className="text-sm text-gray-800">
-                  “Every story deserves truth — I’m here to bring it to life on screen. Stay tuned!{" "}
-                  <span className="whitespace-nowrap">#Dhiravyam</span>{" "}
-                  <span className="whitespace-nowrap">#ActorLife</span>”
+                  “Every character teaches me something new. Excited for the
+                  journey ahead. Stay tuned! #Dhiravyam #ActorLife”
                 </p>
               </div>
             </div>
@@ -351,7 +320,7 @@ export default function DhiravyamActor() {
         </div>
       </section>
 
-      {/* ===== Key Visual Directions ===== */}
+      {/* ===== VISUAL STYLE ===== */}
       <section className="py-8">
         <div className="container mx-auto px-6">
           <div className="rounded-2xl border border-gray-200 bg-white p-6">
@@ -362,17 +331,19 @@ export default function DhiravyamActor() {
 
             <ul className="space-y-2 text-gray-700">
               <li>
-                <span className="font-semibold">Photography:</span> Clean, cinematic, natural light with vibrant grading.
+                <span className="font-semibold">Photography:</span> Cinematic,
+                natural light, expressive portraits.
               </li>
               <li>
-                <span className="font-semibold">Video:</span> Energetic edits, subtle motion graphics, expressive highlights.
+                <span className="font-semibold">Video Mood:</span> High-energy
+                cuts with emotional depth and clean motion graphics.
               </li>
             </ul>
           </div>
         </div>
       </section>
 
-      {/* ===== Optional: Videos Section ===== */}
+      {/* ===== VIDEO SCROLLER (IF ADDED) ===== */}
       <section className="py-8 pb-16">
         <div className="container mx-auto px-6">
           {YOUTUBE_VIDEOS.length ? (
@@ -390,7 +361,8 @@ export default function DhiravyamActor() {
                 <h3 className="text-lg font-semibold">Reels Coming Soon</h3>
               </div>
               <p className="text-sm text-gray-700">
-                Plug in YouTube links to automatically render a full-width, non-cropping video slider.
+                Add YouTube links anytime to automatically display a full-width
+                scroller.
               </p>
             </div>
           )}
