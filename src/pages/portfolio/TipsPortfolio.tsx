@@ -1,5 +1,5 @@
 // src/pages/portfolio/TipsPortfolio.tsx
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
@@ -11,7 +11,7 @@ import {
   Video as VideoIcon,
 } from "lucide-react";
 
-const heroBg = "/0008.jpg"; // Public folder hero image
+const heroBg = "/0008.jpg"; // image in public folder
 
 /** ================================
  *  YouTube Auto-Scroller
@@ -46,15 +46,16 @@ function YouTubeAutoScroller({
     }
   };
 
-  // Slide movement
+  // Scroll to active slide
   useEffect(() => {
     const el = trackRef.current;
     if (!el) return;
     el.scrollTo({ left: index * el.clientWidth, behavior: "smooth" });
   }, [index]);
 
-  // Auto-scroll
+  // Auto-advance
   useEffect(() => {
+    if (!urls.length) return;
     const timer = window.setInterval(() => {
       setIndex((i) => (i + 1) % urls.length);
     }, intervalMs);
@@ -75,7 +76,8 @@ function YouTubeAutoScroller({
                   className="w-full h-full"
                   src={toEmbedUrl(u)}
                   title={`YouTube video ${idx + 1}`}
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerPolicy="strict-origin-when-cross-origin"
                   allowFullScreen
                   loading="lazy"
                 />
@@ -90,6 +92,7 @@ function YouTubeAutoScroller({
         {urls.map((_, i) => (
           <button
             key={i}
+            aria-label={`Go to video ${i + 1}`}
             onClick={() => setIndex(i)}
             className={`h-2 w-2 rounded-full transition ${
               i === index ? "bg-black" : "bg-gray-300"
@@ -114,9 +117,7 @@ export default function TipsPortfolio() {
     <div className="min-h-screen bg-background text-foreground">
       <Header />
 
-      {/* ======================================================
-          HERO SECTION (Correct Height - matches your screenshot)
-         ====================================================== */}
+      {/* HERO */}
       <section className="relative min-h-[45vh] md:min-h-[50vh] flex items-center overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -146,9 +147,7 @@ export default function TipsPortfolio() {
         </div>
       </section>
 
-      {/* ======================================================
-          SHORT CASE OVERVIEW
-         ====================================================== */}
+      {/* SHORT OVERVIEW */}
       <section className="py-10">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
@@ -164,9 +163,7 @@ export default function TipsPortfolio() {
         </div>
       </section>
 
-      {/* ======================================================
-          CHALLENGE + OUR APPROACH
-         ====================================================== */}
+      {/* CHALLENGE + APPROACH */}
       <section className="py-8">
         <div className="container mx-auto px-6 grid gap-6 md:grid-cols-2">
           {/* Challenge */}
@@ -176,64 +173,66 @@ export default function TipsPortfolio() {
               The Indian Public School faced declining enrollment and poor online visibility in a
               competitive educational landscape. Their outdated digital presence failed to
               communicate their academic excellence and modern teaching methodologies to
-              prospective parents and students.
+              prospective parents and students. The school needed a comprehensive digital
+              transformation to rebuild trust and attract quality enrollments.
             </p>
           </div>
 
-          {/* Approach */}
+          {/* Our Approach */}
           <div className="rounded-2xl border border-gray-200 bg-white p-6">
             <h2 className="text-2xl font-semibold mb-4">Our Approach</h2>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              We implemented a comprehensive digital transformation strategy that included:
+            </p>
             <ul className="space-y-2 text-gray-700 text-sm md:text-base leading-relaxed">
-              <li>• Modern, conversion-focused website redesign</li>
-              <li>• Comprehensive SEO targeting local education keywords</li>
-              <li>• Social media campaigns showcasing achievements</li>
-              <li>• Targeted ads for prospective parents</li>
-              <li>• Consistent brand guidelines across channels</li>
+              <li>• Modern, conversion-focused website redesign with intuitive navigation</li>
+              <li>• Comprehensive SEO strategy targeting local education keywords</li>
+              <li>• Strategic social media campaigns showcasing student achievements</li>
+              <li>• Targeted advertising campaigns reaching prospective parents</li>
+              <li>• Brand guidelines ensuring consistent communication across all channels</li>
             </ul>
           </div>
         </div>
       </section>
 
-      {/* ======================================================
-          RESULTS + PROJECT INFO
-         ====================================================== */}
+      {/* RESULTS + PROJECT INFO (single row, two columns) */}
       <section className="py-8">
-        <div className="container mx-auto px-6 grid gap-8 lg:grid-cols-12">
-          {/* Results */}
-          <div className="lg:col-span-8 rounded-2xl border border-gray-200 bg-white p-6">
-            <h2 className="text-2xl font-semibold mb-4">Results Achieved</h2>
+        <div className="container mx-auto px-6">
+          <div className="grid gap-6 lg:grid-cols-12">
+            {/* Results Achieved */}
+            <div className="lg:col-span-8 rounded-2xl border border-gray-200 bg-white p-6">
+              <h2 className="text-2xl font-semibold mb-4">Results Achieved</h2>
 
-            <div className="grid md:grid-cols-2 gap-4 mb-4">
-              <div className="space-y-3">
-                <p className="flex items-center gap-3 text-gray-700">
-                  <span className="w-2 h-2 rounded-full bg-teal-600" />
-                  250% increase in website traffic
-                </p>
-                <p className="flex items-center gap-3 text-gray-700">
-                  <span className="w-2 h-2 rounded-full bg-orange-500" />
-                  180% increase in enrollment enquiries
-                </p>
-              </div>
+              <div className="grid md:grid-cols-2 gap-4">
+                <div className="space-y-3">
+                  <p className="flex items-center gap-3 text-gray-700">
+                    <span className="w-2 h-2 rounded-full bg-teal-600" />
+                    250% increase in website traffic
+                  </p>
+                  <p className="flex items-center gap-3 text-gray-700">
+                    <span className="w-2 h-2 rounded-full bg-orange-500" />
+                    180% increase in enrollment enquiries
+                  </p>
+                </div>
 
-              <div className="space-y-3">
-                <p className="flex items-center gap-3 text-gray-700">
-                  <span className="w-2 h-2 rounded-full bg-teal-600" />
-                  95% rise in social engagement
-                </p>
-                <p className="flex items-center gap-3 text-gray-700">
-                  <span className="w-2 h-2 rounded-full bg-orange-500" />
-                  #1 ranking for school searches
-                </p>
+                <div className="space-y-3">
+                  <p className="flex items-center gap-3 text-gray-700">
+                    <span className="w-2 h-2 rounded-full bg-teal-600" />
+                    95% rise in social engagement
+                  </p>
+                  <p className="flex items-center gap-3 text-gray-700">
+                    <span className="w-2 h-2 rounded-full bg-orange-500" />
+                    #1 ranking for school searches
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
 
-          {/* Project Info */}
-          <aside className="lg:col-span-4 lg:sticky lg:top-28">
-            <div className="rounded-2xl bg-white border border-gray-200 p-6 shadow-sm">
+            {/* Project Information */}
+            <div className="lg:col-span-4 rounded-2xl bg-white border border-gray-200 p-6 shadow-sm">
               <h3 className="text-xl font-bold mb-6">Project Information</h3>
 
-              <div className="grid grid-cols-2 gap-4 mb-6">
+              <div className="grid grid-cols-2 gap-4">
                 <div className="flex flex-col items-center">
                   <TrendingUp className="h-6 w-6 text-teal-600 mb-2" />
                   <div className="text-lg font-bold">250%</div>
@@ -259,13 +258,11 @@ export default function TipsPortfolio() {
                 </div>
               </div>
             </div>
-          </aside>
+          </div>
         </div>
       </section>
 
-      {/* ======================================================
-          VIDEO SECTION — AUTO SCROLL
-         ====================================================== */}
+      {/* VIDEOS */}
       <section className="py-8 pb-16">
         <div className="container mx-auto px-6">
           <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
@@ -273,7 +270,6 @@ export default function TipsPortfolio() {
               <VideoIcon className="h-5 w-5 text-primary" />
               <h3 className="text-xl font-semibold">Videos</h3>
             </div>
-
             <YouTubeAutoScroller urls={YOUTUBE_VIDEOS} intervalMs={5000} />
           </div>
         </div>
