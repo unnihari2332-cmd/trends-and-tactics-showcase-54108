@@ -47,8 +47,6 @@ const portfolioItems: Item[] = [
     image: "/Niyas.png",
     path: "/portfolio/niyas-khan-actor",
   },
-
-  /* ===== New items ===== */
   {
     title: "INDSYS",
     image: "/indsysbanner.jpg",
@@ -59,27 +57,11 @@ const portfolioItems: Item[] = [
     image: "/OECLbanner.jpg",
     path: "/portfolio/oecl",
   },
-
   {
     title: "Naalai Namadhe — Official Website",
     image: "/nntvbanners.jpg",
     path: "/portfolio/naalai-namadhe",
   },
-
-  // ❌ Grubpe removed
-  // {
-  //   title: "Grubpe",
-  //   image: "/Grubpe.png",
-  //   path: "/portfolio/grubpe",
-  // },
-
-  // ❌ Quick Rack removed
-  // {
-  //   title: "Quick Rack",
-  //   image: "/QuickRack.png",
-  //   path: "/portfolio/quick-rack",
-  // },
-
   {
     title: "Trillion Minds",
     image: "/Trillion.png",
@@ -98,15 +80,10 @@ function PosterCard({ item, idx }: { item: Item; idx: number }) {
 
   return (
     <div
-      className="group flex flex-col items-center rounded-xl border border-gray-300 bg-white shadow-sm
-                 transition-shadow hover:shadow-md focus-within:shadow-md"
+      className="group flex flex-col items-center rounded-xl border border-gray-300 bg-white shadow-sm transition-shadow hover:shadow-md focus-within:shadow-md"
     >
       {/* Image */}
-      <Link
-        to={to}
-        className="w-full outline-none"
-        aria-label={`Open portfolio: ${item.title}`}
-      >
+      <Link to={to} className="w-full outline-none" aria-label={`Open portfolio: ${item.title}`}>
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -126,13 +103,10 @@ function PosterCard({ item, idx }: { item: Item; idx: number }) {
 
       {/* Title + Read More */}
       <div className="flex w-full items-center justify-between px-4 py-4">
-        <h3 className="text-lg font-extrabold tracking-wide text-black">
-          {item.title}
-        </h3>
+        <h3 className="text-lg font-extrabold tracking-wide text-black">{item.title}</h3>
         <Link
           to={to}
-          className="rounded-full border border-black/20 px-5 py-2 text-sm font-semibold text-black
-                     transition-colors hover:bg-black hover:text-white"
+          className="rounded-full border border-black/20 px-5 py-2 text-sm font-semibold text-black transition-colors hover:bg-black hover:text-white"
         >
           Read More
         </Link>
@@ -147,11 +121,9 @@ export default function PortfolioPage() {
     <div className="min-h-screen bg-white text-black">
       <Header />
 
-      <PageHeader 
-        title="Our Portfolio"
-      />
+      {/* Only Title — No Breadcrumb */}
+      <PageHeader title="Our Portfolio" />
 
-      {/* Grid */}
       <section className="pb-20">
         <div className="container mx-auto max-w-7xl px-6">
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
