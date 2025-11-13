@@ -20,7 +20,7 @@ export default function SmartAccess() {
         {/* HERO */}
         <section className="relative h-[70vh] min-h-[60svh] flex items-center justify-center text-center px-6">
           <img
-            src="/fingerprint01.jpg"
+            src="/biometricbanner.jpg"
             alt="SmartAccess+"
             className="absolute inset-0 w-full h-full object-cover"
             style={{ objectPosition: "center" }}
