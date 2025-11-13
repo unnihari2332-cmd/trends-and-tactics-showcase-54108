@@ -17,10 +17,11 @@ import {
   Hash,
 } from "lucide-react";
 
-const heroBg = "/sidelogo.jpg"; // change if you have a dedicated hero image
+// UPDATED HERO IMAGE
+const heroBg = "/0003.jpg";
 
 /** ================================
- *  YouTube Auto-Scroller (full 16:9, no cropping)
+ *  YouTube Auto-Scroller (full 16:9)
  *  ================================ */
 function YouTubeAutoScroller({
   urls,
@@ -112,7 +113,6 @@ function YouTubeAutoScroller({
         </div>
       </div>
 
-      {/* Dots */}
       <div className="mt-3 flex items-center justify-center gap-2">
         {urls.map((_, i) => (
           <button
@@ -129,7 +129,7 @@ function YouTubeAutoScroller({
   );
 }
 
-/* ------------ Small presentational helpers ------------ */
+/* ------------ Helpers ------------ */
 function Pillar({ title, desc }: { title: string; desc: string }) {
   return (
     <div className="rounded-lg border border-gray-200 p-4 bg-white">
@@ -164,7 +164,6 @@ export default function SwathiKondePR() {
     document.title = "Swathi Konde – PR & Media Kit | Trends & Tactics";
   }, []);
 
-  // ▶️ Videos (auto-scrolling, full frame)
   const YOUTUBE_VIDEOS = [
     "https://www.youtube.com/watch?v=eGZt5w_FfGI",
     "https://www.youtube.com/watch?v=6egzV7XSqC8&t=35s",
@@ -175,7 +174,7 @@ export default function SwathiKondePR() {
     <div className="min-h-screen bg-background text-foreground">
       <Header />
 
-      {/* ===== Hero (title only over image) ===== */}
+      {/* ===== Hero ===== */}
       <section className="relative py-20 md:py-28 overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -196,7 +195,7 @@ export default function SwathiKondePR() {
         </div>
       </section>
 
-      {/* ===== Intro (press/website short bio) ===== */}
+      {/* ===== Bio ===== */}
       <section className="py-10">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
@@ -207,8 +206,7 @@ export default function SwathiKondePR() {
             <p className="text-gray-700 leading-relaxed">
               A dynamic performer with a natural screen presence, Swathi Konde is quickly
               becoming one of the most exciting new voices in Indian cinema. Known for her
-              expressive acting and effortless charm, she brings depth and authenticity to every
-              character—whether it’s a heartfelt dramatic role or a breezy, relatable modern heroine.
+              expressive acting and effortless charm, she brings depth and authenticity to every character.
             </p>
           </div>
         </div>
@@ -224,50 +222,24 @@ export default function SwathiKondePR() {
                 <h3 className="text-xl font-semibold">Extended Profile</h3>
               </div>
               <p className="text-gray-700 leading-relaxed">
-                From her early stage appearances to acclaimed performances on television and in
-                independent films, Swathi’s journey reflects a commitment to craft.
+                From early stage appearances to acclaimed screen performances, Swathi’s journey reflects dedication to craft.
               </p>
               <ul className="mt-4 space-y-3 text-gray-700">
-                <li>
-                  <span className="font-semibold">Training &amp; Background:</span> Formal training
-                  in acting and dance, giving her an edge in emotionally charged scenes and
-                  choreography.
-                </li>
-                <li>
-                  <span className="font-semibold">Notable Work:</span>{" "}
-                  <em>(Add specific film/TV/web series credits here.)</em>
-                </li>
-                <li>
-                  <span className="font-semibold">Languages:</span> Fluent in multiple Indian
-                  languages, enabling work across regional industries.
-                </li>
+                <li><strong>Training:</strong> Formal acting & dance background.</li>
+                <li><strong>Notable Work:</strong> (Add credits)</li>
+                <li><strong>Languages:</strong> Multiple Indian languages.</li>
               </ul>
             </div>
 
             <div className="rounded-2xl border border-gray-200 bg-white p-6">
               <div className="flex items-center gap-3 mb-3">
                 <Star className="h-5 w-5 text-primary" />
-                <h3 className="text-xl font-semibold">Brand Positioning & PR Narrative</h3>
+                <h3 className="text-xl font-semibold">Brand Positioning</h3>
               </div>
               <div className="grid gap-4">
-                <Pillar
-                  title="Versatile Talent"
-                  desc="Effortlessly shifts between mainstream commercial roles and intense, character-driven projects."
-                />
-                <Pillar
-                  title="Authentic Connection"
-                  desc="Builds genuine rapport with audiences on screen and on social media."
-                />
-                <Pillar
-                  title="Modern Icon"
-                  desc="Represents the confident, independent spirit of the new generation of Indian cinema."
-                />
-              </div>
-              <div className="mt-4 rounded-lg bg-gray-50 p-4 text-sm text-gray-700">
-                Your PR can consistently anchor on these pillars —
-                <span className="font-semibold"> Talent</span>,{" "}
-                <span className="font-semibold">Authenticity</span>,{" "}
-                <span className="font-semibold">Modern Icon</span> — across releases, interviews, and social campaigns.
+                <Pillar title="Versatile Talent" desc="From commercial roles to intense character arcs." />
+                <Pillar title="Authentic Connection" desc="Relatable, expressive, emotionally real." />
+                <Pillar title="Modern Icon" desc="A confident and rising face in new-age cinema." />
               </div>
             </div>
           </div>
@@ -280,29 +252,29 @@ export default function SwathiKondePR() {
           <div className="rounded-2xl border border-gray-200 bg-white p-6">
             <div className="flex items-center gap-3 mb-3">
               <Megaphone className="h-5 w-5 text-primary" />
-              <h3 className="text-xl font-semibold">PR &amp; Media Strategy</h3>
+              <h3 className="text-xl font-semibold">PR & Media Strategy</h3>
             </div>
 
             <div className="grid gap-6 md:grid-cols-2">
               <div>
                 <h4 className="font-semibold mb-2 flex items-center gap-2">
-                  <Clapperboard className="h-4 w-4 text-primary" /> Public Relations Focus
+                  <Clapperboard className="h-4 w-4 text-primary" /> Public Relations
                 </h4>
                 <ul className="list-disc list-inside text-gray-700 space-y-2">
-                  <li>Curated press releases timed with film/project announcements.</li>
-                  <li>Media outreach to entertainment and lifestyle publications.</li>
-                  <li>Strategic interviews and talk-show appearances.</li>
+                  <li>Press releases with film launch timing.</li>
+                  <li>Media outreach to major publications.</li>
+                  <li>Interview schedules & talk show visibility.</li>
                 </ul>
               </div>
 
               <div>
                 <h4 className="font-semibold mb-2 flex items-center gap-2">
-                  <Hash className="h-4 w-4 text-primary" /> Digital &amp; Social Presence
+                  <Hash className="h-4 w-4 text-primary" /> Digital Strategy
                 </h4>
                 <ul className="list-disc list-inside text-gray-700 space-y-2">
-                  <li>Consistent Instagram Reels and YouTube Shorts with BTS footage.</li>
-                  <li>Coordinated hashtag campaigns around new releases or collaborations.</li>
-                  <li>Partnerships with fashion, beauty, and lifestyle brands.</li>
+                  <li>Reels & Shorts strategy.</li>
+                  <li>Hashtag-led campaign pushes.</li>
+                  <li>Fashion/beauty collabs and brand tie-ups.</li>
                 </ul>
               </div>
             </div>
@@ -310,37 +282,37 @@ export default function SwathiKondePR() {
         </div>
       </section>
 
-      {/* ===== Video & Editing Services (Our Contribution) ===== */}
+      {/* ===== Our Services ===== */}
       <section className="py-8">
         <div className="container mx-auto px-6">
           <div className="rounded-2xl border border-gray-200 bg-white p-6">
             <div className="flex items-center gap-3 mb-3">
               <VideoIcon className="h-5 w-5 text-primary" />
-              <h3 className="text-xl font-semibold">Video &amp; Editing Services (Our Contribution)</h3>
+              <h3 className="text-xl font-semibold">Video & Editing Services</h3>
             </div>
 
             <div className="grid gap-6 md:grid-cols-3">
               <Service
                 icon={<Film className="h-5 w-5" />}
                 title="Cinematic Reels"
-                desc="High-impact 15–30s edits that capture energy, expression, and style."
+                desc="High-impact 15–30s edits showing expression & style."
               />
               <Service
                 icon={<Camera className="h-5 w-5" />}
                 title="BTS Stories"
-                desc="Quick-turnaround edits from on-set content to keep fans engaged."
+                desc="Quick edits from behind-the-scenes moments."
               />
               <Service
                 icon={<Megaphone className="h-5 w-5" />}
                 title="Interview Packages"
-                desc="Professionally edited press videos ready for entertainment portals."
+                desc="Press-ready professional edits."
               />
             </div>
           </div>
         </div>
       </section>
 
-      {/* ===== Sample Social Copy (normal font) ===== */}
+      {/* ===== Social Copy ===== */}
       <section className="py-8">
         <div className="container mx-auto px-6">
           <div className="rounded-2xl border border-gray-200 bg-white p-6">
@@ -350,24 +322,19 @@ export default function SwathiKondePR() {
             </div>
 
             <div className="grid gap-6 md:grid-cols-2">
-              {/* Instagram Bio Idea */}
               <div className="rounded-lg border border-gray-200 p-4 bg-gray-50">
                 <h4 className="font-semibold mb-2">Instagram Bio Idea</h4>
                 <ul className="space-y-1 text-sm text-gray-800">
                   <li>🎬 Actor | Dreamer</li>
                   <li>✨ Living stories on screen</li>
-                  <li>📩 For collabs &amp; PR: [your agency email]</li>
+                  <li>📩 For collabs & PR: [email]</li>
                 </ul>
               </div>
 
-              {/* Launch Post Caption */}
               <div className="rounded-lg border border-gray-200 p-4 bg-gray-50">
                 <h4 className="font-semibold mb-2">Launch Post Caption</h4>
                 <p className="text-sm text-gray-800">
-                  “Every role is a new journey. Excited to share the next chapter with all of you—
-                  stay tuned for something special! 💫{" "}
-                  <span className="whitespace-nowrap">#SwathiKonde</span>{" "}
-                  <span className="whitespace-nowrap">#NewRelease</span>”
+                  “Every role is a new journey. Excited to share the next chapter! 💫 #SwathiKonde #NewRelease”
                 </p>
               </div>
             </div>
@@ -375,7 +342,7 @@ export default function SwathiKondePR() {
         </div>
       </section>
 
-      {/* ===== Key Visual Directions ===== */}
+      {/* ===== Key Visual ===== */}
       <section className="py-8">
         <div className="container mx-auto px-6">
           <div className="rounded-2xl border border-gray-200 bg-white p-6">
@@ -385,24 +352,15 @@ export default function SwathiKondePR() {
             </div>
 
             <ul className="space-y-2 text-gray-700">
-              <li>
-                <span className="font-semibold">Photography Style:</span> Clean, cinematic portraits;
-                natural light + vibrant color grading.
-              </li>
-              <li>
-                <span className="font-semibold">Video Mood:</span> Energetic cuts with subtle motion
-                graphics; highlight expressions and dance moves.
-              </li>
-              <li>
-                <span className="font-semibold">Palette &amp; Fonts:</span> Warm golds and deep
-                blues; modern sans-serif typography for a fresh, approachable feel.
-              </li>
+              <li><strong>Photography:</strong> Cinematic portraits + natural light.</li>
+              <li><strong>Video:</strong> Energetic cuts, subtle graphics.</li>
+              <li><strong>Palette:</strong> Golds, deep blues, clean modern fonts.</li>
             </ul>
           </div>
         </div>
       </section>
 
-      {/* ===== Videos (single auto-scrolling component, full frame) ===== */}
+      {/* ===== Auto Scrolling Videos ===== */}
       <section className="py-8 pb-16">
         <div className="container mx-auto px-6">
           <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
@@ -410,6 +368,7 @@ export default function SwathiKondePR() {
               <VideoIcon className="h-5 w-5 text-primary" />
               <h3 className="text-xl font-semibold">Videos</h3>
             </div>
+
             <YouTubeAutoScroller urls={YOUTUBE_VIDEOS} intervalMs={5000} />
           </div>
         </div>
