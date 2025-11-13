@@ -12,8 +12,6 @@ type Item = {
 };
 
 const portfolioItems: Item[] = [
-  
-
   {
     title: "The Indian Public School",
     image: "/TIPS.png",
@@ -61,25 +59,30 @@ const portfolioItems: Item[] = [
     image: "/indsysbanner.jpg",
     path: "/portfolio/indsys",
   },
-  {
-    title: "Grubpe",
-    image: "/Grubpe.png",
-    path: "/portfolio/grubpe",
-  },
-  {
-    title: "Quick Rack",
-    image: "/QuickRack.png",
-    path: "/portfolio/quick-rack",
-  },
+
+  // ❌ Grubpe removed
+  // {
+  //   title: "Grubpe",
+  //   image: "/Grubpe.png",
+  //   path: "/portfolio/grubpe",
+  // },
+
+  // ❌ Quick Rack removed
+  // {
+  //   title: "Quick Rack",
+  //   image: "/QuickRack.png",
+  //   path: "/portfolio/quick-rack",
+  // },
+
   {
     title: "OECL India — Website Revamp",
     image: "/OECLbanner.jpg",
     path: "/portfolio/oecl",
   },
-  /* ✅ New: Naalai Namadhe */
+
   {
     title: "Naalai Namadhe — Official Website",
-    image: "/nntvbanners.jpg", // put a thumbnail in /public/projects
+    image: "/nntvbanners.jpg",
     path: "/portfolio/naalai-namadhe",
   },
 ];
@@ -121,7 +124,7 @@ function PosterCard({ item, idx }: { item: Item; idx: number }) {
         </motion.div>
       </Link>
 
-      {/* Title + Read More CTA */}
+      {/* Title + Read More */}
       <div className="flex w-full items-center justify-between px-4 py-4">
         <h3 className="text-lg font-extrabold tracking-wide text-black">
           {item.title}
@@ -129,8 +132,7 @@ function PosterCard({ item, idx }: { item: Item; idx: number }) {
         <Link
           to={to}
           className="rounded-full border border-black/20 px-5 py-2 text-sm font-semibold text-black
-                     transition-colors hover:bg-black hover:text-white focus:outline-none
-                     focus-visible:ring-2 focus-visible:ring-black/40"
+                     transition-colors hover:bg-black hover:text-white"
         >
           Read More
         </Link>
