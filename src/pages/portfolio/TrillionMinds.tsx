@@ -14,10 +14,9 @@ import {
   BarChart3,
 } from "lucide-react";
 
-// ✅ Updated hero image
-const heroBg = "/0007.jpg";
+const heroBg = "/0007.jpg"; // hero image from public
 
-/* ------------ Small presentational helpers ------------ */
+/* ------------ Small helpers ------------ */
 function Pillar({ title, desc }: { title: string; desc: string }) {
   return (
     <div className="rounded-lg border border-gray-200 p-4 bg-white">
@@ -57,10 +56,10 @@ export default function TrillionMinds() {
     <div className="min-h-screen bg-background text-foreground">
       <Header />
 
-      {/* ===== Hero ===== */}
-      <section className="relative py-20 md:py-28 overflow-hidden">
+      {/* ===== BIG HERO SECTION ===== */}
+      <section className="relative min-h-[80vh] md:min-h-[90vh] flex items-center justify-center overflow-hidden">
         <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-110"
           style={{ backgroundImage: `url('${heroBg}')` }}
         >
           <div className="absolute inset-0 bg-black/40" />
@@ -75,11 +74,12 @@ export default function TrillionMinds() {
           >
             Trillion Minds — Data-Driven Property Advisory
           </motion.h1>
+
           <motion.p
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="mt-4 max-w-3xl mx-auto text-white/90"
+            className="mt-4 max-w-3xl mx-auto text-lg md:text-xl text-white/90"
           >
             Full-spectrum real estate solutions that educate investors, simplify
             decisions, and grow portfolios.
@@ -142,8 +142,8 @@ export default function TrillionMinds() {
                 <li>• Partnerships with developers and local networks</li>
               </ul>
               <div className="mt-4 rounded-lg bg-gray-50 p-4 text-sm text-gray-700">
-                Outcomes driven by clarity, consistency, and measurable value for
-                buyers & investors.
+                Outcomes driven by clarity, consistency, and measurable value
+                for buyers & investors.
               </div>
             </div>
           </div>
@@ -177,19 +177,19 @@ export default function TrillionMinds() {
                   Presence
                 </h4>
                 <p className="text-gray-700">
-                  Mobile-first listings, interactive maps, and investor resources
-                  that streamline discovery.
+                  Mobile-first listings, interactive maps, and investor
+                  resources.
                 </p>
               </div>
 
               <div>
                 <h4 className="font-semibold mb-2 flex items-center gap-2">
-                  <FileText className="h-4 w-4 text-primary" /> Social &
-                  Content Management
+                  <FileText className="h-4 w-4 text-primary" /> Social & Content
+                  Management
                 </h4>
                 <p className="text-gray-700">
-                  Market updates, property tours, and client success stories that
-                  build authority and trust.
+                  Property tours, market explainers, and success stories that
+                  build trust.
                 </p>
               </div>
 
@@ -199,8 +199,8 @@ export default function TrillionMinds() {
                   Campaigns
                 </h4>
                 <p className="text-gray-700">
-                  <em>“Smart Investments Start Here”</em> — short videos
-                  highlighting real client journeys.
+                  <em>“Smart Investments Start Here”</em> — short videos showing
+                  real client journeys.
                 </p>
               </div>
             </div>
@@ -217,17 +217,17 @@ export default function TrillionMinds() {
               <Service
                 icon={<Globe className="h-5 w-5" />}
                 title="Brand System"
-                desc="Logo, palette, and messaging guidelines for a consistent identity."
+                desc="Brand colors, tone, and guidelines."
               />
               <Service
                 icon={<Map className="h-5 w-5" />}
                 title="Interactive Listings"
-                desc="Filterable properties with maps, amenities, and ROI snapshots."
+                desc="Filterable properties, maps, ROI snapshots."
               />
               <Service
                 icon={<FileText className="h-5 w-5" />}
                 title="Content Engine"
-                desc="Market explainers, newsletters, and investor resources."
+                desc="Market insights, newsletters, and investor explainers."
               />
             </div>
           </div>
