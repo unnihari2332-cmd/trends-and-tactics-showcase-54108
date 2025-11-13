@@ -14,7 +14,7 @@ import {
   ExternalLink,
 } from "lucide-react";
 
-const heroBg = "/oecl-hero.jpg";   // 16:9 hero image in /public
+const heroBg = "/oeclmain.jpg";   // 16:9 hero image in /public
 const sideImage = "/oecl-side.jpg"; // Tall side image (left panel)
 const websiteUrl = "https://www.oecl.sg/india/home"; // ← update if needed
 
