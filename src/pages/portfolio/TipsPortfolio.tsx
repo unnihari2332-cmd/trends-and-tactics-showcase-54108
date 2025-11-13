@@ -11,10 +11,10 @@ import {
   Video as VideoIcon,
 } from "lucide-react";
 
-const heroBg = "/0008.jpg"; // public hero image
+const heroBg = "/0008.jpg"; // Public folder hero image
 
 /** ================================
- *  YouTube Auto-Scroller (full 16:9)
+ *  YouTube Auto-Scroller
  *  ================================ */
 function YouTubeAutoScroller({
   urls,
@@ -46,22 +46,19 @@ function YouTubeAutoScroller({
     }
   };
 
-  // Scroll to active slide when index changes
+  // Slide movement
   useEffect(() => {
     const el = trackRef.current;
     if (!el) return;
     el.scrollTo({ left: index * el.clientWidth, behavior: "smooth" });
   }, [index]);
 
-  // Simple interval that advances slides
+  // Auto-scroll
   useEffect(() => {
-    if (urls.length <= 1) return;
-
-    const id = window.setInterval(() => {
+    const timer = window.setInterval(() => {
       setIndex((i) => (i + 1) % urls.length);
     }, intervalMs);
-
-    return () => window.clearInterval(id);
+    return () => window.clearInterval(timer);
   }, [urls.length, intervalMs]);
 
   return (
@@ -78,8 +75,7 @@ function YouTubeAutoScroller({
                   className="w-full h-full"
                   src={toEmbedUrl(u)}
                   title={`YouTube video ${idx + 1}`}
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  referrerPolicy="strict-origin-when-cross-origin"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
                   loading="lazy"
                 />
@@ -94,7 +90,6 @@ function YouTubeAutoScroller({
         {urls.map((_, i) => (
           <button
             key={i}
-            aria-label={`Go to video ${i + 1}`}
             onClick={() => setIndex(i)}
             className={`h-2 w-2 rounded-full transition ${
               i === index ? "bg-black" : "bg-gray-300"
@@ -114,13 +109,15 @@ const YOUTUBE_VIDEOS = [
   "https://www.youtube.com/watch?v=BDhNqhXdb6w",
 ];
 
-const TipsPortfolio = () => {
+export default function TipsPortfolio() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Header />
 
-      {/* ===== Bigger Hero (like screenshot) ===== */}
-      <section className="relative min-h-[70vh] md:min-h-[80vh] flex items-center overflow-hidden">
+      {/* ======================================================
+          HERO SECTION (Correct Height - matches your screenshot)
+         ====================================================== */}
+      <section className="relative min-h-[45vh] md:min-h-[50vh] flex items-center overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: `url('${heroBg}')` }}
@@ -149,16 +146,16 @@ const TipsPortfolio = () => {
         </div>
       </section>
 
-      {/* ===== Short Case Overview ===== */}
+      {/* ======================================================
+          SHORT CASE OVERVIEW
+         ====================================================== */}
       <section className="py-10">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
-            <div className="flex items-center gap-3 mb-3">
-              <span className="text-xs font-semibold uppercase tracking-wide text-teal-600">
-                Education · Case Study
-              </span>
-            </div>
-            <p className="text-gray-700 leading-relaxed">
+            <span className="text-xs font-semibold uppercase tracking-wide text-teal-600">
+              Education · Case Study
+            </span>
+            <p className="text-gray-700 leading-relaxed mt-3">
               Complete rebranding and digital presence transformation that modernized traditional
               learning environments, strengthened parent trust, and positioned the school as a
               leading choice in its region.
@@ -167,130 +164,108 @@ const TipsPortfolio = () => {
         </div>
       </section>
 
-      {/* ===== Challenge & Our Approach ===== */}
+      {/* ======================================================
+          CHALLENGE + OUR APPROACH
+         ====================================================== */}
       <section className="py-8">
-        <div className="container mx-auto px-6">
-          <div className="grid gap-6 md:grid-cols-2">
-            {/* Challenge */}
-            <div className="rounded-2xl border border-gray-200 bg-white p-6">
-              <h2 className="text-2xl font-semibold mb-4 text-black">Challenge</h2>
-              <p className="text-gray-700 leading-relaxed">
-                The Indian Public School faced declining enrollment and poor online visibility in a
-                competitive educational landscape. Their outdated digital presence failed to
-                communicate their academic excellence and modern teaching methodologies to
-                prospective parents and students. The school needed a comprehensive digital
-                transformation to rebuild trust and attract quality enrollments.
-              </p>
-            </div>
+        <div className="container mx-auto px-6 grid gap-6 md:grid-cols-2">
+          {/* Challenge */}
+          <div className="rounded-2xl border border-gray-200 bg-white p-6">
+            <h2 className="text-2xl font-semibold mb-4">Challenge</h2>
+            <p className="text-gray-700 leading-relaxed">
+              The Indian Public School faced declining enrollment and poor online visibility in a
+              competitive educational landscape. Their outdated digital presence failed to
+              communicate their academic excellence and modern teaching methodologies to
+              prospective parents and students.
+            </p>
+          </div>
 
-            {/* Our Approach */}
-            <div className="rounded-2xl border border-gray-200 bg-white p-6">
-              <h2 className="text-2xl font-semibold mb-4 text-black">Our Approach</h2>
-              <p className="text-gray-700 leading-relaxed mb-4">
-                We implemented a comprehensive digital transformation strategy that included:
-              </p>
-              <ul className="space-y-2 text-gray-700 text-sm md:text-base">
-                <li>• Modern, conversion-focused website redesign with intuitive navigation</li>
-                <li>• Comprehensive SEO strategy targeting local education keywords</li>
-                <li>• Strategic social media campaigns showcasing student achievements</li>
-                <li>• Targeted advertising campaigns reaching prospective parents</li>
-                <li>• Brand guidelines ensuring consistent communication across all channels</li>
-              </ul>
-            </div>
+          {/* Approach */}
+          <div className="rounded-2xl border border-gray-200 bg-white p-6">
+            <h2 className="text-2xl font-semibold mb-4">Our Approach</h2>
+            <ul className="space-y-2 text-gray-700 text-sm md:text-base leading-relaxed">
+              <li>• Modern, conversion-focused website redesign</li>
+              <li>• Comprehensive SEO targeting local education keywords</li>
+              <li>• Social media campaigns showcasing achievements</li>
+              <li>• Targeted ads for prospective parents</li>
+              <li>• Consistent brand guidelines across channels</li>
+            </ul>
           </div>
         </div>
       </section>
 
-      {/* ===== Results & Metrics + Project Info ===== */}
+      {/* ======================================================
+          RESULTS + PROJECT INFO
+         ====================================================== */}
       <section className="py-8">
-        <div className="container mx-auto px-6">
-          <div className="grid gap-8 lg:grid-cols-12">
-            {/* Left: Results Achieved */}
-            <div className="lg:col-span-8">
-              <div className="rounded-2xl border border-gray-200 bg-white p-6">
-                <h2 className="text-2xl font-semibold mb-4 text-black">Results Achieved</h2>
-                <div className="grid md:grid-cols-2 gap-4 mb-4">
-                  <div className="space-y-3">
-                    <div className="flex items-center gap-3">
-                      <span className="inline-block w-2 h-2 rounded-full bg-teal-600" />
-                      <span className="text-gray-700">
-                        250% increase in website traffic from organic and paid sources
-                      </span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <span className="inline-block w-2 h-2 rounded-full bg-orange-500" />
-                      <span className="text-gray-700">
-                        180% increase in enrollment inquiries during admission seasons
-                      </span>
-                    </div>
-                  </div>
-                  <div className="space-y-3">
-                    <div className="flex items-center gap-3">
-                      <span className="inline-block w-2 h-2 rounded-full bg-teal-600" />
-                      <span className="text-gray-700">
-                        95% rise in social engagement across key platforms
-                      </span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <span className="inline-block w-2 h-2 rounded-full bg-orange-500" />
-                      <span className="text-gray-700">
-                        #1 ranking for key local school searches in the region
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                <p className="text-gray-700 text-sm leading-relaxed">
-                  The combined effect of brand consistency, improved UX, and performance-driven
-                  campaigns translated into stronger recall, higher-quality leads, and a more
-                  stable admissions pipeline.
+        <div className="container mx-auto px-6 grid gap-8 lg:grid-cols-12">
+          {/* Results */}
+          <div className="lg:col-span-8 rounded-2xl border border-gray-200 bg-white p-6">
+            <h2 className="text-2xl font-semibold mb-4">Results Achieved</h2>
+
+            <div className="grid md:grid-cols-2 gap-4 mb-4">
+              <div className="space-y-3">
+                <p className="flex items-center gap-3 text-gray-700">
+                  <span className="w-2 h-2 rounded-full bg-teal-600" />
+                  250% increase in website traffic
+                </p>
+                <p className="flex items-center gap-3 text-gray-700">
+                  <span className="w-2 h-2 rounded-full bg-orange-500" />
+                  180% increase in enrollment enquiries
+                </p>
+              </div>
+
+              <div className="space-y-3">
+                <p className="flex items-center gap-3 text-gray-700">
+                  <span className="w-2 h-2 rounded-full bg-teal-600" />
+                  95% rise in social engagement
+                </p>
+                <p className="flex items-center gap-3 text-gray-700">
+                  <span className="w-2 h-2 rounded-full bg-orange-500" />
+                  #1 ranking for school searches
                 </p>
               </div>
             </div>
+          </div>
 
-            {/* Right: Project Information */}
-            <aside className="lg:col-span-4">
-              <div className="lg:sticky lg:top-28">
-                <div className="rounded-2xl bg-white border border-gray-200 p-6 shadow-sm">
-                  <h3 className="text-xl font-bold mb-6 text-black">Project Information</h3>
+          {/* Project Info */}
+          <aside className="lg:col-span-4 lg:sticky lg:top-28">
+            <div className="rounded-2xl bg-white border border-gray-200 p-6 shadow-sm">
+              <h3 className="text-xl font-bold mb-6">Project Information</h3>
 
-                  <div className="grid grid-cols-2 gap-4 mb-6">
-                    <div className="flex flex-col items-center rounded-xl bg-gray-50 border border-gray-200 p-4">
-                      <TrendingUp className="h-6 w-6 mb-2 text-teal-600" />
-                      <div className="text-lg font-bold text-black">250%</div>
-                      <div className="text-xs text-gray-600 text-center">Engagement Increase</div>
-                    </div>
-                    <div className="flex flex-col items-center rounded-xl bg-gray-50 border border-gray-200 p-4">
-                      <Users className="h-6 w-6 mb-2 text-orange-500" />
-                      <div className="text-lg font-bold text-black">15K+</div>
-                      <div className="text-xs text-gray-600 text-center">New Student Leads</div>
-                    </div>
-                    <div className="flex flex-col items-center rounded-xl bg-gray-50 border border-gray-200 p-4">
-                      <Target className="h-6 w-6 mb-2 text-teal-600" />
-                      <div className="text-lg font-bold text-black">90%</div>
-                      <div className="text-xs text-gray-600 text-center">Parent Satisfaction</div>
-                    </div>
-                    <div className="flex flex-col items-center rounded-xl bg-gray-50 border border-gray-200 p-4">
-                      <Award className="h-6 w-6 mb-2 text-orange-500" />
-                      <div className="text-lg font-bold text-black">#1</div>
-                      <div className="text-xs text-gray-600 text-center">Local School Ranking</div>
-                    </div>
-                  </div>
+              <div className="grid grid-cols-2 gap-4 mb-6">
+                <div className="flex flex-col items-center">
+                  <TrendingUp className="h-6 w-6 text-teal-600 mb-2" />
+                  <div className="text-lg font-bold">250%</div>
+                  <div className="text-xs text-gray-600">Engagement</div>
+                </div>
 
-                  <div className="rounded-lg bg-gray-50 border border-gray-200 p-4">
-                    <p className="text-sm text-gray-700 leading-relaxed">
-                      A full-funnel digital strategy connecting discovery (SEO + ads), engagement
-                      (social content), and conversion (optimized website), built specifically for
-                      education-sector decision journeys.
-                    </p>
-                  </div>
+                <div className="flex flex-col items-center">
+                  <Users className="h-6 w-6 text-orange-500 mb-2" />
+                  <div className="text-lg font-bold">15K+</div>
+                  <div className="text-xs text-gray-600">New Students</div>
+                </div>
+
+                <div className="flex flex-col items-center">
+                  <Target className="h-6 w-6 text-teal-600 mb-2" />
+                  <div className="text-lg font-bold">90%</div>
+                  <div className="text-xs text-gray-600">Satisfaction</div>
+                </div>
+
+                <div className="flex flex-col items-center">
+                  <Award className="h-6 w-6 text-orange-500 mb-2" />
+                  <div className="text-lg font-bold">#1</div>
+                  <div className="text-xs text-gray-600">School Rank</div>
                 </div>
               </div>
-            </aside>
-          </div>
+            </div>
+          </aside>
         </div>
       </section>
 
-      {/* ===== Videos (auto-scrolling) ===== */}
+      {/* ======================================================
+          VIDEO SECTION — AUTO SCROLL
+         ====================================================== */}
       <section className="py-8 pb-16">
         <div className="container mx-auto px-6">
           <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
@@ -298,6 +273,7 @@ const TipsPortfolio = () => {
               <VideoIcon className="h-5 w-5 text-primary" />
               <h3 className="text-xl font-semibold">Videos</h3>
             </div>
+
             <YouTubeAutoScroller urls={YOUTUBE_VIDEOS} intervalMs={5000} />
           </div>
         </div>
@@ -306,6 +282,4 @@ const TipsPortfolio = () => {
       <Footer />
     </div>
   );
-};
-
-export default TipsPortfolio;
+}
