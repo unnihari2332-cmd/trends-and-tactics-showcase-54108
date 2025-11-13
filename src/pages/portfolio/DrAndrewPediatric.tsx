@@ -17,13 +17,10 @@ import {
   Building2,
 } from "lucide-react";
 
-const heroBg = "/0006.jpg"; // UPDATED hero image from /public
+const heroBg = "/0006.jpg"; // hero image from /public
 
 /** ================================
  *  YouTube Auto-Scroller (Swathi style)
- *  - full 16:9 via aspect-video
- *  - auto-advance, pause on hover
- *  - centered dots
  * ================================ */
 function YouTubeAutoScroller({
   urls,
@@ -135,7 +132,7 @@ function YouTubeAutoScroller({
   );
 }
 
-/* ------------ Small presentational helpers (match Swathi style) ------------ */
+/* ------------ Small presentational helpers ------------ */
 function Pillar({ title, desc }: { title: string; desc: string }) {
   return (
     <div className="rounded-lg border border-gray-200 p-4 bg-white">
@@ -171,7 +168,6 @@ export default function DrAndrewPediatric() {
     document.title = "Dr. Andrew Stephen – Pediatrician | Case Study";
   }, []);
 
-  // Videos (same list you shared earlier)
   const YOUTUBE_VIDEOS = [
     "https://www.youtube.com/watch?v=d5ivdvtdffo",
     "https://www.youtube.com/watch?v=dVF54X_8uNo",
@@ -183,8 +179,8 @@ export default function DrAndrewPediatric() {
     <div className="min-h-screen bg-background text-foreground">
       <Header />
 
-      {/* ===== Hero (title only over image) — like Swathi ===== */}
-      <section className="relative py-20 md:py-28 overflow-hidden">
+      {/* ===== Hero (little bit bigger) ===== */}
+      <section className="relative h-[420px] md:h-[500px] w-full overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: `url('${heroBg}')` }}
@@ -192,7 +188,7 @@ export default function DrAndrewPediatric() {
           <div className="absolute inset-0 bg-black/40" />
         </div>
 
-        <div className="relative z-10 container mx-auto px-6 text-center">
+        <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6">
           <motion.h1
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
@@ -237,7 +233,7 @@ export default function DrAndrewPediatric() {
         </div>
       </section>
 
-      {/* ===== Two-column content sections (no sidebar, Swathi-like cards) ===== */}
+      {/* ===== Two-column content sections ===== */}
       <section className="py-8">
         <div className="container mx-auto px-6">
           <div className="grid gap-6 md:grid-cols-2">
@@ -276,7 +272,7 @@ export default function DrAndrewPediatric() {
         </div>
       </section>
 
-      {/* ===== Approach (bulleted list) ===== */}
+      {/* ===== Approach ===== */}
       <section className="py-8">
         <div className="container mx-auto px-6">
           <div className="rounded-2xl border border-gray-200 bg-white p-6">
@@ -325,7 +321,7 @@ export default function DrAndrewPediatric() {
         </div>
       </section>
 
-      {/* ===== Results (metrics grid like Swathi services cards) ===== */}
+      {/* ===== Results ===== */}
       <section className="py-8">
         <div className="container mx-auto px-6">
           <div className="rounded-2xl border border-gray-200 bg-white p-6">
@@ -358,7 +354,7 @@ export default function DrAndrewPediatric() {
         </div>
       </section>
 
-      {/* ===== Videos (single, full-width card at the bottom like Swathi) ===== */}
+      {/* ===== Videos ===== */}
       <section className="py-8 pb-16">
         <div className="container mx-auto px-6">
           <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
