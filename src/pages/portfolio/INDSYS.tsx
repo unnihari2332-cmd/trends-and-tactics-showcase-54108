@@ -14,7 +14,7 @@ import {
   ExternalLink,
 } from "lucide-react";
 
-const heroBg = "/indsys-hero.jpg"; // 16:9 image in /public
+const heroBg = "/indsysmain.jpg"; // 16:9 image in /public
 const sideImage = "/INDSYS.jpg";   // Side image shown on the left
 const websiteUrl = "https://www.indsystech.com/"; // ← update if needed
 
