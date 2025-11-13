@@ -171,16 +171,18 @@ export default function DhiravyamActor() {
     <div className="min-h-screen bg-background text-foreground">
       <Header />
 
-      {/* ===== HERO SECTION (image shifted slightly down) ===== */}
+      {/* ===== HERO SECTION (image visually pushed down) ===== */}
       <section className="relative h-[420px] md:h-[460px] w-full overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-no-repeat"
-          style={{
-            backgroundImage: `url('${heroBg}')`,
-            // move visible area a bit DOWN (shows slightly lower part of image)
-            backgroundPosition: "center 60%",
-          }}
-        >
+        {/* wrapper div so we can control background separately */}
+        <div className="absolute inset-0">
+          <div
+            className="absolute inset-0 bg-cover bg-no-repeat"
+            style={{
+              backgroundImage: `url('${heroBg}')`,
+              // push the image down noticeably (show a higher part of the photo)
+              backgroundPosition: "center 80%",
+            }}
+          />
           <div className="absolute inset-0 bg-black/40" />
         </div>
 
