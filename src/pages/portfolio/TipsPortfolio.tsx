@@ -11,10 +11,10 @@ import {
   Video as VideoIcon,
 } from "lucide-react";
 
-const heroBg = "/0008.jpg"; // hero image from public
+const heroBg = "/0008.jpg"; // public hero image
 
 /** ================================
- *  YouTube Auto-Scroller (full 16:9, no cropping)
+ *  YouTube Auto-Scroller (full 16:9)
  *  ================================ */
 function YouTubeAutoScroller({
   urls,
@@ -25,7 +25,6 @@ function YouTubeAutoScroller({
 }) {
   const trackRef = useRef<HTMLDivElement | null>(null);
   const [index, setIndex] = useState(0);
-  const timerRef = useRef<number | null>(null);
 
   const toEmbedUrl = (raw: string) => {
     try {
@@ -47,38 +46,22 @@ function YouTubeAutoScroller({
     }
   };
 
+  // Scroll to active slide when index changes
   useEffect(() => {
     const el = trackRef.current;
     if (!el) return;
     el.scrollTo({ left: index * el.clientWidth, behavior: "smooth" });
   }, [index]);
 
+  // Simple interval that advances slides
   useEffect(() => {
-    const start = () => {
-      stop();
-      timerRef.current = window.setInterval(
-        () => setIndex((i) => (i + 1) % urls.length),
-        intervalMs
-      );
-    };
-    const stop = () => {
-      if (timerRef.current) {
-        window.clearInterval(timerRef.current);
-        timerRef.current = null;
-      }
-    };
-    start();
-    const el = trackRef.current;
-    if (!el) return () => stop();
-    const onEnter = () => stop();
-    const onLeave = () => start();
-    el.addEventListener("mouseenter", onEnter);
-    el.addEventListener("mouseleave", onLeave);
-    return () => {
-      stop();
-      el.removeEventListener("mouseenter", onEnter);
-      el.removeEventListener("mouseleave", onLeave);
-    };
+    if (urls.length <= 1) return;
+
+    const id = window.setInterval(() => {
+      setIndex((i) => (i + 1) % urls.length);
+    }, intervalMs);
+
+    return () => window.clearInterval(id);
   }, [urls.length, intervalMs]);
 
   return (
@@ -136,8 +119,8 @@ const TipsPortfolio = () => {
     <div className="min-h-screen bg-background text-foreground">
       <Header />
 
-      {/* ===== Hero (title over image) ===== */}
-      <section className="relative py-20 md:py-28 overflow-hidden">
+      {/* ===== Bigger Hero (like screenshot) ===== */}
+      <section className="relative min-h-[70vh] md:min-h-[80vh] flex items-center overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: `url('${heroBg}')` }}
@@ -307,7 +290,7 @@ const TipsPortfolio = () => {
         </div>
       </section>
 
-      {/* ===== Videos (auto-scrolling, like Swathi page) ===== */}
+      {/* ===== Videos (auto-scrolling) ===== */}
       <section className="py-8 pb-16">
         <div className="container mx-auto px-6">
           <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
