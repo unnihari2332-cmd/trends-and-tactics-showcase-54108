@@ -70,7 +70,7 @@ export default function Product() {
                 <Link to="/product/smartaccess" className="block focus:outline-none">
                   <div className="relative h-64 w-full overflow-hidden">
                     <img
-                      src="/smartaccess-hero.jpg"
+                      src="/biometricminibanner.jpg"
                       alt="Smart Access Plus"
                       className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
