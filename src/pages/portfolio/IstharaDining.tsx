@@ -19,7 +19,8 @@ import {
 } from "lucide-react";
 
 /** ========= Assets ========= */
-const heroBg = "/isthara-hero.jpg"; // replace with your hero image (16:9 works great)
+// use the hero image from /public
+const heroBg = "/main banners.jpg"; // <- updated to your main banners.jpg
 const ambienceImg = "/isthara-ambience.jpg"; // optional supporting image
 
 /* ------------ Small presentational helpers (same vibe as Swathi page) ------------ */
@@ -115,7 +116,8 @@ export default function IstharaDining() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="mt-4 max-w-3xl mx-auto text-white/90"
           >
-            Complete transformation across website, social, and brand systems — crafted for a modern food-loving audience.
+            Complete transformation across website, social, and brand systems — crafted for a modern
+            food-loving audience.
           </motion.p>
         </div>
       </section>
@@ -129,9 +131,11 @@ export default function IstharaDining() {
               <h2 className="text-2xl font-semibold">Overview</h2>
             </div>
             <p className="text-gray-700 leading-relaxed">
-              Isthara Multi Dining is a leading multi-cuisine restaurant. Despite its premium on-ground experience,
-              the brand suffered from low recall and limited digital engagement. We rebuilt the experience end-to-end:
-              a mobile-first site, cohesive Instagram strategy, refreshed brand system, and SEO to drive discovery and reservations.
+              Isthara Multi Dining is a leading multi-cuisine restaurant. Despite its premium
+              on-ground experience, the brand suffered from low recall and limited digital
+              engagement. We rebuilt the experience end-to-end: a mobile-first site, cohesive
+              Instagram strategy, refreshed brand system, and SEO to drive discovery and
+              reservations.
             </p>
           </div>
         </div>
@@ -145,7 +149,9 @@ export default function IstharaDining() {
               <ul className="list-disc list-inside text-gray-700 space-y-2">
                 <li>Low brand recall across digital touchpoints.</li>
                 <li>Outdated website lacking menu highlights and reservation flow.</li>
-                <li>Inconsistent social presence that didn’t reflect the ambience or culinary craft.</li>
+                <li>
+                  Inconsistent social presence that didn’t reflect the ambience or culinary craft.
+                </li>
               </ul>
             </CardShell>
 
@@ -182,22 +188,22 @@ export default function IstharaDining() {
         </div>
       </section>
 
-      {/* ===== Visual Directions (kept like Swathi’s “Key Visual Directions”) ===== */}
+      {/* ===== Key Visual Directions ===== */}
       <section className="py-8">
         <div className="container mx-auto px-6">
           <CardShell title="Key Visual Directions" icon={<Palette className="h-5 w-5" />}>
             <ul className="space-y-2 text-gray-700">
               <li>
-                <span className="font-semibold">Photography Style:</span> Clean, cinematic food close-ups; warm,
-                inviting ambience shots with natural light accents.
+                <span className="font-semibold">Photography Style:</span> Clean, cinematic food
+                close-ups; warm, inviting ambience shots with natural light accents.
               </li>
               <li>
-                <span className="font-semibold">Video Mood:</span> Tasteful slow-motion prep, plating sequences,
-                clinking glasses, and crowd energy; subtle lower-thirds.
+                <span className="font-semibold">Video Mood:</span> Tasteful slow-motion prep, plating
+                sequences, clinking glasses, and crowd energy; subtle lower-thirds.
               </li>
               <li>
-                <span className="font-semibold">Palette &amp; Fonts:</span> Luxury warmth (deep golds, clay, charcoal)
-                paired with modern sans-serifs for approachability.
+                <span className="font-semibold">Palette &amp; Fonts:</span> Luxury warmth (deep
+                golds, clay, charcoal) paired with modern sans-serifs for approachability.
               </li>
             </ul>
             {ambienceImg ? (
@@ -228,13 +234,15 @@ export default function IstharaDining() {
         </div>
       </section>
 
-      {/* ===== Experience Highlights / Practical Info (optional, keeps the page rich like Swathi) ===== */}
+      {/* ===== Experience Highlights / Practical Info ===== */}
       <section className="py-8 pb-16">
         <div className="container mx-auto px-6">
           <div className="grid gap-6 md:grid-cols-2">
             <CardShell title="Experience Highlights" icon={<ChefHat className="h-5 w-5" />}>
               <ul className="list-disc list-inside text-gray-700 space-y-2">
-                <li>Chef specials calendar and seasonal menus integrated to marketing cadence.</li>
+                <li>
+                  Chef specials calendar and seasonal menus integrated to marketing cadence.
+                </li>
                 <li>Reel templates for quick content turnaround by in-house teams.</li>
                 <li>Event & offers module to amplify reservations during peak periods.</li>
               </ul>
@@ -244,11 +252,15 @@ export default function IstharaDining() {
               <ul className="space-y-2 text-gray-700">
                 <li className="flex items-start gap-2">
                   <MapPin className="h-4 w-4 mt-1 text-primary" />
-                  <span>Local SEO coverage for nearby neighborhoods & high-intent dining corridors.</span>
+                  <span>
+                    Local SEO coverage for nearby neighborhoods &amp; high-intent dining corridors.
+                  </span>
                 </li>
                 <li className="flex items-start gap-2">
                   <Clock className="h-4 w-4 mt-1 text-primary" />
-                  <span>Launch timeline optimized for festive seasons and weekend traffic spikes.</span>
+                  <span>
+                    Launch timeline optimized for festive seasons and weekend traffic spikes.
+                  </span>
                 </li>
               </ul>
             </CardShell>
