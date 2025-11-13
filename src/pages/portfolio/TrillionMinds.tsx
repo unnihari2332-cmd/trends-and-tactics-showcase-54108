@@ -14,9 +14,10 @@ import {
   BarChart3,
 } from "lucide-react";
 
-const heroBg = "/trillion-hero.jpg"; // add a 16:9 image to /public
+// ✅ Updated hero image
+const heroBg = "/0007.jpg";
 
-/* ------------ Small presentational helpers (same as your light pages) ------------ */
+/* ------------ Small presentational helpers ------------ */
 function Pillar({ title, desc }: { title: string; desc: string }) {
   return (
     <div className="rounded-lg border border-gray-200 p-4 bg-white">
@@ -48,7 +49,8 @@ function Service({
 
 export default function TrillionMinds() {
   useEffect(() => {
-    document.title = "Trillion Minds — Data-Driven Property Advisory | Trends & Tactics";
+    document.title =
+      "Trillion Minds — Data-Driven Property Advisory | Trends & Tactics";
   }, []);
 
   return (
@@ -79,8 +81,8 @@ export default function TrillionMinds() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="mt-4 max-w-3xl mx-auto text-white/90"
           >
-            Full-spectrum real estate solutions that educate investors, simplify decisions,
-            and grow portfolios.
+            Full-spectrum real estate solutions that educate investors, simplify
+            decisions, and grow portfolios.
           </motion.p>
         </div>
       </section>
@@ -94,8 +96,9 @@ export default function TrillionMinds() {
               <h2 className="text-2xl font-semibold">Overview</h2>
             </div>
             <p className="text-gray-700 leading-relaxed">
-              Client-focused advisory for residential and commercial properties, designed to educate
-              investors, simplify decisions, and grow investments efficiently.
+              Client-focused advisory for residential and commercial properties,
+              designed to educate investors, simplify decisions, and grow
+              investments efficiently.
             </p>
           </div>
         </div>
@@ -139,7 +142,8 @@ export default function TrillionMinds() {
                 <li>• Partnerships with developers and local networks</li>
               </ul>
               <div className="mt-4 rounded-lg bg-gray-50 p-4 text-sm text-gray-700">
-                Outcomes driven by clarity, consistency, and measurable value for buyers & investors.
+                Outcomes driven by clarity, consistency, and measurable value for
+                buyers & investors.
               </div>
             </div>
           </div>
@@ -158,37 +162,45 @@ export default function TrillionMinds() {
             <div className="grid gap-6 md:grid-cols-2">
               <div>
                 <h4 className="font-semibold mb-2 flex items-center gap-2">
-                  <Globe className="h-4 w-4 text-primary" /> Unified Brand Identity
+                  <Globe className="h-4 w-4 text-primary" /> Unified Brand
+                  Identity
                 </h4>
                 <p className="text-gray-700">
-                  Consistent visuals and messaging that convey trust and clarity across every touchpoint.
+                  Consistent visuals and messaging that convey trust and clarity
+                  across every touchpoint.
                 </p>
               </div>
 
               <div>
                 <h4 className="font-semibold mb-2 flex items-center gap-2">
-                  <Map className="h-4 w-4 text-primary" /> Website & Digital Presence
+                  <Map className="h-4 w-4 text-primary" /> Website & Digital
+                  Presence
                 </h4>
                 <p className="text-gray-700">
-                  Mobile-first listings, interactive maps, and investor resources that streamline discovery.
+                  Mobile-first listings, interactive maps, and investor resources
+                  that streamline discovery.
                 </p>
               </div>
 
               <div>
                 <h4 className="font-semibold mb-2 flex items-center gap-2">
-                  <FileText className="h-4 w-4 text-primary" /> Social & Content Management
+                  <FileText className="h-4 w-4 text-primary" /> Social &
+                  Content Management
                 </h4>
                 <p className="text-gray-700">
-                  Market updates, property tours, and client success stories that build authority and trust.
+                  Market updates, property tours, and client success stories that
+                  build authority and trust.
                 </p>
               </div>
 
               <div>
                 <h4 className="font-semibold mb-2 flex items-center gap-2">
-                  <PlayCircle className="h-4 w-4 text-primary" /> Storytelling Campaigns
+                  <PlayCircle className="h-4 w-4 text-primary" /> Storytelling
+                  Campaigns
                 </h4>
                 <p className="text-gray-700">
-                  <em>“Smart Investments Start Here”</em> — short videos highlighting real client journeys.
+                  <em>“Smart Investments Start Here”</em> — short videos
+                  highlighting real client journeys.
                 </p>
               </div>
             </div>
@@ -196,7 +208,7 @@ export default function TrillionMinds() {
         </div>
       </section>
 
-      {/* ===== Services Grid (optional extras you provide) ===== */}
+      {/* ===== Services ===== */}
       <section className="py-8">
         <div className="container mx-auto px-6">
           <div className="rounded-2xl border border-gray-200 bg-white p-6">
@@ -222,13 +234,16 @@ export default function TrillionMinds() {
         </div>
       </section>
 
-      {/* ===== CTA / Footer spacer ===== */}
+      {/* ===== CTA ===== */}
       <section className="py-8 pb-16">
         <div className="container mx-auto px-6">
           <div className="rounded-2xl border border-gray-200 bg-gray-50 p-6 text-center">
-            <h4 className="text-lg font-semibold mb-2">Looking to grow your property portfolio?</h4>
+            <h4 className="text-lg font-semibold mb-2">
+              Looking to grow your property portfolio?
+            </h4>
             <p className="text-gray-700">
-              Let’s design a data-driven acquisition and content strategy that earns trust and converts.
+              Let’s design a data-driven acquisition and content strategy that
+              earns trust and converts.
             </p>
           </div>
         </div>
