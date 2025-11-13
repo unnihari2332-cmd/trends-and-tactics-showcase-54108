@@ -2,6 +2,7 @@
 import { useRef, useState, useEffect } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import PageHeader from "@/components/PageHeader";
 import { motion } from "framer-motion";
 import {
   TrendingUp,
@@ -117,35 +118,11 @@ export default function TipsPortfolio() {
     <div className="min-h-screen bg-background text-foreground">
       <Header />
 
-      {/* HERO */}
-      <section className="relative min-h-[45vh] md:min-h-[50vh] flex items-center overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url('${heroBg}')` }}
-        >
-          <div className="absolute inset-0 bg-black/40" />
-        </div>
-
-        <div className="relative z-10 container mx-auto px-6 text-center">
-          <motion.h1
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-4xl md:text-6xl font-extrabold tracking-tight text-white"
-          >
-            The Indian Public School
-          </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.15 }}
-            className="mt-4 max-w-3xl mx-auto text-base md:text-lg text-white/90"
-          >
-            Transforming education through digital innovation and modern marketing strategies.
-          </motion.p>
-        </div>
-      </section>
+      <PageHeader 
+        title="The Indian Public School" 
+        breadcrumbs={[{ label: "Home", path: "/" }, { label: "Portfolio", path: "/portfolio" }]}
+        bgImage={heroBg}
+      />
 
       {/* SHORT OVERVIEW */}
       <section className="py-10">

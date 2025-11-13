@@ -1,6 +1,7 @@
 // src/pages/WebAndApp.tsx
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import PageHeader from "@/components/PageHeader";
 import CTASection from "@/components/CTASection";
 import { motion } from "framer-motion";
 import { useState } from "react";
@@ -86,32 +87,11 @@ export default function WebAndApp() {
       <Header />
 
       <main>
-        {/* ===== HERO ===== */}
-        <section
-          className="relative pt-24 pb-20 px-6 min-h-[60vh] flex items-center"
-          style={{
-            backgroundImage: `url(${servicesHero})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            backgroundRepeat: "no-repeat",
-          }}
-        >
-          <div className="absolute inset-0 bg-black/50" />
-          <div className="container mx-auto max-w-4xl relative z-10">
-            <motion.h1
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="text-4xl md:text-5xl font-bold text-white"
-            >
-              Website &amp; App Development
-            </motion.h1>
-            <p className="mt-4 text-lg text-white/90 max-w-3xl">
-              Build powerful websites and apps that are fast, scalable, and user-friendly.
-              From design to deployment, we create digital experiences that engage customers
-              and drive growth.
-            </p>
-          </div>
-        </section>
+        <PageHeader 
+          title="Website & App Development" 
+          breadcrumbs={[{ label: "Home", path: "/" }, { label: "Services", path: "/services" }]}
+          bgImage={servicesHero}
+        />
 
         {/* ===== INTRO WITH IMAGE ON LEFT ===== */}
         <section className="px-6">

@@ -1,6 +1,7 @@
 // src/pages/VideoProduction.tsx
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import PageHeader from "@/components/PageHeader";
 import CTASection from "@/components/CTASection";
 import { motion } from "framer-motion";
 import { useState } from "react";
@@ -76,30 +77,11 @@ export default function VideoProduction() {
       <Header />
 
       <main>
-        {/* ===== HERO ===== */}
-        <section
-          className="relative h-[70vh] min-h-[60svh] flex items-center justify-center text-center px-6"
-          aria-label="Video production hero"
-        >
-          <img
-            src="/editing.jpg"
-            alt=""
-            aria-hidden="true"
-            className="absolute inset-0 w-full h-full object-cover object-center"
-            loading="eager"
-            decoding="async"
-          />
-          <div className="absolute inset-0 bg-black/40" />
-          <div className="relative z-10 container mx-auto max-w-4xl">
-            <motion.h1
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="text-4xl md:text-5xl font-bold text-white"
-            >
-              Professional Video Production &amp; Editing
-            </motion.h1>
-          </div>
-        </section>
+        <PageHeader 
+          title="Professional Video Production & Editing" 
+          breadcrumbs={[{ label: "Home", path: "/" }, { label: "Services", path: "/services" }]}
+          bgImage="/editing.jpg"
+        />
 
         {/* ===== INTRO WITH IMAGE ON LEFT ===== */}
         <section className="px-6">

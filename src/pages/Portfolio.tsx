@@ -148,8 +148,7 @@ export default function PortfolioPage() {
       <Header />
 
       <PageHeader 
-        title="Our Portfolio" 
-        breadcrumbs={[{ label: "Home", path: "/" }]}
+        title="Our Portfolio"
       />
 
       {/* Grid */}

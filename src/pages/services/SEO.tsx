@@ -1,6 +1,7 @@
 // src/pages/SEO.tsx
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import PageHeader from "@/components/PageHeader";
 import CTASection from "@/components/CTASection";
 import { motion } from "framer-motion";
 import {
@@ -27,26 +28,11 @@ export default function SEO() {
       <Header />
 
       <main>
-        {/* ===== HERO ===== */}
-        <section className="relative h-[70vh] min-h-[60svh] flex flex-col items-center justify-center text-center px-6">
-          <img
-            src="/chatbot.jpg"
-            alt="SEO & Growth Strategy"
-            aria-hidden="true"
-            className="absolute inset-0 w-full h-full object-cover object-center"
-          />
-          <div className="absolute inset-0 bg-black/40" />
-          <div className="relative z-10 container mx-auto max-w-4xl">
-            <motion.h1
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="text-4xl md:text-5xl font-bold text-white"
-            >
-              SEO &amp; Growth Strategy
-            </motion.h1>
-          </div>
-        </section>
+        <PageHeader 
+          title="SEO & Growth Strategy" 
+          breadcrumbs={[{ label: "Home", path: "/" }, { label: "Services", path: "/services" }]}
+          bgImage="/chatbot.jpg"
+        />
 
         {/* ===== INTRO ===== */}
         <section className="bg-background px-6">
