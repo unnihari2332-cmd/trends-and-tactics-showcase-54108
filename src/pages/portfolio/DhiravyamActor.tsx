@@ -18,7 +18,7 @@ import {
   Sparkles,
 } from "lucide-react";
 
-const heroBg = "/0004.jpg"; // UPDATED — hero image from public folder
+const heroBg = "/0004.jpg"; // hero image from public
 
 /** Optional YouTube auto-scroll component */
 function YouTubeAutoScroller({
@@ -171,11 +171,15 @@ export default function DhiravyamActor() {
     <div className="min-h-screen bg-background text-foreground">
       <Header />
 
-      {/* ===== HERO SECTION ===== */}
+      {/* ===== HERO SECTION (image shifted slightly down) ===== */}
       <section className="relative h-[420px] md:h-[460px] w-full overflow-hidden">
         <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url('${heroBg}')` }}
+          className="absolute inset-0 bg-cover bg-no-repeat"
+          style={{
+            backgroundImage: `url('${heroBg}')`,
+            // move visible area a bit DOWN (shows slightly lower part of image)
+            backgroundPosition: "center 60%",
+          }}
         >
           <div className="absolute inset-0 bg-black/40" />
         </div>
