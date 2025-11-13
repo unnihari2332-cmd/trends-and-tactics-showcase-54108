@@ -1,6 +1,7 @@
 // src/pages/PRMedia.tsx
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import PageHeader from "@/components/PageHeader";
 import CTASection from "@/components/CTASection";
 import { motion } from "framer-motion";
 import { useState } from "react";
@@ -78,25 +79,11 @@ export default function PRMedia() {
       <Header />
 
       <main>
-        {/* ===== HERO (unchanged content) ===== */}
-        <section className="relative h-[70vh] min-h-[60svh] flex flex-col items-center justify-center text-center px-6">
-          <img
-            src="/media.jpg"
-            alt=""
-            aria-hidden="true"
-            className="absolute inset-0 w-full h-full object-cover object-center"
-          />
-          <div className="absolute inset-0 bg-black/40" />
-          <div className="relative z-10 container mx-auto max-w-4xl">
-            <motion.h1
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="text-4xl md:text-5xl font-bold text-white"
-            >
-              Public Relations &amp; Media Management
-            </motion.h1>
-          </div>
-        </section>
+        <PageHeader 
+          title="Public Relations & Media Management" 
+          breadcrumbs={[{ label: "Home", path: "/" }, { label: "Services", path: "/services" }]}
+          bgImage="/media.jpg"
+        />
 
         {/* ===== INTRO WITH IMAGE ON LEFT (UI like DigitalAds, same text) ===== */}
         <section className="px-6">

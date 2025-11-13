@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import PageHeader from "@/components/PageHeader";
 import CTASection from "@/components/CTASection";
 import { motion } from "framer-motion";
 
@@ -7,7 +8,11 @@ export default function GrowthConsulting() {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      <section className="pt-24 pb-12">
+      <PageHeader 
+        title="Growth Consulting" 
+        breadcrumbs={[{ label: "Home", path: "/" }, { label: "Services", path: "/services" }]}
+      />
+      <section className="pt-0 pb-12">
         <div className="container mx-auto px-6 max-w-4xl">
           <motion.h1 initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} className="text-4xl md:text-5xl font-bold mb-4">
             Growth Consulting

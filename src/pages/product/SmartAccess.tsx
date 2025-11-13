@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import PageHeader from "@/components/PageHeader";
 import { motion } from "framer-motion";
 
 export default function SmartAccess() {
@@ -17,34 +18,11 @@ export default function SmartAccess() {
       <Header />
 
       <main>
-        {/* HERO */}
-        <section className="relative h-[70vh] min-h-[60svh] flex items-center justify-center text-center px-6">
-          <img
-            src="/biometricbanner.jpg"
-            alt="SmartAccess+"
-            className="absolute inset-0 w-full h-full object-cover"
-            style={{ objectPosition: "center" }}
-          />
-          <div className="absolute inset-0 bg-black/40" />
-          <div className="relative z-10 container mx-auto max-w-4xl pt-24">
-            <motion.h1
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="text-4xl md:text-5xl font-bold text-white"
-            >
-              SmartAccess+
-            </motion.h1>
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.15, duration: 0.6 }}
-              className="mt-4 text-white/90 text-lg md:text-xl"
-            >
-              Intelligent Fingerprint-Based Attendance &amp; HR Management
-            </motion.p>
-          </div>
-        </section>
+        <PageHeader 
+          title="SmartAccess+" 
+          breadcrumbs={[{ label: "Home", path: "/" }, { label: "Products", path: "/product" }]}
+          bgImage="/biometricbanner.jpg"
+        />
 
         {/* INTRO */}
         <section className="py-10 px-6 md:py-12">

@@ -1,6 +1,7 @@
 // src/pages/LogoDesign.tsx
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import PageHeader from "@/components/PageHeader";
 import CTASection from "@/components/CTASection";
 import { motion } from "framer-motion";
 
@@ -20,27 +21,11 @@ export default function LogoDesign() {
       <Header />
 
       <main>
-        {/* ===== HERO ===== */}
-        <section className="relative h-[70vh] min-h-[60svh] flex items-center justify-center text-center px-6">
-          <img
-            src="/logo.jpg"
-            alt="Logo Design Hero"
-            aria-hidden="true"
-            className="absolute inset-0 w-full h-full object-cover"
-            style={{ objectPosition: "right center" }}
-          />
-          <div className="absolute inset-0 bg-black/40" />
-          <div className="relative z-10 container mx-auto max-w-4xl pt-24">
-            <motion.h1
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="text-4xl md:text-5xl font-bold text-white"
-            >
-              Logo Designing
-            </motion.h1>
-          </div>
-        </section>
+        <PageHeader 
+          title="Logo Designing" 
+          breadcrumbs={[{ label: "Home", path: "/" }, { label: "Services", path: "/services" }]}
+          bgImage="/logo.jpg"
+        />
 
         {/* ===== INTRO ===== */}
         <section className="py-10 px-6 md:py-12">
