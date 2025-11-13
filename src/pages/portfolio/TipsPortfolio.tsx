@@ -13,13 +13,13 @@ const TipsPortfolio = () => {
         className="
           relative
           py-24 md:py-28
-          pb-40             /* ✅ extra bottom padding for more space */
+          pb-40             /* extra bottom padding for more space */
           overflow-hidden
         "
       >
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: "url('/0008jpg')" }}
+          style={{ backgroundImage: "url('/0008.jpg')" }}   // ✅ correct path
         >
           <div className="absolute inset-0 bg-black/30" />
         </div>
