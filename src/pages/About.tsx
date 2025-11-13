@@ -1,6 +1,7 @@
 // src/pages/About.tsx
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import PageHeader from "@/components/PageHeader";
 import { motion } from "framer-motion";
 import {
   Rocket,
@@ -19,8 +20,6 @@ import {
 } from "lucide-react";
 
 const About = () => {
-  const hero = "/about02.jpg";
-
   return (
     <div
       className="min-h-screen text-foreground"
@@ -35,26 +34,11 @@ const About = () => {
       <Header />
 
       <main>
-        {/* ===== HERO (AIChatbotsAutomation-style) ===== */}
-        <section className="relative h-[70vh] min-h-[60svh] flex items-center justify-center text-center px-6">
-          <img
-            src={hero}
-            alt="About Hero"
-            className="absolute inset-0 w-full h-full object-cover"
-            style={{ objectPosition: "right center" }}
-          />
-          <div className="absolute inset-0 bg-black/45" />
-          <div className="relative z-10 container mx-auto max-w-4xl pt-24">
-            <motion.h1
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="text-4xl md:text-5xl font-bold text-white"
-            >
-              About Our Story
-            </motion.h1>
-          </div>
-        </section>
+        <PageHeader 
+          title="About Us" 
+          breadcrumbs={[{ label: "Home", path: "/" }]}
+          bgImage="/about02.jpg"
+        />
 
         {/* ===== INTRO + VISION & MISSION (pill style) ===== */}
         <section className="py-10 px-6 md:py-12">

@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import PageHeader from "@/components/PageHeader";
 import { Link } from "react-router-dom";
 import servicesHero from "@/assets/services-hero.jpg";
 
@@ -21,26 +22,11 @@ export default function ServicesPage() {
       <Header />
 
       <main className="relative">
-        {/* HERO */}
-        <section
-          className="relative pt-20 pb-16 px-6 min-h-[60vh] md:min-h-[70vh] flex items-center overflow-hidden"
-          style={{
-            backgroundImage: `url(${servicesHero})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-        >
-          <div className="pointer-events-none absolute inset-0 bg-black/50 z-0" />
-          <div className="container mx-auto max-w-5xl relative z-10 text-center">
-            {/* FULLY WHITE HEADING */}
-            <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-white">
-              Our <span className="text-white">Services</span>
-            </h1>
-            <p className="mt-4 text-white/90 text-lg max-w-3xl mx-auto">
-              Move fast with stories, systems, and design that actually grow your business.
-            </p>
-          </div>
-        </section>
+        <PageHeader 
+          title="Our Services" 
+          breadcrumbs={[{ label: "Home", path: "/" }]}
+          bgImage={servicesHero}
+        />
 
         {/* SERVICES GRID */}
         <div className="bg-white relative z-10">
