@@ -56,16 +56,16 @@ export default function TrillionMinds() {
     <div className="min-h-screen bg-background text-foreground">
       <Header />
 
-      {/* ===== BIG HERO SECTION ===== */}
-      <section className="relative min-h-[80vh] md:min-h-[90vh] flex items-center justify-center overflow-hidden">
+      {/* ===== Hero (same height as TIPS screenshot) ===== */}
+      <section className="relative h-[420px] md:h-[450px] w-full overflow-hidden">
         <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-110"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: `url('${heroBg}')` }}
         >
           <div className="absolute inset-0 bg-black/40" />
         </div>
 
-        <div className="relative z-10 container mx-auto px-6 text-center">
+        <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6">
           <motion.h1
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
@@ -79,7 +79,7 @@ export default function TrillionMinds() {
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="mt-4 max-w-3xl mx-auto text-lg md:text-xl text-white/90"
+            className="mt-4 max-w-3xl mx-auto text-base md:text-lg text-white/90"
           >
             Full-spectrum real estate solutions that educate investors, simplify
             decisions, and grow portfolios.
@@ -150,7 +150,7 @@ export default function TrillionMinds() {
         </div>
       </section>
 
-      {/* ===== Approach ===== */}
+      {/* ===== Our Approach ===== */}
       <section className="py-8">
         <div className="container mx-auto px-6">
           <div className="rounded-2xl border border-gray-200 bg-white p-6">
@@ -178,7 +178,7 @@ export default function TrillionMinds() {
                 </h4>
                 <p className="text-gray-700">
                   Mobile-first listings, interactive maps, and investor
-                  resources.
+                  resources that streamline discovery.
                 </p>
               </div>
 
@@ -188,8 +188,8 @@ export default function TrillionMinds() {
                   Management
                 </h4>
                 <p className="text-gray-700">
-                  Property tours, market explainers, and success stories that
-                  build trust.
+                  Market updates, property tours, and client success stories
+                  that build authority and trust.
                 </p>
               </div>
 
@@ -199,8 +199,8 @@ export default function TrillionMinds() {
                   Campaigns
                 </h4>
                 <p className="text-gray-700">
-                  <em>“Smart Investments Start Here”</em> — short videos showing
-                  real client journeys.
+                  <em>“Smart Investments Start Here”</em> — short videos
+                  highlighting real client journeys.
                 </p>
               </div>
             </div>
@@ -208,7 +208,7 @@ export default function TrillionMinds() {
         </div>
       </section>
 
-      {/* ===== Services ===== */}
+      {/* ===== Services We Delivered ===== */}
       <section className="py-8">
         <div className="container mx-auto px-6">
           <div className="rounded-2xl border border-gray-200 bg-white p-6">
@@ -217,17 +217,17 @@ export default function TrillionMinds() {
               <Service
                 icon={<Globe className="h-5 w-5" />}
                 title="Brand System"
-                desc="Brand colors, tone, and guidelines."
+                desc="Logo, palette, and messaging guidelines for a consistent identity."
               />
               <Service
                 icon={<Map className="h-5 w-5" />}
                 title="Interactive Listings"
-                desc="Filterable properties, maps, ROI snapshots."
+                desc="Filterable properties with maps, amenities, and ROI snapshots."
               />
               <Service
                 icon={<FileText className="h-5 w-5" />}
                 title="Content Engine"
-                desc="Market insights, newsletters, and investor explainers."
+                desc="Market explainers, newsletters, and investor resources."
               />
             </div>
           </div>
