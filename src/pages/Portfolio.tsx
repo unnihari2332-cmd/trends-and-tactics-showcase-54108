@@ -18,9 +18,9 @@ const portfolioItems: Item[] = [
     path: "/portfolio/the-indian-public-school",
   },
   {
-    title: "Aatral Foundation",
-    image: "/Aatral.png",
-    path: "/portfolio/aatral-foundation",
+    title: "Swathi Konde — Actress",
+    image: "/Swathi02.png",
+    path: "/portfolio/swathi-konde-actress",
   },
   {
     title: "Isthara Multi Dining",
@@ -28,24 +28,19 @@ const portfolioItems: Item[] = [
     path: "/portfolio/isthara-multi-dining",
   },
   {
-    title: "Swathi Konde — Actress",
-    image: "/Swathi02.png",
-    path: "/portfolio/swathi-konde-actress",
+    title: "Dr Andrew Stephen",
+    image: "/andrew.png",
+    path: "/portfolio/andrew",
   },
   {
-    title: "Trillion Minds",
-    image: "/Trillion.png",
-    path: "/portfolio/trillion-minds",
+    title: "Aatral Foundation",
+    image: "/Aatral.png",
+    path: "/portfolio/aatral-foundation",
   },
   {
     title: "Dhiravyam — Actor",
     image: "/Dhiravyam.png",
     path: "/portfolio/dhiravyam-actor",
-  },
-  {
-    title: "Dr Andrew Stephen",
-    image: "/andrew.png",
-    path: "/portfolio/andrew",
   },
   {
     title: "Niyas Khan — Actor",
@@ -58,6 +53,17 @@ const portfolioItems: Item[] = [
     title: "INDSYS",
     image: "/indsysbanner.jpg",
     path: "/portfolio/indsys",
+  },
+  {
+    title: "OECL India — Website Revamp",
+    image: "/OECLbanner.jpg",
+    path: "/portfolio/oecl",
+  },
+
+  {
+    title: "Naalai Namadhe — Official Website",
+    image: "/nntvbanners.jpg",
+    path: "/portfolio/naalai-namadhe",
   },
 
   // ❌ Grubpe removed
@@ -75,15 +81,9 @@ const portfolioItems: Item[] = [
   // },
 
   {
-    title: "OECL India — Website Revamp",
-    image: "/OECLbanner.jpg",
-    path: "/portfolio/oecl",
-  },
-
-  {
-    title: "Naalai Namadhe — Official Website",
-    image: "/nntvbanners.jpg",
-    path: "/portfolio/naalai-namadhe",
+    title: "Trillion Minds",
+    image: "/Trillion.png",
+    path: "/portfolio/trillion-minds",
   },
 ];
 
