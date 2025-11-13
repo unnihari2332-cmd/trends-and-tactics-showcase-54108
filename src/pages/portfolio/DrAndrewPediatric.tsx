@@ -17,7 +17,7 @@ import {
   Building2,
 } from "lucide-react";
 
-const heroBg = "/dr-andrew-hero.jpg"; // ensure this exists in /public
+const heroBg = "/0006.jpg"; // UPDATED hero image from /public
 
 /** ================================
  *  YouTube Auto-Scroller (Swathi style)
@@ -125,7 +125,9 @@ function YouTubeAutoScroller({
             key={i}
             aria-label={`Go to video ${i + 1}`}
             onClick={() => setIndex(i)}
-            className={`h-2 w-2 rounded-full transition ${i === index ? "bg-black" : "bg-gray-300"}`}
+            className={`h-2 w-2 rounded-full transition ${
+              i === index ? "bg-black" : "bg-gray-300"
+            }`}
           />
         ))}
       </div>
