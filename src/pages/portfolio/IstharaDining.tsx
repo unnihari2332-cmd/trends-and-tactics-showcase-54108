@@ -18,25 +18,14 @@ import {
   Clock,
 } from "lucide-react";
 
-const heroBg = "/main banners.jpg"; // updated hero image
+const heroBg = "/main banners.jpg";
 
-/* ------------ Reusable card wrapper ------------ */
-function CardShell({
-  title,
-  icon,
-  children,
-  className = "",
-}: {
-  title: string;
-  icon: React.ReactNode;
-  children: React.ReactNode;
-  className?: string;
-}) {
+function CardShell({ title, icon, children, className = "" }) {
   return (
     <div
       className={`rounded-xl border border-gray-200 bg-white p-6 shadow-sm ${className}`}
     >
-      <div className="flex items-center gap-3 mb-3">
+      <div className="flex items-center gap-3 mb-4">
         <span className="text-primary">{icon}</span>
         <h3 className="text-xl font-semibold">{title}</h3>
       </div>
@@ -45,15 +34,7 @@ function CardShell({
   );
 }
 
-function Pill({
-  title,
-  desc,
-  icon,
-}: {
-  title: string;
-  desc: string;
-  icon?: React.ReactNode;
-}) {
+function Pill({ title, desc, icon }) {
   return (
     <div className="rounded-lg border border-gray-200 p-4 bg-white">
       <div className="flex items-center gap-2 font-semibold">
@@ -65,7 +46,7 @@ function Pill({
   );
 }
 
-function Stat({ value, label }: { value: string; label: string }) {
+function Stat({ value, label }) {
   return (
     <div className="rounded-xl border border-gray-200 bg-white p-5 text-center">
       <div className="text-3xl md:text-4xl font-extrabold tracking-tight">
@@ -86,12 +67,11 @@ export default function IstharaDining() {
     <div className="min-h-screen bg-background text-foreground">
       <Header />
 
-      {/* ================= HERO (BIGGER) ================= */}
+      {/* ===== HERO ===== */}
       <section className="relative py-32 md:py-[18rem] overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-[1.15]"
           style={{ backgroundImage: `url('${heroBg}')` }}
-          aria-hidden
         >
           <div className="absolute inset-0 bg-black/45" />
         </div>
@@ -117,7 +97,7 @@ export default function IstharaDining() {
         </div>
       </section>
 
-      {/* ================= OVERVIEW ================= */}
+      {/* ===== OVERVIEW ===== */}
       <section className="py-10">
         <div className="container mx-auto px-6">
           <div className="max-w-5xl mx-auto rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
@@ -129,154 +109,130 @@ export default function IstharaDining() {
               Isthara Multi Dining is a leading multi-cuisine restaurant.
               Despite its premium on-ground experience, the brand suffered from
               low recall and limited digital engagement. We rebuilt the
-              experience end-to-end: a mobile-first site, cohesive Instagram
-              strategy, refreshed brand system, and SEO to drive discovery and
-              reservations.
+              experience end-to-end…
             </p>
           </div>
         </div>
       </section>
 
-      {/* ================= CHALLENGE + APPROACH (COMPACT, NO BLANK SPACE) ================= */}
+      {/* ===== MERGED BOX: CHALLENGE + OUR APPROACH ===== */}
       <section className="py-6">
         <div className="container mx-auto px-6">
-          <div className="grid gap-5 md:grid-cols-2">
-            {/* CHALLENGE (tight layout) */}
-            <div className="rounded-xl border border-gray-200 bg-white p-4 shadow-sm">
-              <div className="flex items-center gap-2 mb-2">
-                <Megaphone className="h-5 w-5 text-primary" />
-                <h3 className="text-xl font-semibold">Challenge</h3>
-              </div>
+          <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
 
-              <ul className="list-disc list-inside text-gray-700 space-y-2 text-sm md:text-base">
-                <li>Low brand recall across digital touchpoints.</li>
-                <li>
-                  Outdated website lacking menu highlights and reservation flow.
-                </li>
-                <li>
-                  Inconsistent social presence that didn’t reflect the ambience
-                  or culinary craft.
-                </li>
-              </ul>
+            {/* Title */}
+            <div className="flex items-center gap-3 mb-6">
+              <Sparkles className="h-6 w-6 text-primary" />
+              <h2 className="text-2xl font-semibold">Challenge & Our Approach</h2>
             </div>
 
-            {/* APPROACH */}
-            <div className="rounded-xl border border-gray-200 bg-white p-4 shadow-sm">
-              <div className="flex items-center gap-2 mb-2">
-                <Sparkles className="h-5 w-5 text-primary" />
-                <h3 className="text-xl font-semibold">Our Approach</h3>
+            <div className="grid gap-6 md:grid-cols-2">
+
+              {/* Left Column — Challenge */}
+              <div>
+                <h3 className="text-lg font-semibold flex items-center gap-2 mb-2">
+                  <Megaphone className="h-5 w-5 text-primary" />
+                  Challenge
+                </h3>
+
+                <ul className="list-disc list-inside text-gray-700 space-y-2">
+                  <li>Low brand recall across digital touchpoints.</li>
+                  <li>
+                    Outdated website lacking menu highlights and reservation
+                    flow.
+                  </li>
+                  <li>
+                    Inconsistent social presence that didn’t reflect the
+                    ambience or culinary craft.
+                  </li>
+                </ul>
               </div>
 
-              <div className="grid gap-3">
-                <Pill
-                  title="Website Development"
-                  desc="Sleek, mobile-first site with menu highlights, ambience showcases, and an improved reservation journey."
-                  icon={<Globe className="h-4 w-4" />}
-                />
-                <Pill
-                  title="Instagram Design Strategy"
-                  desc="Cohesive grid with cuisine spotlights, chef specials, and reels."
-                  icon={<Camera className="h-4 w-4" />}
-                />
-                <Pill
-                  title="Brand Positioning"
-                  desc="Warm luxury palette, refined typography, and consistent tone of voice."
-                  icon={<Palette className="h-4 w-4" />}
-                />
-                <Pill
-                  title="Social Campaigns"
-                  desc="Narrative-driven posts, UGC prompts, and chef stories."
-                  icon={<Clapperboard className="h-4 w-4" />}
-                />
-                <Pill
-                  title="SEO Optimization"
-                  desc='Local SEO for “multi-cuisine restaurants near me” and high-intent keywords.'
-                  icon={<Search className="h-4 w-4" />}
-                />
+              {/* Right Column — Approach */}
+              <div>
+                <h3 className="text-lg font-semibold flex items-center gap-2 mb-2">
+                  <Sparkles className="h-5 w-5 text-primary" />
+                  Our Approach
+                </h3>
+
+                <div className="grid gap-3">
+                  <Pill
+                    title="Website Development"
+                    desc="Mobile-first site with menu highlights and improved reservation journey."
+                    icon={<Globe className="h-4 w-4" />}
+                  />
+                  <Pill
+                    title="Instagram Strategy"
+                    desc="Cuisine spotlights, chef specials, and reels."
+                    icon={<Camera className="h-4 w-4" />}
+                  />
+                  <Pill
+                    title="Brand Positioning"
+                    desc="Warm luxury palette, refined modern type."
+                    icon={<Palette className="h-4 w-4" />}
+                  />
+                  <Pill
+                    title="Social Campaigns"
+                    desc="Narrative-driven posts and community stories."
+                    icon={<Clapperboard className="h-4 w-4" />}
+                  />
+                  <Pill
+                    title="SEO Optimization"
+                    desc='Targeting “multi-cuisine restaurants near me”.'
+                    icon={<Search className="h-4 w-4" />}
+                  />
+                </div>
               </div>
+
             </div>
           </div>
         </div>
       </section>
 
-      {/* ================= KEY VISUAL ================= */}
+      {/* ===== OTHER SECTIONS REMAIN SAME ===== */}
       <section className="py-8">
         <div className="container mx-auto px-6">
           <CardShell title="Key Visual Directions" icon={<Palette className="h-5 w-5" />}>
             <ul className="space-y-2 text-gray-700">
-              <li>
-                <span className="font-semibold">Photography Style:</span> Clean,
-                cinematic food close-ups; warm ambience.
-              </li>
-              <li>
-                <span className="font-semibold">Video Mood:</span> Slow-motion
-                prep, plating sequences, clinking glasses.
-              </li>
-              <li>
-                <span className="font-semibold">Palette & Fonts:</span> Deep
-                golds, charcoal, and modern sans-serif typography.
-              </li>
+              <li><strong>Photography:</strong> Cinematic food close-ups.</li>
+              <li><strong>Video:</strong> Slow-motion plating & ambience.</li>
+              <li><strong>Palette:</strong> Deep golds, charcoal, modern sans-serif.</li>
             </ul>
           </CardShell>
         </div>
       </section>
 
-      {/* ================= RESULTS ================= */}
       <section className="py-8">
         <div className="container mx-auto px-6">
           <CardShell title="Results Achieved" icon={<BarChart3 className="h-5 w-5" />}>
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              <Stat value="200%" label="Increase in website visits (3 months)" />
-              <Stat value="150%" label="Growth in Instagram engagement" />
-              <Stat value="75%" label="Boost in online table reservations" />
-              <Stat
-                value="+"
-                label="Enhanced brand perception & consistency"
-              />
+              <Stat value="200%" label="Increase in website visits" />
+              <Stat value="150%" label="Growth in engagement" />
+              <Stat value="75%" label="Boost in reservations" />
+              <Stat value="+" label="Brand consistency" />
             </div>
           </CardShell>
         </div>
       </section>
 
-      {/* ================= EXPERIENCE HIGHLIGHTS ================= */}
       <section className="py-8 pb-16">
         <div className="container mx-auto px-6">
           <div className="grid gap-6 md:grid-cols-2">
-            <CardShell
-              title="Experience Highlights"
-              icon={<ChefHat className="h-5 w-5" />}
-            >
+            <CardShell title="Experience Highlights" icon={<ChefHat className="h-5 w-5" />}>
               <ul className="list-disc list-inside text-gray-700 space-y-2">
-                <li>
-                  Seasonal menus, chef specials, and visual storytelling
-                  integrated into marketing cadence.
-                </li>
-                <li>
-                  Reel templates enabling fast content creation for in-house
-                  teams.
-                </li>
-                <li>
-                  Events & offers system to push reservations during peak
-                  periods.
-                </li>
+                <li>Seasonal menus integrated with marketing.</li>
+                <li>Fast reel templates for teams.</li>
+                <li>Event & offer amplification.</li>
               </ul>
             </CardShell>
 
             <CardShell title="Practical Details" icon={<Clock className="h-5 w-5" />}>
               <ul className="space-y-2 text-gray-700">
-                <li className="flex items-start gap-2">
-                  <MapPin className="h-4 w-4 mt-1 text-primary" />
-                  <span>
-                    Local SEO coverage for nearby neighborhoods & high-intent
-                    dining corridors.
-                  </span>
+                <li className="flex gap-2">
+                  <MapPin className="h-4 w-4 mt-1 text-primary" /> Local SEO improved discovery.
                 </li>
-                <li className="flex items-start gap-2">
-                  <Clock className="h-4 w-4 mt-1 text-primary" />
-                  <span>
-                    Launch timeline optimized for festive seasons and weekend
-                    spikes.
-                  </span>
+                <li className="flex gap-2">
+                  <Clock className="h-4 w-4 mt-1 text-primary" /> Launch timed for peak seasons.
                 </li>
               </ul>
             </CardShell>
