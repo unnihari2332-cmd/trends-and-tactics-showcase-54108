@@ -20,7 +20,10 @@ import {
 const heroBg = "/0006.jpg"; // hero image from /public
 
 /** ================================
- *  YouTube Auto-Scroller (Swathi style)
+ *  YouTube Auto-Scroller (simplified & more reliable)
+ *  - full 16:9 via aspect-video
+ *  - auto-advance
+ *  - pause on hover (using onMouseEnter / onMouseLeave)
  * ================================ */
 function YouTubeAutoScroller({
   urls,
@@ -57,44 +60,45 @@ function YouTubeAutoScroller({
     }
   };
 
+  // Scroll to active slide whenever index changes
   useEffect(() => {
     const el = trackRef.current;
     if (!el) return;
     el.scrollTo({ left: index * el.clientWidth, behavior: "smooth" });
   }, [index]);
 
+  const stop = () => {
+    if (timerRef.current !== null) {
+      window.clearInterval(timerRef.current);
+      timerRef.current = null;
+    }
+  };
+
+  const start = () => {
+    if (timerRef.current !== null) return;
+    if (urls.length <= 1) return;
+    timerRef.current = window.setInterval(() => {
+      setIndex((i) => (i + 1) % urls.length);
+    }, intervalMs);
+  };
+
+  // Start / cleanup interval
   useEffect(() => {
-    const start = () => {
-      stop();
-      timerRef.current = window.setInterval(
-        () => setIndex((i) => (i + 1) % urls.length),
-        intervalMs
-      );
-    };
-    const stop = () => {
-      if (timerRef.current) {
-        window.clearInterval(timerRef.current);
-        timerRef.current = null;
-      }
-    };
     start();
-    const el = trackRef.current;
-    if (!el) return () => stop();
-    const onEnter = () => stop();
-    const onLeave = () => start();
-    el.addEventListener("mouseenter", onEnter);
-    el.addEventListener("mouseleave", onLeave);
     return () => {
       stop();
-      el.removeEventListener("mouseenter", onEnter);
-      el.removeEventListener("mouseleave", onLeave);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [urls.length, intervalMs]);
+
+  if (!urls.length) return null;
 
   return (
     <div className="relative">
       <div
         ref={trackRef}
+        onMouseEnter={stop}
+        onMouseLeave={start}
         className="overflow-x-hidden snap-x snap-mandatory scroll-smooth rounded-xl border border-gray-200 bg-white"
       >
         <div className="flex w-full">
@@ -116,6 +120,7 @@ function YouTubeAutoScroller({
         </div>
       </div>
 
+      {/* Dots */}
       <div className="mt-3 flex items-center justify-center gap-2">
         {urls.map((_, i) => (
           <button
