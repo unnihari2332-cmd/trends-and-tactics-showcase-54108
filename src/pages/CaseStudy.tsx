@@ -1,5 +1,6 @@
 // src/pages/CaseStudies.tsx
 import Header from "@/components/Header";
+import PageHeader from "@/components/PageHeader";
 import { motion, AnimatePresence } from "framer-motion";
 import { slidesData } from "@/data/caseStudies";
 import { Link } from "react-router-dom";

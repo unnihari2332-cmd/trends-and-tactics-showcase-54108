@@ -1,6 +1,6 @@
-// src/pages/Portfolio.tsx
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import PageHeader from "@/components/PageHeader";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
@@ -147,21 +147,10 @@ export default function PortfolioPage() {
     <div className="min-h-screen bg-white text-black">
       <Header />
 
-      {/* Hero */}
-      <section className="pt-24 pb-10">
-        <div className="container mx-auto px-6 text-center">
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="mb-4 text-5xl font-bold md:text-6xl"
-          >
-            Our Portfolio
-          </motion.h1>
-          <p className="text-lg text-neutral-600">
-            A showcase of our featured projects.
-          </p>
-        </div>
-      </section>
+      <PageHeader 
+        title="Our Portfolio" 
+        breadcrumbs={[{ label: "Home", path: "/" }]}
+      />
 
       {/* Grid */}
       <section className="pb-20">

@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import PageHeader from "@/components/PageHeader";
 import FAQ from "@/components/FAQ";
 import contactHero from "@/assets/contact-hero.jpg";
 import { Mail, Phone, MapPin } from "lucide-react";
@@ -72,25 +73,12 @@ const ContactPage = () => (
   <div className="min-h-screen flex flex-col bg-background text-foreground">
     <Header />
     <main className="flex-grow">
-      {/* Hero image only */}
-      <section
-        className="relative px-6 py-20 md:py-24 min-h-[60vh] flex items-center"
-        style={{
-          backgroundImage: `url(${contactHero})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat"
-        }}
-      >
-        <div className="absolute inset-0 bg-black/50" />
-        <div className="container mx-auto max-w-5xl text-center relative z-10">
-          <h1 className="text-4xl md:text-6xl font-extrabold leading-tight tracking-tight text-white">
-            READY TO WORK <br className="hidden md:block" /> WITH US?
-          </h1>
-        </div>
-      </section>
+      <PageHeader 
+        title="Contact Us" 
+        breadcrumbs={[{ label: "Home", path: "/" }]}
+        bgImage={contactHero}
+      />
 
-      {/* Paragraph now below the hero */}
       <section className="container mx-auto max-w-4xl px-6 text-center mt-10 md:mt-14">
         <p className="text-lg md:text-xl text-gray-800 leading-relaxed">
           Go beyond ordinary with <span className="font-semibold">Trends &amp; Tactics</span>, the{" "}
