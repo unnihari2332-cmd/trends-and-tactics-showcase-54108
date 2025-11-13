@@ -15,7 +15,7 @@ import {
   LayoutGrid,
 } from "lucide-react";
 
-const heroBg = "/nntvbanners.jpg";       // 16:9 hero image in /public (replace as needed)
+const heroBg = "/nntvmain.jpg";       // 16:9 hero image in /public (replace as needed)
 const sideImage = "/NNTV.jpg";    // Portrait/feature shot shown on the left
 const websiteUrl = "https://www.naalai-namadhe.com/"; // ← put the real live URL
 
