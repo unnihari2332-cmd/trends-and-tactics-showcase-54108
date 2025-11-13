@@ -12,13 +12,11 @@ import {
   Video as VideoIcon,
   Camera,
   NotebookPen,
-  Quote,
   Palette,
   Hash,
 } from "lucide-react";
 
-// UPDATED HERO IMAGE
-const heroBg = "/0003.jpg";
+const heroBg = "/0003.jpg"; // hero image from public
 
 /** ================================
  *  YouTube Auto-Scroller (full 16:9)
@@ -113,6 +111,7 @@ function YouTubeAutoScroller({
         </div>
       </div>
 
+      {/* dots */}
       <div className="mt-3 flex items-center justify-center gap-2">
         {urls.map((_, i) => (
           <button
@@ -129,7 +128,7 @@ function YouTubeAutoScroller({
   );
 }
 
-/* ------------ Helpers ------------ */
+/* ------------ Small helpers ------------ */
 function Pillar({ title, desc }: { title: string; desc: string }) {
   return (
     <div className="rounded-lg border border-gray-200 p-4 bg-white">
@@ -174,8 +173,8 @@ export default function SwathiKondePR() {
     <div className="min-h-screen bg-background text-foreground">
       <Header />
 
-      {/* ===== Hero ===== */}
-      <section className="relative py-20 md:py-28 overflow-hidden">
+      {/* ===== Bigger Hero (reduced other content to avoid blank space) ===== */}
+      <section className="relative min-h-[65vh] md:min-h-[75vh] flex items-center overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: `url('${heroBg}')` }}
@@ -195,8 +194,8 @@ export default function SwathiKondePR() {
         </div>
       </section>
 
-      {/* ===== Bio ===== */}
-      <section className="py-10">
+      {/* ===== Short Bio ===== */}
+      <section className="py-8">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
             <div className="flex items-center gap-3 mb-3">
@@ -204,16 +203,17 @@ export default function SwathiKondePR() {
               <h2 className="text-2xl font-semibold">Short Bio (Press / Website Intro)</h2>
             </div>
             <p className="text-gray-700 leading-relaxed">
-              A dynamic performer with a natural screen presence, Swathi Konde is quickly
-              becoming one of the most exciting new voices in Indian cinema. Known for her
-              expressive acting and effortless charm, she brings depth and authenticity to every character.
+              A dynamic performer with a natural screen presence, Swathi Konde is quickly becoming
+              one of the most exciting new voices in Indian cinema. Known for her expressive acting
+              and effortless charm, she brings depth and authenticity to every character—whether it’s
+              a heartfelt dramatic role or a breezy, relatable modern heroine.
             </p>
           </div>
         </div>
       </section>
 
       {/* ===== Extended Profile & Brand Positioning ===== */}
-      <section className="py-8">
+      <section className="py-6">
         <div className="container mx-auto px-6">
           <div className="grid gap-6 md:grid-cols-2">
             <div className="rounded-2xl border border-gray-200 bg-white p-6">
@@ -222,24 +222,51 @@ export default function SwathiKondePR() {
                 <h3 className="text-xl font-semibold">Extended Profile</h3>
               </div>
               <p className="text-gray-700 leading-relaxed">
-                From early stage appearances to acclaimed screen performances, Swathi’s journey reflects dedication to craft.
+                From early stage appearances to acclaimed performances on television and in
+                independent films, Swathi’s journey reflects a commitment to craft and constant
+                evolution as an artist.
               </p>
-              <ul className="mt-4 space-y-3 text-gray-700">
-                <li><strong>Training:</strong> Formal acting & dance background.</li>
-                <li><strong>Notable Work:</strong> (Add credits)</li>
-                <li><strong>Languages:</strong> Multiple Indian languages.</li>
+              <ul className="mt-4 space-y-3 text-gray-700 text-sm">
+                <li>
+                  <span className="font-semibold">Training &amp; Background:</span> Formal training
+                  in acting and dance, enabling strong emotional performance and physicality.
+                </li>
+                <li>
+                  <span className="font-semibold">Notable Work:</span>{" "}
+                  <em>(Add specific film/TV/web credits here.)</em>
+                </li>
+                <li>
+                  <span className="font-semibold">Languages:</span> Fluent in multiple Indian
+                  languages, opening doors across regional industries.
+                </li>
               </ul>
             </div>
 
             <div className="rounded-2xl border border-gray-200 bg-white p-6">
               <div className="flex items-center gap-3 mb-3">
                 <Star className="h-5 w-5 text-primary" />
-                <h3 className="text-xl font-semibold">Brand Positioning</h3>
+                <h3 className="text-xl font-semibold">Brand Positioning & PR Narrative</h3>
               </div>
               <div className="grid gap-4">
-                <Pillar title="Versatile Talent" desc="From commercial roles to intense character arcs." />
-                <Pillar title="Authentic Connection" desc="Relatable, expressive, emotionally real." />
-                <Pillar title="Modern Icon" desc="A confident and rising face in new-age cinema." />
+                <Pillar
+                  title="Versatile Talent"
+                  desc="Shifts easily between mainstream commercial roles and intense, character-driven projects."
+                />
+                <Pillar
+                  title="Authentic Connection"
+                  desc="Comes across as grounded and approachable, both on screen and on social feeds."
+                />
+                <Pillar
+                  title="Modern Icon"
+                  desc="Represents the confident, independent spirit of the new generation of Indian cinema."
+                />
+              </div>
+              <div className="mt-4 rounded-lg bg-gray-50 p-4 text-sm text-gray-700">
+                PR and campaign messaging can consistently anchor on{" "}
+                <span className="font-semibold">Talent</span>,{" "}
+                <span className="font-semibold">Authenticity</span>, and{" "}
+                <span className="font-semibold">Modern Icon</span> to build a clear, memorable
+                narrative.
               </div>
             </div>
           </div>
@@ -247,34 +274,34 @@ export default function SwathiKondePR() {
       </section>
 
       {/* ===== PR & Media Strategy ===== */}
-      <section className="py-8">
+      <section className="py-6">
         <div className="container mx-auto px-6">
           <div className="rounded-2xl border border-gray-200 bg-white p-6">
             <div className="flex items-center gap-3 mb-3">
               <Megaphone className="h-5 w-5 text-primary" />
-              <h3 className="text-xl font-semibold">PR & Media Strategy</h3>
+              <h3 className="text-xl font-semibold">PR &amp; Media Strategy</h3>
             </div>
 
             <div className="grid gap-6 md:grid-cols-2">
               <div>
                 <h4 className="font-semibold mb-2 flex items-center gap-2">
-                  <Clapperboard className="h-4 w-4 text-primary" /> Public Relations
+                  <Clapperboard className="h-4 w-4 text-primary" /> Public Relations Focus
                 </h4>
-                <ul className="list-disc list-inside text-gray-700 space-y-2">
-                  <li>Press releases with film launch timing.</li>
-                  <li>Media outreach to major publications.</li>
-                  <li>Interview schedules & talk show visibility.</li>
+                <ul className="list-disc list-inside text-gray-700 space-y-2 text-sm">
+                  <li>Press releases timed with project announcements and trailer drops.</li>
+                  <li>Proactive outreach to entertainment, OTT, and lifestyle media.</li>
+                  <li>Interview features, talk shows, and panel appearances.</li>
                 </ul>
               </div>
 
               <div>
                 <h4 className="font-semibold mb-2 flex items-center gap-2">
-                  <Hash className="h-4 w-4 text-primary" /> Digital Strategy
+                  <Hash className="h-4 w-4 text-primary" /> Digital &amp; Social Presence
                 </h4>
-                <ul className="list-disc list-inside text-gray-700 space-y-2">
-                  <li>Reels & Shorts strategy.</li>
-                  <li>Hashtag-led campaign pushes.</li>
-                  <li>Fashion/beauty collabs and brand tie-ups.</li>
+                <ul className="list-disc list-inside text-gray-700 space-y-2 text-sm">
+                  <li>Consistent Reels/Shorts with BTS, character look tests, and fun moments.</li>
+                  <li>Hashtag-led campaign bursts during launches and collaborations.</li>
+                  <li>Strategic tie-ups with fashion, beauty, and lifestyle brands.</li>
                 </ul>
               </div>
             </div>
@@ -282,68 +309,38 @@ export default function SwathiKondePR() {
         </div>
       </section>
 
-      {/* ===== Our Services ===== */}
-      <section className="py-8">
+      {/* ===== Video & Editing Services (Our Role) ===== */}
+      <section className="py-6">
         <div className="container mx-auto px-6">
           <div className="rounded-2xl border border-gray-200 bg-white p-6">
             <div className="flex items-center gap-3 mb-3">
               <VideoIcon className="h-5 w-5 text-primary" />
-              <h3 className="text-xl font-semibold">Video & Editing Services</h3>
+              <h3 className="text-xl font-semibold">Video &amp; Editing Services (Our Contribution)</h3>
             </div>
 
             <div className="grid gap-6 md:grid-cols-3">
               <Service
                 icon={<Film className="h-5 w-5" />}
                 title="Cinematic Reels"
-                desc="High-impact 15–30s edits showing expression & style."
+                desc="High-impact 15–30s edits focused on expressions, motion, and hero moments."
               />
               <Service
                 icon={<Camera className="h-5 w-5" />}
                 title="BTS Stories"
-                desc="Quick edits from behind-the-scenes moments."
+                desc="Quick-turnaround edits from on-set and rehearsal clips to keep fans engaged."
               />
               <Service
                 icon={<Megaphone className="h-5 w-5" />}
                 title="Interview Packages"
-                desc="Press-ready professional edits."
+                desc="Polished cuts of press interviews, ready for media and digital distribution."
               />
             </div>
           </div>
         </div>
       </section>
 
-      {/* ===== Social Copy ===== */}
-      <section className="py-8">
-        <div className="container mx-auto px-6">
-          <div className="rounded-2xl border border-gray-200 bg-white p-6">
-            <div className="flex items-center gap-3 mb-3">
-              <Quote className="h-5 w-5 text-primary" />
-              <h3 className="text-xl font-semibold">Sample Social Copy</h3>
-            </div>
-
-            <div className="grid gap-6 md:grid-cols-2">
-              <div className="rounded-lg border border-gray-200 p-4 bg-gray-50">
-                <h4 className="font-semibold mb-2">Instagram Bio Idea</h4>
-                <ul className="space-y-1 text-sm text-gray-800">
-                  <li>🎬 Actor | Dreamer</li>
-                  <li>✨ Living stories on screen</li>
-                  <li>📩 For collabs & PR: [email]</li>
-                </ul>
-              </div>
-
-              <div className="rounded-lg border border-gray-200 p-4 bg-gray-50">
-                <h4 className="font-semibold mb-2">Launch Post Caption</h4>
-                <p className="text-sm text-gray-800">
-                  “Every role is a new journey. Excited to share the next chapter! 💫 #SwathiKonde #NewRelease”
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ===== Key Visual ===== */}
-      <section className="py-8">
+      {/* ===== Key Visual Directions (kept, but tighter) ===== */}
+      <section className="py-6">
         <div className="container mx-auto px-6">
           <div className="rounded-2xl border border-gray-200 bg-white p-6">
             <div className="flex items-center gap-3 mb-3">
@@ -351,24 +348,32 @@ export default function SwathiKondePR() {
               <h3 className="text-xl font-semibold">Key Visual Directions</h3>
             </div>
 
-            <ul className="space-y-2 text-gray-700">
-              <li><strong>Photography:</strong> Cinematic portraits + natural light.</li>
-              <li><strong>Video:</strong> Energetic cuts, subtle graphics.</li>
-              <li><strong>Palette:</strong> Golds, deep blues, clean modern fonts.</li>
+            <ul className="space-y-2 text-gray-700 text-sm">
+              <li>
+                <span className="font-semibold">Photography Style:</span> Clean, cinematic portraits
+                with natural or soft studio light and expressive poses.
+              </li>
+              <li>
+                <span className="font-semibold">Video Mood:</span> Energetic pacing, subtle motion
+                graphics, and close-ups that highlight eyes, expressions, and movement.
+              </li>
+              <li>
+                <span className="font-semibold">Palette &amp; Fonts:</span> Warm golds and deep
+                blues paired with modern sans-serif typography for a bold yet approachable feel.
+              </li>
             </ul>
           </div>
         </div>
       </section>
 
-      {/* ===== Auto Scrolling Videos ===== */}
-      <section className="py-8 pb-16">
+      {/* ===== Videos (auto-scrolling) ===== */}
+      <section className="py-6 pb-16">
         <div className="container mx-auto px-6">
           <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
             <div className="flex items-center gap-3 mb-4">
               <VideoIcon className="h-5 w-5 text-primary" />
               <h3 className="text-xl font-semibold">Videos</h3>
             </div>
-
             <YouTubeAutoScroller urls={YOUTUBE_VIDEOS} intervalMs={5000} />
           </div>
         </div>
