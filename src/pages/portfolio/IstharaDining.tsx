@@ -19,8 +19,7 @@ import {
 } from "lucide-react";
 
 /** ========= Assets ========= */
-const heroBg = "/main banners.jpg"; // hero image in /public
-const ambienceImg = "/isthara-ambience.jpg";
+const heroBg = "/main banners.jpg"; // hero image from public folder
 
 /* ------------ Small presentational helpers ------------ */
 function CardShell({
@@ -88,7 +87,7 @@ export default function IstharaDining() {
     <div className="min-h-screen bg-background text-foreground">
       <Header />
 
-      {/* ===== HERO (medium height, no extra space) ===== */}
+      {/* ===== HERO ===== */}
       <section className="relative h-[360px] md:h-[400px] w-full overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -113,8 +112,8 @@ export default function IstharaDining() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="mt-3 max-w-3xl mx-auto text-sm md:text-base text-white/90"
           >
-            Complete transformation across website, social, and brand systems — crafted
-            for a modern food-loving audience.
+            Complete transformation across website, social, and brand systems —
+            crafted for a modern food-loving audience.
           </motion.p>
         </div>
       </section>
@@ -128,11 +127,11 @@ export default function IstharaDining() {
               <h2 className="text-2xl font-semibold">Overview</h2>
             </div>
             <p className="text-gray-700 leading-relaxed text-sm md:text-base">
-              Isthara Multi Dining is a leading multi-cuisine restaurant. Despite its
-              premium on-ground experience, the brand suffered from low recall and
-              limited digital engagement. We rebuilt the experience end-to-end: a
-              mobile-first site, cohesive Instagram strategy, refreshed brand system, and
-              SEO to drive discovery and reservations.
+              Isthara Multi Dining is a leading multi-cuisine restaurant. Despite
+              its premium on-ground experience, the brand suffered from low recall
+              and limited digital engagement. We rebuilt the experience end-to-end:
+              a mobile-first site, cohesive Instagram strategy, refreshed brand
+              system, and SEO to drive discovery and reservations.
             </p>
           </div>
         </div>
@@ -157,7 +156,7 @@ export default function IstharaDining() {
               <div className="grid gap-2">
                 <Pill
                   title="Website Development"
-                  desc="Sleek, mobile-first site with rich menu sections, ambience showcases, and a streamlined reservation journey."
+                  desc="Mobile-first site with menu highlights, ambience showcases, and a reservation experience."
                   icon={<Globe className="h-4 w-4" />}
                 />
                 <Pill
@@ -167,17 +166,17 @@ export default function IstharaDining() {
                 />
                 <Pill
                   title="Brand Positioning"
-                  desc="Refined visuals, warm luxury palette, modern type, consistent tone."
+                  desc="Refined visuals, warm palette, modern type."
                   icon={<Palette className="h-4 w-4" />}
                 />
                 <Pill
                   title="Social Campaigns"
-                  desc="Narrative-driven posts & UGC prompts to build a loyal foodie audience."
+                  desc="Narrative-driven posts, UGC prompts, chef stories."
                   icon={<Clapperboard className="h-4 w-4" />}
                 />
                 <Pill
                   title="SEO Optimization"
-                  desc='Focused on “best dining experience” & “multi-cuisine restaurants near me”.'
+                  desc='For “multi-cuisine restaurants near me” and high-intent keywords.'
                   icon={<Search className="h-4 w-4" />}
                 />
               </div>
@@ -186,7 +185,7 @@ export default function IstharaDining() {
         </div>
       </section>
 
-      {/* ===== VISUAL DIRECTIONS ===== */}
+      {/* ===== VISUAL DIRECTIONS (no ambience image) ===== */}
       <section className="py-6">
         <div className="container mx-auto px-6">
           <CardShell
@@ -196,27 +195,17 @@ export default function IstharaDining() {
             <ul className="space-y-1 text-gray-700 text-sm md:text-base">
               <li>
                 <span className="font-semibold">Photography:</span> Clean food
-                close-ups & warm ambience shots.
+                close-ups & warm ambience lighting.
               </li>
               <li>
-                <span className="font-semibold">Video Mood:</span> Slow-motion prep,
-                plating visuals, crowd energy.
+                <span className="font-semibold">Video Mood:</span> Slow-motion food
+                prep, plating visuals, crowd energy.
               </li>
               <li>
-                <span className="font-semibold">Palette:</span> Luxury warmth (gold,
-                clay, charcoal).
+                <span className="font-semibold">Palette:</span> Warm luxury tones —
+                gold, clay, charcoal.
               </li>
             </ul>
-            {ambienceImg ? (
-              <div className="mt-4 overflow-hidden rounded-xl border border-gray-200">
-                <img
-                  src={ambienceImg}
-                  alt="Isthara ambience"
-                  className="w-full h-full object-cover"
-                  loading="lazy"
-                />
-              </div>
-            ) : null}
           </CardShell>
         </div>
       </section>
@@ -247,9 +236,9 @@ export default function IstharaDining() {
               icon={<ChefHat className="h-5 w-5" />}
             >
               <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm md:text-base">
-                <li>Seasonal menu campaigns integrated into social strategy.</li>
-                <li>Reel templates for fast content creation.</li>
-                <li>Offers & events module to support peak-time traffic.</li>
+                <li>Seasonal campaign-driven menu promotions.</li>
+                <li>Template-based reels for faster content turnaround.</li>
+                <li>Offers & events system to support peak hours.</li>
               </ul>
             </CardShell>
 
@@ -260,13 +249,11 @@ export default function IstharaDining() {
               <ul className="space-y-1 text-gray-700 text-sm md:text-base">
                 <li className="flex items-start gap-2">
                   <MapPin className="h-4 w-4 mt-[3px] text-primary" />
-                  <span>Local SEO coverage for nearby neighborhoods.</span>
+                  <span>Local SEO for neighbourhood-based discovery.</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <Clock className="h-4 w-4 mt-[3px] text-primary" />
-                  <span>
-                    Launch schedule optimized for festive seasons & weekend spikes.
-                  </span>
+                  <span>Launch timing aligned with peak festive footfalls.</span>
                 </li>
               </ul>
             </CardShell>
