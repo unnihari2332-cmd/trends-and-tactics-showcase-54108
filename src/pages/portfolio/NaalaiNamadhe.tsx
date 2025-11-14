@@ -1,8 +1,8 @@
 // src/pages/portfolio/NaalaiNamadhe.tsx
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import PageHeader from "@/components/PageHeader";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Sparkles,
@@ -16,9 +16,9 @@ import {
   LayoutGrid,
 } from "lucide-react";
 
-const heroBg = "/nntvmain.jpg";       // 16:9 hero image in /public (replace as needed)
-const sideImage = "/NNTV.jpg";    // Portrait/feature shot shown on the left
-const websiteUrl = "https://www.naalai-namadhe.com/"; // ← put the real live URL
+const heroBg = "/nntvmain.jpg"; // 16:9 hero image in /public
+const sideImage = "/NNTV.jpg";  // Portrait/feature shot shown on the left
+const websiteUrl = "https://www.naalai-namadhe.com/";
 
 /* ------------ Small presentational helpers ------------ */
 function Pillar({ title, desc }: { title: string; desc: string }) {
@@ -127,224 +127,292 @@ export default function NaalaiNamadhe() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div
+      className="min-h-screen text-foreground"
+      style={{
+        backgroundImage: "url('/sidelogo.jpg')",
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
+        backgroundPosition: "left center",
+        backgroundAttachment: "fixed",
+      }}
+    >
       <Header />
 
-      <PageHeader 
-        title="Naalai Namadhe — Official Website Development"
-        breadcrumbs={[
-          { label: "Home", path: "/" },
-          { label: "Portfolio", path: "/portfolio" },
-          { label: "Naalai Namadhe", path: "/portfolio/naalai-namadhe" }
-        ]}
-        bgImage={heroBg}
-      />
+      <main>
+        {/* ===== HERO (Swathi-style breadcrumb + hero) ===== */}
+        <section className="relative min-h-[40vh] flex items-center justify-center">
+          <div
+            className="absolute inset-0 bg-cover bg-center"
+            style={{
+              backgroundImage: `url(${heroBg})`,
+              backgroundPosition: "center 30%",
+            }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/80" />
 
-      {/* ===== Two Column Section: Image Left + All Content Right ===== */}
-      <section className="py-16">
-        <div className="container mx-auto px-6">
-          <div className="grid gap-8 md:grid-cols-5">
-            {/* Left: Side Image (2 columns) - Sticky */}
-            <motion.div
-              initial={{ opacity: 0, x: -24 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-              className="md:sticky md:top-24 md:col-span-2 md:h-fit"
-            >
-              <div className="relative overflow-hidden rounded-2xl shadow-xl">
-                <img
-                  src={sideImage}
-                  alt="Naalai Namadhe website preview"
-                  className="h-full w-full object-cover"
-                  loading="lazy"
-                />
+          <div className="relative z-10 container mx-auto max-w-6xl px-6 pt-28 pb-16 text-center">
+            <nav className="mb-4 flex items-center justify-center gap-2 text-xs text-white/80 md:text-sm">
+              <Link to="/" className="transition-colors hover:text-white">
+                Home
+              </Link>
+              <span className="opacity-60">›</span>
+              <Link
+                to="/portfolio"
+                className="transition-colors hover:text-white"
+              >
+                Portfolio
+              </Link>
+              <span className="opacity-60">›</span>
+              <span className="text-white">Naalai Namadhe</span>
+            </nav>
 
-                {/* TOP-RIGHT VIEW BUTTON */}
-                <button
-                  onClick={() => setLightboxOpen(true)}
-                  className="absolute right-3 top-3 z-10 inline-flex items-center gap-2 rounded-lg border border-gray-200 bg-white/85 px-3 py-2 shadow-md backdrop-blur-sm transition hover:bg-white focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2"
-                  aria-label="View image larger"
-                  title="View image"
-                >
-                  <ZoomIn className="h-4 w-4" />
-                  <span className="text-sm font-medium">View</span>
-                </button>
-              </div>
+            <h1 className="text-3xl font-normal text-white md:text-5xl">
+              Naalai Namadhe — Official Website Development
+            </h1>
+          </div>
+        </section>
 
-              {/* CTA under the image */}
-              <div className="mt-4">
-                <a
-                  href={websiteUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 rounded-xl border border-gray-300 bg-white px-4 py-2 text-gray-900 transition hover:border-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2"
-                >
-                  <ExternalLink className="h-4 w-4" />
-                  Visit Website
-                </a>
-              </div>
-            </motion.div>
-
-            {/* Right: All Content (3 columns) */}
-            <motion.div
-              initial={{ opacity: 0, x: 24 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="space-y-8 md:col-span-3"
-            >
-              {/* Overview */}
-              <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
-                <div className="mb-3 flex items-center gap-3">
-                  <Sparkles className="h-5 w-5 text-primary" />
-                  <h2 className="text-xl font-semibold">Overview</h2>
-                </div>
-                <p className="leading-relaxed text-gray-700">
-                  We built the official website for <strong>Naalai Namadhe</strong> with a focus on
-                  speed, clarity, and trust. The content structure highlights mission, initiatives,
-                  updates, and calls-to-action, ensuring visitors can discover key information and act
-                  quickly from any device.
-                </p>
-
-                <div className="mt-4 flex flex-wrap gap-2">
-                  <span className="rounded-full bg-gray-100 px-3 py-1 text-xs">Website</span>
-                  <span className="rounded-full bg-gray-100 px-3 py-1 text-xs">Performance</span>
-                  <span className="rounded-full bg-gray-100 px-3 py-1 text-xs">Accessibility</span>
-                  <span className="rounded-full bg-gray-100 px-3 py-1 text-xs">SEO</span>
-                </div>
-              </div>
-
-              {/* Challenge */}
-              <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
-                <div className="mb-3 flex items-center gap-3">
-                  <BadgeCheck className="h-5 w-5 text-primary" />
-                  <h2 className="text-xl font-semibold">Challenge</h2>
-                </div>
-                <p className="leading-relaxed text-gray-700">
-                  Create a clean, credible digital presence that loads fast on budget networks,
-                  communicates clearly in a few scrolls, and scales for future announcements and
-                  media without complex upkeep.
-                </p>
-              </div>
-
-              {/* Our Approach */}
-              <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
-                <div className="mb-3 flex items-center gap-3">
-                  <Megaphone className="h-5 w-5 text-primary" />
-                  <h3 className="text-xl font-semibold">Our Approach</h3>
-                </div>
-                <p className="mb-4 leading-relaxed text-gray-700">
-                  We combined a modular content system with performance-first engineering and
-                  accessible components.
-                </p>
-
-                <div className="space-y-4">
-                  <Service
-                    icon={<LayoutGrid className="h-5 w-5" />}
-                    title="Content Architecture"
-                    desc="Mission, programs, news, and CTAs structured into reusable sections for faster publishing."
+        {/* ===== Two Column Section: Image Left + All Content Right ===== */}
+        <section className="py-16">
+          <div className="container mx-auto px-6">
+            <div className="grid gap-8 md:grid-cols-5">
+              {/* Left: Side Image (2 columns) - Sticky */}
+              <motion.div
+                initial={{ opacity: 0, x: -24 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6 }}
+                className="md:sticky md:top-24 md:col-span-2 md:h-fit"
+              >
+                <div className="relative overflow-hidden rounded-2xl shadow-xl">
+                  <img
+                    src={sideImage}
+                    alt="Naalai Namadhe website preview"
+                    className="h-full w-full object-cover"
+                    loading="lazy"
                   />
-                  <Service
-                    icon={<Globe className="h-5 w-5" />}
-                    title="Website Development"
-                    desc="Mobile-first layout, semantic HTML, robust focus states, and image responsiveness."
-                  />
-                  <Service
-                    icon={<LineChart className="h-5 w-5" />}
-                    title="Performance & SEO"
-                    desc="Lazy loading, asset compression, metadata hygiene, and share-ready Open Graph."
-                  />
+
+                  {/* TOP-RIGHT VIEW BUTTON */}
+                  <button
+                    onClick={() => setLightboxOpen(true)}
+                    className="absolute right-3 top-3 z-10 inline-flex items-center gap-2 rounded-lg border border-gray-200 bg-white/85 px-3 py-2 shadow-md backdrop-blur-sm transition hover:bg-white focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2"
+                    aria-label="View image larger"
+                    title="View image"
+                  >
+                    <ZoomIn className="h-4 w-4" />
+                    <span className="text-sm font-medium">View</span>
+                  </button>
                 </div>
-              </div>
 
-              {/* Brand Positioning */}
-              <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
-                <h3 className="mb-4 text-xl font-semibold">Brand Positioning</h3>
-                <div className="space-y-4">
-                  <Pillar
-                    title="Clarity First"
-                    desc="Plain-language sections and straight-line navigation reduce bounce and confusion."
-                  />
-                  <Pillar
-                    title="Trust & Transparency"
-                    desc="Consistent visual system and prominent contact/press info increase credibility."
-                  />
-                  <Pillar
-                    title="Scale-Ready"
-                    desc="Add pages and announcements without redesign—modules adapt as content grows."
-                  />
+                {/* CTA under the image */}
+                <div className="mt-4">
+                  <a
+                    href={websiteUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2 rounded-xl border border-gray-300 bg-white px-4 py-2 text-gray-900 transition hover:border-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2"
+                  >
+                    <ExternalLink className="h-4 w-4" />
+                    Visit Website
+                  </a>
                 </div>
-              </div>
+              </motion.div>
 
-              {/* Impact Created */}
-              <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
-                <h3 className="mb-4 text-xl font-semibold">Impact Created</h3>
-
-                <div className="mb-4 grid grid-cols-1 gap-4 sm:grid-cols-3">
-                  <div className="flex flex-col items-center rounded-xl border border-gray-200 bg-gray-50 p-5">
-                    <div className="text-3xl font-extrabold text-black">Green</div>
-                    <div className="mt-2 text-center text-xs text-gray-600">Core Web Vitals</div>
+              {/* Right: All Content (3 columns) */}
+              <motion.div
+                initial={{ opacity: 0, x: 24 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="space-y-8 md:col-span-3"
+              >
+                {/* Overview */}
+                <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+                  <div className="mb-3 flex items-center gap-3">
+                    <Sparkles className="h-5 w-5 text-primary" />
+                    <h2 className="text-xl font-semibold">Overview</h2>
                   </div>
-                  <div className="flex flex-col items-center rounded-xl border border-gray-200 bg-gray-50 p-5">
-                    <div className="text-3xl font-extrabold text-black">Sub-2s</div>
-                    <div className="mt-2 text-center text-xs text-gray-600">
-                      Time to Interactive (4G*)
-                    </div>
-                  </div>
-                  <div className="flex flex-col items-center rounded-xl border border-gray-200 bg-gray-50 p-5">
-                    <div className="text-3xl font-extrabold text-black">+80%</div>
-                    <div className="mt-2 text-center text-xs text-gray-600">
-                      Faster content discovery
-                    </div>
+                  <p className="leading-relaxed text-gray-700">
+                    We built the official website for{" "}
+                    <strong>Naalai Namadhe</strong> with a focus on speed,
+                    clarity, and trust. The content structure highlights mission,
+                    initiatives, updates, and calls-to-action, ensuring visitors
+                    can discover key information and act quickly from any
+                    device.
+                  </p>
+
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    <span className="rounded-full bg-gray-100 px-3 py-1 text-xs">
+                      Website
+                    </span>
+                    <span className="rounded-full bg-gray-100 px-3 py-1 text-xs">
+                      Performance
+                    </span>
+                    <span className="rounded-full bg-gray-100 px-3 py-1 text-xs">
+                      Accessibility
+                    </span>
+                    <span className="rounded-full bg-gray-100 px-3 py-1 text-xs">
+                      SEO
+                    </span>
                   </div>
                 </div>
 
-                <div className="rounded-lg border border-gray-200 bg-gray-50 p-4">
-                  <p className="text-sm leading-relaxed text-gray-700">
-                    The site achieves rapid page loads and clear user flows, helping visitors reach
-                    the right information (and CTAs) with minimal friction.
+                {/* Challenge */}
+                <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+                  <div className="mb-3 flex items-center gap-3">
+                    <BadgeCheck className="h-5 w-5 text-primary" />
+                    <h2 className="text-xl font-semibold">Challenge</h2>
+                  </div>
+                  <p className="leading-relaxed text-gray-700">
+                    Create a clean, credible digital presence that loads fast on
+                    budget networks, communicates clearly in a few scrolls, and
+                    scales for future announcements and media without complex
+                    upkeep.
                   </p>
                 </div>
-              </div>
 
-              {/* Tech Stack & Deliverables */}
-              <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
-                <h3 className="mb-4 text-xl font-semibold">Tech Stack &amp; Deliverables</h3>
-                <div className="mb-4 flex flex-wrap gap-2">
-                  <span className="rounded-full bg-gray-100 px-3 py-1 text-xs">React</span>
-                  <span className="rounded-full bg-gray-100 px-3 py-1 text-xs">TypeScript</span>
-                  <span className="rounded-full bg-gray-100 px-3 py-1 text-xs">Tailwind CSS</span>
-                  <span className="rounded-full bg-gray-100 px-3 py-1 text-xs">Vercel/CDN</span>
-                  <span className="rounded-full bg-gray-100 px-3 py-1 text-xs">Analytics</span>
+                {/* Our Approach */}
+                <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+                  <div className="mb-3 flex items-center gap-3">
+                    <Megaphone className="h-5 w-5 text-primary" />
+                    <h3 className="text-xl font-semibold">Our Approach</h3>
+                  </div>
+                  <p className="mb-4 leading-relaxed text-gray-700">
+                    We combined a modular content system with
+                    performance-first engineering and accessible components.
+                  </p>
+
+                  <div className="space-y-4">
+                    <Service
+                      icon={<LayoutGrid className="h-5 w-5" />}
+                      title="Content Architecture"
+                      desc="Mission, programs, news, and CTAs structured into reusable sections for faster publishing."
+                    />
+                    <Service
+                      icon={<Globe className="h-5 w-5" />}
+                      title="Website Development"
+                      desc="Mobile-first layout, semantic HTML, robust focus states, and image responsiveness."
+                    />
+                    <Service
+                      icon={<LineChart className="h-5 w-5" />}
+                      title="Performance & SEO"
+                      desc="Lazy loading, asset compression, metadata hygiene, and share-ready Open Graph."
+                    />
+                  </div>
                 </div>
-                <ul className="list-inside list-disc space-y-2 text-sm text-gray-700">
-                  <li>Responsive website design & development</li>
-                  <li>Information architecture & editorial blocks</li>
-                  <li>On-page SEO & performance tuning</li>
-                  <li>OG/Twitter cards & share assets</li>
-                </ul>
-              </div>
 
-              {/* CTA Row */}
-              <div className="flex flex-wrap items-center gap-3 rounded-2xl border border-gray-200 bg-gradient-to-br from-slate-50 to-white p-6">
-                <a
-                  href={websiteUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-lg bg-black px-4 py-2 text-sm font-semibold text-white hover:opacity-90"
-                >
-                  Visit Live Site <ExternalLink className="h-4 w-4" />
-                </a>
-                <a
-                  href="/contact"
-                  className="inline-flex items-center gap-2 rounded-lg border border-gray-300 px-4 py-2 text-sm font-semibold hover:bg-gray-50"
-                >
-                  Start a Similar Project
-                </a>
-              </div>
-            </motion.div>
+                {/* Brand Positioning */}
+                <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+                  <h3 className="mb-4 text-xl font-semibold">
+                    Brand Positioning
+                  </h3>
+                  <div className="space-y-4">
+                    <Pillar
+                      title="Clarity First"
+                      desc="Plain-language sections and straight-line navigation reduce bounce and confusion."
+                    />
+                    <Pillar
+                      title="Trust & Transparency"
+                      desc="Consistent visual system and prominent contact/press info increase credibility."
+                    />
+                    <Pillar
+                      title="Scale-Ready"
+                      desc="Add pages and announcements without redesign—modules adapt as content grows."
+                    />
+                  </div>
+                </div>
+
+                {/* Impact Created */}
+                <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+                  <h3 className="mb-4 text-xl font-semibold">Impact Created</h3>
+
+                  <div className="mb-4 grid grid-cols-1 gap-4 sm:grid-cols-3">
+                    <div className="flex flex-col items-center rounded-xl border border-gray-200 bg-gray-50 p-5">
+                      <div className="text-3xl font-extrabold text-black">
+                        Green
+                      </div>
+                      <div className="mt-2 text-center text-xs text-gray-600">
+                        Core Web Vitals
+                      </div>
+                    </div>
+                    <div className="flex flex-col items-center rounded-xl border border-gray-200 bg-gray-50 p-5">
+                      <div className="text-3xl font-extrabold text-black">
+                        Sub-2s
+                      </div>
+                      <div className="mt-2 text-center text-xs text-gray-600">
+                        Time to Interactive (4G*)
+                      </div>
+                    </div>
+                    <div className="flex flex-col items-center rounded-xl border border-gray-200 bg-gray-50 p-5">
+                      <div className="text-3xl font-extrabold text-black">
+                        +80%
+                      </div>
+                      <div className="mt-2 text-center text-xs text-gray-600">
+                        Faster content discovery
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="rounded-lg border border-gray-200 bg-gray-50 p-4">
+                    <p className="text-sm leading-relaxed text-gray-700">
+                      The site achieves rapid page loads and clear user flows,
+                      helping visitors reach the right information (and CTAs)
+                      with minimal friction.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Tech Stack & Deliverables */}
+                <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+                  <h3 className="mb-4 text-xl font-semibold">
+                    Tech Stack &amp; Deliverables
+                  </h3>
+                  <div className="mb-4 flex flex-wrap gap-2">
+                    <span className="rounded-full bg-gray-100 px-3 py-1 text-xs">
+                      React
+                    </span>
+                    <span className="rounded-full bg-gray-100 px-3 py-1 text-xs">
+                      TypeScript
+                    </span>
+                    <span className="rounded-full bg-gray-100 px-3 py-1 text-xs">
+                      Tailwind CSS
+                    </span>
+                    <span className="rounded-full bg-gray-100 px-3 py-1 text-xs">
+                      Vercel/CDN
+                    </span>
+                    <span className="rounded-full bg-gray-100 px-3 py-1 text-xs">
+                      Analytics
+                    </span>
+                  </div>
+                  <ul className="list-inside list-disc space-y-2 text-sm text-gray-700">
+                    <li>Responsive website design &amp; development</li>
+                    <li>Information architecture &amp; editorial blocks</li>
+                    <li>On-page SEO &amp; performance tuning</li>
+                    <li>OG/Twitter cards &amp; share assets</li>
+                  </ul>
+                </div>
+
+                {/* CTA Row */}
+                <div className="flex flex-wrap items-center gap-3 rounded-2xl border border-gray-200 bg-gradient-to-br from-slate-50 to-white p-6">
+                  <a
+                    href={websiteUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded-lg bg-black px-4 py-2 text-sm font-semibold text-white hover:opacity-90"
+                  >
+                    Visit Live Site <ExternalLink className="h-4 w-4" />
+                  </a>
+                  <a
+                    href="/contact"
+                    className="inline-flex items-center gap-2 rounded-lg border border-gray-300 px-4 py-2 text-sm font-semibold hover:bg-gray-50"
+                  >
+                    Start a Similar Project
+                  </a>
+                </div>
+              </motion.div>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </main>
 
       <Footer />
 
