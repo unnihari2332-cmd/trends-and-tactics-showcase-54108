@@ -1,16 +1,15 @@
 // src/pages/LogoDesign.tsx
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import PageHeader from "@/components/PageHeader";
 import CTASection from "@/components/CTASection";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 export default function LogoDesign() {
   return (
     <div
       className="min-h-screen text-foreground"
       style={{
-        // === Background image across the whole page ===
         backgroundImage: "url('/sidelogo.jpg')",
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
@@ -21,15 +20,39 @@ export default function LogoDesign() {
       <Header />
 
       <main>
-        <PageHeader 
-          title="Logo Designing" 
-          breadcrumbs={[{ label: "Home", path: "/" }, { label: "Services", path: "/services" }]}
-          bgImage="/logo.jpg"
-        />
+
+        {/* ===== HERO WITH BREADCRUMB (Unified Style) ===== */}
+        <section className="relative min-h-[40vh] flex items-center justify-center">
+          <div
+            className="absolute inset-0 bg-cover bg-center"
+            style={{ backgroundImage: "url('/logo.jpg')" }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/70" />
+
+          <div className="relative z-10 container mx-auto max-w-6xl px-6 py-16 text-center">
+
+            {/* Breadcrumb */}
+            <nav className="flex items-center justify-center gap-2 text-xs md:text-sm text-white/80 mb-4">
+              <Link to="/" className="hover:text-white transition-colors">Home</Link>
+              <span className="opacity-60">›</span>
+
+              <Link to="/services" className="hover:text-white transition-colors">Services</Link>
+              <span className="opacity-60">›</span>
+
+              <span className="text-white">Logo Designing</span>
+            </nav>
+
+            {/* Title */}
+            <h1 className="text-3xl md:text-5xl font-normal text-white">
+              Logo Designing
+            </h1>
+          </div>
+        </section>
 
         {/* ===== INTRO ===== */}
         <section className="py-10 px-6 md:py-12">
           <div className="container mx-auto max-w-7xl grid gap-8 md:grid-cols-2 items-center">
+
             <div className="flex justify-center">
               <img
                 src="/Logodesign.jpg"
@@ -49,12 +72,14 @@ export default function LogoDesign() {
                 that capture your brand’s essence and stand out in any market.
               </p>
             </motion.div>
+
           </div>
         </section>
 
         {/* ===== CORE SECTIONS ===== */}
         <section className="py-10 md:py-14 px-6">
           <div className="container mx-auto grid gap-6 md:gap-8 md:grid-cols-2 max-w-6xl">
+
             <motion.article
               initial={{ opacity: 0, y: 14 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -90,16 +115,20 @@ export default function LogoDesign() {
                 <li>Final artwork, guidelines, and export kits</li>
               </ul>
             </motion.article>
+
           </div>
         </section>
 
-        {/* ===== TECMINION SERVICES ===== */}
+        {/* ===== SERVICES ===== */}
         <section className="px-6 pb-6 md:pb-10">
           <div className="container mx-auto max-w-6xl">
+
             <div className="rounded-2xl bg-white/85 backdrop-blur-sm shadow-xl ring-1 ring-black/5 p-6 md:p-8">
+
               <h2 className="text-2xl md:text-3xl font-bold mb-6">
                 Our Logo Design Services Include
               </h2>
+
               <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 text-black-100">
                 {[
                   "Custom Logo Design",
@@ -117,17 +146,22 @@ export default function LogoDesign() {
                   </li>
                 ))}
               </ul>
+
             </div>
+
           </div>
         </section>
 
         {/* ===== BENEFITS ===== */}
         <section className="px-6 pb-12 md:pb-16">
           <div className="container mx-auto max-w-6xl">
+
             <div className="rounded-2xl bg-white/85 backdrop-blur-sm shadow-xl ring-1 ring-black/5 p-6 md:p-8">
+
               <h2 className="text-2xl md:text-3xl font-bold mb-6">
                 Benefits With Our Service
               </h2>
+
               <ol className="space-y-5">
                 {[
                   {
@@ -153,7 +187,7 @@ export default function LogoDesign() {
                   {
                     title: "Affordable Pricing",
                     body:
-                      "High-quality logo designs at competitive rates without compromising on creativity or detail.",
+                      "High-quality logo designs at competitive rates without compromising creativity or detail.",
                   },
                 ].map(({ title, body }, idx) => (
                   <li key={idx} className="flex gap-4">
@@ -166,7 +200,9 @@ export default function LogoDesign() {
                   </li>
                 ))}
               </ol>
+
             </div>
+
           </div>
         </section>
 
@@ -175,6 +211,7 @@ export default function LogoDesign() {
           heading="Ready to create your iconic brand identity?"
           description="We'll design a memorable, timeless logo that captures your brand's essence and makes a lasting impression."
         />
+
       </main>
 
       <Footer />
