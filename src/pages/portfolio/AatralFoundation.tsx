@@ -13,7 +13,7 @@ import {
   MapPin,
 } from "lucide-react";
 
-const heroBg = "/0011.jpg"; // hero image in public
+const heroBg = "/aatral-hero.jpg"; // updated hero image from public
 
 const METRICS = [
   { label: "Audience Growth", value: "900%", icon: TrendingUp },
@@ -138,9 +138,9 @@ export default function AatralFoundation() {
     <div
       className="min-h-screen bg-background text-foreground"
       style={{
-        backgroundImage: "url('/sidelogo.jpg')",
+        backgroundImage: "url('/sidelogo.jpg')", // side logo like Swathi page
         backgroundRepeat: "no-repeat",
-        backgroundSize: "contain",
+        backgroundSize: "cover",
         backgroundPosition: "left center",
         backgroundAttachment: "fixed",
       }}
@@ -148,8 +148,8 @@ export default function AatralFoundation() {
       <Header />
 
       <main className="pb-12">
-        {/* ===== HERO (TIGHTER, LESS BLANK SPACE) ===== */}
-        <section className="relative min-h-[32vh] flex items-center">
+        {/* ===== HERO (Swathi-style breadcrumb + hero) ===== */}
+        <section className="relative min-h-[40vh] flex items-center justify-center">
           <div
             className="absolute inset-0 bg-cover bg-center"
             style={{
@@ -159,8 +159,8 @@ export default function AatralFoundation() {
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/80" />
 
-          <div className="relative z-10 container mx-auto px-4 md:px-6 pt-28 pb-10">
-            <nav className="flex flex-wrap items-center gap-2 text-xs md:text-sm text-white/80 mb-3">
+          <div className="relative z-10 container mx-auto max-w-6xl px-6 pt-28 pb-16 text-center">
+            <nav className="flex items-center justify-center gap-2 text-xs md:text-sm text-white/80 mb-4">
               <Link to="/" className="hover:text-white transition-colors">
                 Home
               </Link>
@@ -175,13 +175,13 @@ export default function AatralFoundation() {
               <span className="text-white">Aatral Foundation</span>
             </nav>
 
-            <h1 className="text-2xl md:text-4xl lg:text-5xl font-normal text-white max-w-3xl">
+            <h1 className="text-3xl md:text-5xl font-normal text-white">
               Aatral Foundation — Social Media Growth Case Study
             </h1>
           </div>
         </section>
 
-        {/* ===== COMPACT CASE STUDY LAYOUT (NO BIG GAPS) ===== */}
+        {/* ===== COMPACT CASE STUDY LAYOUT ===== */}
         <section className="py-6 md:py-8">
           <div className="container mx-auto px-4 md:px-6">
             <div
@@ -191,7 +191,7 @@ export default function AatralFoundation() {
                 items-start
               "
             >
-              {/* LEFT COLUMN: ALL TEXT CONTENT STACKED TIGHTLY */}
+              {/* LEFT COLUMN */}
               <div className="space-y-4 md:space-y-5">
                 {/* Overview */}
                 <div className="rounded-2xl border border-gray-200 bg-white p-4 md:p-5 shadow-sm">
@@ -221,7 +221,7 @@ export default function AatralFoundation() {
                   </p>
                 </div>
 
-                {/* Challenge + Approach side-by-side on desktop */}
+                {/* Challenge + Approach */}
                 <div className="grid gap-4 md:gap-5 md:grid-cols-2">
                   {/* Challenge */}
                   <div className="rounded-2xl border border-gray-200 bg-white p-4 md:p-5">
@@ -330,7 +330,7 @@ export default function AatralFoundation() {
                 </div>
               </div>
 
-              {/* RIGHT COLUMN: METRICS + PROJECT INFO + VIDEO, STACKED */}
+              {/* RIGHT COLUMN */}
               <div className="space-y-4 md:space-y-5">
                 {/* Metrics grid */}
                 <div className="rounded-2xl bg-white border border-gray-200 p-4 md:p-5 shadow-sm">
@@ -382,7 +382,7 @@ export default function AatralFoundation() {
                   </p>
                 </div>
 
-                {/* Video (Reels) – on the side, no extra section below */}
+                {/* Video (Reels) */}
                 <div className="rounded-2xl border border-gray-200 bg-white p-4 md:p-5 shadow-sm">
                   <h3 className="text-base md:text-lg font-semibold mb-3 text-black">
                     Key Reels
