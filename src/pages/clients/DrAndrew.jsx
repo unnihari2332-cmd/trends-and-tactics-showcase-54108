@@ -19,7 +19,7 @@ const DrAndrew = () => {
       <Header />
 
       <main className="overflow-hidden">
-        {/* ===== HERO (SEO-STYLE BREADCRUMB) ===== */}
+        {/* ===== HERO (SEO STYLE + LESS TOP SPACE) ===== */}
         <section className="relative h-[85vh] w-full flex items-center justify-center text-center px-6">
           <img
             src="/0006.jpg"
@@ -30,8 +30,8 @@ const DrAndrew = () => {
           {/* Dark overlay */}
           <div className="absolute inset-0 bg-black/60" />
 
-          <div className="relative z-10 container mx-auto max-w-6xl pt-24">
-            {/* Breadcrumb - same style as SEO page */}
+          <div className="relative z-10 container mx-auto max-w-6xl pt-4 md:pt-8">
+            {/* Breadcrumb */}
             <nav className="flex items-center justify-center gap-2 text-xs md:text-sm text-white/80 mb-4">
               <Link to="/" className="hover:text-white transition-colors">
                 Home
@@ -121,7 +121,7 @@ const DrAndrew = () => {
               </p>
             </motion.article>
 
-            {/* Our Approach */}
+            {/* Approach */}
             <motion.article
               initial={{ opacity: 0, y: 14 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -133,40 +133,37 @@ const DrAndrew = () => {
               <ul className="list-disc pl-5 space-y-2 text-black/80">
                 <li>
                   <strong className="text-[#E05D35]">Profile Creation:</strong>{" "}
-                  Set up and optimized presence across key social media
-                  platforms.
+                  Set up and optimized presence across social media platforms.
                 </li>
                 <li>
                   <strong className="text-[#E05D35]">Content Strategy:</strong>{" "}
-                  Created 4–5 video scripts every month focused on parent
-                  education, FAQs, and seasonal topics.
+                  Created 4–5 video scripts per month focused on parents' needs.
                 </li>
                 <li>
                   <strong className="text-[#E05D35]">Clinic Setup:</strong>{" "}
-                  Designed a simple, repeatable shooting environment inside the
-                  clinic for easy content production.
+                  Designed a shooting environment inside the clinic.
                 </li>
                 <li>
                   <strong className="text-[#E05D35]">
                     Engagement Content:
                   </strong>{" "}
-                  Shared childcare tips, myth-busting videos, and testimonial
-                  content to build trust and relatability.
+                  Published childcare tips, FAQs, and testimonials.
                 </li>
               </ul>
             </motion.article>
           </div>
         </section>
 
-        {/* ===== RESULTS (EXTRA SPACE TOP & BOTTOM) ===== */}
+        {/* ===== RESULTS (MORE SPACING + CLEAN UI) ===== */}
         <section className="px-4 md:px-6 py-16">
           <div className="mx-auto max-w-6xl">
             <div className="rounded-[26px] bg-white shadow-[0_18px_45px_rgba(15,23,42,0.08)] border border-black/5 px-6 md:px-10 py-12 md:py-14 text-center">
               <h2 className="text-2xl md:text-3xl font-bold mb-4">Results</h2>
 
               <p className="text-base md:text-lg text-black/80 mb-10 max-w-3xl mx-auto">
-                Consistent, high-quality content transformed a local pediatrician
-                into a recognizable personal brand across Tamil Nadu.
+                Consistent, high-quality content transformed a local
+                pediatrician into a recognizable personal brand across Tamil
+                Nadu.
               </p>
 
               <div className="flex flex-wrap justify-center gap-6 md:gap-8">
@@ -200,10 +197,9 @@ const DrAndrew = () => {
               <h2 className="text-2xl md:text-3xl font-bold mb-3">Outcome</h2>
               <p className="text-lg leading-relaxed text-black/85">
                 Today, Dr. Andrew is not just a local pediatrician but a trusted
-                voice for parents across the state. His videos are regularly
-                shared, his advice is sought after, and his clinic growth is
-                supported by a strong, consistent personal brand built through
-                strategic content and storytelling.
+                voice for parents across Tamil Nadu. His content is widely
+                shared, his advice is valued, and his new clinic has benefited
+                from strong brand-led recognition and trust.
               </p>
             </div>
           </div>
