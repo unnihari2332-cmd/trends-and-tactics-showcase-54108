@@ -138,14 +138,6 @@ export default function DigitalAds() {
           </div>
         </section>
 
-        {/* ===== BENEFITS WITH OUR SERVICE (Accordion) ===== */}
-        <section className="px-6 pb-12 md:pb-16">
-          <div className="container mx-auto max-w-6xl">
-            <div className="rounded-2xl bg-white/80 backdrop-blur-sm shadow-xl ring-1 ring-black/5 p-6 md:p-8">
-              <h2 className="text-2xl md:text-3xl font-bold mb-6">
-                Benefits With Our Service
-              </h2>
-
               <ul className="divide-y divide-gray-200">
                 {benefitItems.map(({ title, body, icon }, idx) => {
                   const isOpen = openIndex === idx;
