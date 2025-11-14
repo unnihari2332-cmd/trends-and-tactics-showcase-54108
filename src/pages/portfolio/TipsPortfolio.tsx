@@ -1,8 +1,8 @@
 // src/pages/portfolio/TipsPortfolio.tsx
 import { useRef, useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import PageHeader from "@/components/PageHeader";
 import { motion } from "framer-motion";
 import {
   TrendingUp,
@@ -118,11 +118,33 @@ export default function TipsPortfolio() {
     <div className="min-h-screen bg-background text-foreground">
       <Header />
 
-      <PageHeader 
-        title="The Indian Public School" 
-        breadcrumbs={[{ label: "Home", path: "/" }, { label: "Portfolio", path: "/portfolio" }]}
-        bgImage={heroBg}
-      />
+      {/* ===== HERO WITH DIGITAL ADS-STYLE BREADCRUMB ===== */}
+      <section className="relative min-h-[40vh] flex items-center justify-center">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${heroBg})` }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/70" />
+
+        <div className="relative z-10 container mx-auto max-w-6xl px-6 py-16 text-center">
+          {/* breadcrumb (same style as DigitalAds) */}
+          <nav className="flex items-center justify-center gap-2 text-xs md:text-sm text-white/80 mb-4">
+            <Link to="/" className="hover:text-white transition-colors">
+              Home
+            </Link>
+            <span className="opacity-60">›</span>
+            <Link to="/portfolio" className="hover:text-white transition-colors">
+              Portfolio
+            </Link>
+            <span className="opacity-60">›</span>
+            <span className="text-white">The Indian Public School</span>
+          </nav>
+
+          <h1 className="text-3xl md:text-5xl font-normal text-white">
+            The Indian Public School
+          </h1>
+        </div>
+      </section>
 
       {/* SHORT OVERVIEW */}
       <section className="py-10">
@@ -132,9 +154,10 @@ export default function TipsPortfolio() {
               Education · Case Study
             </span>
             <p className="text-gray-700 leading-relaxed mt-3">
-              Complete rebranding and digital presence transformation that modernized traditional
-              learning environments, strengthened parent trust, and positioned the school as a
-              leading choice in its region.
+              Complete rebranding and digital presence transformation that
+              modernized traditional learning environments, strengthened parent
+              trust, and positioned the school as a leading choice in its
+              region.
             </p>
           </div>
         </div>
@@ -147,10 +170,11 @@ export default function TipsPortfolio() {
           <div className="rounded-2xl border border-gray-200 bg-white p-6">
             <h2 className="text-2xl font-semibold mb-4">Challenge</h2>
             <p className="text-gray-700 leading-relaxed">
-              The Indian Public School faced declining enrollment and poor online visibility in a
-              competitive educational landscape. Their outdated digital presence failed to
-              communicate their academic excellence and modern teaching methodologies to
-              prospective parents and students. The school needed a comprehensive digital
+              The Indian Public School faced declining enrollment and poor
+              online visibility in a competitive educational landscape. Their
+              outdated digital presence failed to communicate their academic
+              excellence and modern teaching methodologies to prospective
+              parents and students. The school needed a comprehensive digital
               transformation to rebuild trust and attract quality enrollments.
             </p>
           </div>
@@ -159,7 +183,8 @@ export default function TipsPortfolio() {
           <div className="rounded-2xl border border-gray-200 bg-white p-6">
             <h2 className="text-2xl font-semibold mb-4">Our Approach</h2>
             <p className="text-gray-700 leading-relaxed mb-4">
-              We implemented a comprehensive digital transformation strategy that included:
+              We implemented a comprehensive digital transformation strategy
+              that included:
             </p>
             <ul className="space-y-2 text-gray-700 text-sm md:text-base leading-relaxed">
               <li>• Modern, conversion-focused website redesign with intuitive navigation</li>
