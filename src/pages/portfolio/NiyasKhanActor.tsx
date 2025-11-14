@@ -170,14 +170,14 @@ export default function NiyasKhanActor() {
   }, []);
 
   const YOUTUBE_VIDEOS: string[] = [
-    // add URLs when ready, will auto-activate scroller
+    // add URLs when ready
   ];
 
   return (
     <div
       className="min-h-screen bg-background text-foreground"
       style={{
-        backgroundImage: "url('/sidelogo.jpg')", // side logo like Swathi page
+        backgroundImage: "url('/sidelogo.jpg')",
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
         backgroundPosition: "left center",
@@ -199,7 +199,6 @@ export default function NiyasKhanActor() {
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/80" />
 
           <div className="relative z-10 container mx-auto max-w-6xl px-6 pt-28 pb-16 text-center">
-            {/* breadcrumb (like Swathi page) */}
             <nav className="flex items-center justify-center gap-2 text-xs md:text-sm text-white/80 mb-4">
               <Link to="/" className="hover:text-white transition-colors">
                 Home
@@ -240,49 +239,53 @@ export default function NiyasKhanActor() {
           </div>
         </section>
 
-        {/* ===== Extended Profile & Brand Positioning ===== */}
+        {/* ===== Extended Profile + Brand Positioning COMBINED BOX ===== */}
         <section className="py-8">
           <div className="container mx-auto px-6">
-            <div className="grid gap-6 md:grid-cols-2">
-              <div className="rounded-2xl border border-gray-200 bg-white p-6">
-                <div className="flex items-center gap-3 mb-3">
-                  <NotebookPen className="h-5 w-5 text-primary" />
-                  <h3 className="text-xl font-semibold">Extended Profile</h3>
+            <div className="max-w-5xl mx-auto rounded-2xl border border-gray-200 bg-white p-6 md:p-7 shadow-sm">
+              <div className="grid gap-6 md:gap-8 md:grid-cols-2 items-start">
+                {/* Extended profile (left) */}
+                <div>
+                  <div className="flex items-center gap-3 mb-3">
+                    <NotebookPen className="h-5 w-5 text-primary" />
+                    <h3 className="text-xl font-semibold">Extended Profile</h3>
+                  </div>
+                  <p className="text-gray-700 leading-relaxed">
+                    From theatre to impactful screen roles, Niyas combines
+                    training and passion to deliver layered, emotionally rich
+                    portrayals.
+                  </p>
                 </div>
-                <p className="text-gray-700 leading-relaxed">
-                  From theatre to impactful screen roles, Niyas combines
-                  training and passion to deliver layered, emotionally rich
-                  portrayals.
-                </p>
-              </div>
 
-              <div className="rounded-2xl border border-gray-200 bg-white p-6">
-                <div className="flex items-center gap-3 mb-3">
-                  <Star className="h-5 w-5 text-primary" />
-                  <h3 className="text-xl font-semibold">
-                    Brand Positioning &amp; PR Narrative
-                  </h3>
-                </div>
-                <div className="grid gap-4">
-                  <Pillar
-                    title="Versatility"
-                    desc="Balances commercial hits with nuanced, character-driven roles."
-                  />
-                  <Pillar
-                    title="Authentic Connection"
-                    desc="Connects through honesty and realism."
-                  />
-                  <Pillar
-                    title="Emerging Star"
-                    desc="Confident, passionate, and committed to the craft."
-                  />
-                </div>
-                <div className="mt-4 rounded-lg bg-gray-50 p-4 text-sm text-gray-700">
-                  Anchor your PR on these pillars —{" "}
-                  <span className="font-semibold">Versatility</span>,{" "}
-                  <span className="font-semibold">Authenticity</span>,{" "}
-                  <span className="font-semibold">Emerging Star</span> — across
-                  releases, interviews, and social campaigns.
+                {/* Brand positioning (right, inside same card) */}
+                <div>
+                  <div className="flex items-center gap-3 mb-3">
+                    <Star className="h-5 w-5 text-primary" />
+                    <h3 className="text-xl font-semibold">
+                      Brand Positioning &amp; PR Narrative
+                    </h3>
+                  </div>
+                  <div className="grid gap-4">
+                    <Pillar
+                      title="Versatility"
+                      desc="Balances commercial hits with nuanced, character-driven roles."
+                    />
+                    <Pillar
+                      title="Authentic Connection"
+                      desc="Connects through honesty and realism."
+                    />
+                    <Pillar
+                      title="Emerging Star"
+                      desc="Confident, passionate, and committed to the craft."
+                    />
+                  </div>
+                  <div className="mt-4 rounded-lg bg-gray-50 p-4 text-sm text-gray-700">
+                    Anchor your PR on these pillars —{" "}
+                    <span className="font-semibold">Versatility</span>,{" "}
+                    <span className="font-semibold">Authenticity</span>,{" "}
+                    <span className="font-semibold">Emerging Star</span> —
+                    across releases, interviews, and social campaigns.
+                  </div>
                 </div>
               </div>
             </div>
@@ -375,19 +378,15 @@ export default function NiyasKhanActor() {
               </div>
 
               <div className="grid gap-6 md:grid-cols-2">
-                {/* Instagram Bio Idea */}
                 <div className="rounded-lg border border-gray-200 p-4 bg-gray-50">
                   <h4 className="font-semibold mb-2">Instagram Bio Idea</h4>
                   <ul className="space-y-1 text-sm text-gray-800">
                     <li>🎬 Actor | Storyteller</li>
                     <li>✨ Living every frame with passion</li>
-                    <li>
-                      📩 For PR &amp; collaborations: <span>[email]</span>
-                    </li>
+                    <li>📩 For PR &amp; collaborations: [email]</li>
                   </ul>
                 </div>
 
-                {/* Launch Post Caption */}
                 <div className="rounded-lg border border-gray-200 p-4 bg-gray-50">
                   <h4 className="font-semibold mb-2">Launch Post Caption</h4>
                   <p className="text-sm text-gray-800">
@@ -432,20 +431,6 @@ export default function NiyasKhanActor() {
             </div>
           </div>
         </section>
-
-        {/* ===== Videos (auto-scrolling full frame, Swathi-style box) ===== */}
-        <section className="py-8 pb-16">
-          <div className="container mx-auto px-6">
-            <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
-              <div className="flex items-center gap-3 mb-4">
-                <VideoIcon className="h-5 w-5 text-primary" />
-                <h3 className="text-xl font-semibold">Videos</h3>
-              </div>
-              <YouTubeAutoScroller urls={YOUTUBE_VIDEOS} intervalMs={5000} />
-            </div>
-          </div>
-        </section>
-      </main>
 
       <Footer />
     </div>
