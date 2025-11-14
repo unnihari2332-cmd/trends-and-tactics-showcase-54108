@@ -19,7 +19,7 @@ const DrAndrew = () => {
       <Header />
 
       <main className="overflow-hidden">
-        {/* ===== HERO (MATCHING SEO STYLE) ===== */}
+        {/* ===== HERO (SEO-STYLE BREADCRUMB) ===== */}
         <section className="relative h-[85vh] w-full flex items-center justify-center text-center px-6">
           <img
             src="/0006.jpg"
@@ -31,16 +31,21 @@ const DrAndrew = () => {
           <div className="absolute inset-0 bg-black/60" />
 
           <div className="relative z-10 container mx-auto max-w-6xl pt-24">
-            {/* Breadcrumb */}
-            <nav className="flex items-center justify-center gap-2 text-sm text-white/80 mb-3">
-              <Link to="/" className="hover:text-white">
+            {/* Breadcrumb - same style as SEO page */}
+            <nav className="flex items-center justify-center gap-2 text-xs md:text-sm text-white/80 mb-4">
+              <Link to="/" className="hover:text-white transition-colors">
                 Home
               </Link>
-              <span>›</span>
-              <Link to="/portfolio" className="hover:text-white">
+              <span className="opacity-60">›</span>
+
+              <Link
+                to="/portfolio"
+                className="hover:text-white transition-colors"
+              >
                 Portfolio
               </Link>
-              <span>›</span>
+              <span className="opacity-60">›</span>
+
               <span className="text-white">Dr. Andrew Stephen</span>
             </nav>
 
@@ -82,20 +87,21 @@ const DrAndrew = () => {
               <p className="text-lg md:text-xl font-medium leading-relaxed text-black mb-4">
                 <strong>Client:</strong> Dr. Andrew Stephen, Pudukkottai
                 <br />
-                <strong>Scope:</strong> Personal Branding, Social Media Management &amp; Video Content Strategy
+                <strong>Scope:</strong> Personal Branding, Social Media
+                Management &amp; Video Content Strategy
               </p>
 
               <p className="text-base md:text-lg leading-relaxed text-black/80">
-                Dr. Andrew wanted to reach parents beyond his local circle and build
-                a recognizable, trustworthy pediatric brand across Tamil Nadu. Our
-                goal was to convert his expertise into consistent, relatable content
-                that connects with parents online.
+                Dr. Andrew wanted to reach parents beyond his local circle and
+                build a recognizable, trustworthy pediatric brand across Tamil
+                Nadu. Our goal was to convert his expertise into consistent,
+                relatable content that connects with parents online.
               </p>
             </motion.div>
           </div>
         </section>
 
-        {/* ===== CHALLENGE & APPROACH (CARD STYLE LIKE SEO PAGE) ===== */}
+        {/* ===== CHALLENGE & APPROACH ===== */}
         <section className="py-10 px-6">
           <div className="container mx-auto max-w-6xl grid gap-6 md:grid-cols-2">
             {/* Challenge */}
@@ -127,7 +133,8 @@ const DrAndrew = () => {
               <ul className="list-disc pl-5 space-y-2 text-black/80">
                 <li>
                   <strong className="text-[#E05D35]">Profile Creation:</strong>{" "}
-                  Set up and optimized presence across key social media platforms.
+                  Set up and optimized presence across key social media
+                  platforms.
                 </li>
                 <li>
                   <strong className="text-[#E05D35]">Content Strategy:</strong>{" "}
@@ -140,7 +147,9 @@ const DrAndrew = () => {
                   clinic for easy content production.
                 </li>
                 <li>
-                  <strong className="text-[#E05D35]">Engagement Content:</strong>{" "}
+                  <strong className="text-[#E05D35]">
+                    Engagement Content:
+                  </strong>{" "}
                   Shared childcare tips, myth-busting videos, and testimonial
                   content to build trust and relatability.
                 </li>
@@ -149,18 +158,18 @@ const DrAndrew = () => {
           </div>
         </section>
 
-        {/* ===== RESULTS (TIGHT CARD LIKE SEO "WE SERVE" SECTION) ===== */}
-        <section className="px-4 md:px-6 pb-8 md:pb-10">
+        {/* ===== RESULTS (EXTRA SPACE TOP & BOTTOM) ===== */}
+        <section className="px-4 md:px-6 py-16">
           <div className="mx-auto max-w-6xl">
-            <div className="rounded-[26px] bg-white shadow-[0_18px_45px_rgba(15,23,42,0.08)] border border-black/5 px-6 md:px-10 py-7 md:py-8 text-center">
-              <h2 className="text-2xl md:text-3xl font-bold mb-2">Results</h2>
+            <div className="rounded-[26px] bg-white shadow-[0_18px_45px_rgba(15,23,42,0.08)] border border-black/5 px-6 md:px-10 py-12 md:py-14 text-center">
+              <h2 className="text-2xl md:text-3xl font-bold mb-4">Results</h2>
 
-              <p className="text-base md:text-lg text-black/80 mb-6 max-w-3xl mx-auto">
+              <p className="text-base md:text-lg text-black/80 mb-10 max-w-3xl mx-auto">
                 Consistent, high-quality content transformed a local pediatrician
                 into a recognizable personal brand across Tamil Nadu.
               </p>
 
-              <div className="flex flex-wrap justify-center gap-4 md:gap-6">
+              <div className="flex flex-wrap justify-center gap-6 md:gap-8">
                 {[
                   { big: "250+", small: "Videos Produced" },
                   { big: "12,000+", small: "Followers (FB & IG)" },
@@ -169,12 +178,12 @@ const DrAndrew = () => {
                 ].map((r) => (
                   <div
                     key={r.small}
-                    className="flex-1 min-w-[150px] max-w-[190px] rounded-[22px] border border-slate-200 bg-white px-6 py-5 text-center shadow-sm"
+                    className="flex-1 min-w-[150px] max-w-[190px] rounded-2xl border border-slate-200 bg-white px-6 py-6 text-center shadow-sm"
                   >
                     <div className="text-2xl md:text-3xl font-extrabold">
                       {r.big}
                     </div>
-                    <div className="text-xs md:text-sm text-black/70 mt-1">
+                    <div className="text-xs md:text-sm text-black/70 mt-2">
                       {r.small}
                     </div>
                   </div>
@@ -184,7 +193,7 @@ const DrAndrew = () => {
           </div>
         </section>
 
-        {/* ===== OUTCOME (MATCHING CARD STYLE) ===== */}
+        {/* ===== OUTCOME ===== */}
         <section className="px-6 pb-10">
           <div className="container mx-auto max-w-6xl">
             <div className="rounded-2xl bg-white/90 shadow-xl ring-1 ring-black/5 p-8">
