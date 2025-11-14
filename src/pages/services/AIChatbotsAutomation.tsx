@@ -1,9 +1,9 @@
 // src/pages/AIChatbotsAutomation.tsx
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import PageHeader from "@/components/PageHeader";
 import CTASection from "@/components/CTASection";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 export default function AIChatbotsAutomation() {
   return (
@@ -20,11 +20,32 @@ export default function AIChatbotsAutomation() {
       <Header />
 
       <main>
-        <PageHeader 
-          title="AI Chatbots & Automation" 
-          breadcrumbs={[{ label: "Home", path: "/" }, { label: "Services", path: "/services" }]}
-          bgImage="/chatbot.jpg"
-        />
+        {/* ===== HERO WITH BREADCRUMB (same style as other service pages) ===== */}
+        <section className="relative min-h-[40vh] flex items-center justify-center">
+          <div
+            className="absolute inset-0 bg-cover bg-center"
+            style={{ backgroundImage: "url('/chatbot.jpg')" }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/70" />
+
+          <div className="relative z-10 container mx-auto max-w-6xl px-6 py-16 text-center">
+            <nav className="flex items-center justify-center gap-2 text-xs md:text-sm text-white/80 mb-4">
+              <Link to="/" className="hover:text-white transition-colors">
+                Home
+              </Link>
+              <span className="opacity-60">›</span>
+              <Link to="/services" className="hover:text-white transition-colors">
+                Services
+              </Link>
+              <span className="opacity-60">›</span>
+              <span className="text-white">AI Chatbots &amp; Automation</span>
+            </nav>
+
+            <h1 className="text-3xl md:text-5xl font-normal text-white">
+              AI Chatbots &amp; Automation
+            </h1>
+          </div>
+        </section>
 
         {/* ===== INTRO ===== */}
         <section className="py-10 px-6 md:py-12">
