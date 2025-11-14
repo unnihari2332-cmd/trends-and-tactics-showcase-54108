@@ -18,55 +18,59 @@ const DrAndrew = () => {
     >
       <Header />
 
-      <main>
-       {/* ===== HERO (FULL 100VH HERO) ===== */}
-<section className="relative h-[100vh] w-full flex items-center justify-center text-center px-6 overflow-hidden">
-  <img
-    src="/0006.jpg"
-    alt="Dr. Andrew Stephen"
-    className="absolute inset-0 w-full h-full object-cover"
-    style={{ objectPosition: "center" }}
-  />
+      <main className="!p-0 !m-0">
 
-  {/* Overlay */}
-  <div className="absolute inset-0 bg-black/60" />
+        {/* ===== HERO (FULL 100VH) — NO EXTRA SPACE ===== */}
+        <section className="relative h-[100vh] w-full flex items-center justify-center text-center px-6 overflow-hidden !mt-0">
 
-  <div className="relative z-10 container mx-auto max-w-6xl pt-32">
-    {/* breadcrumb */}
-    <nav className="flex items-center justify-center gap-2 text-sm text-white/80 mb-4">
-      <a href="/" className="hover:text-white transition-colors">Home</a>
-      <span className="opacity-60">›</span>
-      <a href="/portfolio" className="hover:text-white transition-colors">Portfolio</a>
-      <span className="opacity-60">›</span>
-      <span className="text-white">Dr. Andrew Stephen</span>
-    </nav>
+          <img
+            src="/0006.jpg"
+            alt="Dr. Andrew Stephen"
+            className="absolute inset-0 w-full h-full object-cover"
+            style={{ objectPosition: "center" }}
+          />
 
-    {/* Category label */}
-    <p className="uppercase tracking-wider text-[#E05D35] font-semibold text-lg mb-2">
-      DR ANDREW STEPHEN
-    </p>
+          {/* Overlay */}
+          <div className="absolute inset-0 bg-black/60" />
 
-    {/* Main Title – MUCH BIGGER */}
-    <motion.h1
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-      className="text-5xl md:text-7xl lg:text-8xl font-extrabold text-white leading-tight"
-    >
-      Dr. Andrew Stephen — Pediatrician
-    </motion.h1>
-  </div>
-</section>
+          {/* Content */}
+          <div className="relative z-10 container mx-auto max-w-6xl pt-28 md:pt-32">
 
+            {/* breadcrumb */}
+            <nav className="flex items-center justify-center gap-2 text-sm text-white/80 mb-3 md:mb-4">
+              <a href="/" className="hover:text-white transition-colors">Home</a>
+              <span className="opacity-60">›</span>
+              <a href="/portfolio" className="hover:text-white transition-colors">Portfolio</a>
+              <span className="opacity-60">›</span>
+              <span className="text-white">Dr. Andrew Stephen</span>
+            </nav>
 
-        {/* ===== INTRO ===== */}
-        <section className="py-10 px-6 md:py-12">
+            {/* Category label */}
+            <p className="uppercase tracking-wider text-[#E05D35] font-semibold text-sm md:text-lg mb-1 md:mb-2">
+              DR ANDREW STEPHEN
+            </p>
+
+            {/* Main Title */}
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold text-white leading-tight"
+            >
+              Dr. Andrew Stephen — Pediatrician
+            </motion.h1>
+          </div>
+        </section>
+
+        {/* ===== INTRO (NO TOP GAP) ===== */}
+        <section className="py-10 px-6 md:py-12 !mt-0">
           <div className="container mx-auto max-w-6xl grid gap-8 md:grid-cols-2 items-center">
+
             <div className="flex justify-center">
               <img
                 src="/andrew.png"
                 alt="Clinic"
-                className="w-[36rem] md:w-[42rem] rounded-2xl shadow-2xl object-cover"
+                className="w-[32rem] md:w-[40rem] rounded-2xl shadow-2xl object-cover"
               />
             </div>
 
@@ -78,15 +82,16 @@ const DrAndrew = () => {
               <p className="text-base md:text-2xl font-medium leading-relaxed text-black text-center md:text-left">
                 <strong>Client:</strong> Dr. Andrew Stephen, Pudukkottai
                 <br />
-                <strong>Scope:</strong> Personal Branding, Social Media Management &amp; Video Content Strategy
+                <strong>Scope:</strong> Personal Branding, Social Media Management & Video Content Strategy
               </p>
             </motion.div>
           </div>
         </section>
 
         {/* ===== CHALLENGE & APPROACH ===== */}
-        <section className="py-10 md:py-14 px-6">
+        <section className="py-10 md:py-14 px-6 !mt-0">
           <div className="container mx-auto max-w-6xl grid gap-6 md:grid-cols-2">
+
             <motion.article
               initial={{ opacity: 0, y: 14 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -106,27 +111,21 @@ const DrAndrew = () => {
             >
               <h2 className="text-2xl font-semibold mb-3">Our Approach</h2>
               <ul className="list-disc pl-5 space-y-2">
-                <li>
-                  <strong className="text-[#E05D35]">Profile Creation:</strong> Setup and managed all platforms.
-                </li>
-                <li>
-                  <strong className="text-[#E05D35]">Content Strategy:</strong> Delivered 4–5 scripts per month.
-                </li>
-                <li>
-                  <strong className="text-[#E05D35]">Training:</strong> Setup clinic shooting environment.
-                </li>
-                <li>
-                  <strong className="text-[#E05D35]">Engagement Content:</strong> Childcare tips, testimonials, etc.
-                </li>
+                <li><strong className="text-[#E05D35]">Profile Creation:</strong> Setup and managed all platforms.</li>
+                <li><strong className="text-[#E05D35]">Content Strategy:</strong> Delivered 4–5 scripts monthly.</li>
+                <li><strong className="text-[#E05D35]">Training:</strong> Setup clinic shooting environment.</li>
+                <li><strong className="text-[#E05D35]">Engagement Content:</strong> Childcare tips, testimonials, etc.</li>
               </ul>
             </motion.article>
+
           </div>
         </section>
 
         {/* ===== RESULTS ===== */}
-        <section className="px-6 pb-10">
+        <section className="px-6 pb-10 !mt-0">
           <div className="container mx-auto max-w-6xl text-center">
             <div className="rounded-2xl bg-white/85 backdrop-blur-sm shadow-xl ring-1 ring-black/5 p-10">
+
               <h2 className="text-2xl md:text-3xl font-bold mb-4">Results</h2>
 
               <p className="text-lg text-black/80 mb-8 max-w-2xl mx-auto">
@@ -138,7 +137,7 @@ const DrAndrew = () => {
                   { big: "250+", small: "Videos Produced" },
                   { big: "12,000+", small: "Followers (FB & IG)" },
                   { big: "TN-Wide", small: "Reach & Recognition" },
-                  { big: "New Clinic", small: "Brand-led Growth" },
+                  { big: "New Clinic", small: "Brand-led Growth" }
                 ].map((r) => (
                   <div
                     key={r.small}
@@ -149,12 +148,13 @@ const DrAndrew = () => {
                   </div>
                 ))}
               </div>
+
             </div>
           </div>
         </section>
 
         {/* ===== OUTCOME ===== */}
-        <section className="px-6 pb-16">
+        <section className="px-6 pb-16 !mt-0">
           <div className="container mx-auto max-w-6xl">
             <div className="rounded-2xl bg-white/85 backdrop-blur-sm shadow-xl ring-1 ring-black/5 p-8">
               <h2 className="text-2xl md:text-3xl font-bold mb-4">Outcome</h2>
@@ -164,6 +164,7 @@ const DrAndrew = () => {
             </div>
           </div>
         </section>
+
       </main>
 
       <Footer />
