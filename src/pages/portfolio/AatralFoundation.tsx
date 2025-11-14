@@ -24,7 +24,6 @@ const METRICS = [
 
 /** ================================
  *  Auto-scrolling Instagram Reels
- *  (side layout friendly, less blank space)
  *  ================================ */
 function ReelsAutoScroller({
   ids,
@@ -37,7 +36,6 @@ function ReelsAutoScroller({
   const [index, setIndex] = useState(0);
   const timerRef = useRef<number | null>(null);
 
-  // Scroll to active slide
   useEffect(() => {
     const el = trackRef.current;
     if (!el) return;
@@ -59,7 +57,6 @@ function ReelsAutoScroller({
     );
   };
 
-  // Auto-advance, pause on hover
   useEffect(() => {
     start();
     const el = trackRef.current;
@@ -86,7 +83,7 @@ function ReelsAutoScroller({
           overflow-x-hidden
           snap-x snap-mandatory scroll-smooth
           rounded-xl border border-gray-200 bg-white
-          w-full max-w-[380px] md:max-w-[420px]
+          w-full max-w-[360px] md:max-w-[380px]
           mx-auto md:mx-0
         "
       >
@@ -150,9 +147,9 @@ export default function AatralFoundation() {
     >
       <Header />
 
-      <main>
-        {/* ===== HERO WITH BREADCRUMB (Swathi / Andrew style) ===== */}
-        <section className="relative min-h-[40vh] flex items-center justify-center">
+      <main className="pb-12">
+        {/* ===== HERO (TIGHTER, LESS BLANK SPACE) ===== */}
+        <section className="relative min-h-[32vh] flex items-center">
           <div
             className="absolute inset-0 bg-cover bg-center"
             style={{
@@ -160,10 +157,10 @@ export default function AatralFoundation() {
               backgroundPosition: "center 30%",
             }}
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/70" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/80" />
 
-          <div className="relative z-10 container mx-auto max-w-6xl px-6 pt-28 pb-16 text-center">
-            <nav className="flex items-center justify-center gap-2 text-xs md:text-sm text-white/80 mb-4">
+          <div className="relative z-10 container mx-auto px-4 md:px-6 pt-28 pb-10">
+            <nav className="flex flex-wrap items-center gap-2 text-xs md:text-sm text-white/80 mb-3">
               <Link to="/" className="hover:text-white transition-colors">
                 Home
               </Link>
@@ -178,186 +175,192 @@ export default function AatralFoundation() {
               <span className="text-white">Aatral Foundation</span>
             </nav>
 
-            <h1 className="text-3xl md:text-5xl font-normal text-white">
+            <h1 className="text-2xl md:text-4xl lg:text-5xl font-normal text-white max-w-3xl">
               Aatral Foundation — Social Media Growth Case Study
             </h1>
           </div>
         </section>
 
-        {/* ===== Overview ===== */}
-        <section className="py-10">
-          <div className="container mx-auto px-6">
-            <div className="max-w-5xl mx-auto rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
-              <div className="flex flex-wrap items-center gap-3 text-xs font-semibold uppercase tracking-wide text-teal-600 mb-3">
-                <span className="inline-flex items-center gap-2">
-                  <HeartHandshake className="h-4 w-4" />
-                  Non-Profit · Community Impact
-                </span>
-                <span className="inline-flex items-center gap-2 text-gray-600 normal-case">
-                  <MapPin className="h-4 w-4" />
-                  Erode, Tamil Nadu
-                </span>
-                <span className="inline-flex items-center gap-2 text-gray-600 normal-case">
-                  <Users className="h-4 w-4" />
-                  Founder:{" "}
-                  <span className="font-semibold">Aatral Ashok Kumar</span>
-                </span>
-              </div>
+        {/* ===== COMPACT CASE STUDY LAYOUT (NO BIG GAPS) ===== */}
+        <section className="py-6 md:py-8">
+          <div className="container mx-auto px-4 md:px-6">
+            <div
+              className="
+                grid gap-6 lg:gap-8
+                lg:grid-cols-[minmax(0,2fr)_minmax(0,1.15fr)]
+                items-start
+              "
+            >
+              {/* LEFT COLUMN: ALL TEXT CONTENT STACKED TIGHTLY */}
+              <div className="space-y-4 md:space-y-5">
+                {/* Overview */}
+                <div className="rounded-2xl border border-gray-200 bg-white p-4 md:p-5 shadow-sm">
+                  <div className="flex flex-wrap items-center gap-3 text-[11px] md:text-xs font-semibold uppercase tracking-wide text-teal-600 mb-3">
+                    <span className="inline-flex items-center gap-2">
+                      <HeartHandshake className="h-4 w-4" />
+                      Non-Profit · Community Impact
+                    </span>
+                    <span className="inline-flex items-center gap-2 text-gray-600 normal-case">
+                      <MapPin className="h-4 w-4" />
+                      Erode, Tamil Nadu
+                    </span>
+                    <span className="inline-flex items-center gap-2 text-gray-600 normal-case">
+                      <Users className="h-4 w-4" />
+                      Founder:{" "}
+                      <span className="font-semibold">Aatral Ashok Kumar</span>
+                    </span>
+                  </div>
 
-              <p className="text-gray-700 leading-relaxed">
-                Complete social-media transformation that amplified a local
-                NGO’s voice, engagement, and community reach. Starting from{" "}
-                <strong>3,000 followers</strong>, we implemented a story-led
-                content strategy and community-first design that scaled the
-                audience to <strong>30,000+ followers</strong> while
-                strengthening volunteer and donor pipelines.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* ===== Challenge & Our Approach ===== */}
-        <section className="py-8">
-          <div className="container mx-auto px-6 grid gap-6 md:grid-cols-2">
-            {/* Challenge */}
-            <div className="rounded-2xl border border-gray-200 bg-white p-6">
-              <h2 className="text-2xl font-semibold mb-4 text-black">
-                Challenge
-              </h2>
-              <p className="text-gray-700 leading-relaxed">
-                Despite impactful on-ground initiatives, Aatral Foundation had a
-                limited online footprint with just{" "}
-                <strong>3,000 followers</strong>. Their impact stories were not
-                reaching potential donors, volunteers, and partners. They needed
-                a cohesive digital identity and growth framework to scale
-                visibility, trust, and engagement.
-              </p>
-            </div>
-
-            {/* Our Approach */}
-            <div className="rounded-2xl border border-gray-200 bg-white p-6">
-              <h2 className="text-2xl font-semibold mb-4 text-black">
-                Our Approach
-              </h2>
-              <p className="text-gray-700 leading-relaxed mb-4">
-                We implemented a focused social-media growth strategy that
-                included:
-              </p>
-              <ul className="space-y-2 text-gray-700 text-sm md:text-base leading-relaxed">
-                <li>
-                  •{" "}
-                  <span className="font-semibold">
-                    Visual &amp; Content Rebrand:
-                  </span>{" "}
-                  cohesive identity, color system, and templates aligned to the
-                  mission.
-                </li>
-                <li>
-                  •{" "}
-                  <span className="font-semibold">
-                    High-Impact Content Calendar:
-                  </span>{" "}
-                  weekly reels, impact stories, volunteer spotlights, and BTS
-                  content.
-                </li>
-                <li>
-                  •{" "}
-                  <span className="font-semibold">Community Engagement:</span>{" "}
-                  polls, Q&amp;As, and cause-led campaigns to drive shares and
-                  comments.
-                </li>
-                <li>
-                  •{" "}
-                  <span className="font-semibold">
-                    Targeted Local Outreach:
-                  </span>{" "}
-                  geo-targeted boosts and collaborations with local influencers
-                  and NGOs.
-                </li>
-                <li>
-                  •{" "}
-                  <span className="font-semibold">
-                    Analytics &amp; Optimization:
-                  </span>{" "}
-                  monthly reviews to refine topics, formats, and posting
-                  windows.
-                </li>
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        {/* ===== Results + Project Info ===== */}
-        <section className="py-8">
-          <div className="container mx-auto px-6">
-            <div className="grid gap-6 lg:grid-cols-12">
-              {/* Results */}
-              <div className="lg:col-span-8 rounded-2xl border border-gray-200 bg-white p-6">
-                <h2 className="text-2xl font-semibold mb-4 text-black">
-                  Results Achieved
-                </h2>
-                <ul className="space-y-3 text-gray-700">
-                  <li>
-                    <span className="font-semibold text-black">
-                      900% audience growth
-                    </span>{" "}
-                    – followers scaled from <strong>3,000</strong> to{" "}
-                    <strong>30,000+</strong>.
-                  </li>
-                  <li>
-                    <span className="font-semibold text-black">7× engagement</span>{" "}
-                    – significant lift in likes, shares, comments, and video
-                    views.
-                  </li>
-                  <li>
-                    <span className="font-semibold text-black">
-                      Community mobilisation
-                    </span>{" "}
-                    – more volunteer sign-ups and donor inquiries through
-                    impact-led campaigns.
-                  </li>
-                  <li>
-                    <span className="font-semibold text-black">
-                      Recognised local voice
-                    </span>{" "}
-                    – one of the most visible NGOs in the Erode region.
-                  </li>
-                </ul>
-              </div>
-
-              {/* Project Info */}
-              <div className="lg:col-span-4 rounded-2xl bg-white border border-gray-200 p-6 shadow-sm">
-                <h3 className="text-xl font-bold mb-6 text-black">
-                  Project Information
-                </h3>
-
-                <div className="grid grid-cols-2 gap-4 mb-6">
-                  {METRICS.map(({ label, value, icon: Icon }) => (
-                    <div
-                      key={label}
-                      className="flex flex-col items-center rounded-xl bg-gray-50 border border-gray-200 p-4"
-                    >
-                      <Icon className="h-6 w-6 mb-2 text-teal-600" />
-                      <div className="text-lg font-bold text-black">
-                        {value}
-                      </div>
-                      <div className="text-xs text-gray-600 text-center">
-                        {label}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="rounded-lg bg-gray-50 border border-gray-200 p-4 mb-4">
-                  <p className="text-sm text-gray-700 leading-relaxed">
-                    A comprehensive social-media transformation aligning brand,
-                    content, community, and analytics—designed to drive
-                    measurable, mission-aligned growth.
+                  <p className="text-gray-700 text-sm md:text-base leading-relaxed">
+                    Complete social-media transformation that amplified a local
+                    NGO’s voice, engagement, and community reach. Starting from{" "}
+                    <strong>3,000 followers</strong>, we implemented a story-led
+                    content strategy and community-first design that scaled the
+                    audience to <strong>30,000+ followers</strong> while
+                    strengthening volunteer and donor pipelines.
                   </p>
                 </div>
 
-                <div className="rounded-lg bg-gray-50 border border-gray-200 p-4">
-                  <ul className="text-sm text-gray-700 space-y-2">
+                {/* Challenge + Approach side-by-side on desktop */}
+                <div className="grid gap-4 md:gap-5 md:grid-cols-2">
+                  {/* Challenge */}
+                  <div className="rounded-2xl border border-gray-200 bg-white p-4 md:p-5">
+                    <h2 className="text-lg md:text-xl font-semibold mb-3 text-black">
+                      Challenge
+                    </h2>
+                    <p className="text-gray-700 text-sm md:text-base leading-relaxed">
+                      Despite impactful on-ground initiatives, Aatral Foundation
+                      had a limited online footprint with just{" "}
+                      <strong>3,000 followers</strong>. Their impact stories
+                      weren’t reaching potential donors, volunteers, and
+                      partners. They needed a cohesive digital identity and
+                      growth framework to scale visibility, trust, and
+                      engagement.
+                    </p>
+                  </div>
+
+                  {/* Our Approach */}
+                  <div className="rounded-2xl border border-gray-200 bg-white p-4 md:p-5">
+                    <h2 className="text-lg md:text-xl font-semibold mb-3 text-black">
+                      Our Approach
+                    </h2>
+                    <p className="text-gray-700 text-sm md:text-base leading-relaxed mb-3">
+                      We implemented a focused social-media growth strategy that
+                      included:
+                    </p>
+                    <ul className="space-y-1.5 text-gray-700 text-sm md:text-[15px] leading-relaxed">
+                      <li>
+                        •{" "}
+                        <span className="font-semibold">
+                          Visual &amp; Content Rebrand:
+                        </span>{" "}
+                        cohesive identity, color system, and templates aligned
+                        to the mission.
+                      </li>
+                      <li>
+                        •{" "}
+                        <span className="font-semibold">
+                          High-Impact Content Calendar:
+                        </span>{" "}
+                        weekly reels, impact stories, volunteer spotlights, and
+                        BTS content.
+                      </li>
+                      <li>
+                        •{" "}
+                        <span className="font-semibold">
+                          Community Engagement:
+                        </span>{" "}
+                        polls, Q&amp;As, and cause-led campaigns to drive
+                        shares and comments.
+                      </li>
+                      <li>
+                        •{" "}
+                        <span className="font-semibold">
+                          Targeted Local Outreach:
+                        </span>{" "}
+                        geo-targeted boosts and collaborations with local
+                        influencers and NGOs.
+                      </li>
+                      <li>
+                        •{" "}
+                        <span className="font-semibold">
+                          Analytics &amp; Optimization:
+                        </span>{" "}
+                        monthly reviews to refine topics, formats, and posting
+                        windows.
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                {/* Results */}
+                <div className="rounded-2xl border border-gray-200 bg-white p-4 md:p-5">
+                  <h2 className="text-lg md:text-xl font-semibold mb-3 text-black">
+                    Results Achieved
+                  </h2>
+                  <ul className="space-y-2 text-gray-700 text-sm md:text-[15px] leading-relaxed">
+                    <li>
+                      <span className="font-semibold text-black">
+                        900% audience growth
+                      </span>{" "}
+                      – followers scaled from <strong>3,000</strong> to{" "}
+                      <strong>30,000+</strong>.
+                    </li>
+                    <li>
+                      <span className="font-semibold text-black">
+                        7× engagement
+                      </span>{" "}
+                      – significant lift in likes, shares, comments, and video
+                      views.
+                    </li>
+                    <li>
+                      <span className="font-semibold text-black">
+                        Community mobilisation
+                      </span>{" "}
+                      – more volunteer sign-ups and donor inquiries through
+                      impact-led campaigns.
+                    </li>
+                    <li>
+                      <span className="font-semibold text-black">
+                        Recognised local voice
+                      </span>{" "}
+                      – one of the most visible NGOs in the Erode region.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              {/* RIGHT COLUMN: METRICS + PROJECT INFO + VIDEO, STACKED */}
+              <div className="space-y-4 md:space-y-5">
+                {/* Metrics grid */}
+                <div className="rounded-2xl bg-white border border-gray-200 p-4 md:p-5 shadow-sm">
+                  <h3 className="text-base md:text-lg font-bold mb-4 text-black">
+                    Growth Snapshot
+                  </h3>
+                  <div className="grid grid-cols-2 gap-3">
+                    {METRICS.map(({ label, value, icon: Icon }) => (
+                      <div
+                        key={label}
+                        className="flex flex-col items-center rounded-xl bg-gray-50 border border-gray-200 p-3"
+                      >
+                        <Icon className="h-5 w-5 mb-1.5 text-teal-600" />
+                        <div className="text-base md:text-lg font-bold text-black">
+                          {value}
+                        </div>
+                        <div className="text-[11px] md:text-xs text-gray-600 text-center">
+                          {label}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Project Info */}
+                <div className="rounded-2xl bg-white border border-gray-200 p-4 md:p-5 shadow-sm">
+                  <h3 className="text-base md:text-lg font-bold mb-3 text-black">
+                    Project Information
+                  </h3>
+                  <ul className="text-sm md:text-[15px] text-gray-700 space-y-1.5 mb-3">
                     <li>
                       <strong>Client:</strong> Aatral Foundation
                     </li>
@@ -372,42 +375,27 @@ export default function AatralFoundation() {
                       Cross-platform presence with local-first storytelling
                     </li>
                   </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ===== Videos (Reels) – content left, video on the side ===== */}
-        <section className="py-8 pb-16">
-          <div className="container mx-auto px-6">
-            <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
-              <div className="grid gap-8 md:grid-cols-2 items-center">
-                {/* Content on the left */}
-                <div>
-                  <h3 className="text-xl md:text-2xl font-semibold mb-3 text-black">
-                    Videos &amp; Key Reels
-                  </h3>
-                  <p className="text-gray-700 text-sm md:text-base leading-relaxed mb-4">
-                    Short-form content played a critical role in driving
-                    discovery and engagement. Reels featuring{" "}
-                    <strong>on-ground impact</strong>,{" "}
-                    <strong>volunteer stories</strong>, and{" "}
-                    <strong>before–after transformations</strong> consistently
-                    outperformed static posts and helped Aatral Foundation reach
-                    new audiences beyond their existing follower base.
+                  <p className="text-xs md:text-sm text-gray-700 leading-relaxed">
+                    A comprehensive social-media transformation aligning brand,
+                    content, community, and analytics—designed to drive
+                    measurable, mission-aligned growth.
                   </p>
-                  <ul className="text-sm text-gray-700 space-y-2">
-                    <li>• Focus on human stories and real beneficiaries.</li>
-                    <li>• Hooks in the first 3 seconds to retain viewers.</li>
-                    <li>• Local language captions for better relatability.</li>
-                    <li>• Optimised posting times based on audience data.</li>
-                  </ul>
                 </div>
 
-                {/* Video on the side (right) */}
-                <div className="flex justify-center md:justify-end">
-                  <ReelsAutoScroller ids={REELS} intervalMs={5000} />
+                {/* Video (Reels) – on the side, no extra section below */}
+                <div className="rounded-2xl border border-gray-200 bg-white p-4 md:p-5 shadow-sm">
+                  <h3 className="text-base md:text-lg font-semibold mb-3 text-black">
+                    Key Reels
+                  </h3>
+                  <p className="text-xs md:text-sm text-gray-700 mb-3 leading-relaxed">
+                    Short-form videos featuring{" "}
+                    <strong>real beneficiaries, volunteers</strong>, and{" "}
+                    <strong>on-ground work</strong> drove maximum reach and
+                    shares in the local community.
+                  </p>
+                  <div className="flex justify-center md:justify-start">
+                    <ReelsAutoScroller ids={REELS} intervalMs={5000} />
+                  </div>
                 </div>
               </div>
             </div>
