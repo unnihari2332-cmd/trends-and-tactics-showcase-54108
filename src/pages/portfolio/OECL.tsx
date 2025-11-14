@@ -16,7 +16,7 @@ import {
 } from "lucide-react";
 
 const heroBg = "/oeclmain.jpg"; // 16:9 hero image in /public
-const sideImage = "/oecl-side.jpg"; // Tall side image (left panel)
+const sideImage = "/OECL.jpg"; // Tall side image (left panel)
 const websiteUrl = "https://www.oecl.sg/india/home";
 
 /* ------------ Small presentational helpers ------------ */
