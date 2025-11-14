@@ -16,7 +16,7 @@ import {
   Hash,
 } from "lucide-react";
 
-const heroBg = "/0003.jpg"; // hero image from public
+const heroBg = "/0002.jpg"; // hero image from public
 
 /** ================================
  *  YouTube Auto-Scroller (full 16:9)
