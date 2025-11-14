@@ -54,18 +54,6 @@ const DrAndrew = () => {
               DR ANDREW STEPHEN
             </p>
 
-            {/* Main heading */}
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight"
-            >
-              Building a Trusted Pediatric Brand
-            </motion.h1>
-          </div>
-        </section>
-
         {/* ===== INTRO / OVERVIEW ===== */}
         <section className="py-10 px-6">
           <div className="container mx-auto max-w-6xl grid gap-6 md:grid-cols-2 items-center">
