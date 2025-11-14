@@ -170,7 +170,7 @@ export default function NiyasKhanActor() {
   }, []);
 
   const YOUTUBE_VIDEOS: string[] = [
-    // add URLs here when you have them
+    // add URLs here when ready
   ];
 
   return (
@@ -239,12 +239,12 @@ export default function NiyasKhanActor() {
           </div>
         </section>
 
-        {/* ===== Extended Profile + Brand Positioning combined ===== */}
+        {/* ===== Extended Profile + Brand Positioning (SINGLE COLUMN) ===== */}
         <section className="py-8">
           <div className="container mx-auto px-6">
             <div className="max-w-5xl mx-auto rounded-2xl border border-gray-200 bg-white p-6 md:p-7 shadow-sm">
-              <div className="grid gap-6 md:gap-8 md:grid-cols-2 items-start">
-                {/* Extended profile (left) */}
+              <div className="space-y-6 md:space-y-7">
+                {/* Extended profile */}
                 <div>
                   <div className="flex items-center gap-3 mb-3">
                     <NotebookPen className="h-5 w-5 text-primary" />
@@ -257,7 +257,7 @@ export default function NiyasKhanActor() {
                   </p>
                 </div>
 
-                {/* Brand positioning (right) */}
+                {/* Brand positioning */}
                 <div>
                   <div className="flex items-center gap-3 mb-3">
                     <Star className="h-5 w-5 text-primary" />
