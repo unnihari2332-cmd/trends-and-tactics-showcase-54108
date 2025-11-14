@@ -1,8 +1,8 @@
 // src/pages/portfolio/DrAndrewPediatric.tsx
 import { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import PageHeader from "@/components/PageHeader";
 import { motion } from "framer-motion";
 import {
   Stethoscope,
@@ -21,10 +21,7 @@ import {
 const heroBg = "/0006.jpg"; // hero image from /public
 
 /** ================================
- *  YouTube Auto-Scroller (simplified & more reliable)
- *  - full 16:9 via aspect-video
- *  - auto-advance
- *  - pause on hover (using onMouseEnter / onMouseLeave)
+ *  YouTube Auto-Scroller
  * ================================ */
 function YouTubeAutoScroller({
   urls,
@@ -40,21 +37,25 @@ function YouTubeAutoScroller({
   const toEmbedUrl = (raw: string) => {
     try {
       const u = new URL(raw);
+
       // Support Shorts
       if (u.pathname.startsWith("/shorts/")) {
         const id = u.pathname.split("/")[2];
         return `https://www.youtube.com/embed/${id}?rel=0&modestbranding=1&playsinline=1`;
       }
+
       const id = u.searchParams.get("v") ?? "";
       let start = u.searchParams.get("t") || "";
       if (start.endsWith("s")) start = start.slice(0, -1);
       const s = Math.max(0, Number(start) || 0);
+
       const params = new URLSearchParams({
         rel: "0",
         modestbranding: "1",
         playsinline: "1",
         ...(s ? { start: String(s) } : {}),
       });
+
       return `https://www.youtube.com/embed/${id}?${params.toString()}`;
     } catch {
       return raw;
@@ -182,187 +183,246 @@ export default function DrAndrewPediatric() {
   ];
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
-      <Header />
-
-      <PageHeader 
-        title="Dr. Andrew Stephen — Pediatric Personal Branding"
-        breadcrumbs={[
-          { label: "Home", path: "/" },
-          { label: "Portfolio", path: "/portfolio" },
-          { label: "Dr. Andrew", path: "/portfolio/dr-andrew-pediatric" }
-        ]}
-        bgImage={heroBg}
+    <div className="min-h-screen text-foreground relative overflow-x-hidden">
+      {/* LEFT SIDE LOGO STRIP (like Swathi page) */}
+      <div
+        className="fixed left-0 top-0 h-full w-[180px] z-0 hidden lg:block"
+        style={{
+          backgroundImage: "url('/sidelogo.jpg')",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "contain",
+          backgroundPosition: "left center",
+        }}
       />
 
-      {/* ===== Intro (one-liner + badges) ===== */}
-      <section className="py-10">
-        <div className="container mx-auto px-6 text-center">
-          <motion.p
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="max-w-3xl mx-auto text-base md:text-lg text-gray-700 mb-6"
-          >
-            Parent-first digital identity and full-funnel content engine for a multi-campus pediatric
-            practice—built to educate caregivers, earn trust, and grow admissions without adding to a
-            busy clinical schedule.
-          </motion.p>
+      {/* MAIN CONTENT SHIFTED RIGHT ON DESKTOP */}
+      <div className="min-h-screen bg-background/90 lg:pl-[180px] relative z-10">
+        <Header />
 
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="flex flex-wrap items-center justify-center gap-6 text-gray-700"
-          >
-            <span className="inline-flex items-center gap-2">
-              <Stethoscope className="h-5 w-5" /> Pediatrics
-            </span>
-            <span className="inline-flex items-center gap-2">
-              <Building2 className="h-5 w-5" /> 4 Campuses
-            </span>
-            <span className="inline-flex items-center gap-2">
-              <BookOpen className="h-5 w-5" /> Web • Social • Branding • Community
-            </span>
-          </motion.div>
-        </div>
-      </section>
+        {/* ===== HERO WITH BREADCRUMB (MATCH SWATHI KONDE STYLE) ===== */}
+        <section className="relative min-h-[40vh] flex items-center justify-center">
+          <div
+            className="absolute inset-0 bg-cover bg-center"
+            style={{
+              backgroundImage: `url(${heroBg})`,
+              backgroundPosition: "center 30%",
+            }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/70" />
 
-      {/* ===== Two-column content sections ===== */}
-      <section className="py-8">
-        <div className="container mx-auto px-6">
-          <div className="grid gap-6 md:grid-cols-2">
-            {/* Extended overview */}
-            <div className="rounded-2xl border border-gray-200 bg-white p-6">
-              <div className="text-sm font-semibold uppercase tracking-wide text-teal-600 mb-3">
-                Pediatric Care • Parent Education
+          <div className="relative z-10 container mx-auto max-w-6xl px-6 py-16 text-center">
+            {/* breadcrumb same style as Swathi / Isthara / DigitalAds */}
+            <nav className="flex items-center justify-center gap-2 text-xs md:text-sm text-white/80 mb-4">
+              <Link to="/" className="hover:text-white transition-colors">
+                Home
+              </Link>
+              <span className="opacity-60">›</span>
+              <Link
+                to="/portfolio"
+                className="hover:text-white transition-colors"
+              >
+                Portfolio
+              </Link>
+              <span className="opacity-60">›</span>
+              <span className="text-white">
+                Dr. Andrew Stephen – Pediatric
+              </span>
+            </nav>
+
+            <h1 className="text-3xl md:text-5xl font-normal text-white">
+              Dr. Andrew Stephen — Pediatric Personal Branding
+            </h1>
+          </div>
+        </section>
+
+        {/* ===== Intro (one-liner + badges) ===== */}
+        <section className="py-10">
+          <div className="container mx-auto px-6 text-center">
+            <motion.p
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="max-w-3xl mx-auto text-base md:text-lg text-gray-700 mb-6 bg-white/90 rounded-2xl px-6 py-4 shadow-sm"
+            >
+              Parent-first digital identity and full-funnel content engine for a
+              multi-campus pediatric practice—built to educate caregivers, earn
+              trust, and grow admissions without adding to a busy clinical
+              schedule.
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="flex flex-wrap items-center justify-center gap-6 text-gray-700 bg-white/80 rounded-2xl px-6 py-4 shadow-sm max-w-4xl mx-auto"
+            >
+              <span className="inline-flex items-center gap-2">
+                <Stethoscope className="h-5 w-5" /> Pediatrics
+              </span>
+              <span className="inline-flex items-center gap-2">
+                <Building2 className="h-5 w-5" /> 4 Campuses
+              </span>
+              <span className="inline-flex items-center gap-2">
+                <BookOpen className="h-5 w-5" /> Web • Social • Branding •
+                Community
+              </span>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* ===== Two-column content sections ===== */}
+        <section className="py-8">
+          <div className="container mx-auto px-6">
+            <div className="grid gap-6 md:grid-cols-2">
+              {/* Extended overview */}
+              <div className="rounded-2xl border border-gray-200 bg-white p-6">
+                <div className="text-sm font-semibold uppercase tracking-wide text-teal-600 mb-3">
+                  Pediatric Care • Parent Education
+                </div>
+                <p className="text-gray-700 leading-relaxed">
+                  Families were discovering the clinics mostly through
+                  word-of-mouth, leading to uneven growth across campuses. We
+                  built a consistent, parent-focused digital identity that
+                  educates caregivers and showcases Dr. Stephen’s child-first
+                  philosophy—without adding to his clinical workload.
+                </p>
               </div>
-              <p className="text-gray-700 leading-relaxed">
-                Families were discovering the clinics mostly through word-of-mouth, leading to uneven
-                growth across campuses. We built a consistent, parent-focused digital identity that
-                educates caregivers and showcases Dr. Stephen’s child-first philosophy—without adding
-                to his clinical workload.
+
+              {/* Brand Positioning / Pillars */}
+              <div className="rounded-2xl border border-gray-200 bg-white p-6">
+                <h3 className="text-xl font-semibold mb-3">
+                  Brand Positioning
+                </h3>
+                <div className="grid gap-4">
+                  <Pillar
+                    title="Trusted Pediatric Expertise"
+                    desc="Clear, parent-friendly language and resources that simplify healthcare decisions."
+                  />
+                  <Pillar
+                    title="Warm, Approachable Tone"
+                    desc="Visual identity and messaging that feel caring, calm, and child-first."
+                  />
+                  <Pillar
+                    title="Community at the Core"
+                    desc="Stories from vaccination drives, wellness camps, and parent workshops."
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ===== Our Approach ===== */}
+        <section className="py-8">
+          <div className="container mx-auto px-6">
+            <div className="rounded-2xl border border-gray-200 bg-white p-6">
+              <h2 className="text-2xl font-semibold mb-4 text-black">
+                Our Approach
+              </h2>
+              <ul className="space-y-3 text-gray-700">
+                <li className="flex gap-3">
+                  <HeartHandshake className="h-5 w-5 mt-1 text-teal-600" />
+                  <p>
+                    <span className="font-medium">Unified Brand Story:</span>{" "}
+                    Warm, approachable identity—colors, fonts, and messaging—
+                    parents associate with expert, compassionate care.
+                  </p>
+                </li>
+                <li className="flex gap-3">
+                  <CalendarCheck className="h-5 w-5 mt-1 text-teal-600" />
+                  <p>
+                    <span className="font-medium">Website Overhaul:</span>{" "}
+                    Mobile-first site with easy appointment booking, parent
+                    resources, and interactive campus maps.
+                  </p>
+                </li>
+                <li className="flex gap-3">
+                  <PlayCircle className="h-5 w-5 mt-1 text-teal-600" />
+                  <p>
+                    <span className="font-medium">
+                      Full-Service Social Management:
+                    </span>{" "}
+                    Calendar of pediatric tips, seasonal advisories, and
+                    behind-the-scenes staff moments, supported by professional
+                    photo/video shoots.
+                  </p>
+                </li>
+                <li className="flex gap-3">
+                  <MapPin className="h-5 w-5 mt-1 text-teal-600" />
+                  <p>
+                    <span className="font-medium">
+                      On-Campus Content Enablement:
+                    </span>{" "}
+                    Trained staff to capture authentic moments—vaccination
+                    drives, wellness camps, and parent workshops—so every campus
+                    contributes to the story.
+                  </p>
+                </li>
+                <li className="flex gap-3">
+                  <BookOpen className="h-5 w-5 mt-1 text-teal-600" />
+                  <p>
+                    <span className="font-medium">Storytelling Campaigns:</span>{" "}
+                    <em>"Healthy Starts Here"</em> series highlighting real
+                    parent concerns, child milestones, and preventive care
+                    advice.
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        {/* ===== Results ===== */}
+        <section className="py-8">
+          <div className="container mx-auto px-6">
+            <div className="rounded-2xl border border-gray-200 bg-white p-6">
+              <h2 className="text-2xl font-semibold mb-4 text-black">
+                Results
+              </h2>
+              <div className="grid gap-6 md:grid-cols-3">
+                <Metric
+                  icon={Users}
+                  value="1.5 Cr+"
+                  label="Total video views"
+                  sub="Instagram, YouTube & Facebook"
+                />
+                <Metric
+                  icon={Share2}
+                  value="2.5 Lakh+"
+                  label="Organic shares"
+                  sub="Vaccination-day & nutrition reels"
+                />
+                <Metric
+                  icon={TrendingUp}
+                  value="18% ↑"
+                  label="Admissions & inquiries"
+                  sub="Within one academic year"
+                />
+              </div>
+              <p className="text-gray-700 text-sm mt-4">
+                Community engagement increased significantly, with local schools
+                and childcare centers now partnering with the clinics for health
+                workshops and awareness programs.
               </p>
             </div>
+          </div>
+        </section>
 
-            {/* Brand Positioning / Pillars */}
-            <div className="rounded-2xl border border-gray-200 bg-white p-6">
-              <h3 className="text-xl font-semibold mb-3">Brand Positioning</h3>
-              <div className="grid gap-4">
-                <Pillar
-                  title="Trusted Pediatric Expertise"
-                  desc="Clear, parent-friendly language and resources that simplify healthcare decisions."
-                />
-                <Pillar
-                  title="Warm, Approachable Tone"
-                  desc="Visual identity and messaging that feel caring, calm, and child-first."
-                />
-                <Pillar
-                  title="Community at the Core"
-                  desc="Stories from vaccination drives, wellness camps, and parent workshops."
-                />
+        {/* ===== Videos ===== */}
+        <section className="py-8 pb-16">
+          <div className="container mx-auto px-6">
+            <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+              <div className="flex items-center gap-3 mb-4">
+                <VideoIcon className="h-5 w-5 text-primary" />
+                <h3 className="text-xl font-semibold">Videos</h3>
               </div>
+              <YouTubeAutoScroller urls={YOUTUBE_VIDEOS} intervalMs={5000} />
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* ===== Approach ===== */}
-      <section className="py-8">
-        <div className="container mx-auto px-6">
-          <div className="rounded-2xl border border-gray-200 bg-white p-6">
-            <h2 className="text-2xl font-semibold mb-4 text-black">Our Approach</h2>
-            <ul className="space-y-3 text-gray-700">
-              <li className="flex gap-3">
-                <HeartHandshake className="h-5 w-5 mt-1 text-teal-600" />
-                <p>
-                  <span className="font-medium">Unified Brand Story:</span> Warm, approachable
-                  identity—colors, fonts, and messaging—parents associate with expert, compassionate care.
-                </p>
-              </li>
-              <li className="flex gap-3">
-                <CalendarCheck className="h-5 w-5 mt-1 text-teal-600" />
-                <p>
-                  <span className="font-medium">Website Overhaul:</span> Mobile-first site with easy
-                  appointment booking, parent resources, and interactive campus maps.
-                </p>
-              </li>
-              <li className="flex gap-3">
-                <PlayCircle className="h-5 w-5 mt-1 text-teal-600" />
-                <p>
-                  <span className="font-medium">Full-Service Social Management:</span> Calendar of
-                  pediatric tips, seasonal advisories, and behind-the-scenes staff moments, supported by
-                  professional photo/video shoots.
-                </p>
-              </li>
-              <li className="flex gap-3">
-                <MapPin className="h-5 w-5 mt-1 text-teal-600" />
-                <p>
-                  <span className="font-medium">On-Campus Content Teams:</span> Trained staff to capture
-                  authentic moments—vaccination drives, wellness camps, and parent workshops—so every
-                  campus contributes to the story.
-                </p>
-              </li>
-              <li className="flex gap-3">
-                <BookOpen className="h-5 w-5 mt-1 text-teal-600" />
-                <p>
-                  <span className="font-medium">Storytelling Campaigns:</span> Launched
-                  <em> “ Healthy Starts Here ”</em>, short videos spotlighting real patient journeys and
-                  preventive care.
-                </p>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      {/* ===== Results ===== */}
-      <section className="py-8">
-        <div className="container mx-auto px-6">
-          <div className="rounded-2xl border border-gray-200 bg-white p-6">
-            <h2 className="text-2xl font-semibold mb-4 text-black">Results</h2>
-            <div className="grid gap-6 md:grid-cols-3">
-              <Metric
-                icon={Users}
-                value="1.5 Cr+"
-                label="Total video views"
-                sub="Instagram, YouTube & Facebook"
-              />
-              <Metric
-                icon={Share2}
-                value="2.5 Lakh+"
-                label="Organic shares"
-                sub="Vaccination-day & nutrition reels"
-              />
-              <Metric
-                icon={TrendingUp}
-                value="18% ↑"
-                label="Admissions & inquiries"
-                sub="Within one academic year"
-              />
-            </div>
-            <p className="text-gray-700 text-sm mt-4">
-              Noticeable uptick in community engagement—local schools and childcare centers now partner
-              with the clinics for health workshops.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* ===== Videos ===== */}
-      <section className="py-8 pb-16">
-        <div className="container mx-auto px-6">
-          <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
-            <div className="flex items-center gap-3 mb-4">
-              <VideoIcon className="h-5 w-5 text-primary" />
-              <h3 className="text-xl font-semibold">Videos</h3>
-            </div>
-            <YouTubeAutoScroller urls={YOUTUBE_VIDEOS} intervalMs={5000} />
-          </div>
-        </div>
-      </section>
-
-      <Footer />
+        <Footer />
+      </div>
     </div>
   );
 }
