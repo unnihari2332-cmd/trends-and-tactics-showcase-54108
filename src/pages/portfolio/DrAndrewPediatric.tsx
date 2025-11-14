@@ -183,23 +183,20 @@ export default function DrAndrewPediatric() {
   ];
 
   return (
-    <div className="min-h-screen text-foreground relative overflow-x-hidden">
-      {/* LEFT SIDE LOGO STRIP (like Swathi page) */}
-      <div
-        className="fixed left-0 top-0 h-full w-[180px] z-0 hidden lg:block"
-        style={{
-          backgroundImage: "url('/sidelogo.jpg')",
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "contain",
-          backgroundPosition: "left center",
-        }}
-      />
+    <div
+      className="min-h-screen bg-background text-foreground"
+      style={{
+        backgroundImage: "url('/sidelogo.jpg')",
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "contain",
+        backgroundPosition: "left center",
+        backgroundAttachment: "fixed",
+      }}
+    >
+      <Header />
 
-      {/* MAIN CONTENT SHIFTED RIGHT ON DESKTOP */}
-      <div className="min-h-screen bg-background/90 lg:pl-[180px] relative z-10">
-        <Header />
-
-        {/* ===== HERO WITH BREADCRUMB (MATCH SWATHI KONDE STYLE) ===== */}
+      <main>
+        {/* HERO WITH BREADCRUMB */}
         <section className="relative min-h-[40vh] flex items-center justify-center">
           <div
             className="absolute inset-0 bg-cover bg-center"
@@ -211,7 +208,6 @@ export default function DrAndrewPediatric() {
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/70" />
 
           <div className="relative z-10 container mx-auto max-w-6xl px-6 py-16 text-center">
-            {/* breadcrumb same style as Swathi / Isthara / DigitalAds */}
             <nav className="flex items-center justify-center gap-2 text-xs md:text-sm text-white/80 mb-4">
               <Link to="/" className="hover:text-white transition-colors">
                 Home
@@ -235,7 +231,7 @@ export default function DrAndrewPediatric() {
           </div>
         </section>
 
-        {/* ===== Intro (one-liner + badges) ===== */}
+        {/* Intro */}
         <section className="py-10">
           <div className="container mx-auto px-6 text-center">
             <motion.p
@@ -270,11 +266,10 @@ export default function DrAndrewPediatric() {
           </div>
         </section>
 
-        {/* ===== Two-column content sections ===== */}
+        {/* Two-column content */}
         <section className="py-8">
           <div className="container mx-auto px-6">
             <div className="grid gap-6 md:grid-cols-2">
-              {/* Extended overview */}
               <div className="rounded-2xl border border-gray-200 bg-white p-6">
                 <div className="text-sm font-semibold uppercase tracking-wide text-teal-600 mb-3">
                   Pediatric Care • Parent Education
@@ -288,7 +283,6 @@ export default function DrAndrewPediatric() {
                 </p>
               </div>
 
-              {/* Brand Positioning / Pillars */}
               <div className="rounded-2xl border border-gray-200 bg-white p-6">
                 <h3 className="text-xl font-semibold mb-3">
                   Brand Positioning
@@ -312,7 +306,7 @@ export default function DrAndrewPediatric() {
           </div>
         </section>
 
-        {/* ===== Our Approach ===== */}
+        {/* Our Approach */}
         <section className="py-8">
           <div className="container mx-auto px-6">
             <div className="rounded-2xl border border-gray-200 bg-white p-6">
@@ -372,7 +366,7 @@ export default function DrAndrewPediatric() {
           </div>
         </section>
 
-        {/* ===== Results ===== */}
+        {/* Results */}
         <section className="py-8">
           <div className="container mx-auto px-6">
             <div className="rounded-2xl border border-gray-200 bg-white p-6">
@@ -408,7 +402,7 @@ export default function DrAndrewPediatric() {
           </div>
         </section>
 
-        {/* ===== Videos ===== */}
+        {/* Videos */}
         <section className="py-8 pb-16">
           <div className="container mx-auto px-6">
             <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
@@ -420,9 +414,9 @@ export default function DrAndrewPediatric() {
             </div>
           </div>
         </section>
+      </main>
 
-        <Footer />
-      </div>
+      <Footer />
     </div>
   );
 }
