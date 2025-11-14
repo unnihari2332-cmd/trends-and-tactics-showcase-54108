@@ -1,10 +1,10 @@
 // src/pages/VideoProduction.tsx
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import PageHeader from "@/components/PageHeader";
 import CTASection from "@/components/CTASection";
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import {
   Plus,
   Minus,
@@ -77,17 +77,38 @@ export default function VideoProduction() {
       <Header />
 
       <main>
-        <PageHeader 
-          title="Professional Video Production & Editing" 
-          breadcrumbs={[{ label: "Home", path: "/" }, { label: "Services", path: "/services" }]}
-          bgImage="/editing.jpg"
-        />
+
+        {/* ===== CUSTOM HERO WITH BREADCRUMB (same style as Digital Ads) ===== */}
+        <section className="relative min-h-[40vh] flex items-center justify-center">
+          <div
+            className="absolute inset-0 bg-cover bg-center"
+            style={{ backgroundImage: "url('/editing.jpg')" }}
+          />
+
+          {/* dark overlay */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/70" />
+
+          <div className="relative z-10 container mx-auto max-w-6xl px-6 py-16 text-center">
+            <nav className="flex items-center justify-center gap-2 text-xs md:text-sm text-white/80 mb-4">
+              <Link to="/" className="hover:text-white transition-colors">Home</Link>
+              <span className="opacity-60">›</span>
+
+              <Link to="/services" className="hover:text-white transition-colors">Services</Link>
+              <span className="opacity-60">›</span>
+
+              <span className="text-white">Professional Video Production & Editing</span>
+            </nav>
+
+            <h1 className="text-3xl md:text-5xl font-normal text-white">
+              Professional Video Production & Editing
+            </h1>
+          </div>
+        </section>
 
         {/* ===== INTRO WITH IMAGE ON LEFT ===== */}
         <section className="px-6">
           <div className="container mx-auto max-w-6xl mt-10 mb-12">
             <div className="grid md:grid-cols-2 gap-8 items-center">
-              {/* Left: Image */}
               <motion.img
                 initial={{ opacity: 0, x: -30 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -97,7 +118,6 @@ export default function VideoProduction() {
                 className="w-full rounded-2xl shadow-lg"
               />
 
-              {/* Right: Paragraph */}
               <motion.p
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -178,12 +198,14 @@ export default function VideoProduction() {
                             {title}
                           </span>
                         </div>
+
                         {isOpen ? (
                           <Minus className="w-5 h-5 text-gray-700" />
                         ) : (
                           <Plus className="w-5 h-5 text-gray-700" />
                         )}
                       </button>
+
                       {isOpen && (
                         <motion.p
                           initial={{ opacity: 0, y: -5 }}
@@ -202,7 +224,7 @@ export default function VideoProduction() {
           </div>
         </section>
 
-        {/* ===== CTA SECTION ===== */}
+        {/* ===== CTA ===== */}
         <CTASection
           heading="Ready to bring your story to life?"
           description="We'll create stunning video content that captivates your audience and delivers your message with maximum impact."
