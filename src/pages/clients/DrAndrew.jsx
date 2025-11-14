@@ -20,40 +20,33 @@ const DrAndrew = () => {
 
       <main>
 
-        {/* ===================== HERO WITH BREADCRUMB ===================== */}
-        <section className="relative min-h-[50vh] flex items-center justify-center text-center px-6">
+        {/* ===================== HERO — BIG VERSION ===================== */}
+        <section className="relative h-[90vh] min-h-[80svh] flex items-center justify-center text-center px-6">
           <img
             src="/doctor.jpeg"
             alt="Dr. Andrew Stephen"
             className="absolute inset-0 w-full h-full object-cover"
-            style={{ objectPosition: "right center" }}
+            style={{ objectPosition: "center center" }}
           />
 
-          {/* Dark overlay */}
+          {/* Gradient overlay */}
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/70" />
 
-          {/* Content */}
-          <div className="relative z-10 container mx-auto max-w-6xl pt-20">
-
-            {/* Breadcrumb */}
-            <nav className="flex items-center justify-center gap-2 text-xs md:text-sm text-white/80 mb-3">
+          {/* Breadcrumb + Title */}
+          <div className="relative z-10 container mx-auto max-w-6xl pt-24">
+            <nav className="flex items-center justify-center gap-2 text-xs md:text-sm text-white/80 mb-4">
               <Link to="/" className="hover:text-white transition-colors">Home</Link>
               <span className="opacity-60">›</span>
-
-              <Link to="/portfolio" className="hover:text-white transition-colors">
-                Portfolio
-              </Link>
+              <Link to="/portfolio" className="hover:text-white transition-colors">Portfolio</Link>
               <span className="opacity-60">›</span>
-
               <span className="text-white">Dr. Andrew Stephen</span>
             </nav>
 
-            {/* Title */}
             <motion.h1
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="text-3xl md:text-5xl font-normal text-white"
+              className="text-4xl md:text-6xl font-normal text-white"
             >
               Dr. Andrew Stephen — Pediatrician
             </motion.h1>
@@ -62,22 +55,22 @@ const DrAndrew = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.15, duration: 0.6 }}
-              className="mt-4 text-white/90 text-base md:text-lg max-w-2xl mx-auto"
+              className="mt-4 text-white/90 text-lg md:text-xl max-w-2xl mx-auto"
             >
-              Building a trusted personal brand that engages parents and the wider 
+              Building a trusted personal brand that engages parents and the wider
               community across Tamil Nadu.
             </motion.p>
           </div>
         </section>
 
-        {/* ===================== INTRO ===================== */}
+        {/* ===== INTRO ===== */}
         <section className="py-10 px-6 md:py-12">
           <div className="container mx-auto max-w-6xl grid gap-8 md:grid-cols-2 items-center">
             <div className="flex justify-center">
               <img
                 src="/andrew.png"
                 alt="Clinic setup"
-                className="w-[36rem] md:w-[42rem] rounded-2xl shadow-2xl object-cover"
+                className="w-[36rem] md:w-[42rem] rounded-2xl shadow-2xl object-cover object-center"
               />
             </div>
 
@@ -96,10 +89,10 @@ const DrAndrew = () => {
           </div>
         </section>
 
-        {/* ===================== CHALLENGE & APPROACH ===================== */}
+        {/* ===== CHALLENGE & APPROACH ===== */}
         <section className="py-10 md:py-14 px-6">
           <div className="container mx-auto grid gap-6 md:gap-8 md:grid-cols-2 max-w-6xl">
-
+            
             {/* Challenge */}
             <motion.article
               initial={{ opacity: 0, y: 14 }}
@@ -110,7 +103,9 @@ const DrAndrew = () => {
               <h2 className="text-2xl font-semibold mb-3">Challenge</h2>
               <p>
                 Dr. Andrew wanted to expand his professional reach beyond Pudukkottai
-                and position himself as a trusted voice in child healthcare...
+                and position himself as a trusted voice in child healthcare. With no
+                structured online presence, he needed a strong personal brand across
+                platforms that could engage parents, patients, and the wider community.
               </p>
             </motion.article>
 
@@ -125,17 +120,20 @@ const DrAndrew = () => {
               <h2 className="text-2xl font-semibold mb-3">Our Approach</h2>
               <ul className="list-disc pl-5 space-y-2">
                 <li>
-                  <strong className="text-[#E05D35]">Profile Creation &amp; Management:</strong>{" "}
-                  Built and managed accounts on all major platforms.
+                  <strong className="text-[#E05D35]">Profile Creation &amp; Management:</strong>
+                  {" "}Created and managed accounts on all major platforms.
                 </li>
                 <li>
-                  <strong className="text-[#E05D35]">Content Strategy:</strong> Delivered scripts monthly.
+                  <strong className="text-[#E05D35]">Content Strategy:</strong>
+                  {" "}Delivered 4–5 expert video scripts per month.
                 </li>
                 <li>
-                  <strong className="text-[#E05D35]">Shooting & Training:</strong> Clinic setup and guidance.
+                  <strong className="text-[#E05D35]">Shooting & Training:</strong>
+                  {" "}Set up a clinic studio, trained for self-shooting, handled editing.
                 </li>
                 <li>
-                  <strong className="text-[#E05D35]">Engagement Content:</strong> News reactions, tips, and more.
+                  <strong className="text-[#E05D35]">Engagement Content:</strong>
+                  {" "}Trending topics, tips for mothers, testimonials, festival greetings.
                 </li>
               </ul>
             </motion.article>
@@ -143,15 +141,15 @@ const DrAndrew = () => {
           </div>
         </section>
 
-        {/* ===================== RESULTS ===================== */}
+        {/* ===== RESULTS ===== */}
         <section className="px-6 pb-10">
           <div className="container mx-auto max-w-6xl text-center">
             <div className="rounded-2xl bg-white/85 backdrop-blur-sm shadow-xl ring-1 ring-black/5 p-6 md:p-10">
               <h2 className="text-2xl md:text-3xl font-bold mb-4">Results</h2>
 
               <p className="text-base md:text-lg text-black/80 mb-8 max-w-2xl mx-auto">
-                Consistent content and presence transformed a local practice into 
-                a recognizable personal brand with statewide reach.
+                Consistent content and platform presence transformed a local practice
+                into a recognizable personal brand with statewide reach.
               </p>
 
               <div className="flex justify-center items-stretch gap-8 flex-nowrap">
@@ -174,13 +172,16 @@ const DrAndrew = () => {
           </div>
         </section>
 
-        {/* ===================== OUTCOME ===================== */}
+        {/* ===== OUTCOME ===== */}
         <section className="px-6 pb-12 md:pb-16">
           <div className="container mx-auto max-w-6xl">
             <div className="rounded-2xl bg-white/85 backdrop-blur-sm shadow-xl ring-1 ring-black/5 p-6 md:p-8">
               <h2 className="text-2xl md:text-3xl font-bold mb-4">Outcome</h2>
               <p className="text-lg leading-relaxed">
-                From a local practitioner to a recognizable personal brand...
+                From a local practitioner to a recognizable personal brand, 
+                Dr. Andrew Stephen now enjoys higher visibility, credibility, and 
+                patient trust across Tamil Nadu—culminating in the successful launch 
+                of his new clinic and stronger neighborhood recognition.
               </p>
             </div>
           </div>
