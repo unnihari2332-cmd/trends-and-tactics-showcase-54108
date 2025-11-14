@@ -1,10 +1,10 @@
 // src/pages/AIContent.tsx
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import PageHeader from "@/components/PageHeader";
 import CTASection from "@/components/CTASection";
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import {
   Plus,
   Minus,
@@ -20,7 +20,6 @@ import {
 } from "lucide-react";
 
 export default function AIContent() {
-  // Services grid
   const serviceItems = [
     { icon: Brain, label: "AI Brand Strategy" },
     { icon: PenTool, label: "AI Logo & Design Creation" },
@@ -29,7 +28,6 @@ export default function AIContent() {
     { icon: Search, label: "AI SEO Content" },
   ];
 
-  // Benefits accordion
   const benefitItems = [
     {
       icon: LineChart,
@@ -81,17 +79,41 @@ export default function AIContent() {
       <Header />
 
       <main>
-        <PageHeader 
-          title="AI-Driven Branding & Content" 
-          breadcrumbs={[{ label: "Home", path: "/" }, { label: "Services", path: "/services" }]}
-          bgImage="/AI-Driven.jpg"
-        />
+
+        {/* ===== HERO WITH CUSTOM BREADCRUMB + CENTERED TITLE ===== */}
+        <section className="relative min-h-[40vh] flex items-center justify-center">
+          <div
+            className="absolute inset-0 bg-cover bg-center"
+            style={{ backgroundImage: "url('/AI-Driven.jpg')" }}
+          />
+
+          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/70" />
+
+          <div className="relative z-10 container mx-auto max-w-6xl px-6 py-16 text-center">
+            
+            {/* breadcrumb bar */}
+            <nav className="flex items-center justify-center gap-2 text-xs md:text-sm text-white/80 mb-4">
+              <Link to="/" className="hover:text-white transition-colors">Home</Link>
+              <span className="opacity-60">›</span>
+
+              <Link to="/services" className="hover:text-white transition-colors">Services</Link>
+              <span className="opacity-60">›</span>
+
+              <span className="text-white">AI-Driven Branding & Content</span>
+            </nav>
+
+            {/* centered title */}
+            <h1 className="text-3xl md:text-5xl font-normal text-white">
+              AI-Driven Branding & Content
+            </h1>
+          </div>
+        </section>
 
         {/* ===== INTRO WITH IMAGE ON LEFT ===== */}
         <section className="px-6">
           <div className="container mx-auto max-w-6xl mt-10 mb-12">
             <div className="grid md:grid-cols-2 gap-8 items-center">
-              {/* Left: Image */}
+              
               <motion.img
                 initial={{ opacity: 0, x: -30 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -101,7 +123,6 @@ export default function AIContent() {
                 className="w-full rounded-2xl shadow-lg"
               />
 
-              {/* Right: Paragraph */}
               <motion.p
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -120,9 +141,8 @@ export default function AIContent() {
         <section className="px-6 pb-6 md:pb-10">
           <div className="container mx-auto max-w-6xl">
             <div className="rounded-2xl bg-white/80 backdrop-blur-sm shadow-xl ring-1 ring-black/5 p-6 md:p-8">
-              <h2 className="text-2xl md:text-3xl font-bold mb-6">
-                We Serve The Best Work
-              </h2>
+              <h2 className="text-2xl md:text-3xl font-bold mb-6">We Serve The Best Work</h2>
+
               <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {serviceItems.map(({ icon: Icon, label }) => (
                   <li
@@ -140,16 +160,17 @@ export default function AIContent() {
           </div>
         </section>
 
-        {/* ===== BENEFITS WITH OUR SERVICE ===== */}
+        {/* ===== BENEFITS ACCORDION ===== */}
         <section className="px-6 pb-12 md:pb-16">
           <div className="container mx-auto max-w-6xl">
             <div className="rounded-2xl bg-white/80 backdrop-blur-sm shadow-xl ring-1 ring-black/5 p-6 md:p-8">
-              <h2 className="text-2xl md:text-3xl font-bold mb-6">
-                Benefits With Our Service
-              </h2>
+
+              <h2 className="text-2xl md:text-3xl font-bold mb-6">Benefits With Our Service</h2>
+
               <ul className="divide-y divide-gray-200">
                 {benefitItems.map(({ icon: Icon, title, body }, idx) => {
                   const isOpen = openIndex === idx;
+
                   return (
                     <li key={idx} className="py-4 group">
                       <button
@@ -160,10 +181,9 @@ export default function AIContent() {
                           <span className="inline-grid place-items-center size-8 rounded-full bg-[#2ecec8] text-white transition-colors duration-300 group-hover:bg-[#E05D35]">
                             <Icon className="w-5 h-5" />
                           </span>
-                          <span className="text-lg font-semibold text-black">
-                            {title}
-                          </span>
+                          <span className="text-lg font-semibold text-black">{title}</span>
                         </div>
+
                         {isOpen ? (
                           <Minus className="w-5 h-5 text-gray-700" />
                         ) : (
@@ -185,11 +205,11 @@ export default function AIContent() {
                   );
                 })}
               </ul>
+
             </div>
           </div>
         </section>
 
-        {/* ===== CTA SECTION ===== */}
         <CTASection
           heading="Ready to elevate your brand with AI?"
           description="We'll create intelligent, data-driven branding and content strategies that resonate with your audience and drive results."
