@@ -176,7 +176,7 @@ export default function AatralFoundation() {
             </nav>
 
             <h1 className="text-3xl md:text-5xl font-normal text-white">
-              Aatral Foundation — Social Media Growth Case Study
+              Aatral Foundation — Social Media Growth
             </h1>
           </div>
         </section>
