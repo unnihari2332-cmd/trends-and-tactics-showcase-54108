@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import PageHeader from "@/components/PageHeader";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Sparkles,
@@ -130,45 +131,15 @@ export default function OECLPortfolio() {
     <div className="min-h-screen bg-background text-foreground">
       <Header />
 
-      {/* ===== Hero Image Background (identical pattern to INDSYS) ===== */}
-      <section className="relative h-[50vh] md:h-[60vh] overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url(${heroBg})` }}
-          aria-hidden="true"
-        >
-          <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/60" />
-        </div>
-
-        <div className="relative z-10 container mx-auto px-6 h-full flex flex-col justify-center">
-          <motion.h1
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-5xl md:text-7xl font-extrabold tracking-tight text-white"
-          >
-            OECL India
-          </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="mt-4 text-xl md:text-2xl text-white/95 max-w-2xl"
-          >
-            Global Logistics Expertise · India-First Digital Experience
-          </motion.p>
-
-          <motion.p
-            initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.18 }}
-            className="mt-3 text-lg text-white/90 max-w-xl"
-          >
-            Website Revamp • Performance & SEO • Conversion-Focused UX
-          </motion.p>
-        </div>
-      </section>
+      <PageHeader 
+        title="OECL India — Global Shipping & Logistics Brand"
+        breadcrumbs={[
+          { label: "Home", path: "/" },
+          { label: "Portfolio", path: "/portfolio" },
+          { label: "OECL", path: "/portfolio/oecl" }
+        ]}
+        bgImage={heroBg}
+      />
 
       {/* ===== Two Column Section: Image Left + All Content Right (same grid) ===== */}
       <section className="py-16">

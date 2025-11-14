@@ -2,6 +2,7 @@
 import { useEffect } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import PageHeader from "@/components/PageHeader";
 import { motion } from "framer-motion";
 import {
   Building2,
@@ -56,36 +57,15 @@ export default function TrillionMinds() {
     <div className="min-h-screen bg-background text-foreground">
       <Header />
 
-      {/* ===== Hero (same height as TIPS screenshot) ===== */}
-      <section className="relative h-[420px] md:h-[450px] w-full overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url('${heroBg}')` }}
-        >
-          <div className="absolute inset-0 bg-black/40" />
-        </div>
-
-        <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6">
-          <motion.h1
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-4xl md:text-6xl font-extrabold tracking-tight text-white"
-          >
-            Trillion Minds — Data-Driven Property Advisory
-          </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="mt-4 max-w-3xl mx-auto text-base md:text-lg text-white/90"
-          >
-            Full-spectrum real estate solutions that educate investors, simplify
-            decisions, and grow portfolios.
-          </motion.p>
-        </div>
-      </section>
+      <PageHeader 
+        title="Trillion Minds — Data-Driven Property Advisory"
+        breadcrumbs={[
+          { label: "Home", path: "/" },
+          { label: "Portfolio", path: "/portfolio" },
+          { label: "Trillion Minds", path: "/portfolio/trillion-minds" }
+        ]}
+        bgImage={heroBg}
+      />
 
       {/* ===== Overview ===== */}
       <section className="py-10">

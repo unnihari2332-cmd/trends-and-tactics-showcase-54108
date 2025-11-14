@@ -2,6 +2,7 @@
 import { useEffect, useRef, useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import PageHeader from "@/components/PageHeader";
 import { motion } from "framer-motion";
 import {
   Stethoscope,
@@ -184,26 +185,15 @@ export default function DrAndrewPediatric() {
     <div className="min-h-screen bg-background text-foreground">
       <Header />
 
-      {/* ===== Hero (little bit bigger) ===== */}
-      <section className="relative h-[420px] md:h-[500px] w-full overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url('${heroBg}')` }}
-        >
-          <div className="absolute inset-0 bg-black/40" />
-        </div>
-
-        <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6">
-          <motion.h1
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-4xl md:text-6xl font-extrabold tracking-tight text-white"
-          >
-            Dr. Andrew Stephen — Pediatrician
-          </motion.h1>
-        </div>
-      </section>
+      <PageHeader 
+        title="Dr. Andrew Stephen — Pediatric Personal Branding"
+        breadcrumbs={[
+          { label: "Home", path: "/" },
+          { label: "Portfolio", path: "/portfolio" },
+          { label: "Dr. Andrew", path: "/portfolio/dr-andrew-pediatric" }
+        ]}
+        bgImage={heroBg}
+      />
 
       {/* ===== Intro (one-liner + badges) ===== */}
       <section className="py-10">
