@@ -75,35 +75,28 @@ export default function DigitalAds() {
       <Header />
 
       <main>
-        {/* ===== HERO WITH BREADCRUMB STYLE ===== */}
-        <section className="relative min-h-[40vh] flex items-center">
+        {/* ===== HERO WITH CENTERED TITLE (NO BOLD) ===== */}
+        <section className="relative min-h-[40vh] flex items-center justify-center">
           <div
             className="absolute inset-0 bg-cover bg-center"
             style={{ backgroundImage: `url(${digitalAdsHero})` }}
           />
+
           {/* dark overlay */}
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/70" />
 
-          <div className="relative z-10 container mx-auto max-w-6xl px-6 py-16">
-            {/* breadcrumb bar like example */}
-            <nav className="flex items-center gap-2 text-xs md:text-sm text-white/80 mb-4">
-              <Link to="/" className="hover:text-white transition-colors">
-                Home
-              </Link>
+          <div className="relative z-10 container mx-auto max-w-6xl px-6 py-16 text-center">
+            {/* breadcrumb */}
+            <nav className="flex items-center justify-center gap-2 text-xs md:text-sm text-white/80 mb-4">
+              <Link to="/" className="hover:text-white transition-colors">Home</Link>
               <span className="opacity-60">›</span>
-              <Link
-                to="/services"
-                className="hover:text-white transition-colors"
-              >
-                Services
-              </Link>
+              <Link to="/services" className="hover:text-white transition-colors">Services</Link>
               <span className="opacity-60">›</span>
-              <span className="text-white">
-                Social Media &amp; Paid Ads Marketing
-              </span>
+              <span className="text-white">Social Media & Paid Ads Marketing</span>
             </nav>
 
-            <h1 className="text-3xl md:text-5xl font-extrabold text-white">
+            {/* centered title with normal weight */}
+            <h1 className="text-3xl md:text-5xl font-normal text-white">
               Social Media &amp; Paid Ads Marketing
             </h1>
           </div>
@@ -113,7 +106,6 @@ export default function DigitalAds() {
         <section className="px-6">
           <div className="container mx-auto max-w-6xl mt-10 mb-12">
             <div className="grid md:grid-cols-2 gap-8 items-center">
-              {/* Image Left */}
               <motion.img
                 initial={{ opacity: 0, x: -30 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -123,7 +115,6 @@ export default function DigitalAds() {
                 className="w-full rounded-2xl shadow-lg"
               />
 
-              {/* Paragraph Right */}
               <motion.p
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -149,6 +140,7 @@ export default function DigitalAds() {
               <h2 className="text-2xl md:text-3xl font-bold mb-6">
                 We Serve The Best Work
               </h2>
+
               <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {serviceItems.map(({ label, icon }) => (
                   <li
@@ -166,16 +158,18 @@ export default function DigitalAds() {
           </div>
         </section>
 
-        {/* ===== BENEFITS / ACCORDION SECTION ===== */}
+        {/* ===== BENEFITS / ACCORDION ===== */}
         <section className="px-6 pb-12 md:pb-16">
           <div className="container mx-auto max-w-6xl">
             <div className="rounded-2xl bg-white/80 backdrop-blur-sm shadow-xl ring-1 ring-black/5 p-6 md:p-8">
               <h2 className="text-2xl md:text-3xl font-bold mb-6">
                 Why Search Engine Marketing Works
               </h2>
+
               <ul className="divide-y divide-gray-200">
                 {benefitItems.map(({ title, body, icon }, idx) => {
                   const isOpen = openIndex === idx;
+
                   return (
                     <li key={idx} className="py-4">
                       <button
@@ -190,12 +184,14 @@ export default function DigitalAds() {
                             {title}
                           </span>
                         </div>
+
                         {isOpen ? (
                           <Minus className="w-5 h-5 text-gray-700" />
                         ) : (
                           <Plus className="w-5 h-5 text-gray-700" />
                         )}
                       </button>
+
                       {isOpen && (
                         <motion.p
                           initial={{ opacity: 0, y: -5 }}
@@ -214,7 +210,6 @@ export default function DigitalAds() {
           </div>
         </section>
 
-        {/* ===== CTA SECTION ===== */}
         <CTASection
           heading="Ready to maximize your ad ROI?"
           description="We'll create targeted social media and paid ad campaigns that reach the right audience and drive measurable results."
