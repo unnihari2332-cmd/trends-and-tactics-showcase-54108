@@ -1,10 +1,10 @@
 // src/pages/WebAndApp.tsx
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import PageHeader from "@/components/PageHeader";
 import CTASection from "@/components/CTASection";
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import servicesHero from "@/assets/services-hero.jpg";
 import {
   Plus,
@@ -87,11 +87,32 @@ export default function WebAndApp() {
       <Header />
 
       <main>
-        <PageHeader 
-          title="Website & App Development" 
-          breadcrumbs={[{ label: "Home", path: "/" }, { label: "Services", path: "/services" }]}
-          bgImage={servicesHero}
-        />
+        {/* ===== HERO WITH BREADCRUMB (same style as other service pages) ===== */}
+        <section className="relative min-h-[40vh] flex items-center justify-center">
+          <div
+            className="absolute inset-0 bg-cover bg-center"
+            style={{ backgroundImage: `url(${servicesHero})` }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/70" />
+
+          <div className="relative z-10 container mx-auto max-w-6xl px-6 py-16 text-center">
+            <nav className="flex items-center justify-center gap-2 text-xs md:text-sm text-white/80 mb-4">
+              <Link to="/" className="hover:text-white transition-colors">
+                Home
+              </Link>
+              <span className="opacity-60">›</span>
+              <Link to="/services" className="hover:text-white transition-colors">
+                Services
+              </Link>
+              <span className="opacity-60">›</span>
+              <span className="text-white">Website &amp; App Development</span>
+            </nav>
+
+            <h1 className="text-3xl md:text-5xl font-normal text-white">
+              Website &amp; App Development
+            </h1>
+          </div>
+        </section>
 
         {/* ===== INTRO WITH IMAGE ON LEFT ===== */}
         <section className="px-6">
@@ -114,11 +135,11 @@ export default function WebAndApp() {
                 transition={{ delay: 0.3 }}
                 className="text-lg md:text-xl font-bold text-center md:text-left leading-relaxed text-black"
               >
-                In today’s fast-paced digital world, your website is the face of your brand.
-                As Chennai’s trusted web design &amp; development partner, we build
-                visually stunning, high-performance sites that strengthen credibility,
-                spark engagement, and convert visitors into customers—whether you’re a
-                startup or a large enterprise.
+                In today’s fast-paced digital world, your website is the face of your
+                brand. As Chennai’s trusted web design &amp; development partner, we
+                build visually stunning, high-performance sites that strengthen
+                credibility, spark engagement, and convert visitors into customers—
+                whether you’re a startup or a large enterprise.
               </motion.p>
             </div>
           </div>
