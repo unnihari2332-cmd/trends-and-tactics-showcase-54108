@@ -1,9 +1,8 @@
 // src/pages/portfolio/IstharaDining.tsx
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import PageHeader from "@/components/PageHeader";
-import { motion } from "framer-motion";
 import {
   Megaphone,
   Globe,
@@ -19,7 +18,7 @@ import {
   Clock,
 } from "lucide-react";
 
-const heroBg = "/main banners.jpg";
+const heroBg = "/mainbanners.jpg";
 
 /* ------------ Small presentational helpers ------------ */
 function CardShell({
@@ -80,23 +79,54 @@ function Stat({ value, label }: { value: string; label: string }) {
 /* ------------ Page ------------ */
 export default function IstharaDining() {
   useEffect(() => {
-    document.title =
-      "Isthara Multi Dining – Brand Revamp | Trends & Tactics";
+    document.title = "Isthara Multi Dining – Brand Revamp | Trends & Tactics";
   }, []);
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div
+      className="min-h-screen text-foreground"
+      style={{
+        backgroundImage: "url('/sidelogo.jpg')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        backgroundAttachment: "fixed",
+      }}
+    >
       <Header />
 
-      <PageHeader 
-        title="Isthara Multi Dining — Brand Revamp & Digital Experience"
-        breadcrumbs={[
-          { label: "Home", path: "/" },
-          { label: "Portfolio", path: "/portfolio" },
-          { label: "Isthara", path: "/portfolio/isthara-dining" }
-        ]}
-        bgImage={heroBg}
-      />
+      {/* ===========================
+           HERO + BREADCRUMB STYLE
+         =========================== */}
+      <section className="relative min-h-[40vh] flex items-center justify-center">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{
+            backgroundImage: `url(${heroBg})`,
+            backgroundPosition: "center 30%", // move hero image down
+          }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/70" />
+
+        <div className="relative z-10 container mx-auto max-w-6xl px-6 py-16 text-center">
+          {/* breadcrumb same as DigitalAds / Swathi PR */}
+          <nav className="flex items-center justify-center gap-2 text-xs md:text-sm text-white/80 mb-4">
+            <Link to="/" className="hover:text-white transition-colors">
+              Home
+            </Link>
+            <span className="opacity-60">›</span>
+            <Link to="/portfolio" className="hover:text-white transition-colors">
+              Portfolio
+            </Link>
+            <span className="opacity-60">›</span>
+            <span className="text-white">Isthara Multi Dining</span>
+          </nav>
+
+          <h1 className="text-3xl md:text-5xl font-normal text-white">
+            Isthara Multi Dining — Brand Revamp & Digital Experience
+          </h1>
+        </div>
+      </section>
 
       {/* ===== OVERVIEW ===== */}
       <section className="py-10">
@@ -118,11 +148,10 @@ export default function IstharaDining() {
         </div>
       </section>
 
-      {/* ===== CHALLENGE (top) + OUR APPROACH (bottom) IN ONE BOX ===== */}
+      {/* ===== CHALLENGE + APPROACH ===== */}
       <section className="py-6">
         <div className="container mx-auto px-6">
           <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
-            {/* Title */}
             <div className="flex items-center gap-3 mb-6">
               <Sparkles className="h-6 w-6 text-primary" />
               <h2 className="text-2xl font-semibold">
@@ -142,15 +171,15 @@ export default function IstharaDining() {
                   Outdated website lacking menu highlights and reservation flow.
                 </li>
                 <li>
-                  Inconsistent social presence that didn’t reflect the ambience
-                  or culinary craft.
+                  Inconsistent social presence failing to reflect ambience &
+                  cuisine quality.
                 </li>
               </ul>
             </div>
 
             <div className="h-px w-full bg-gray-200 mb-6" />
 
-            {/* Our Approach */}
+            {/* Approach */}
             <div>
               <h3 className="text-lg font-semibold flex items-center gap-2 mb-3">
                 <Sparkles className="h-5 w-5 text-primary" />
@@ -160,27 +189,27 @@ export default function IstharaDining() {
               <div className="grid gap-3 md:grid-cols-2">
                 <Pill
                   title="Website Development"
-                  desc="Sleek, mobile-first site with rich menu sections, ambience showcases, and a streamlined reservation journey."
+                  desc="Mobile-first, menu-rich site with ambience showcases and a streamlined reservation UX."
                   icon={<Globe className="h-4 w-4" />}
                 />
                 <Pill
                   title="Instagram Design Strategy"
-                  desc="Cohesive grid with cuisine spotlights, chef specials, and motion-led reels for ongoing engagement."
+                  desc="Chef specials, cuisine highlights, ambience reels, and 3-grid aesthetic layouts."
                   icon={<Camera className="h-4 w-4" />}
                 />
                 <Pill
                   title="Brand Positioning"
-                  desc="Refined visual identity — warm luxury palette, modern type, consistent tone of voice."
+                  desc="Refined luxury palette, modern typefaces, and consistent visual identity."
                   icon={<Palette className="h-4 w-4" />}
                 />
                 <Pill
                   title="Social Campaigns"
-                  desc="Narrative-driven posts and UGC prompts to build a loyal foodie community."
+                  desc="Narrative-based engagements, food storytelling, and user prompts."
                   icon={<Clapperboard className="h-4 w-4" />}
                 />
                 <Pill
                   title="SEO Optimization"
-                  desc='Local SEO for queries like “best dining experience” and “multi-cuisine restaurants near me.”'
+                  desc='Strong local SEO for queries like “best dining experience“ and “multi-cuisine restaurants near me.”'
                   icon={<Search className="h-4 w-4" />}
                 />
               </div>
@@ -198,19 +227,16 @@ export default function IstharaDining() {
           >
             <ul className="space-y-2 text-gray-700">
               <li>
-                <span className="font-semibold">Photography Style:</span> Clean,
-                cinematic food close-ups; warm, inviting ambience shots with
-                natural light accents.
+                <strong>Photography:</strong> Cinematic food close-ups, warm
+                ambience, natural light accents.
               </li>
               <li>
-                <span className="font-semibold">Video Mood:</span> Tasteful
-                slow-motion prep, plating sequences, clinking glasses, and crowd
-                energy; subtle lower-thirds.
+                <strong>Video Mood:</strong> Slow-motion prep, plating, clinking
+                glasses; tasteful transitions.
               </li>
               <li>
-                <span className="font-semibold">Palette &amp; Fonts:</span>{" "}
-                Luxury warmth (deep golds, clay, charcoal) paired with modern
-                sans-serifs for approachability.
+                <strong>Palette:</strong> Deep golds, charcoal, warm neutrals,
+                modern sans-serif fonts.
               </li>
             </ul>
           </CardShell>
@@ -220,59 +246,38 @@ export default function IstharaDining() {
       {/* ===== RESULTS ===== */}
       <section className="py-8">
         <div className="container mx-auto px-6">
-          <CardShell
-            title="Results Achieved"
-            icon={<BarChart3 className="h-5 w-5" />}
-          >
+          <CardShell title="Results Achieved" icon={<BarChart3 className="h-5 w-5" />}>
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              <Stat value="200%" label="Increase in website visits (3 months)" />
+              <Stat value="200%" label="Increase in website visits" />
               <Stat value="150%" label="Growth in Instagram engagement" />
-              <Stat value="75%" label="Boost in online table reservations" />
-              <Stat value="+" label="Enhanced brand perception & consistency" />
+              <Stat value="75%" label="Rise in table reservations" />
+              <Stat value="+" label="Boost in brand consistency" />
             </div>
           </CardShell>
         </div>
       </section>
 
-      {/* ===== EXPERIENCE HIGHLIGHTS / PRACTICAL INFO ===== */}
+      {/* ===== PRACTICAL DETAILS ===== */}
       <section className="py-8 pb-16">
         <div className="container mx-auto px-6">
           <div className="grid gap-6 md:grid-cols-2">
-            <CardShell
-              title="Experience Highlights"
-              icon={<ChefHat className="h-5 w-5" />}
-            >
+            <CardShell title="Experience Highlights" icon={<ChefHat className="h-5 w-5" />}>
               <ul className="list-disc list-inside text-gray-700 space-y-2">
-                <li>
-                  Chef specials calendar and seasonal menus integrated to
-                  marketing cadence.
-                </li>
-                <li>Reel templates for quick content turnaround by teams.</li>
-                <li>
-                  Event &amp; offers module to amplify reservations during peak
-                  periods.
-                </li>
+                <li>Chef specials calendar synced to content plan.</li>
+                <li>Reel templates for faster content output.</li>
+                <li>Event/offers module for high-reservation periods.</li>
               </ul>
             </CardShell>
 
-            <CardShell
-              title="Practical Details"
-              icon={<Clock className="h-5 w-5" />}
-            >
+            <CardShell title="Practical Details" icon={<Clock className="h-5 w-5" />}>
               <ul className="space-y-2 text-gray-700">
                 <li className="flex items-start gap-2">
                   <MapPin className="h-4 w-4 mt-1 text-primary" />
-                  <span>
-                    Local SEO coverage for nearby neighborhoods &amp; high-intent
-                    dining corridors.
-                  </span>
+                  Local SEO boost for nearby dining-density corridors.
                 </li>
                 <li className="flex items-start gap-2">
                   <Clock className="h-4 w-4 mt-1 text-primary" />
-                  <span>
-                    Launch timeline optimized for festive seasons and weekend
-                    traffic spikes.
-                  </span>
+                  Launch schedule aligned with festive and weekend peaks.
                 </li>
               </ul>
             </CardShell>
