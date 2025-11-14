@@ -1,9 +1,9 @@
 // src/pages/SEO.tsx
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import PageHeader from "@/components/PageHeader";
 import CTASection from "@/components/CTASection";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import {
   Search,
   Settings,
@@ -28,11 +28,35 @@ export default function SEO() {
       <Header />
 
       <main>
-        <PageHeader 
-          title="SEO & Growth Strategy" 
-          breadcrumbs={[{ label: "Home", path: "/" }, { label: "Services", path: "/services" }]}
-          bgImage="/chatbot.jpg"
-        />
+
+        {/* ===== UNIFIED HERO WITH BREADCRUMB ===== */}
+        <section className="relative min-h-[40vh] flex items-center justify-center">
+          <div
+            className="absolute inset-0 bg-cover bg-center"
+            style={{ backgroundImage: "url('/chatbot.jpg')" }}
+          />
+
+          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/70" />
+
+          <div className="relative z-10 container mx-auto max-w-6xl px-6 py-16 text-center">
+            
+            {/* Breadcrumb */}
+            <nav className="flex items-center justify-center gap-2 text-xs md:text-sm text-white/80 mb-4">
+              <Link to="/" className="hover:text-white transition-colors">Home</Link>
+              <span className="opacity-60">›</span>
+
+              <Link to="/services" className="hover:text-white transition-colors">Services</Link>
+              <span className="opacity-60">›</span>
+
+              <span className="text-white">SEO & Growth Strategy</span>
+            </nav>
+
+            {/* Title */}
+            <h1 className="text-3xl md:text-5xl font-normal text-white">
+              SEO & Growth Strategy
+            </h1>
+          </div>
+        </section>
 
         {/* ===== INTRO ===== */}
         <section className="bg-background px-6">
@@ -47,6 +71,7 @@ export default function SEO() {
               data-driven strategies. We optimize your brand to rank higher,
               reach wider, and convert better.
             </motion.p>
+
             <motion.p
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
@@ -63,9 +88,10 @@ export default function SEO() {
           </div>
         </section>
 
-        {/* ===== STRATEGY CARDS (AI-style two-up) ===== */}
+        {/* ===== STRATEGY CARDS ===== */}
         <section className="py-10 md:py-14 px-6">
           <div className="container mx-auto grid gap-6 md:gap-8 md:grid-cols-2 max-w-6xl">
+
             <motion.article
               initial={{ opacity: 0, y: 14 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -105,6 +131,7 @@ export default function SEO() {
                 No two businesses are the same. We customize on-page, technical, and
                 off-page SEO for your industry, audience, and goals.
               </p>
+
               <ul className="space-y-2 text-black/80">
                 <li className="flex gap-3">
                   <span className="mt-1 size-3 shrink-0 rounded-full bg-[#2ecec8]" />
@@ -120,16 +147,20 @@ export default function SEO() {
                 </li>
               </ul>
             </motion.article>
+
           </div>
         </section>
 
-        {/* ===== WE SERVE THE BEST WORK (Capabilities grid) ===== */}
+        {/* ===== WE SERVE THE BEST WORK ===== */}
         <section className="px-6 pb-6 md:pb-10">
           <div className="container mx-auto max-w-6xl">
+
             <div className="rounded-2xl bg-white/85 backdrop-blur-sm shadow-xl ring-1 ring-black/5 p-6 md:p-8">
+
               <h2 className="text-2xl md:text-3xl font-bold mb-6">
                 We Serve The Best Work
               </h2>
+
               <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {[
                   { title: "On-Page SEO Optimization", icon: Search },
@@ -138,33 +169,37 @@ export default function SEO() {
                   { title: "Local SEO", icon: MapPin },
                   { title: "SEO Analytics & Reporting", icon: BarChart3 },
                   { title: "E-Commerce SEO", icon: ShoppingCart },
-                  // Bonus capabilities from your copy:
                   { title: "Content Strategy & Blogs", icon: FileText },
                   { title: "Mobile-First Optimization", icon: Smartphone },
                   { title: "Voice Search Readiness", icon: Mic },
                 ].map(({ title, icon: Icon }) => (
                   <li
                     key={title}
-                    className="group flex items-start gap-3 rounded-xl bg-black/5 p-4 transition-colors hover:bg-black/10 focus-within:bg-black/10"
+                    className="group flex items-start gap-3rounded-xl bg-black/5 p-4 transition-colors hover:bg-black/10"
                   >
-                    <span className="mt-0.5 inline-grid place-items-center size-8 rounded-full bg-[#2ecec8] text-white shrink-0 transition-colors group-hover:bg-[#E05D35] group-focus-within:bg-[#E05D35]">
+                    <span className="mt-0.5 inline-grid place-items-center size-8 rounded-full bg-[#2ecec8] text-white shrink-0 transition-colors group-hover:bg-[#E05D35]">
                       <Icon className="size-4" />
                     </span>
                     <span className="font-medium">{title}</span>
                   </li>
                 ))}
               </ul>
+
             </div>
+
           </div>
         </section>
 
-        {/* ===== BENEFITS WITH OUR SERVICE ===== */}
+        {/* ===== BENEFITS ===== */}
         <section className="px-6 pb-12 md:pb-16">
           <div className="container mx-auto max-w-6xl">
+
             <div className="rounded-2xl bg-white/85 backdrop-blur-sm shadow-xl ring-1 ring-black/5 p-6 md:p-8">
+
               <h2 className="text-2xl md:text-3xl font-bold mb-6">
                 Benefits With Our Service
               </h2>
+
               <ol className="space-y-5">
                 {[
                   {
@@ -177,25 +212,25 @@ export default function SEO() {
                     icon: ShieldCheck,
                     title: "Increased Credibility and Trust",
                     body:
-                      "A strong search footprint and high-quality content build authority and confidence with your audience.",
+                      "A strong search footprint builds authority and customer confidence.",
                   },
                   {
                     icon: TrendingUp,
                     title: "Higher Conversion Rates",
                     body:
-                      "SEO pages and funnels are optimized to turn visitors into leads, calls, and sales.",
+                      "SEO funnels optimized for real business outcomes—calls, leads, and sales.",
                   },
                   {
                     icon: Users,
                     title: "Better User Experience",
                     body:
-                      "Faster load times, intuitive navigation, and mobile-first design keep users engaged.",
+                      "Faster load times, mobile-first optimization, and improved UX keep users engaged.",
                   },
                   {
                     icon: Trophy,
                     title: "Competitive Edge",
                     body:
-                      "Beat competitors with a future-proof strategy across AI search, local intent, and Core Web Vitals.",
+                      "Win against competitors with advanced strategies across AI search, local SEO, and Core Web Vitals.",
                   },
                 ].map(({ icon: Icon, title, body }, idx) => (
                   <li key={idx} className="flex gap-4">
@@ -208,7 +243,9 @@ export default function SEO() {
                   </li>
                 ))}
               </ol>
+
             </div>
+
           </div>
         </section>
 
@@ -217,6 +254,7 @@ export default function SEO() {
           heading="Ready to dominate search rankings?"
           description="We'll optimize your digital presence with proven SEO strategies that drive organic traffic and sustainable growth."
         />
+
       </main>
 
       <Footer />
