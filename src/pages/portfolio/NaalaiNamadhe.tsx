@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import PageHeader from "@/components/PageHeader";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Sparkles,
@@ -129,45 +130,15 @@ export default function NaalaiNamadhe() {
     <div className="min-h-screen bg-background text-foreground">
       <Header />
 
-      {/* ===== Hero Image Background ===== */}
-      <section className="relative h-[50vh] overflow-hidden md:h-[60vh]">
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url(${heroBg})` }}
-          aria-hidden="true"
-        >
-          <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/35 to-black/70" />
-        </div>
-
-        <div className="container relative z-10 mx-auto flex h-full flex-col justify-center px-6">
-          <motion.h1
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-5xl font-extrabold tracking-tight text-white md:text-7xl"
-          >
-            Naalai Namadhe
-          </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="mt-4 max-w-2xl text-xl text-white/95 md:text-2xl"
-          >
-            Official Website — Designed & Developed by Trends & Tactics
-          </motion.p>
-
-          <motion.p
-            initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.18 }}
-            className="mt-3 max-w-xl text-lg text-white/90"
-          >
-            Mobile-first build • Clear information architecture • Performance & SEO
-          </motion.p>
-        </div>
-      </section>
+      <PageHeader 
+        title="Naalai Namadhe — Official Website Development"
+        breadcrumbs={[
+          { label: "Home", path: "/" },
+          { label: "Portfolio", path: "/portfolio" },
+          { label: "Naalai Namadhe", path: "/portfolio/naalai-namadhe" }
+        ]}
+        bgImage={heroBg}
+      />
 
       {/* ===== Two Column Section: Image Left + All Content Right ===== */}
       <section className="py-16">

@@ -2,6 +2,7 @@
 import { useEffect, useRef, useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import PageHeader from "@/components/PageHeader";
 import { motion } from "framer-motion";
 import {
   Clapperboard,
@@ -173,26 +174,15 @@ export default function SwathiKondePR() {
     <div className="min-h-screen bg-background text-foreground">
       <Header />
 
-      {/* ===== Bigger Hero (reduced other content to avoid blank space) ===== */}
-      <section className="relative min-h-[65vh] md:min-h-[75vh] flex items-center overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url('${heroBg}')` }}
-        >
-          <div className="absolute inset-0 bg-black/40" />
-        </div>
-
-        <div className="relative z-10 container mx-auto px-6 text-center">
-          <motion.h1
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-4xl md:text-6xl font-extrabold tracking-tight text-white"
-          >
-            Swathi Konde — Actor · Performer · Creator
-          </motion.h1>
-        </div>
-      </section>
+      <PageHeader 
+        title="Swathi Konde — Actor & Public Figure"
+        breadcrumbs={[
+          { label: "Home", path: "/" },
+          { label: "Portfolio", path: "/portfolio" },
+          { label: "Swathi Konde", path: "/portfolio/swathi-konde-pr" }
+        ]}
+        bgImage={heroBg}
+      />
 
       {/* ===== Short Bio ===== */}
       <section className="py-8">

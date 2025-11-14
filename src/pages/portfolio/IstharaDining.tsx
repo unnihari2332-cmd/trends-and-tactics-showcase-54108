@@ -2,6 +2,7 @@
 import { useEffect } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import PageHeader from "@/components/PageHeader";
 import { motion } from "framer-motion";
 import {
   Megaphone,
@@ -87,36 +88,15 @@ export default function IstharaDining() {
     <div className="min-h-screen bg-background text-foreground">
       <Header />
 
-      {/* ===== HERO (slightly smaller) ===== */}
-      <section className="relative py-24 md:py-40 overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-[1.05]"
-          style={{ backgroundImage: `url('${heroBg}')` }}
-          aria-hidden
-        >
-          <div className="absolute inset-0 bg-black/45" />
-        </div>
-
-        <div className="relative z-10 container mx-auto px-6 text-center">
-          <motion.h1
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-4xl md:text-6xl font-extrabold tracking-tight text-white"
-          >
-            Isthara Multi Dining — Brand Revamp & Digital Experience
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="mt-4 max-w-3xl mx-auto text-white/90"
-          >
-            Complete transformation across website, social, and brand systems —
-            crafted for a modern food-loving audience.
-          </motion.p>
-        </div>
-      </section>
+      <PageHeader 
+        title="Isthara Multi Dining — Brand Revamp & Digital Experience"
+        breadcrumbs={[
+          { label: "Home", path: "/" },
+          { label: "Portfolio", path: "/portfolio" },
+          { label: "Isthara", path: "/portfolio/isthara-dining" }
+        ]}
+        bgImage={heroBg}
+      />
 
       {/* ===== OVERVIEW ===== */}
       <section className="py-10">

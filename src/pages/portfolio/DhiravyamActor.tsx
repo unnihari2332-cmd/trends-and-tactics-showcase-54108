@@ -2,6 +2,7 @@
 import { useEffect, useRef, useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import PageHeader from "@/components/PageHeader";
 import { motion } from "framer-motion";
 import {
   User,
@@ -171,41 +172,15 @@ export default function DhiravyamActor() {
     <div className="min-h-screen bg-background text-foreground">
       <Header />
 
-      {/* ===== HERO SECTION (image visually pushed down) ===== */}
-      <section className="relative h-[420px] md:h-[460px] w-full overflow-hidden">
-        {/* wrapper div so we can control background separately */}
-        <div className="absolute inset-0">
-          <div
-            className="absolute inset-0 bg-cover bg-no-repeat"
-            style={{
-              backgroundImage: `url('${heroBg}')`,
-              // push the image down noticeably (show a higher part of the photo)
-              backgroundPosition: "center 80%",
-            }}
-          />
-          <div className="absolute inset-0 bg-black/40" />
-        </div>
-
-        <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6">
-          <motion.h1
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-4xl md:text-6xl font-extrabold tracking-tight text-white"
-          >
-            Dhiravyam — Actor
-          </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="mt-4 max-w-3xl mx-auto text-white/90"
-          >
-            Magnetic presence. Versatile performances. Authentic storytelling.
-          </motion.p>
-        </div>
-      </section>
+      <PageHeader 
+        title="Dhiravyam — Actor & Media Personality"
+        breadcrumbs={[
+          { label: "Home", path: "/" },
+          { label: "Portfolio", path: "/portfolio" },
+          { label: "Dhiravyam", path: "/portfolio/dhiravyam-actor" }
+        ]}
+        bgImage={heroBg}
+      />
 
       {/* ===== SHORT BIO ===== */}
       <section className="py-10">
