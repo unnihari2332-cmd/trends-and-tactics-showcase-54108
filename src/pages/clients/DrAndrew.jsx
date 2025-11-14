@@ -18,9 +18,8 @@ const DrAndrew = () => {
       <Header />
 
       <main className="overflow-hidden">
-
         {/* ===== HERO ===== */}
-        <section className="relative h-[90vh] w-full flex items-center justify-center text-center px-6">
+        <section className="relative h-[85vh] w-full flex items-center justify-center text-center px-6">
           <img
             src="/0006.jpg"
             alt="Dr. Andrew Stephen"
@@ -31,9 +30,13 @@ const DrAndrew = () => {
 
           <div className="relative z-10 container mx-auto max-w-6xl pt-24">
             <nav className="flex items-center justify-center gap-2 text-sm text-white/80 mb-3">
-              <a href="/" className="hover:text-white">Home</a>
+              <a href="/" className="hover:text-white">
+                Home
+              </a>
               <span>›</span>
-              <a href="/portfolio" className="hover:text-white">Portfolio</a>
+              <a href="/portfolio" className="hover:text-white">
+                Portfolio
+              </a>
               <span>›</span>
               <span className="text-white">Dr. Andrew Stephen</span>
             </nav>
@@ -100,26 +103,34 @@ const DrAndrew = () => {
             >
               <h2 className="text-2xl font-semibold mb-3">Our Approach</h2>
               <ul className="list-disc pl-5 space-y-2">
-                <li><strong className="text-[#E05D35]">Profile Creation:</strong> Setup and managed all platforms.</li>
-                <li><strong className="text-[#E05D35]">Content Strategy:</strong> Delivered 4–5 scripts per month.</li>
-                <li><strong className="text-[#E05D35]">Training:</strong> Setup clinic shooting environment.</li>
-                <li><strong className="text-[#E05D35]">Engagement Content:</strong> Childcare tips, testimonials, etc.</li>
+                <li>
+                  <strong className="text-[#E05D35]">Profile Creation:</strong> Setup and managed all platforms.
+                </li>
+                <li>
+                  <strong className="text-[#E05D35]">Content Strategy:</strong> Delivered 4–5 scripts per month.
+                </li>
+                <li>
+                  <strong className="text-[#E05D35]">Training:</strong> Setup clinic shooting environment.
+                </li>
+                <li>
+                  <strong className="text-[#E05D35]">Engagement Content:</strong> Childcare tips, testimonials, etc.
+                </li>
               </ul>
             </motion.article>
           </div>
         </section>
 
-        {/* ===== RESULTS ===== */}
-        <section className="px-6 pb-10">
-          <div className="container mx-auto max-w-6xl text-center">
-            <div className="rounded-2xl bg-white/90 shadow-xl ring-1 ring-black/5 p-10">
+        {/* ===== RESULTS (TIGHT, LIKE SCREENSHOT) ===== */}
+        <section className="px-4 md:px-6 pb-8 md:pb-10">
+          <div className="mx-auto max-w-6xl">
+            <div className="rounded-[26px] bg-white shadow-[0_18px_45px_rgba(15,23,42,0.08)] border border-black/5 px-6 md:px-10 py-7 md:py-8 text-center">
+              <h2 className="text-2xl md:text-3xl font-bold mb-2">Results</h2>
 
-              <h2 className="text-2xl md:text-3xl font-bold mb-4">Results</h2>
-              <p className="text-lg text-black/80 mb-6 max-w-2xl mx-auto">
+              <p className="text-base md:text-lg text-black/80 mb-6 max-w-3xl mx-auto">
                 Consistent content transformed a local doctor into a statewide personal brand.
               </p>
 
-              <div className="flex justify-center gap-6 flex-wrap md:flex-nowrap">
+              <div className="flex flex-wrap justify-center gap-4 md:gap-6">
                 {[
                   { big: "250+", small: "Videos Produced" },
                   { big: "12,000+", small: "Followers (FB & IG)" },
@@ -128,20 +139,19 @@ const DrAndrew = () => {
                 ].map((r) => (
                   <div
                     key={r.small}
-                    className="w-48 rounded-2xl border border-black/10 bg-white px-6 py-6 text-center shadow-sm"
+                    className="flex-1 min-w-[150px] max-w-[190px] rounded-[22px] border border-slate-200 bg-white px-6 py-5 text-center shadow-sm"
                   >
-                    <div className="text-3xl font-extrabold">{r.big}</div>
-                    <div className="text-sm text-black/70 mt-1">{r.small}</div>
+                    <div className="text-2xl md:text-3xl font-extrabold">{r.big}</div>
+                    <div className="text-xs md:text-sm text-black/70 mt-1">{r.small}</div>
                   </div>
                 ))}
               </div>
-
             </div>
           </div>
         </section>
 
         {/* ===== OUTCOME ===== */}
-        <section className="px-6 pb-12">
+        <section className="px-6 pb-10">
           <div className="container mx-auto max-w-6xl">
             <div className="rounded-2xl bg-white/90 shadow-xl ring-1 ring-black/5 p-8">
               <h2 className="text-2xl md:text-3xl font-bold mb-3">Outcome</h2>
