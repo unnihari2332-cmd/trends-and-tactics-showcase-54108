@@ -1,7 +1,6 @@
 // src/pages/DigitalAds.tsx
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import PageHeader from "@/components/PageHeader";
 import CTASection from "@/components/CTASection";
 import { motion } from "framer-motion";
 import { useState } from "react";
@@ -75,14 +74,19 @@ export default function DigitalAds() {
       <Header />
 
       <main>
-        <PageHeader
-          title="Social Media & Paid Ads Marketing"
-          breadcrumbs={[
-            { label: "Home", path: "/" },
-            { label: "Services", path: "/services" },
-          ]}
-          bgImage={digitalAdsHero}
-        />
+        {/* ===== HERO (NO ORANGE SMALL TITLE) ===== */}
+        <section className="relative min-h-[40vh] flex items-center">
+          <div
+            className="absolute inset-0 bg-cover bg-center"
+            style={{ backgroundImage: `url(${digitalAdsHero})` }}
+          />
+          <div className="absolute inset-0 bg-black/60" />
+          <div className="relative z-10 container mx-auto max-w-6xl px-6 py-16">
+            <h1 className="text-3xl md:text-5xl font-extrabold text-white">
+              Social Media &amp; Paid Ads Marketing
+            </h1>
+          </div>
+        </section>
 
         {/* ===== INTRO WITH IMAGE ON LEFT ===== */}
         <section className="px-6">
