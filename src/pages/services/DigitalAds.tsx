@@ -5,6 +5,7 @@ import CTASection from "@/components/CTASection";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { Plus, Minus } from "lucide-react";
+import { Link } from "react-router-dom";
 import digitalAdsHero from "@/assets/digital-ads-hero.jpg";
 
 export default function DigitalAds() {
@@ -74,14 +75,34 @@ export default function DigitalAds() {
       <Header />
 
       <main>
-        {/* ===== HERO (NO ORANGE SMALL TITLE) ===== */}
+        {/* ===== HERO WITH BREADCRUMB STYLE ===== */}
         <section className="relative min-h-[40vh] flex items-center">
           <div
             className="absolute inset-0 bg-cover bg-center"
             style={{ backgroundImage: `url(${digitalAdsHero})` }}
           />
-          <div className="absolute inset-0 bg-black/60" />
+          {/* dark overlay */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/70" />
+
           <div className="relative z-10 container mx-auto max-w-6xl px-6 py-16">
+            {/* breadcrumb bar like example */}
+            <nav className="flex items-center gap-2 text-xs md:text-sm text-white/80 mb-4">
+              <Link to="/" className="hover:text-white transition-colors">
+                Home
+              </Link>
+              <span className="opacity-60">›</span>
+              <Link
+                to="/services"
+                className="hover:text-white transition-colors"
+              >
+                Services
+              </Link>
+              <span className="opacity-60">›</span>
+              <span className="text-white">
+                Social Media &amp; Paid Ads Marketing
+              </span>
+            </nav>
+
             <h1 className="text-3xl md:text-5xl font-extrabold text-white">
               Social Media &amp; Paid Ads Marketing
             </h1>
