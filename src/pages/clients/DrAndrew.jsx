@@ -19,8 +19,8 @@ const DrAndrew = () => {
       <Header />
 
       <main>
-        {/* ===== HERO (BIG FULL-SCREEN HERO) ===== */}
-<section className="relative min-h-[95vh] flex items-center justify-center text-center px-6 overflow-hidden">
+        {/* ===== HERO (FULL 100VH HERO) ===== */}
+<section className="relative h-[100vh] w-full flex items-center justify-center text-center px-6 overflow-hidden">
   <img
     src="/0006.jpg"
     alt="Dr. Andrew Stephen"
@@ -28,36 +28,35 @@ const DrAndrew = () => {
     style={{ objectPosition: "center" }}
   />
 
-  {/* Dark overlay */}
+  {/* Overlay */}
   <div className="absolute inset-0 bg-black/60" />
 
-  <div className="relative z-10 container mx-auto max-w-6xl pt-24">
+  <div className="relative z-10 container mx-auto max-w-6xl pt-32">
     {/* breadcrumb */}
     <nav className="flex items-center justify-center gap-2 text-sm text-white/80 mb-4">
-      <Link to="/" className="hover:text-white transition-colors">Home</Link>
+      <a href="/" className="hover:text-white transition-colors">Home</a>
       <span className="opacity-60">›</span>
-      <Link to="/portfolio" className="hover:text-white transition-colors">Portfolio</Link>
+      <a href="/portfolio" className="hover:text-white transition-colors">Portfolio</a>
       <span className="opacity-60">›</span>
       <span className="text-white">Dr. Andrew Stephen</span>
     </nav>
 
-    {/* category label */}
-    <p className="uppercase tracking-wider text-[#E05D35] font-semibold text-base mb-2">
+    {/* Category label */}
+    <p className="uppercase tracking-wider text-[#E05D35] font-semibold text-lg mb-2">
       DR ANDREW STEPHEN
     </p>
 
-    {/* Main Title */}
+    {/* Main Title – MUCH BIGGER */}
     <motion.h1
-      initial={{ opacity: 0, y: 16 }}
+      initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
-      className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight"
+      className="text-5xl md:text-7xl lg:text-8xl font-extrabold text-white leading-tight"
     >
       Dr. Andrew Stephen — Pediatrician
     </motion.h1>
   </div>
 </section>
-
 
         {/* ===== INTRO ===== */}
         <section className="py-10 px-6 md:py-12">
