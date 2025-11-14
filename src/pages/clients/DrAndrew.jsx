@@ -19,8 +19,8 @@ const DrAndrew = () => {
       <Header />
 
       <main>
-        {/* ===== HERO (FULL 100VH HERO) ===== */}
-<section className="relative h-[100vh] w-full flex items-center justify-center text-center px-6 overflow-hidden">
+        {/* ===== SUPER BIG HERO (120vh) ===== */}
+<section className="relative h-[120vh] w-full flex items-center justify-center text-center px-6 overflow-hidden">
   <img
     src="/0006.jpg"
     alt="Dr. Andrew Stephen"
@@ -31,7 +31,7 @@ const DrAndrew = () => {
   {/* Overlay */}
   <div className="absolute inset-0 bg-black/60" />
 
-  <div className="relative z-10 container mx-auto max-w-6xl pt-32">
+  <div className="relative z-10 container mx-auto max-w-6xl pt-40">
     {/* breadcrumb */}
     <nav className="flex items-center justify-center gap-2 text-sm text-white/80 mb-4">
       <a href="/" className="hover:text-white transition-colors">Home</a>
@@ -41,17 +41,17 @@ const DrAndrew = () => {
       <span className="text-white">Dr. Andrew Stephen</span>
     </nav>
 
-    {/* Category label */}
-    <p className="uppercase tracking-wider text-[#E05D35] font-semibold text-lg mb-2">
+    {/* Category Label */}
+    <p className="uppercase tracking-wider text-[#E05D35] font-semibold text-lg mb-3">
       DR ANDREW STEPHEN
     </p>
 
-    {/* Main Title – MUCH BIGGER */}
+    {/* Main Title – HUGE */}
     <motion.h1
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 25 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
-      className="text-5xl md:text-7xl lg:text-8xl font-extrabold text-white leading-tight"
+      className="text-5xl md:text-7xl lg:text-9xl font-extrabold text-white leading-tight"
     >
       Dr. Andrew Stephen — Pediatrician
     </motion.h1>
