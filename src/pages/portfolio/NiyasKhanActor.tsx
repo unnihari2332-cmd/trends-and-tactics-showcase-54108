@@ -133,7 +133,7 @@ function YouTubeAutoScroller({
   );
 }
 
-/* ------------ Small presentational helpers (same as Swathi) ------------ */
+/* ------------ Small presentational helpers ------------ */
 function Pillar({ title, desc }: { title: string; desc: string }) {
   return (
     <div className="rounded-lg border border-gray-200 p-4 bg-white">
@@ -170,7 +170,7 @@ export default function NiyasKhanActor() {
   }, []);
 
   const YOUTUBE_VIDEOS: string[] = [
-    // add URLs when ready
+    // add URLs here when you have them
   ];
 
   return (
@@ -239,7 +239,7 @@ export default function NiyasKhanActor() {
           </div>
         </section>
 
-        {/* ===== Extended Profile + Brand Positioning COMBINED BOX ===== */}
+        {/* ===== Extended Profile + Brand Positioning combined ===== */}
         <section className="py-8">
           <div className="container mx-auto px-6">
             <div className="max-w-5xl mx-auto rounded-2xl border border-gray-200 bg-white p-6 md:p-7 shadow-sm">
@@ -257,7 +257,7 @@ export default function NiyasKhanActor() {
                   </p>
                 </div>
 
-                {/* Brand positioning (right, inside same card) */}
+                {/* Brand positioning (right) */}
                 <div>
                   <div className="flex items-center gap-3 mb-3">
                     <Star className="h-5 w-5 text-primary" />
@@ -283,8 +283,8 @@ export default function NiyasKhanActor() {
                     Anchor your PR on these pillars —{" "}
                     <span className="font-semibold">Versatility</span>,{" "}
                     <span className="font-semibold">Authenticity</span>,{" "}
-                    <span className="font-semibold">Emerging Star</span> —
-                    across releases, interviews, and social campaigns.
+                    <span className="font-semibold">Emerging Star</span> — across
+                    releases, interviews, and social campaigns.
                   </div>
                 </div>
               </div>
@@ -431,6 +431,20 @@ export default function NiyasKhanActor() {
             </div>
           </div>
         </section>
+
+        {/* ===== Videos (auto-scrolling) ===== */}
+        <section className="py-8 pb-16">
+          <div className="container mx-auto px-6">
+            <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+              <div className="flex items-center gap-3 mb-4">
+                <VideoIcon className="h-5 w-5 text-primary" />
+                <h3 className="text-xl font-semibold">Videos</h3>
+              </div>
+              <YouTubeAutoScroller urls={YOUTUBE_VIDEOS} intervalMs={5000} />
+            </div>
+          </div>
+        </section>
+      </main>
 
       <Footer />
     </div>
