@@ -1,14 +1,13 @@
 // src/pages/PRMedia.tsx
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import PageHeader from "@/components/PageHeader";
 import CTASection from "@/components/CTASection";
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Plus, Minus } from "lucide-react";
 
 export default function PRMedia() {
-  // === Keep content the same; only structure/UI updated ===
   const intro =
     "Build trust and authority with strategic PR. We craft stories, manage reputation, and secure the visibility your brand deserves.";
 
@@ -69,7 +68,7 @@ export default function PRMedia() {
     <div
       className="min-h-screen text-foreground"
       style={{
-        backgroundImage: "url('/sidelogo.jpg')", // match DigitalAds background vibe
+        backgroundImage: "url('/sidelogo.jpg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
@@ -79,17 +78,46 @@ export default function PRMedia() {
       <Header />
 
       <main>
-        <PageHeader 
-          title="Public Relations & Media Management" 
-          breadcrumbs={[{ label: "Home", path: "/" }, { label: "Services", path: "/services" }]}
-          bgImage="/media.jpg"
-        />
+        {/* ===== HERO WITH UNIFIED BREADCRUMB STYLE ===== */}
+        <section className="relative min-h-[40vh] flex items-center justify-center">
+          <div
+            className="absolute inset-0 bg-cover bg-center"
+            style={{ backgroundImage: "url('/media.jpg')" }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/70" />
 
-        {/* ===== INTRO WITH IMAGE ON LEFT (UI like DigitalAds, same text) ===== */}
+          <div className="relative z-10 container mx-auto max-w-6xl px-6 py-16 text-center">
+
+            {/* breadcrumb bar */}
+            <nav className="flex items-center justify-center gap-2 text-xs md:text-sm text-white/80 mb-4">
+              <Link to="/" className="hover:text-white transition-colors">
+                Home
+              </Link>
+              <span className="opacity-60">›</span>
+
+              <Link
+                to="/services"
+                className="hover:text-white transition-colors"
+              >
+                Services
+              </Link>
+              <span className="opacity-60">›</span>
+
+              <span className="text-white">Public Relations & Media Management</span>
+            </nav>
+
+            {/* centered title */}
+            <h1 className="text-3xl md:text-5xl font-normal text-white">
+              Public Relations &amp; Media Management
+            </h1>
+          </div>
+        </section>
+
+        {/* ===== INTRO WITH IMAGE LEFT ===== */}
         <section className="px-6">
           <div className="container mx-auto max-w-6xl mt-10 mb-12">
             <div className="grid md:grid-cols-2 gap-8 items-center">
-              {/* Image Left (re-use hero image for consistency; swap if you have a different side image) */}
+
               <motion.img
                 initial={{ opacity: 0, x: -30 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -99,7 +127,6 @@ export default function PRMedia() {
                 className="w-full rounded-2xl shadow-lg"
               />
 
-              {/* Paragraph Right (unchanged content) */}
               <motion.p
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -112,10 +139,12 @@ export default function PRMedia() {
           </div>
         </section>
 
-        {/* ===== PR Strategy (kept content, wrapped in modern card UI) ===== */}
+        {/* ===== PR STRATEGY SECTION ===== */}
         <section className="pb-10 px-6">
           <div className="container mx-auto max-w-6xl grid gap-10">
+
             <div className="rounded-2xl bg-white/80 backdrop-blur-sm shadow-xl ring-1 ring-black/5 p-6 md:p-8">
+
               <div className="stat text-center md:text-left">
                 <h2 className="text-2xl font-semibold mb-2">{strategyTitle}</h2>
                 <p className="text-muted-foreground">{strategyBody}</p>
@@ -124,45 +153,53 @@ export default function PRMedia() {
               <div className="stat text-center md:text-left mt-8">
                 <h2 className="text-2xl font-semibold mb-2">{tailoredTitle}</h2>
                 <p className="text-muted-foreground mb-4">{tailoredBody}</p>
+
                 <ul className="list-disc pl-6 text-muted-foreground space-y-1 text-left">
                   {tailoredList.map((item) => (
                     <li key={item}>{item}</li>
                   ))}
                 </ul>
               </div>
+
             </div>
           </div>
         </section>
 
-        {/* ===== We Serve The Best Work (same items, grid like DigitalAds) ===== */}
+        {/* ===== WE SERVE THE BEST WORK ===== */}
         <section className="px-6 pb-6 md:pb-10">
           <div className="container mx-auto max-w-6xl">
+
             <div className="rounded-2xl bg-white/80 backdrop-blur-sm shadow-xl ring-1 ring-black/5 p-6 md:p-8">
+
               <h2 className="text-2xl md:text-3xl font-bold mb-6">
                 We Serve The Best Work
               </h2>
+
               <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                {bestWorkItems.map((label) => (
+                {bestWorkItems.map((text) => (
                   <li
-                    key={label}
+                    key={text}
                     className="group flex items-start gap-3 rounded-xl bg-black/5 p-4 transition-colors hover:bg-black/10"
                   >
-                    {/* small colored dot to mirror DigitalAds chip */}
-                    <span className="mt-0.5 inline-grid place-items-center size-6 rounded-full bg-[#2ecec8] text-white text-sm shrink-0 transition-colors group-hover:bg-[#E05D35]">
+                    <span className="mt-0.5 inline-grid place-items-center size-6 rounded-full bg-[#2ecec8] text-white text-sm shrink-0 group-hover:bg-[#E05D35]">
                       •
                     </span>
-                    <span className="font-medium text-black">{label}</span>
+                    <span className="font-medium text-black">{text}</span>
                   </li>
                 ))}
               </ul>
+
             </div>
           </div>
         </section>
 
-        {/* ===== Benefits With Our Service (accordion UI like DigitalAds) ===== */}
+        {/* ===== BENEFITS ACCORDION ===== */}
         <section className="px-6 pb-12 md:pb-16">
+
           <div className="container mx-auto max-w-6xl">
+
             <div className="rounded-2xl bg-white/80 backdrop-blur-sm shadow-xl ring-1 ring-black/5 p-6 md:p-8">
+
               <h2 className="text-2xl md:text-3xl font-bold mb-6">
                 Benefits With Our Service
               </h2>
@@ -170,8 +207,10 @@ export default function PRMedia() {
               <ul className="divide-y divide-gray-200">
                 {benefitItems.map(({ title, body }, idx) => {
                   const isOpen = openIndex === idx;
+
                   return (
                     <li key={title} className="py-4">
+
                       <button
                         onClick={() => toggle(idx)}
                         className="flex w-full items-center justify-between text-left"
@@ -180,16 +219,19 @@ export default function PRMedia() {
                           <span className="inline-grid place-items-center size-8 rounded-full bg-[#2ecec8] text-white text-base">
                             {idx + 1}
                           </span>
+
                           <span className="text-lg font-semibold text-black">
                             {title}
                           </span>
                         </div>
+
                         {isOpen ? (
                           <Minus className="w-5 h-5 text-gray-700" />
                         ) : (
                           <Plus className="w-5 h-5 text-gray-700" />
                         )}
                       </button>
+
                       {isOpen && (
                         <motion.p
                           initial={{ opacity: 0, y: -5 }}
@@ -200,19 +242,24 @@ export default function PRMedia() {
                           {body}
                         </motion.p>
                       )}
+
                     </li>
                   );
                 })}
               </ul>
+
             </div>
+
           </div>
+
         </section>
 
-        {/* ===== CTA SECTION ===== */}
+        {/* ===== CTA ===== */}
         <CTASection
           heading="Ready to shape your brand narrative?"
           description="We'll build strategic PR campaigns that strengthen your reputation, amplify your voice, and secure media visibility."
         />
+
       </main>
 
       <Footer />
