@@ -1,9 +1,8 @@
 // src/pages/portfolio/SwathiKondePR.tsx
 import { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import PageHeader from "@/components/PageHeader";
-import { motion } from "framer-motion";
 import {
   Clapperboard,
   Star,
@@ -174,15 +173,36 @@ export default function SwathiKondePR() {
     <div className="min-h-screen bg-background text-foreground">
       <Header />
 
-      <PageHeader 
-        title="Swathi Konde — Actor & Public Figure"
-        breadcrumbs={[
-          { label: "Home", path: "/" },
-          { label: "Portfolio", path: "/portfolio" },
-          { label: "Swathi Konde", path: "/portfolio/swathi-konde-pr" }
-        ]}
-        bgImage={heroBg}
-      />
+      {/* ===== HERO WITH DIGITAL ADS-STYLE BREADCRUMB ===== */}
+      <section className="relative min-h-[40vh] flex items-center justify-center">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${heroBg})` }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/70" />
+
+        <div className="relative z-10 container mx-auto max-w-6xl px-6 py-16 text-center">
+          {/* breadcrumb (same style as DigitalAds / TipsPortfolio) */}
+          <nav className="flex items-center justify-center gap-2 text-xs md:text-sm text-white/80 mb-4">
+            <Link to="/" className="hover:text-white transition-colors">
+              Home
+            </Link>
+            <span className="opacity-60">›</span>
+            <Link
+              to="/portfolio"
+              className="hover:text-white transition-colors"
+            >
+              Portfolio
+            </Link>
+            <span className="opacity-60">›</span>
+            <span className="text-white">Swathi Konde — PR &amp; Media Kit</span>
+          </nav>
+
+          <h1 className="text-3xl md:text-5xl font-normal text-white">
+            Swathi Konde — Actor &amp; Public Figure
+          </h1>
+        </div>
+      </section>
 
       {/* ===== Short Bio ===== */}
       <section className="py-8">
@@ -190,13 +210,16 @@ export default function SwathiKondePR() {
           <div className="max-w-4xl mx-auto rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
             <div className="flex items-center gap-3 mb-3">
               <User className="h-5 w-5 text-primary" />
-              <h2 className="text-2xl font-semibold">Short Bio (Press / Website Intro)</h2>
+              <h2 className="text-2xl font-semibold">
+                Short Bio (Press / Website Intro)
+              </h2>
             </div>
             <p className="text-gray-700 leading-relaxed">
-              A dynamic performer with a natural screen presence, Swathi Konde is quickly becoming
-              one of the most exciting new voices in Indian cinema. Known for her expressive acting
-              and effortless charm, she brings depth and authenticity to every character—whether it’s
-              a heartfelt dramatic role or a breezy, relatable modern heroine.
+              A dynamic performer with a natural screen presence, Swathi Konde
+              is quickly becoming one of the most exciting new voices in Indian
+              cinema. Known for her expressive acting and effortless charm, she
+              brings depth and authenticity to every character—whether it’s a
+              heartfelt dramatic role or a breezy, relatable modern heroine.
             </p>
           </div>
         </div>
@@ -212,22 +235,24 @@ export default function SwathiKondePR() {
                 <h3 className="text-xl font-semibold">Extended Profile</h3>
               </div>
               <p className="text-gray-700 leading-relaxed">
-                From early stage appearances to acclaimed performances on television and in
-                independent films, Swathi’s journey reflects a commitment to craft and constant
-                evolution as an artist.
+                From early stage appearances to acclaimed performances on
+                television and in independent films, Swathi’s journey reflects a
+                commitment to craft and constant evolution as an artist.
               </p>
               <ul className="mt-4 space-y-3 text-gray-700 text-sm">
                 <li>
-                  <span className="font-semibold">Training &amp; Background:</span> Formal training
-                  in acting and dance, enabling strong emotional performance and physicality.
+                  <span className="font-semibold">Training &amp; Background:</span>{" "}
+                  Formal training in acting and dance, enabling strong emotional
+                  performance and physicality.
                 </li>
                 <li>
                   <span className="font-semibold">Notable Work:</span>{" "}
                   <em>(Add specific film/TV/web credits here.)</em>
                 </li>
                 <li>
-                  <span className="font-semibold">Languages:</span> Fluent in multiple Indian
-                  languages, opening doors across regional industries.
+                  <span className="font-semibold">Languages:</span> Fluent in
+                  multiple Indian languages, opening doors across regional
+                  industries.
                 </li>
               </ul>
             </div>
@@ -235,7 +260,9 @@ export default function SwathiKondePR() {
             <div className="rounded-2xl border border-gray-200 bg-white p-6">
               <div className="flex items-center gap-3 mb-3">
                 <Star className="h-5 w-5 text-primary" />
-                <h3 className="text-xl font-semibold">Brand Positioning & PR Narrative</h3>
+                <h3 className="text-xl font-semibold">
+                  Brand Positioning &amp; PR Narrative
+                </h3>
               </div>
               <div className="grid gap-4">
                 <Pillar
@@ -255,8 +282,8 @@ export default function SwathiKondePR() {
                 PR and campaign messaging can consistently anchor on{" "}
                 <span className="font-semibold">Talent</span>,{" "}
                 <span className="font-semibold">Authenticity</span>, and{" "}
-                <span className="font-semibold">Modern Icon</span> to build a clear, memorable
-                narrative.
+                <span className="font-semibold">Modern Icon</span> to build a
+                clear, memorable narrative.
               </div>
             </div>
           </div>
@@ -275,23 +302,42 @@ export default function SwathiKondePR() {
             <div className="grid gap-6 md:grid-cols-2">
               <div>
                 <h4 className="font-semibold mb-2 flex items-center gap-2">
-                  <Clapperboard className="h-4 w-4 text-primary" /> Public Relations Focus
+                  <Clapperboard className="h-4 w-4 text-primary" /> Public
+                  Relations Focus
                 </h4>
                 <ul className="list-disc list-inside text-gray-700 space-y-2 text-sm">
-                  <li>Press releases timed with project announcements and trailer drops.</li>
-                  <li>Proactive outreach to entertainment, OTT, and lifestyle media.</li>
-                  <li>Interview features, talk shows, and panel appearances.</li>
+                  <li>
+                    Press releases timed with project announcements and trailer
+                    drops.
+                  </li>
+                  <li>
+                    Proactive outreach to entertainment, OTT, and lifestyle
+                    media.
+                  </li>
+                  <li>
+                    Interview features, talk shows, and panel appearances.
+                  </li>
                 </ul>
               </div>
 
               <div>
                 <h4 className="font-semibold mb-2 flex items-center gap-2">
-                  <Hash className="h-4 w-4 text-primary" /> Digital &amp; Social Presence
+                  <Hash className="h-4 w-4 text-primary" /> Digital &amp; Social
+                  Presence
                 </h4>
                 <ul className="list-disc list-inside text-gray-700 space-y-2 text-sm">
-                  <li>Consistent Reels/Shorts with BTS, character look tests, and fun moments.</li>
-                  <li>Hashtag-led campaign bursts during launches and collaborations.</li>
-                  <li>Strategic tie-ups with fashion, beauty, and lifestyle brands.</li>
+                  <li>
+                    Consistent Reels/Shorts with BTS, character look tests, and
+                    fun moments.
+                  </li>
+                  <li>
+                    Hashtag-led campaign bursts during launches and
+                    collaborations.
+                  </li>
+                  <li>
+                    Strategic tie-ups with fashion, beauty, and lifestyle
+                    brands.
+                  </li>
                 </ul>
               </div>
             </div>
@@ -305,7 +351,9 @@ export default function SwathiKondePR() {
           <div className="rounded-2xl border border-gray-200 bg-white p-6">
             <div className="flex items-center gap-3 mb-3">
               <VideoIcon className="h-5 w-5 text-primary" />
-              <h3 className="text-xl font-semibold">Video &amp; Editing Services (Our Contribution)</h3>
+              <h3 className="text-xl font-semibold">
+                Video &amp; Editing Services (Our Contribution)
+              </h3>
             </div>
 
             <div className="grid gap-6 md:grid-cols-3">
@@ -329,7 +377,7 @@ export default function SwathiKondePR() {
         </div>
       </section>
 
-      {/* ===== Key Visual Directions (kept, but tighter) ===== */}
+      {/* ===== Key Visual Directions ===== */}
       <section className="py-6">
         <div className="container mx-auto px-6">
           <div className="rounded-2xl border border-gray-200 bg-white p-6">
@@ -340,16 +388,19 @@ export default function SwathiKondePR() {
 
             <ul className="space-y-2 text-gray-700 text-sm">
               <li>
-                <span className="font-semibold">Photography Style:</span> Clean, cinematic portraits
-                with natural or soft studio light and expressive poses.
+                <span className="font-semibold">Photography Style:</span> Clean,
+                cinematic portraits with natural or soft studio light and
+                expressive poses.
               </li>
               <li>
-                <span className="font-semibold">Video Mood:</span> Energetic pacing, subtle motion
-                graphics, and close-ups that highlight eyes, expressions, and movement.
+                <span className="font-semibold">Video Mood:</span> Energetic
+                pacing, subtle motion graphics, and close-ups that highlight
+                eyes, expressions, and movement.
               </li>
               <li>
-                <span className="font-semibold">Palette &amp; Fonts:</span> Warm golds and deep
-                blues paired with modern sans-serif typography for a bold yet approachable feel.
+                <span className="font-semibold">Palette &amp; Fonts:</span> Warm
+                golds and deep blues paired with modern sans-serif typography
+                for a bold yet approachable feel.
               </li>
             </ul>
           </div>
