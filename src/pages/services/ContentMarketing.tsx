@@ -1,10 +1,10 @@
 // src/pages/ContentMarketing.tsx
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import PageHeader from "@/components/PageHeader";
 import CTASection from "@/components/CTASection";
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import {
   Plus,
   Minus,
@@ -48,8 +48,7 @@ export default function ContentMarketing() {
   ];
 
   const [openIndex, setOpenIndex] = useState<number | null>(null);
-  const toggle = (idx: number) =>
-    setOpenIndex((cur) => (cur === idx ? null : idx));
+  const toggle = (idx: number) => setOpenIndex((cur) => (cur === idx ? null : idx));
 
   return (
     <div
@@ -65,17 +64,40 @@ export default function ContentMarketing() {
       <Header />
 
       <main>
-        <PageHeader 
-          title="Content Marketing" 
-          breadcrumbs={[{ label: "Home", path: "/" }, { label: "Services", path: "/services" }]}
-          bgImage="/content.jpg"
-        />
 
-        {/* ===== INTRO WITH IMAGE ON LEFT ===== */}
+        {/* ===== HERO WITH BREADCRUMB (Unified Style) ===== */}
+        <section className="relative min-h-[40vh] flex items-center justify-center">
+          <div
+            className="absolute inset-0 bg-cover bg-center"
+            style={{ backgroundImage: "url('/content.jpg')" }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/70" />
+
+          <div className="relative z-10 container mx-auto max-w-6xl px-6 py-16 text-center">
+            
+            {/* Breadcrumb */}
+            <nav className="flex items-center justify-center gap-2 text-xs md:text-sm text-white/80 mb-4">
+              <Link to="/" className="hover:text-white transition-colors">Home</Link>
+              <span className="opacity-60">›</span>
+
+              <Link to="/services" className="hover:text-white transition-colors">Services</Link>
+              <span className="opacity-60">›</span>
+
+              <span className="text-white">Content Marketing</span>
+            </nav>
+
+            {/* Hero Title */}
+            <h1 className="text-3xl md:text-5xl font-normal text-white">
+              Content Marketing
+            </h1>
+          </div>
+        </section>
+
+        {/* ===== INTRO WITH IMAGE LEFT ===== */}
         <section className="px-6">
           <div className="container mx-auto max-w-6xl mt-10 mb-12">
             <div className="grid md:grid-cols-2 gap-8 items-center">
-              {/* Left: Image */}
+
               <motion.img
                 initial={{ opacity: 0, x: -30 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -85,7 +107,6 @@ export default function ContentMarketing() {
                 className="w-full rounded-2xl shadow-lg"
               />
 
-              {/* Right: Paragraph */}
               <motion.p
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -99,6 +120,7 @@ export default function ContentMarketing() {
                 optimize, and distribute high-quality content that earns trust and converts
                 visitors into loyal customers.
               </motion.p>
+
             </div>
           </div>
         </section>
@@ -106,30 +128,35 @@ export default function ContentMarketing() {
         {/* ===== WE DELIVER THE BEST CONTENT SOLUTIONS ===== */}
         <section className="px-6 pb-6 md:pb-10">
           <div className="container mx-auto max-w-6xl">
+
             <div className="rounded-2xl bg-white/80 backdrop-blur-sm shadow-xl ring-1 ring-black/5 p-6 md:p-8">
               <h2 className="text-2xl md:text-3xl font-bold mb-6">
                 We Deliver the Best Content Solutions
               </h2>
+
               <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {serviceItems.map(({ icon: Icon, label }) => (
                   <li
                     key={label}
                     className="group flex items-start gap-3 rounded-xl bg-black/5 p-4"
                   >
-                    <span className="mt-0.5 inline-grid place-items-center size-6 rounded-full bg-[#2ecec8] text-white shrink-0 transition-colors duration-300 group-hover:bg-[#E05D35]">
+                    <span className="mt-0.5 inline-grid place-items-center size-6 rounded-full bg-[#2ecec8] text-white transition-colors duration-300 group-hover:bg-[#E05D35]">
                       <Icon className="w-4 h-4" />
                     </span>
                     <span className="font-medium text-black">{label}</span>
                   </li>
                 ))}
               </ul>
+
             </div>
+
           </div>
         </section>
 
-        {/* ===== BENEFITS (Accordion) ===== */}
+        {/* ===== BENEFITS ACCORDION ===== */}
         <section className="px-6 pb-12 md:pb-16 pt-6">
           <div className="container mx-auto max-w-6xl">
+
             <div className="rounded-2xl bg-white/80 backdrop-blur-sm shadow-xl ring-1 ring-black/5 p-6 md:p-8">
               <h2 className="text-2xl md:text-3xl font-bold mb-6">
                 Benefits of Our Content Marketing Services
@@ -138,25 +165,32 @@ export default function ContentMarketing() {
               <ul className="divide-y divide-gray-200">
                 {benefitItems.map(({ icon: Icon, title, body }, idx) => {
                   const isOpen = openIndex === idx;
+
                   return (
                     <li key={idx} className="py-4 group">
+
                       <button
                         onClick={() => toggle(idx)}
                         className="flex w-full items-center justify-between text-left"
                       >
                         <div className="flex items-center gap-3">
+
                           <span className="inline-grid place-items-center size-8 rounded-full bg-[#2ecec8] text-white transition-colors duration-300 group-hover:bg-[#E05D35]">
                             <Icon className="w-5 h-5" />
                           </span>
+
                           <span className="text-lg font-semibold text-black">
                             {title}
                           </span>
+
                         </div>
+
                         {isOpen ? (
                           <Minus className="w-5 h-5 text-gray-700" />
                         ) : (
                           <Plus className="w-5 h-5 text-gray-700" />
                         )}
+
                       </button>
 
                       {isOpen && (
@@ -169,19 +203,22 @@ export default function ContentMarketing() {
                           {body}
                         </motion.p>
                       )}
+
                     </li>
                   );
                 })}
               </ul>
+
             </div>
           </div>
         </section>
 
-        {/* ===== CTA SECTION ===== */}
+        {/* ===== CTA ===== */}
         <CTASection
           heading="Ready to amplify your content strategy?"
           description="We'll craft compelling content that attracts, engages, and converts your target audience across all channels."
         />
+
       </main>
 
       <Footer />
