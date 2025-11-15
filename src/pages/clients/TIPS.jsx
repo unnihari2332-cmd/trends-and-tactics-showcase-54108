@@ -23,9 +23,10 @@ const TIPS = () => {
       <Header />
 
       <main className="pt-16 lg:pt-20">
+        {/* WRAPPER */}
         <section className="relative w-full min-h-screen flex items-center justify-center p-6 lg:p-16 overflow-hidden">
           
-          {/* Transparent overlay for readability */}
+          {/* Overlay */}
           <div className="absolute inset-0 bg-white/60 backdrop-blur-sm" />
 
           <div className="relative z-10 max-w-6xl w-full">
@@ -39,11 +40,14 @@ const TIPS = () => {
               Back to Home
             </Button>
 
-            {/* Glass card */}
+            {/* MAIN CARD */}
             <div className="bg-white/90 backdrop-blur-md rounded-3xl shadow-2xl p-8 lg:p-12">
+              
               {/* HEADER */}
               <div className="text-center mb-8">
-                <div className="inline-block bg-gradient-to-r from-[#E05D35] to-amber-500 text-white px-4 py-2 rounded-full text-sm font-bold mb-4">
+
+                {/* UPDATED COLOR → BLACK */}
+                <div className="inline-block bg-gradient-to-r from-[#E05D35] to-amber-500 text-black px-4 py-2 rounded-full text-sm font-bold mb-4">
                   Case Study · Education
                 </div>
 
@@ -58,6 +62,8 @@ const TIPS = () => {
 
               {/* INTRO SECTION */}
               <div className="grid gap-8 md:grid-cols-2 items-center mb-10">
+                
+                {/* Image */}
                 <div className="flex justify-center">
                   <img
                     src="/TIPS.png"
@@ -66,6 +72,7 @@ const TIPS = () => {
                   />
                 </div>
 
+                {/* Text */}
                 <div className="w-full">
                   <p className="text-base md:text-lg lg:text-xl font-medium leading-relaxed text-foreground/80 text-center md:text-left">
                     <span className="block mb-2">
@@ -87,8 +94,10 @@ const TIPS = () => {
                 </div>
               </div>
 
-              {/* CHALLENGE & APPROACH */}
+              {/* CHALLENGE + APPROACH */}
               <div className="grid gap-6 md:grid-cols-2 mb-10">
+                
+                {/* Challenge */}
                 <motion.article
                   initial={{ opacity: 0, y: 14 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -100,7 +109,7 @@ const TIPS = () => {
                   </h2>
 
                   <p className="text-sm md:text-base leading-relaxed text-foreground/80">
-                    TIPS needed a consistent digital identity across campuses.
+                    TIPS needed a consistent digital identity across multi-city campuses.
                   </p>
 
                   <ul className="mt-3 list-disc pl-5 space-y-1 text-sm md:text-base text-foreground/80">
@@ -111,6 +120,7 @@ const TIPS = () => {
                   </ul>
                 </motion.article>
 
+                {/* Approach */}
                 <motion.article
                   initial={{ opacity: 0, y: 14 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -124,16 +134,20 @@ const TIPS = () => {
 
                   <ul className="list-disc pl-5 space-y-2 text-sm md:text-base text-foreground/80">
                     <li>
-                      <strong className="text-[#E05D35]">Website Management:</strong> Regular updates across all campuses.
+                      <strong className="text-[#E05D35]">Website Management:</strong>
+                      Regular updates for all campuses.
                     </li>
                     <li>
-                      <strong className="text-[#E05D35]">Social Media:</strong> Daily multi-platform content.
+                      <strong className="text-[#E05D35]">Social Media:</strong>
+                      Daily content across all platforms.
                     </li>
                     <li>
-                      <strong className="text-[#E05D35]">Camera Teams:</strong> Classroom & event storytelling.
+                      <strong className="text-[#E05D35]">Camera Teams:</strong>
+                      Classroom & event storytelling.
                     </li>
                     <li>
-                      <strong className="text-[#E05D35]">Content Strategy:</strong> “Children in Action” narrative.
+                      <strong className="text-[#E05D35]">Content Strategy:</strong>
+                      “Children in Action” narrative.
                     </li>
                   </ul>
                 </motion.article>
@@ -169,9 +183,9 @@ const TIPS = () => {
                 <h2 className="text-xl md:text-2xl font-bold mb-3">Outcome</h2>
 
                 <p className="text-sm md:text-base lg:text-lg leading-relaxed text-foreground/85">
-                  With consistent storytelling and daily social media content, TIPS has
-                  become one of India's most visible school brands online, supporting
-                  admissions and parent trust.
+                  With consistent storytelling and daily social media content,
+                  TIPS is now one of India’s most visible school brands online,
+                  supporting admissions and parent trust.
                 </p>
               </div>
 
