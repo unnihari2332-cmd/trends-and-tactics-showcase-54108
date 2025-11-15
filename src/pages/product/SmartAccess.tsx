@@ -1,7 +1,10 @@
+// src/pages/product/SmartAccess.tsx (or wherever this file lives)
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import PageHeader from "@/components/PageHeader";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+
+const heroBg = "/biometricbanner.jpg";
 
 export default function SmartAccess() {
   return (
@@ -17,12 +20,37 @@ export default function SmartAccess() {
     >
       <Header />
 
-      <main>
-        <PageHeader 
-          title="SmartAccess+" 
-          breadcrumbs={[{ label: "Home", path: "/" }, { label: "Products", path: "/product" }]}
-          bgImage="/biometricbanner.jpg"
-        />
+      <main className="pb-12">
+        {/* ===== HERO (same breadcrumb style as Product page) ===== */}
+        <section className="relative min-h-[38vh] flex items-center text-white">
+          <div
+            className="absolute inset-0 bg-cover bg-center"
+            style={{
+              backgroundImage: `url(${heroBg})`,
+              backgroundPosition: "center 45%",
+            }}
+          />
+          <div className="absolute inset-0 bg-black/60" />
+
+          <div className="relative z-10 container mx-auto px-4 md:px-6 pt-28 pb-16 text-center">
+            {/* Breadcrumb */}
+            <nav className="flex items-center justify-center gap-4 text-[17px] font-normal text-white/85 mb-4">
+              <Link to="/" className="hover:text-white transition">
+                Home
+              </Link>
+              <span className="opacity-70">›</span>
+              <Link to="/product" className="hover:text-white transition">
+                Products
+              </Link>
+              <span className="opacity-70">›</span>
+              <span className="text-white">SmartAccess+</span>
+            </nav>
+
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-normal">
+              SmartAccess+
+            </h1>
+          </div>
+        </section>
 
         {/* INTRO */}
         <section className="py-10 px-6 md:py-12">
@@ -32,7 +60,9 @@ export default function SmartAccess() {
                 src="/fingerprint.jpg"
                 alt="SmartAccess Overview"
                 className="w-[36rem] md:w-[42rem] rounded-2xl shadow-2xl object-cover object-center"
-                onError={(e) => ((e.currentTarget as HTMLImageElement).style.display = "none")}
+                onError={(e) =>
+                  ((e.currentTarget as HTMLImageElement).style.display = "none")
+                }
               />
             </div>
 
@@ -43,9 +73,10 @@ export default function SmartAccess() {
               className="w-full"
             >
               <p className="text-base md:text-2xl font-medium leading-relaxed text-black text-center md:text-left">
-                SmartAccess+ combines advanced biometric hardware with a powerful real-time web
-                dashboard. Track attendance, automate payroll, and gain actionable HR insights—all
-                in one secure, scalable platform.
+                SmartAccess+ combines advanced biometric hardware with a
+                powerful real-time web dashboard. Track attendance, automate
+                payroll, and gain actionable HR insights—all in one secure,
+                scalable platform.
               </p>
             </motion.div>
           </div>
@@ -55,10 +86,26 @@ export default function SmartAccess() {
         <section className="py-10 md:py-14 px-6">
           <div className="container mx-auto grid gap-6 md:gap-8 md:grid-cols-2 max-w-6xl">
             {[
-              { icon: "🔒", title: "Seamless Biometric Authentication", body: "Eliminate buddy punching and ensure accurate attendance with our high-precision fingerprint scanner." },
-              { icon: "📊", title: "Real-Time Web Dashboard", body: "Monitor check-ins, generate custom reports, and access live attendance data from anywhere." },
-              { icon: "🧩", title: "Comprehensive HR Features", body: "Integrated payroll, leave management, and employee records in one system." },
-              { icon: "⚡", title: "Customizable & Scalable", body: "Configure easily for startups or large enterprises—built to scale with your org." },
+              {
+                icon: "🔒",
+                title: "Seamless Biometric Authentication",
+                body: "Eliminate buddy punching and ensure accurate attendance with our high-precision fingerprint scanner.",
+              },
+              {
+                icon: "📊",
+                title: "Real-Time Web Dashboard",
+                body: "Monitor check-ins, generate custom reports, and access live attendance data from anywhere.",
+              },
+              {
+                icon: "🧩",
+                title: "Comprehensive HR Features",
+                body: "Integrated payroll, leave management, and employee records in one system.",
+              },
+              {
+                icon: "⚡",
+                title: "Customizable & Scalable",
+                body: "Configure easily for startups or large enterprises—built to scale with your org.",
+              },
             ].map((f) => (
               <motion.article
                 key={f.title}
@@ -71,7 +118,9 @@ export default function SmartAccess() {
                   <span className="grid place-content-center size-12 rounded-full bg-[#2ecec8] text-black text-2xl font-bold">
                     {f.icon}
                   </span>
-                  <h2 className="text-xl md:text-2xl font-semibold text-black">{f.title}</h2>
+                  <h2 className="text-xl md:text-2xl font-semibold text-black">
+                    {f.title}
+                  </h2>
                 </div>
                 <p className="text-black/80 leading-relaxed">{f.body}</p>
               </motion.article>
@@ -102,7 +151,9 @@ export default function SmartAccess() {
         {/* HOW IT WORKS */}
         <section className="px-6 pb-12 md:pb-16">
           <div className="container mx-auto max-w-6xl">
-            <h2 className="text-3xl md:text-4xl font-bold mb-10 text-center">How It Works</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-10 text-center">
+              How It Works
+            </h2>
             <div className="grid md:grid-cols-3 gap-8">
               {[
                 {
@@ -140,7 +191,9 @@ export default function SmartAccess() {
                   viewport={{ once: true }}
                   className="rounded-2xl bg-white/85 backdrop-blur-sm p-6 shadow-xl ring-1 ring-black/10"
                 >
-                  <h3 className="text-2xl font-semibold mb-4 text-[#E05D35]">{b.head}</h3>
+                  <h3 className="text-2xl font-semibold mb-4 text-[#E05D35]">
+                    {b.head}
+                  </h3>
                   <ul className="list-disc pl-5 space-y-2 text-black/80 leading-relaxed">
                     {b.points.map((p) => (
                       <li key={p}>{p}</li>
