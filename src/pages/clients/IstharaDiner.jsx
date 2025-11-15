@@ -62,7 +62,7 @@ const IstharaDiner = () => {
                 {/* MAIN IMAGE */}
                 <div className="flex justify-center">
                   <img
-                    src="/isthara-new.png"
+                    src="/01(1).png"
                     alt="Isthara Multi Brand Diner"
                     className="w-full max-w-xl rounded-2xl shadow-2xl object-cover object-center"
                   />
