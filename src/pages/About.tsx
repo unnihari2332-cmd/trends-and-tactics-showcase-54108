@@ -34,18 +34,24 @@ const About = () => {
       <Header />
 
       <main>
+        {/* ===== UPDATED BREADCRUMB STYLE (matches Swathi page) ===== */}
         <PageHeader
           title="About Us"
-          breadcrumbs={[{ label: "Home", path: "/" }]}
+          breadcrumbs={[
+            { label: "Home", path: "/" },
+            { label: "About Us", path: "/about" }
+          ]}
           bgImage="/about02.jpg"
+          styleType="portfolio"
+          sideLogo="/sidelogo.jpg"
         />
+        {/* ===== END UPDATED BREADCRUMB ===== */}
 
         {/* ===== INTRO + VISION & MISSION (pill style) ===== */}
-        <section className="pt-4 pb-10 px-6 md:pt-6 md:pb-12">
+        <section className="py-10 px-6 md:py-12">
           <div className="container mx-auto max-w-7xl grid gap-8 md:grid-cols-2 items-center">
-            
-            {/* Image (Moved Up) */}
-            <div className="flex justify-center -mt-6">
+            {/* Image */}
+            <div className="flex justify-center">
               <img
                 src="/Untitled.jpg"
                 alt="Team at work"
@@ -53,9 +59,8 @@ const About = () => {
               />
             </div>
 
-            {/* Vision + Mission Pills */}
+            {/* Vision + Mission pills */}
             <div className="w-full space-y-6">
-              
               {/* Vision */}
               <div className="relative rounded-[2.5rem] bg-white/90 ring-1 ring-black/10 shadow-xl p-6 md:p-8 flex gap-5 md:gap-7 items-start">
                 <div className="shrink-0 inline-grid place-items-center size-16 md:size-20 rounded-full bg-[#2ecec8]/20 text-[#2ecec8]">
@@ -95,7 +100,6 @@ const About = () => {
                   </p>
                 </div>
               </div>
-
             </div>
           </div>
         </section>
@@ -103,7 +107,6 @@ const About = () => {
         {/* ===== STRATEGY CARDS ===== */}
         <section className="py-10 md:py-14 px-6">
           <div className="container mx-auto grid gap-6 md:gap-8 md:grid-cols-2 max-w-6xl">
-
             {/* What We Do */}
             <motion.article
               initial={{ opacity: 0, y: 14 }}
@@ -119,28 +122,30 @@ const About = () => {
                   What We Do
                 </h2>
               </div>
-
               <p className="text-black/80 mb-3">
-                Full-funnel growth across brand, product, and performance.  
-                We mix craft and data to move metrics that matter.
+                Full-funnel growth across brand, product, and performance. We
+                mix craft and data to move metrics that matter.
               </p>
-
               <ul className="space-y-2 text-black/80">
                 <li className="flex gap-3">
                   <span className="mt-1 size-3 shrink-0 rounded-full bg-[#2ecec8]" />
-                  <Palette className="size-4 mt-0.5 shrink-0" /> Creative Design & Branding
+                  <Palette className="size-4 mt-0.5 shrink-0" /> Creative Design
+                  &amp; Branding
                 </li>
                 <li className="flex gap-3">
                   <span className="mt-1 size-3 shrink-0 rounded-full bg-[#2ecec8]" />
-                  <Code2 className="size-4 mt-0.5 shrink-0" /> Web & App Development
+                  <Code2 className="size-4 mt-0.5 shrink-0" /> Web &amp; App
+                  Development
                 </li>
                 <li className="flex gap-3">
                   <span className="mt-1 size-3 shrink-0 rounded-full bg-[#2ecec8]" />
-                  <Bot className="size-4 mt-0.5 shrink-0" /> AI & Automation
+                  <Bot className="size-4 mt-0.5 shrink-0" /> AI &amp; Automation
+                  Solutions
                 </li>
                 <li className="flex gap-3">
                   <span className="mt-1 size-3 shrink-0 rounded-full bg-[#2ecec8]" />
-                  <TrendingUp className="size-4 mt-0.5 shrink-0" /> SEO, Paid Media & Growth
+                  <TrendingUp className="size-4 mt-0.5 shrink-0" /> SEO, Paid
+                  Media &amp; Growth
                 </li>
               </ul>
             </motion.article>
@@ -161,12 +166,10 @@ const About = () => {
                   Why Choose Us
                 </h2>
               </div>
-
               <p className="text-black/80 mb-4">
-                Proven playbooks, transparent reporting, and senior hands
-                on your business.
+                Proven playbooks, transparent reporting, and senior hands on
+                your business.
               </p>
-
               <ul className="grid grid-cols-2 gap-4">
                 {[
                   { label: "Projects", value: "500+", icon: Building2 },
@@ -193,9 +196,7 @@ const About = () => {
         {/* ===== OUR VALUES ===== */}
         <section className="px-6 pb-12 md:pb-16">
           <div className="container mx-auto max-w-6xl">
-
             <div className="rounded-2xl bg-white/85 backdrop-blur-sm shadow-xl ring-1 ring-black/5 p-6 md:p-10">
-
               <motion.div
                 initial={{ opacity: 0, y: 12 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -215,17 +216,20 @@ const About = () => {
                 {[
                   {
                     title: "Innovation",
-                    desc: "We explore new tech and creative approaches to keep you ahead.",
+                    desc:
+                      "We explore new tech and creative approaches to keep you ahead.",
                     icon: Rocket,
                   },
                   {
                     title: "Integrity",
-                    desc: "Clear communication and transparent reporting at every step.",
+                    desc:
+                      "Clear communication and transparent reporting at every step.",
                     icon: ShieldCheck,
                   },
                   {
                     title: "Excellence",
-                    desc: "We sweat the details to deliver quality—no matter the size.",
+                    desc:
+                      "We sweat the details to deliver quality—no matter the size.",
                     icon: Sparkles,
                   },
                 ].map(({ title, desc, icon: Icon }, i) => (
@@ -247,7 +251,6 @@ const About = () => {
                   </motion.article>
                 ))}
               </div>
-
             </div>
           </div>
         </section>
