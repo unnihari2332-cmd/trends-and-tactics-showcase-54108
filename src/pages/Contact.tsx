@@ -16,13 +16,13 @@ const Contact = () => (
           <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
             Send us a message
           </h2>
+
           <form className="mt-6 space-y-5">
+            {/* NAME + EMAIL + PHONE (3 fields total) */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              {/* Name */}
               <div className="space-y-2">
-                <label
-                  htmlFor="name"
-                  className="block text-sm font-medium text-gray-700"
-                >
+                <label htmlFor="name" className="block text-sm font-medium text-gray-700">
                   Name
                 </label>
                 <input
@@ -32,11 +32,10 @@ const Contact = () => (
                   className="w-full rounded-md border border-gray-300 px-3.5 py-3 focus:border-[#E05D35] focus:ring-[#E05D35] outline-none"
                 />
               </div>
+
+              {/* Email */}
               <div className="space-y-2">
-                <label
-                  htmlFor="email"
-                  className="block text-sm font-medium text-gray-700"
-                >
+                <label htmlFor="email" className="block text-sm font-medium text-gray-700">
                   Email
                 </label>
                 <input
@@ -46,12 +45,24 @@ const Contact = () => (
                   className="w-full rounded-md border border-gray-300 px-3.5 py-3 focus:border-[#E05D35] focus:ring-[#E05D35] outline-none"
                 />
               </div>
+
+              {/* NEW — Phone */}
+              <div className="space-y-2 md:col-span-2">
+                <label htmlFor="phone" className="block text-sm font-medium text-gray-700">
+                  Phone
+                </label>
+                <input
+                  id="phone"
+                  type="tel"
+                  placeholder="+91 00000 00000"
+                  className="w-full rounded-md border border-gray-300 px-3.5 py-3 focus:border-[#E05D35] focus:ring-[#E05D35] outline-none"
+                />
+              </div>
             </div>
+
+            {/* Subject */}
             <div className="space-y-2">
-              <label
-                htmlFor="subject"
-                className="block text-sm font-medium text-gray-700"
-              >
+              <label htmlFor="subject" className="block text-sm font-medium text-gray-700">
                 Subject
               </label>
               <input
@@ -61,11 +72,10 @@ const Contact = () => (
                 className="w-full rounded-md border border-gray-300 px-3.5 py-3 focus:border-[#E05D35] focus:ring-[#E05D35] outline-none"
               />
             </div>
+
+            {/* Message */}
             <div className="space-y-2">
-              <label
-                htmlFor="message"
-                className="block text-sm font-medium text-gray-700"
-              >
+              <label htmlFor="message" className="block text-sm font-medium text-gray-700">
                 Message
               </label>
               <textarea
@@ -75,6 +85,7 @@ const Contact = () => (
                 className="w-full rounded-md border border-gray-300 px-3.5 py-3 focus:border-[#E05D35] focus:ring-[#E05D35] outline-none resize-y"
               />
             </div>
+
             <button
               type="submit"
               className="w-full rounded-md bg-[#62C3C1] px-6 py-3 font-semibold text-white hover:opacity-95 transition"
@@ -82,6 +93,7 @@ const Contact = () => (
               Send Message
             </button>
           </form>
+
           <div className="mt-auto" />
         </div>
 
@@ -135,7 +147,7 @@ const Contact = () => (
   </section>
 );
 
-// ---- Page wrapper (Swathi-style breadcrumb + side logo) ----
+// ---- Page wrapper ----
 const ContactPage = () => (
   <div
     className="min-h-screen flex flex-col text-foreground"
@@ -150,9 +162,8 @@ const ContactPage = () => (
     <Header />
 
     <main className="flex-grow">
-      {/* Swathi-style hero with breadcrumb */}
+      {/* Hero */}
       <section className="relative min-h-[40vh] flex items-center justify-center">
-        {/* Hero background */}
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
@@ -160,11 +171,9 @@ const ContactPage = () => (
             backgroundPosition: "center 30%",
           }}
         />
-        {/* Dark overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/80" />
 
         <div className="relative z-10 container mx-auto max-w-6xl px-6 pt-28 pb-16 text-center">
-          {/* Breadcrumb */}
           <nav className="mb-4 flex items-center justify-center gap-2 text-xs md:text-sm text-white/80">
             <Link to="/" className="hover:text-white transition-colors">
               Home
@@ -173,13 +182,10 @@ const ContactPage = () => (
             <span className="text-white">Contact Us</span>
           </nav>
 
-          <h1 className="text-3xl md:text-5xl font-normal text-white">
-            Contact Us
-          </h1>
+          <h1 className="text-3xl md:text-5xl font-normal text-white">Contact Us</h1>
         </div>
       </section>
 
-      {/* Intro text */}
       <section className="container mx-auto max-w-4xl px-6 text-center mt-10 md:mt-14">
         <p className="text-lg md:text-xl text-gray-800 leading-relaxed">
           Go beyond ordinary with{" "}
@@ -198,7 +204,6 @@ const ContactPage = () => (
         <Contact />
       </section>
 
-      {/* FAQ section */}
       <section className="py-16 md:py-20">
         <FAQ />
       </section>
