@@ -18,24 +18,24 @@ const portfolioItems: Item[] = [
     path: "/portfolio/the-indian-public-school",
   },
   {
+    title: "Aatral Foundation",
+    image: "/Aatral.png",
+    path: "/portfolio/aatral-foundation",
+  },
+  {
+    title: "Isthara Multi Dining",
+    image: "/03(1).png",
+    path: "/portfolio/istara-multi-dining",
+  },
+  {
     title: "Swathi Konde — Actress",
     image: "/Swathi02.png",
     path: "/portfolio/swathi-konde-actress",
   },
   {
-    title: "Isthara Multi Dining",
-    image: "/03(1).png",
-    path: "/portfolio/istahara-multi-dining",
-  },
-  {
-    title: "Dr Andrew Stephen",
-    image: "/andrew.png",
-    path: "/portfolio/andrew",
-  },
-  {
-    title: "Aatral Foundation",
-    image: "/Aatral.png",
-    path: "/portfolio/aatral-foundation",
+    title: "Trillion Minds",
+    image: "/Trillion.png",
+    path: "/portfolio/trillion-minds",
   },
   {
     title: "Dhiravyam — Actor",
@@ -62,11 +62,6 @@ const portfolioItems: Item[] = [
     image: "/nntvbanners.jpg",
     path: "/portfolio/naalai-namadhe",
   },
-  {
-    title: "Trillion Minds",
-    image: "/Trillion.png",
-    path: "/portfolio/trillion-minds",
-  },
 ];
 
 /* -------------------- Util -------------------- */
@@ -80,7 +75,7 @@ function PosterCard({ item, idx }: { item: Item; idx: number }) {
 
   return (
     <div
-      className="group flex flex-col items-center rounded-xl border border-gray-300 bg-white shadow-sm
+      className="group flex flex-col items-center rounded-2xl border border-gray-200 bg-white shadow-sm
                  transition-shadow hover:shadow-md focus-within:shadow-md"
     >
       {/* Image */}
@@ -94,7 +89,7 @@ function PosterCard({ item, idx }: { item: Item; idx: number }) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ delay: idx * 0.05 }}
-          className="relative h-[260px] overflow-hidden rounded-t-xl border-b border-gray-300 sm:h-[300px] lg:h-[340px]"
+          className="relative h-[260px] overflow-hidden rounded-t-2xl border-b border-gray-200 sm:h-[300px] lg:h-[340px]"
         >
           <img
             src={item.image}
@@ -108,12 +103,12 @@ function PosterCard({ item, idx }: { item: Item; idx: number }) {
 
       {/* Title + Read More */}
       <div className="flex w-full items-center justify-between px-4 py-4">
-        <h3 className="text-lg font-extrabold tracking-wide text-black">
+        <h3 className="text-base md:text-lg font-extrabold tracking-wide text-black">
           {item.title}
         </h3>
         <Link
           to={to}
-          className="rounded-full border border-black/20 px-5 py-2 text-sm font-semibold text-black
+          className="rounded-full border border-black/15 px-5 py-2 text-sm font-semibold text-black
                      transition-colors hover:bg-black hover:text-white"
         >
           Read More
@@ -129,12 +124,17 @@ export default function PortfolioPage() {
     <div className="min-h-screen bg-white text-black">
       <Header />
 
-      {/* Clean white header with bold title */}
-      <div className="w-full bg-white py-14 text-center border-b border-gray-200">
-        <h1 className="text-4xl md:text-5xl font-extrabold text-black">
-          Our Portfolio
-        </h1>
-      </div>
+      {/* Top section like your screenshot */}
+      <section className="bg-white">
+        <div className="container mx-auto max-w-4xl px-6 pt-24 pb-10 text-center">
+          <h1 className="text-4xl md:text-5xl font-extrabold text-black">
+            Our Portfolio
+          </h1>
+          <p className="mt-3 text-base md:text-lg text-gray-600">
+            A showcase of our featured projects.
+          </p>
+        </div>
+      </section>
 
       {/* Grid */}
       <section className="pb-20">
