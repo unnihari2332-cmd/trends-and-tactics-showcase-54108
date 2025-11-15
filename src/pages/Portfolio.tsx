@@ -25,17 +25,17 @@ const portfolioItems: Item[] = [
   {
     title: "Isthara Multi Dining",
     image: "/03(1).png",
-    path: "/portfolio/istara-multi-dining",
+    path: "/portfolio/istahara-multi-dining",
+  },
+  {
+    title: "Dr Andrew Stephen",
+    image: "/andrew.png",
+    path: "/portfolio/andrew",
   },
   {
     title: "Aatral Foundation",
     image: "/Aatral.png",
     path: "/portfolio/aatral-foundation",
-  },
-  {
-    title: "Trillion Minds",
-    image: "/Trillion.png",
-    path: "/portfolio/trillion-minds",
   },
   {
     title: "Dhiravyam — Actor",
@@ -61,6 +61,11 @@ const portfolioItems: Item[] = [
     title: "Naalai Namadhe — Official Website",
     image: "/nntvbanners.jpg",
     path: "/portfolio/naalai-namadhe",
+  },
+  {
+    title: "Trillion Minds",
+    image: "/Trillion.png",
+    path: "/portfolio/trillion-minds",
   },
 ];
 
