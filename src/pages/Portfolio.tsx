@@ -18,9 +18,9 @@ const portfolioItems: Item[] = [
     path: "/portfolio/the-indian-public-school",
   },
   {
-    title: "Aatral Foundation",
-    image: "/Aatral.png",
-    path: "/portfolio/aatral-foundation",
+    title: "Swathi Konde — Actress",
+    image: "/Swathi02.png",
+    path: "/portfolio/swathi-konde-actress",
   },
   {
     title: "Isthara Multi Dining",
@@ -28,9 +28,9 @@ const portfolioItems: Item[] = [
     path: "/portfolio/istara-multi-dining",
   },
   {
-    title: "Swathi Konde — Actress",
-    image: "/Swathi02.png",
-    path: "/portfolio/swathi-konde-actress",
+    title: "Aatral Foundation",
+    image: "/Aatral.png",
+    path: "/portfolio/aatral-foundation",
   },
   {
     title: "Trillion Minds",
