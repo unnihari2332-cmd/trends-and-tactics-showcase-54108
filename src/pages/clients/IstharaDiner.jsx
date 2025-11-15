@@ -38,7 +38,7 @@ const IstharaDiner = () => {
               Back to Home
             </Button>
 
-            {/* MAIN GLASS CARD */}
+            {/* MAIN CARD */}
             <div className="bg-white/90 backdrop-blur-md rounded-3xl shadow-2xl p-8 lg:p-12">
               
               {/* HEADER */}
@@ -58,10 +58,11 @@ const IstharaDiner = () => {
 
               {/* INTRO SECTION */}
               <div className="grid gap-8 md:grid-cols-2 items-center mb-10">
-                {/* Updated Main Image */}
+                
+                {/* MAIN IMAGE */}
                 <div className="flex justify-center">
                   <img
-                    src="/isthara-new.jpg"
+                    src="/isthara-new.png"
                     alt="Isthara Multi Brand Diner"
                     className="w-full max-w-xl rounded-2xl shadow-2xl object-cover object-center"
                   />
@@ -75,30 +76,24 @@ const IstharaDiner = () => {
                     </span>
 
                     <span className="block">
-                      Scope: Website Development, Branding &amp; On-Ground Design across India’s metro food courts.
+                      Scope: Website Development, Branding &amp; On-Ground Design
+                      for metro food courts across India.
                     </span>
                   </p>
 
                   <div className="mt-6 rounded-2xl bg-gradient-to-r from-[#E05D35]/10 to-amber-400/10 p-4 md:p-5">
                     <p className="font-body text-sm md:text-base lg:text-lg leading-relaxed text-foreground/80">
-                      Isthara needed a unified digital presence and consistent physical branding that matched its modern, vibrant food court experience across metro hubs.
+                      Isthara needed a unified digital presence and consistent
+                      physical branding that matched its modern, vibrant food
+                      court experience across metro hubs.
                     </p>
                   </div>
                 </div>
               </div>
 
-              {/* SECOND IMAGE (also replaced) */}
-              <div className="mb-10">
-                <div className="flex justify-center">
-                  <img
-                    src="/isthara-new.jpg"
-                    alt="Isthara Food Court Design"
-                    className="w-full max-w-3xl rounded-2xl shadow-xl object-cover object-center"
-                  />
-                </div>
-              </div>
+              {/* SECOND IMAGE REMOVED */}
 
-              {/* CHALLENGE & APPROACH */}
+              {/* CHALLENGE + APPROACH */}
               <div className="grid gap-6 md:grid-cols-2 mb-10">
                 
                 {/* Challenge */}
@@ -111,7 +106,8 @@ const IstharaDiner = () => {
                   <h2 className="text-xl md:text-2xl font-semibold mb-3">Challenge</h2>
 
                   <p className="text-sm md:text-base leading-relaxed text-foreground/80">
-                    Isthara operates multi-brand food courts across India. They needed:
+                    Isthara operates multi-brand food courts across India. They
+                    needed:
                   </p>
 
                   <ul className="mt-3 list-disc pl-5 space-y-1 text-sm md:text-base text-foreground/80">
@@ -137,13 +133,13 @@ const IstharaDiner = () => {
                       <strong className="text-[#E05D35]">Website Development:</strong> Designed a clean, vibrant homepage showcasing the food court experience.
                     </li>
                     <li>
-                      <strong className="text-[#E05D35]">Physical Branding:</strong> Visual concepts tailored to each food court layout.
+                      <strong className="text-[#E05D35]">Physical Branding:</strong> Custom visual concepts for each outlet layout.
                     </li>
                     <li>
                       <strong className="text-[#E05D35]">Aesthetic Consistency:</strong> Vibrant palettes, modern signage, and interior graphics.
                     </li>
                     <li>
-                      <strong className="text-[#E05D35]">Promotional Assets:</strong> Flyers, banners, and floor stickers to drive offers and discovery.
+                      <strong className="text-[#E05D35]">Promotional Assets:</strong> Flyers, banners and floor stickers to drive offers and discovery.
                     </li>
                   </ul>
                 </motion.article>
@@ -154,7 +150,8 @@ const IstharaDiner = () => {
                 <h2 className="text-xl md:text-2xl font-bold mb-3 text-center">Results</h2>
 
                 <p className="text-sm md:text-base text-foreground/80 mb-6 max-w-2xl mx-auto text-center">
-                  Delivered a seamless brand identity that connects digital experience with real-world ambience.
+                  Delivered a seamless brand identity that connects digital
+                  experience with real-world ambience.
                 </p>
 
                 <div className="flex justify-center items-stretch gap-6 flex-wrap md:flex-nowrap">
@@ -167,8 +164,12 @@ const IstharaDiner = () => {
                       key={r.small}
                       className="w-full md:w-64 rounded-2xl border border-black/10 bg-white px-6 py-5 text-center shadow-sm"
                     >
-                      <div className="text-2xl md:text-3xl font-extrabold">{r.big}</div>
-                      <div className="text-xs md:text-sm text-foreground/70 mt-1">{r.small}</div>
+                      <div className="text-2xl md:text-3xl font-extrabold">
+                        {r.big}
+                      </div>
+                      <div className="text-xs md:text-sm text-foreground/70 mt-1">
+                        {r.small}
+                      </div>
                     </div>
                   ))}
                 </div>
@@ -179,9 +180,9 @@ const IstharaDiner = () => {
                 <h2 className="text-xl md:text-2xl font-bold mb-3">Outcome</h2>
 
                 <p className="text-sm md:text-base lg:text-lg leading-relaxed text-foreground/85">
-                  Isthara now has a unified and energetic brand—online and offline.
-                  Customers enjoy a cohesive dining experience, enhancing recall,
-                  loyalty, and footfall across metro hubs.
+                  Isthara now has a unified and energetic brand across web and
+                  physical spaces. Customers enjoy a seamless dining experience that
+                  boosts loyalty and footfall across metro hubs.
                 </p>
               </div>
 
