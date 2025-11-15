@@ -100,7 +100,10 @@ function PosterCard({ item, idx }: { item: Item; idx: number }) {
             src={item.image}
             alt={item.title}
             loading="lazy"
-            className="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-[1.03]"
+            className={
+              "absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-[1.03] " +
+              (item.title === "Niyas Khan — Actor" ? "translate-x-[12px]" : "")
+            }
           />
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/20" />
         </motion.div>
