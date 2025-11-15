@@ -24,11 +24,11 @@ const IstharaDiner = () => {
 
       <main className="pt-16 lg:pt-20">
         <section className="relative w-full min-h-screen flex items-center justify-center p-6 lg:p-16 overflow-hidden">
-          {/* Light overlay for readability */}
+          {/* Overlay */}
           <div className="absolute inset-0 bg-white/60 backdrop-blur-sm" />
 
           <div className="relative z-10 max-w-6xl w-full">
-            {/* Back button */}
+            {/* Back Button */}
             <Button
               onClick={() => navigate("/")}
               variant="outline"
@@ -38,8 +38,9 @@ const IstharaDiner = () => {
               Back to Home
             </Button>
 
-            {/* Main glass card */}
+            {/* MAIN GLASS CARD */}
             <div className="bg-white/90 backdrop-blur-md rounded-3xl shadow-2xl p-8 lg:p-12">
+              
               {/* HEADER */}
               <div className="text-center mb-8">
                 <div className="inline-block bg-gradient-to-r from-[#E05D35] to-amber-500 text-black px-4 py-2 rounded-full text-sm font-bold mb-4">
@@ -57,16 +58,16 @@ const IstharaDiner = () => {
 
               {/* INTRO SECTION */}
               <div className="grid gap-8 md:grid-cols-2 items-center mb-10">
-                {/* Hero / ambience image */}
+                {/* Updated Main Image */}
                 <div className="flex justify-center">
                   <img
-                    src="/04(1).png"
+                    src="/isthara-new.jpg"
                     alt="Isthara Multi Brand Diner"
                     className="w-full max-w-xl rounded-2xl shadow-2xl object-cover object-center"
                   />
                 </div>
 
-                {/* Text */}
+                {/* Description */}
                 <div className="w-full">
                   <p className="text-base md:text-lg lg:text-xl font-medium leading-relaxed text-foreground/80 text-center md:text-left">
                     <span className="block mb-2">
@@ -74,35 +75,32 @@ const IstharaDiner = () => {
                     </span>
 
                     <span className="block">
-                      Scope: Website Development, Branding &amp; On-Ground Design
-                      for metro food courts across India.
+                      Scope: Website Development, Branding &amp; On-Ground Design across India’s metro food courts.
                     </span>
                   </p>
 
                   <div className="mt-6 rounded-2xl bg-gradient-to-r from-[#E05D35]/10 to-amber-400/10 p-4 md:p-5">
                     <p className="font-body text-sm md:text-base lg:text-lg leading-relaxed text-foreground/80">
-                      Isthara is a fast-growing multi-brand diner and food court
-                      destination. They needed a unified digital presence and
-                      consistent physical branding that matched the energy and scale
-                      of their locations across metro hubs.
+                      Isthara needed a unified digital presence and consistent physical branding that matched its modern, vibrant food court experience across metro hubs.
                     </p>
                   </div>
                 </div>
               </div>
 
-              {/* SECONDARY IMAGE ROW (optional, using 01(1).png) */}
+              {/* SECOND IMAGE (also replaced) */}
               <div className="mb-10">
                 <div className="flex justify-center">
                   <img
-                    src="/01(1).png"
+                    src="/isthara-new.jpg"
                     alt="Isthara Food Court Design"
                     className="w-full max-w-3xl rounded-2xl shadow-xl object-cover object-center"
                   />
                 </div>
               </div>
 
-              {/* CHALLENGE + APPROACH */}
+              {/* CHALLENGE & APPROACH */}
               <div className="grid gap-6 md:grid-cols-2 mb-10">
+                
                 {/* Challenge */}
                 <motion.article
                   initial={{ opacity: 0, y: 14 }}
@@ -110,33 +108,21 @@ const IstharaDiner = () => {
                   viewport={{ once: true, amount: 0.2 }}
                   className="rounded-2xl bg-white/90 border border-black/5 p-6 shadow-sm"
                 >
-                  <h2 className="text-xl md:text-2xl font-semibold mb-3">
-                    Challenge
-                  </h2>
+                  <h2 className="text-xl md:text-2xl font-semibold mb-3">Challenge</h2>
 
                   <p className="text-sm md:text-base leading-relaxed text-foreground/80">
-                    Isthara operates multi-brand food courts in prime metro
-                    locations. They needed:
+                    Isthara operates multi-brand food courts across India. They needed:
                   </p>
 
                   <ul className="mt-3 list-disc pl-5 space-y-1 text-sm md:text-base text-foreground/80">
-                    <li>A strong, modern digital identity</li>
-                    <li>
-                      Consistent physical branding across different outlet sizes
-                      and layouts
-                    </li>
-                    <li>
-                      A visual language that connects website, interiors, and
-                      on-ground promotion
-                    </li>
-                    <li>
-                      A vibrant but cohesive ambience that enhances the dining
-                      experience
-                    </li>
+                    <li>A modern, energetic digital identity</li>
+                    <li>Consistent physical branding across outlets</li>
+                    <li>A visual language for web + interiors + promotions</li>
+                    <li>Vibrant ambience reflecting metro food culture</li>
                   </ul>
                 </motion.article>
 
-                {/* Our Approach */}
+                {/* Approach */}
                 <motion.article
                   initial={{ opacity: 0, y: 14 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -144,53 +130,31 @@ const IstharaDiner = () => {
                   transition={{ delay: 0.05 }}
                   className="rounded-2xl bg-white/90 border border-black/5 p-6 shadow-sm"
                 >
-                  <h2 className="text-xl md:text-2xl font-semibold mb-3">
-                    Our Approach
-                  </h2>
+                  <h2 className="text-xl md:text-2xl font-semibold mb-3">Our Approach</h2>
 
                   <ul className="list-disc pl-5 space-y-2 text-sm md:text-base text-foreground/80">
                     <li>
-                      <strong className="text-[#E05D35]">
-                        Website Development:
-                      </strong>{" "}
-                      Designed and launched a clean, modern homepage with a
-                      focus on food court experience and brand partners.
+                      <strong className="text-[#E05D35]">Website Development:</strong> Designed a clean, vibrant homepage showcasing the food court experience.
                     </li>
                     <li>
-                      <strong className="text-[#E05D35]">
-                        Physical Branding:
-                      </strong>{" "}
-                      Custom design concepts mapped to each floor plan and
-                      available wall space.
+                      <strong className="text-[#E05D35]">Physical Branding:</strong> Visual concepts tailored to each food court layout.
                     </li>
                     <li>
-                      <strong className="text-[#E05D35]">
-                        Aesthetic Consistency:
-                      </strong>{" "}
-                      Vibrant palettes, signage and interior graphics that
-                      reflect Isthara&apos;s lively food culture.
+                      <strong className="text-[#E05D35]">Aesthetic Consistency:</strong> Vibrant palettes, modern signage, and interior graphics.
                     </li>
                     <li>
-                      <strong className="text-[#E05D35]">
-                        Promotional Collateral:
-                      </strong>{" "}
-                      Flyers, banners and floor stickers to drive discovery,
-                      offers and engagement inside the food courts.
+                      <strong className="text-[#E05D35]">Promotional Assets:</strong> Flyers, banners, and floor stickers to drive offers and discovery.
                     </li>
                   </ul>
                 </motion.article>
               </div>
 
-              {/* RESULTS – SINGLE ROW */}
+              {/* RESULTS */}
               <div className="mb-10">
-                <h2 className="text-xl md:text-2xl font-bold mb-3 text-center">
-                  Results
-                </h2>
+                <h2 className="text-xl md:text-2xl font-bold mb-3 text-center">Results</h2>
 
                 <p className="text-sm md:text-base text-foreground/80 mb-6 max-w-2xl mx-auto text-center">
-                  A seamless brand identity that connects digital presence with
-                  on-ground experience—strengthening recall and in-store
-                  engagement across metro locations.
+                  Delivered a seamless brand identity that connects digital experience with real-world ambience.
                 </p>
 
                 <div className="flex justify-center items-stretch gap-6 flex-wrap md:flex-nowrap">
@@ -203,12 +167,8 @@ const IstharaDiner = () => {
                       key={r.small}
                       className="w-full md:w-64 rounded-2xl border border-black/10 bg-white px-6 py-5 text-center shadow-sm"
                     >
-                      <div className="text-2xl md:text-3xl font-extrabold">
-                        {r.big}
-                      </div>
-                      <div className="text-xs md:text-sm text-foreground/70 mt-1">
-                        {r.small}
-                      </div>
+                      <div className="text-2xl md:text-3xl font-extrabold">{r.big}</div>
+                      <div className="text-xs md:text-sm text-foreground/70 mt-1">{r.small}</div>
                     </div>
                   ))}
                 </div>
@@ -216,18 +176,15 @@ const IstharaDiner = () => {
 
               {/* OUTCOME */}
               <div className="rounded-2xl bg-gradient-to-r from-[#E05D35]/15 to-amber-400/15 p-6 md:p-8">
-                <h2 className="text-xl md:text-2xl font-bold mb-3">
-                  Outcome
-                </h2>
+                <h2 className="text-xl md:text-2xl font-bold mb-3">Outcome</h2>
 
                 <p className="text-sm md:text-base lg:text-lg leading-relaxed text-foreground/85">
-                  Isthara now enjoys a stronger, more consistent brand presence
-                  across both web and physical spaces. Customers experience a
-                  cohesive, high-energy dining environment—from the first
-                  website visit to the actual food court—helping build loyalty
-                  and repeat footfall.
+                  Isthara now has a unified and energetic brand—online and offline.
+                  Customers enjoy a cohesive dining experience, enhancing recall,
+                  loyalty, and footfall across metro hubs.
                 </p>
               </div>
+
             </div>
           </div>
         </section>
