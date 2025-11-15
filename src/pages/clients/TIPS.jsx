@@ -1,39 +1,20 @@
-// src/pages/TIPS.tsx
-import { useState, useEffect } from "react";
+// src/pages/clients/TIPS.jsx
 import { useNavigate } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
-import { Header } from "@/components/layout/Header";
-import { FloatingObjects } from "@/components/sections/FloatingObjects";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
 
-export default function TIPS() {
+const TIPS = () => {
   const navigate = useNavigate();
-  const [scrollProgress, setScrollProgress] = useState<number>(0);
-
-  useEffect(() => {
-    const updateProgress = () => {
-      const scrollElement =
-        document.scrollingElement || document.documentElement;
-      const { scrollTop, scrollHeight, clientHeight } = scrollElement;
-      const maxScroll = scrollHeight - clientHeight;
-      const progress = maxScroll > 0 ? (scrollTop / maxScroll) * 100 : 0;
-      setScrollProgress(progress);
-    };
-
-    updateProgress();
-    window.addEventListener("scroll", updateProgress, { passive: true });
-    window.addEventListener("resize", updateProgress);
-    return () => {
-      window.removeEventListener("scroll", updateProgress);
-      window.removeEventListener("resize", updateProgress);
-    };
-  }, []);
 
   return (
-    <>
-      <Header scrollProgress={scrollProgress} />
+    <div className="min-h-screen text-foreground bg-white">
+      <Header />
 
       <main className="pt-16 lg:pt-20">
+        {/* ===== HERO / MAIN WRAPPER (0008.jpg BACKGROUND) ===== */}
         <section
           className="relative w-full min-h-screen flex items-center justify-center p-6 lg:p-16 overflow-hidden"
           style={{
@@ -42,11 +23,8 @@ export default function TIPS() {
             backgroundPosition: "center",
           }}
         >
-          {/* Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent" />
-
-          {/* Floating objects like LittleSeeds */}
-          <FloatingObjects />
+          {/* Dark gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-black/10" />
 
           <div className="relative z-10 max-w-6xl w-full">
             {/* Back button */}
@@ -59,9 +37,9 @@ export default function TIPS() {
               Back to Home
             </Button>
 
-            {/* Main glass card */}
+            {/* Glass card content */}
             <div className="bg-white/90 backdrop-blur-md rounded-3xl shadow-2xl p-8 lg:p-12">
-              {/* Header */}
+              {/* ==== HEADER TEXT ==== */}
               <div className="text-center mb-8">
                 <div className="inline-block bg-gradient-to-r from-[#E05D35] to-amber-500 text-white px-4 py-2 rounded-full text-sm font-bold mb-4">
                   Case Study · Education
@@ -74,7 +52,7 @@ export default function TIPS() {
                 </p>
               </div>
 
-              {/* Intro + Image */}
+              {/* ==== INTRO + IMAGE ==== */}
               <div className="grid gap-8 md:grid-cols-2 items-center mb-10">
                 <div className="flex justify-center">
                   <img
@@ -87,47 +65,56 @@ export default function TIPS() {
                 <div className="w-full">
                   <p className="text-base md:text-lg lg:text-xl font-medium leading-relaxed text-foreground/80 text-center md:text-left">
                     <span className="block mb-2">
-                      Client:{" "}
-                      <strong>The Indian Public School (TIPS)</strong>
+                      Client: <strong>The Indian Public School (TIPS)</strong>
                     </span>
                     <span className="block">
                       Scope: Web Maintenance, Social Media Management &amp;
-                      Integrated Branding Campaigns across multiple metro
-                      campuses.
+                      Integrated Branding Campaigns across multiple metro campuses.
                     </span>
                   </p>
 
                   <div className="mt-6 rounded-2xl bg-gradient-to-r from-[#E05D35]/10 to-amber-400/10 p-4 md:p-5">
                     <p className="font-body text-sm md:text-base lg:text-lg leading-relaxed text-foreground/80">
-                      TIPS wanted a strong, emotionally resonant digital
-                      presence that showcased not just infrastructure, but the
-                      real learning experiences of children across all its
-                      campuses.
+                      TIPS wanted a strong, emotionally resonant digital presence
+                      that highlights not just infrastructure, but real learning
+                      moments of children across all its campuses.
                     </p>
                   </div>
                 </div>
               </div>
 
-              {/* Challenge & Approach */}
+              {/* ==== CHALLENGE & APPROACH (TWO CARDS) ==== */}
               <div className="grid gap-6 md:grid-cols-2 mb-10">
-                <article className="rounded-2xl bg-white/90 border border-black/5 p-6 shadow-sm">
+                <motion.article
+                  initial={{ opacity: 0, y: 14 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  className="rounded-2xl bg-white/90 border border-black/5 p-6 shadow-sm"
+                >
                   <h2 className="text-xl md:text-2xl font-semibold mb-3">
                     Challenge
                   </h2>
                   <p className="text-sm md:text-base leading-relaxed text-foreground/80">
-                    TIPS needed a consistent digital identity across
-                    multi-city campuses. Their existing web and social media
-                    presence lacked:
+                    TIPS needed a consistent digital identity across multi-city
+                    campuses. Their existing web and social media presence lacked:
                   </p>
                   <ul className="mt-3 list-disc pl-5 space-y-1 text-sm md:text-base text-foreground/80">
                     <li>Regular, high-quality content updates</li>
                     <li>Emotionally engaging stories for parents</li>
-                    <li>Clear representation of the early learning environment</li>
+                    <li>
+                      Clear representation of the early learning environment
+                    </li>
                     <li>Strong visual consistency across locations</li>
                   </ul>
-                </article>
+                </motion.article>
 
-                <article className="rounded-2xl bg-white/90 border border-black/5 p-6 shadow-sm">
+                <motion.article
+                  initial={{ opacity: 0, y: 14 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{ delay: 0.05 }}
+                  className="rounded-2xl bg-white/90 border border-black/5 p-6 shadow-sm"
+                >
                   <h2 className="text-xl md:text-2xl font-semibold mb-3">
                     Our Approach
                   </h2>
@@ -142,8 +129,8 @@ export default function TIPS() {
                       <strong className="text-[#E05D35]">
                         Social Media Operations:
                       </strong>{" "}
-                      Daily management of Facebook, Instagram, YouTube,
-                      LinkedIn and WhatsApp channel.
+                      Daily management of Facebook, Instagram, YouTube, LinkedIn
+                      and WhatsApp Channel.
                     </li>
                     <li>
                       <strong className="text-[#E05D35]">
@@ -160,17 +147,17 @@ export default function TIPS() {
                       action” for authentic parent connect.
                     </li>
                   </ul>
-                </article>
+                </motion.article>
               </div>
 
-              {/* Results row in one horizontal line */}
+              {/* ==== RESULTS (ONE HORIZONTAL ROW) ==== */}
               <div className="mb-10">
                 <h2 className="text-xl md:text-2xl font-bold mb-3 text-center">
                   Results
                 </h2>
                 <p className="text-sm md:text-base text-foreground/80 mb-6 max-w-2xl mx-auto text-center">
-                  The integrated digital strategy delivered measurable growth
-                  and deeper parent engagement across metro campuses.
+                  The integrated digital strategy delivered measurable growth and
+                  deeper parent engagement across metro campuses.
                 </p>
 
                 <div className="flex justify-center items-stretch gap-6 flex-wrap md:flex-nowrap">
@@ -194,7 +181,7 @@ export default function TIPS() {
                 </div>
               </div>
 
-              {/* Outcome */}
+              {/* ==== OUTCOME ==== */}
               <div className="rounded-2xl bg-gradient-to-r from-[#E05D35]/15 to-amber-400/15 p-6 md:p-8">
                 <h2 className="text-xl md:text-2xl font-bold mb-3">
                   Outcome
@@ -202,16 +189,19 @@ export default function TIPS() {
                 <p className="text-sm md:text-base lg:text-lg leading-relaxed text-foreground/85">
                   The Indian Public School now enjoys a strong, parent-centric
                   digital brand presence across multiple cities. With consistent
-                  storytelling, video-first content and always-on social media,
+                  storytelling, video-first content, and always-on social media,
                   TIPS has become one of the most visible schools online in its
-                  category, directly supporting admission growth and brand
-                  recall.
+                  category, directly supporting admission growth and brand recall.
                 </p>
               </div>
             </div>
           </div>
         </section>
       </main>
-    </>
+
+      <Footer />
+    </div>
   );
-}
+};
+
+export default TIPS;
