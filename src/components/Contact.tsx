@@ -53,7 +53,7 @@ const Contact = () => {
 
         {/* Equal-height columns */}
         <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-8 items-stretch">
-          {/* LEFT: Contact Form (no extra internal spacing) */}
+          {/* LEFT: Contact Form */}
           <div className="glass-card p-6 md:p-7 rounded-2xl h-full">
             <h3 className="text-xl md:text-2xl font-bold text-foreground mb-4">
               Send us a message
@@ -62,22 +62,39 @@ const Contact = () => {
             <form>
               <div className="grid md:grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-sm font-medium text-foreground mb-1">Name</label>
+                  <label className="block text-sm font-medium text-foreground mb-1">
+                    Name
+                  </label>
                   <Input placeholder="Your name" />
                 </div>
+
                 <div>
-                  <label className="block text-sm font-medium text-foreground mb-1">Email</label>
+                  <label className="block text-sm font-medium text-foreground mb-1">
+                    Email
+                  </label>
                   <Input type="email" placeholder="your@email.com" />
                 </div>
               </div>
 
+              {/* PHONE NUMBER FIELD ADDED */}
               <div className="mt-3">
-                <label className="block text-sm font-medium text-foreground mb-1">Subject</label>
+                <label className="block text-sm font-medium text-foreground mb-1">
+                  Phone
+                </label>
+                <Input type="tel" placeholder="+91 00000 00000" />
+              </div>
+
+              <div className="mt-3">
+                <label className="block text-sm font-medium text-foreground mb-1">
+                  Subject
+                </label>
                 <Input placeholder="How can we help?" />
               </div>
 
               <div className="mt-3">
-                <label className="block text-sm font-medium text-foreground mb-1">Message</label>
+                <label className="block text-sm font-medium text-foreground mb-1">
+                  Message
+                </label>
                 <Textarea
                   placeholder="Tell us about your project..."
                   className="min-h-[120px] resize-y"
@@ -90,7 +107,7 @@ const Contact = () => {
             </form>
           </div>
 
-          {/* RIGHT: Compact Details (no large gaps) */}
+          {/* RIGHT: Details */}
           <div className="glass-card p-6 md:p-7 rounded-2xl h-full">
             {details.map(({ icon: Icon, title, text, iconClass }, i) => (
               <div
@@ -115,7 +132,7 @@ const Contact = () => {
               </div>
             ))}
           </div>
-        </div>{/* /grid */}
+        </div>
       </div>
     </section>
   );
