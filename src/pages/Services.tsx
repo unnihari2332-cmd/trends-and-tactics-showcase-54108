@@ -32,22 +32,23 @@ export default function ServicesPage() {
 
       <main className="relative">
 
-        {/* ---------- HERO WITH CONTACT-PAGE STYLE BREADCRUMB ---------- */}
+        {/* ---------- HERO WITH BREADCRUMB + LOWERED IMAGE ---------- */}
         <section className="relative flex items-center justify-center text-center text-white">
-          {/* Hero background */}
+          {/* Hero bg */}
           <div
             className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: `url(${servicesHero})` }}
+            style={{
+              backgroundImage: `url(${servicesHero})`,
+              backgroundPosition: "center 60%", // ↓ Moves the visible image a bit DOWN
+            }}
           />
           <div className="absolute inset-0 bg-black/60" />
 
-          <div className="relative z-10 container mx-auto px-4 md:px-6 py-20 md:py-24">
+          <div className="relative z-10 container mx-auto px-4 md:px-6 pt-28 pb-20">
 
-            {/* Breadcrumb (same as Contact page) */}
+            {/* Breadcrumb (same contact style) */}
             <nav className="mb-3 flex items-center justify-center gap-2 text-xs md:text-sm text-white/80">
-              <Link to="/" className="hover:text-white transition">
-                Home
-              </Link>
+              <Link to="/" className="hover:text-white transition">Home</Link>
               <span className="opacity-60">›</span>
               <span className="text-white">Services</span>
             </nav>
@@ -76,7 +77,7 @@ export default function ServicesPage() {
               to="/contact"
               className="inline-flex items-center justify-center rounded-2xl px-6 py-3 font-semibold transition-all
                          bg-gradient-to-r from-[#E05D35] to-[#6BC2C4] text-white shadow-lg shadow-black/20
-                         hover:shadow-xl hover:scale-[1.02] active:scale-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
+                         hover:shadow-xl hover:scale-[1.02] active:scale-95"
             >
               Let’s plan your growth
             </Link>
@@ -105,34 +106,26 @@ type CardProps = {
 
 function ServiceImageCard({ no, title, blurb, href, img, alt }: CardProps) {
   return (
-    <article className="group relative overflow-hidden rounded-3xl bg-black/5 ring-1 ring-black/10 focus-within:ring-2 focus-within:ring-[#6BC2C4]">
+    <article className="group relative overflow-hidden rounded-3xl bg-black/5 ring-1 ring-black/10">
 
-      {/* Image */}
       <div className="relative aspect-[16/12] w-full">
         <img
           src={img}
           alt={alt}
           loading="lazy"
-          decoding="async"
           className="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-[1.03] group-hover:blur-[2px]"
-          onError={(e) => {
-            (e.currentTarget as HTMLImageElement).src =
-              "https://via.placeholder.com/800x600?text=Service";
-          }}
         />
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/10 via-black/10 to-black/30" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/10 to-black/30" />
       </div>
 
-      {/* Hover Box */}
-      <div className="pointer-events-none absolute inset-x-6 bottom-6 translate-y-4 opacity-0 transition duration-300 ease-out group-hover:opacity-100 group-hover:translate-y-0 group-focus-within:opacity-100 group-focus-within:translate-y-0">
+      <div className="absolute inset-x-6 bottom-6 translate-y-4 opacity-0 transition duration-300 group-hover:opacity-100 group-hover:translate-y-0">
         <div className="rounded-2xl bg-white text-black p-6 shadow-2xl">
           <div className="flex items-center gap-4">
             <span className="text-xs font-bold tracking-widest text-black/60">{no}</span>
-            <h3 className="text-2xl md:text-3xl font-extrabold leading-tight">{title}</h3>
+            <h3 className="text-2xl md:text-3xl font-extrabold">{title}</h3>
             <div className="ml-auto grid place-items-center h-14 w-14 rounded-full bg-[#6BC2C4]">
-              <span className="sr-only">Open {title}</span>
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M5 12h14M13 5l7 7-7 7" stroke="#E05D35" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                <path d="M5 12h14M13 5l7 7-7 7" stroke="#E05D35" strokeWidth="2" strokeLinecap="round" />
               </svg>
             </div>
           </div>
@@ -140,7 +133,6 @@ function ServiceImageCard({ no, title, blurb, href, img, alt }: CardProps) {
         </div>
       </div>
 
-      {/* Link */}
       <Link to={href} className="absolute inset-0" aria-label={`Learn more: ${title}`} />
     </article>
   );
