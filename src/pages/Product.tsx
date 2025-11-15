@@ -21,7 +21,7 @@ export default function Product() {
       <Header />
 
       <main className="pb-12">
-        {/* ===== HERO WITH BIG BREADCRUMB (LIKE OTHER UPDATED PAGES) ===== */}
+        {/* ===== HERO WITH BREADCRUMB ===== */}
         <section className="relative min-h-[38vh] flex items-center text-white">
           <div
             className="absolute inset-0 bg-cover bg-center"
@@ -33,12 +33,13 @@ export default function Product() {
           <div className="absolute inset-0 bg-black/60" />
 
           <div className="relative z-10 container mx-auto px-4 md:px-6 pt-28 pb-16 text-center">
-            {/* Breadcrumb */}
-            <nav className="flex items-center justify-center gap-4 text-[17px] font-normal text-white/85 mb-4">
-              <Link to="/" className="hover:text-white transition">
+
+            {/* ===== BREADCRUMB WHITE COLOR ===== */}
+            <nav className="flex items-center justify-center gap-4 text-[17px] font-normal mb-4">
+              <Link to="/" className="text-white hover:text-white transition">
                 Home
               </Link>
-              <span className="opacity-70">›</span>
+              <span className="text-white/70">›</span>
               <span className="text-white">Products</span>
             </nav>
 
@@ -61,6 +62,7 @@ export default function Product() {
             </div>
 
             <div className="grid sm:grid-cols-2 gap-8">
+              
               {/* Smart Access Plus */}
               <motion.article
                 initial={{ opacity: 0, y: 16 }}
@@ -80,7 +82,7 @@ export default function Product() {
                   <div className="p-6">
                     <h3 className="text-2xl font-semibold">Smart Access Plus</h3>
                     <p className="mt-2 text-black/70 text-base">
-                      Fingerprint-based attendance &amp; HR suite with real-time web
+                      Fingerprint-based attendance & HR suite with real-time web
                       dashboard and payroll/leave integration.
                     </p>
                     <div className="mt-4 inline-flex items-center text-[#E05D35] font-semibold">
@@ -90,7 +92,7 @@ export default function Product() {
                 </Link>
               </motion.article>
 
-              {/* AI Personalized Chatbot */}
+              {/* AI Chatbot */}
               <motion.article
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -118,6 +120,7 @@ export default function Product() {
                   </div>
                 </Link>
               </motion.article>
+
             </div>
           </div>
         </section>
