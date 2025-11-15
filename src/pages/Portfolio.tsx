@@ -44,7 +44,7 @@ const portfolioItems: Item[] = [
   },
   {
     title: "Niyas Khan — Actor",
-    image: "/Niyas.png",
+    image: "/niyaz.jpg",
     path: "/portfolio/niyas-khan-actor",
   },
   {
