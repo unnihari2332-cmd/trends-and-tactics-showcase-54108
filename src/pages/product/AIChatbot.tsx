@@ -1,8 +1,10 @@
 // src/pages/product/AIChatbot.tsx
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import PageHeader from "@/components/PageHeader";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+
+const heroBg = "/aichat.jpg";
 
 export default function AIChatbot() {
   return (
@@ -19,11 +21,36 @@ export default function AIChatbot() {
       <Header />
 
       <main>
-        <PageHeader 
-          title="AI-Powered Personalized Chatbot" 
-          breadcrumbs={[{ label: "Home", path: "/" }, { label: "Products", path: "/product" }]}
-          bgImage="/aichat.jpg"
-        />
+        {/* ===== HERO (same style as SmartAccess / Product) ===== */}
+        <section className="relative min-h-[38vh] flex items-center text-white">
+          <div
+            className="absolute inset-0 bg-cover bg-center"
+            style={{
+              backgroundImage: `url(${heroBg})`,
+              backgroundPosition: "center 45%",
+            }}
+          />
+          <div className="absolute inset-0 bg-black/60" />
+
+          <div className="relative z-10 container mx-auto px-4 md:px-6 pt-28 pb-16 text-center">
+            {/* Breadcrumb */}
+            <nav className="flex items-center justify-center gap-4 text-[17px] font-normal text-white/85 mb-4">
+              <Link to="/" className="hover:text-white transition">
+                Home
+              </Link>
+              <span className="opacity-70">›</span>
+              <Link to="/product" className="hover:text-white transition">
+                Products
+              </Link>
+              <span className="opacity-70">›</span>
+              <span className="text-white">AI-Powered Personalized Chatbot</span>
+            </nav>
+
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-normal">
+              AI-Powered Personalized Chatbot
+            </h1>
+          </div>
+        </section>
 
         {/* ===== INTRO (image + paragraph) ===== */}
         <section className="py-10 px-6 md:py-12">
@@ -43,8 +70,9 @@ export default function AIChatbot() {
               className="w-full"
             >
               <p className="text-base md:text-2xl font-medium leading-relaxed text-black text-center md:text-left">
-                Experience the future of communication. Unlike scripted bots, our AI learns from every
-                interaction to deliver context-aware, personal, and meaningful conversations—at scale.
+                Experience the future of communication. Unlike scripted bots, our
+                AI learns from every interaction to deliver context-aware,
+                personal, and meaningful conversations—at scale.
               </p>
             </motion.div>
           </div>
@@ -68,8 +96,9 @@ export default function AIChatbot() {
                 </h2>
               </div>
               <p className="text-black/80">
-                Understands intent, remembers context, and adapts tone. From guided flows to proactive
-                suggestions, every reply feels bespoke—boosting satisfaction and conversion.
+                Understands intent, remembers context, and adapts tone. From
+                guided flows to proactive suggestions, every reply feels
+                bespoke—boosting satisfaction and conversion.
               </p>
             </motion.article>
 
@@ -89,8 +118,8 @@ export default function AIChatbot() {
                 </h2>
               </div>
               <p className="text-black/80 mb-3">
-                Deploy on web, mobile apps, WhatsApp, and social with instant responses and smart
-                handoff to human agents when needed.
+                Deploy on web, mobile apps, WhatsApp, and social with instant
+                responses and smart handoff to human agents when needed.
               </p>
               <ul className="space-y-2 text-black/80">
                 <li className="flex gap-3">
@@ -190,13 +219,15 @@ export default function AIChatbot() {
           </div>
         </section>
 
-        {/* ===== CTA STRIP (same pattern) ===== */}
+        {/* ===== CTA STRIP ===== */}
         <section className="relative">
           <div className="container mx-auto px-6 pb-10">
             <div className="relative overflow-hidden rounded-2xl bg-foreground/20 backdrop-blur-sm ring-1 ring-foreground/10">
               <div
                 className="absolute inset-y-0 right-0 w-1/2 md:w-2/5 bg-[#2ecec8]"
-                style={{ clipPath: "polygon(25% 0, 100% 0, 100% 100%, 0 100%)" }}
+                style={{
+                  clipPath: "polygon(25% 0, 100% 0, 100% 100%, 0 100%)",
+                }}
                 aria-hidden="true"
               />
               <div className="relative grid gap-6 p-8 md:p-10 text-black">
@@ -204,7 +235,8 @@ export default function AIChatbot() {
                   Ready to launch your AI assistant?
                 </h3>
                 <p className="text-black/80 max-w-2xl">
-                  We’ll tailor flows, knowledge, and integrations for your team and customers.
+                  We’ll tailor flows, knowledge, and integrations for your team
+                  and customers.
                 </p>
                 <div>
                   <a
