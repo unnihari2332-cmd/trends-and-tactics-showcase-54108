@@ -1,8 +1,8 @@
 // src/pages/About.tsx
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import PageHeader from "@/components/PageHeader";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import {
   Rocket,
   Sparkles,
@@ -34,11 +34,34 @@ const About = () => {
       <Header />
 
       <main>
-        <PageHeader 
-          title="About Us" 
-          breadcrumbs={[{ label: "Home", path: "/" }]}
-          bgImage="/about02.jpg"
-        />
+        {/* Swathi-style hero with breadcrumb + bg image */}
+        <section className="relative min-h-[40vh] flex items-center justify-center">
+          {/* Hero background */}
+          <div
+            className="absolute inset-0 bg-cover bg-center"
+            style={{
+              backgroundImage: "url('/about02.jpg')",
+              backgroundPosition: "center 30%",
+            }}
+          />
+          {/* Dark overlay */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/80" />
+
+          <div className="relative z-10 container mx-auto max-w-6xl px-6 pt-28 pb-16 text-center">
+            {/* Breadcrumb */}
+            <nav className="mb-4 flex items-center justify-center gap-2 text-xs md:text-sm text-white/80">
+              <Link to="/" className="hover:text-white transition-colors">
+                Home
+              </Link>
+              <span className="opacity-60">›</span>
+              <span className="text-white">About Us</span>
+            </nav>
+
+            <h1 className="text-3xl md:text-5xl font-normal text-white">
+              About Us
+            </h1>
+          </div>
+        </section>
 
         {/* ===== INTRO + VISION & MISSION (pill style) ===== */}
         <section className="py-10 px-6 md:py-12">
