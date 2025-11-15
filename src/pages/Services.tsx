@@ -32,21 +32,21 @@ export default function ServicesPage() {
 
       <main className="relative">
 
-        {/* ---------- HERO WITH BREADCRUMB + LOWERED IMAGE ---------- */}
+        {/* ---------- HERO WITH BREADCRUMB + IMAGE MOVED UP ---------- */}
         <section className="relative flex items-center justify-center text-center text-white">
           {/* Hero bg */}
           <div
             className="absolute inset-0 bg-cover bg-center"
             style={{
               backgroundImage: `url(${servicesHero})`,
-              backgroundPosition: "center 60%", // ↓ Moves the visible image a bit DOWN
+              backgroundPosition: "center 35%", // ← MOVED UP
             }}
           />
           <div className="absolute inset-0 bg-black/60" />
 
           <div className="relative z-10 container mx-auto px-4 md:px-6 pt-28 pb-20">
 
-            {/* Breadcrumb (same contact style) */}
+            {/* Breadcrumb (same style as Contact page) */}
             <nav className="mb-3 flex items-center justify-center gap-2 text-xs md:text-sm text-white/80">
               <Link to="/" className="hover:text-white transition">Home</Link>
               <span className="opacity-60">›</span>
