@@ -1,7 +1,6 @@
 // src/pages/About.tsx
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import PageHeader from "@/components/PageHeader";
 import { motion } from "framer-motion";
 import {
   Rocket,
@@ -18,6 +17,7 @@ import {
   Target,
   Binoculars,
 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const About = () => {
   return (
@@ -34,18 +34,31 @@ const About = () => {
       <Header />
 
       <main>
-        {/* ===== UPDATED BREADCRUMB STYLE (matches Swathi page) ===== */}
-        <PageHeader
-          title="About Us"
-          breadcrumbs={[
-            { label: "Home", path: "/" },
-            { label: "About Us", path: "/about" }
-          ]}
-          bgImage="/about02.jpg"
-          styleType="portfolio"
-          sideLogo="/sidelogo.jpg"
-        />
-        {/* ===== END UPDATED BREADCRUMB ===== */}
+        {/* ===== HERO (same image/size, updated breadcrumb style) ===== */}
+        <section className="relative flex items-center justify-center text-center text-white">
+          {/* Background image */}
+          <div
+            className="absolute inset-0 bg-cover bg-center"
+            style={{ backgroundImage: "url('/about02.jpg')" }}
+          />
+          {/* Overlay */}
+          <div className="absolute inset-0 bg-black/60" />
+
+          <div className="relative z-10 container mx-auto px-4 md:px-6 py-20 md:py-24">
+            {/* Centered breadcrumb like TIPS/portfolio pages */}
+            <nav className="mb-3 flex items-center justify-center gap-2 text-xs md:text-sm text-white/80">
+              <Link to="/" className="hover:text-white transition-colors">
+                Home
+              </Link>
+              <span className="opacity-60">›</span>
+              <span className="text-white">About Us</span>
+            </nav>
+
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-normal">
+              About Us
+            </h1>
+          </div>
+        </section>
 
         {/* ===== INTRO + VISION & MISSION (pill style) ===== */}
         <section className="py-10 px-6 md:py-12">
