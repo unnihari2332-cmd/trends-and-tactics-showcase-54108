@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
-const heroBg = "/chatbot.jpg";
+const heroBg = "/chatbot01.jpg";
 
 export default function AIChatbot() {
   return (
