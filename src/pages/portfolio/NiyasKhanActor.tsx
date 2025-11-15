@@ -17,7 +17,7 @@ import {
   Hash,
 } from "lucide-react";
 
-const heroBg = "/niyaz mini banner.jpg"; // 16:9 hero image placed in /public
+const heroBg = "/niyaz.jpg"; // 16:9 hero image placed in /public
 
 /** ================================
  *  YouTube Auto-Scroller (full 16:9, no cropping)
