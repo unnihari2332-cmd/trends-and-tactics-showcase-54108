@@ -12,12 +12,10 @@ import {
   Megaphone,
   X,
   ZoomIn,
-  ExternalLink,
 } from "lucide-react";
 
 const heroBg = "/mainbanners.jpg";              // 16:9 hero in /public
-const sideImage = "/isthara sidebanner.png";    // ← Left side image
-const websiteUrl = "#";                         // ← Put live Isthara URL here
+const sideImage = "/isthara sidebanner.png";    // Left side image
 
 /* ------------ Small presentational helpers (same as INDSYS) ------------ */
 function Pillar({ title, desc }: { title: string; desc: string }) {
@@ -145,7 +143,7 @@ export default function IstharaDining() {
       <Header />
 
       <main>
-        {/* ===== HERO (same pattern as INDSYS: Swathi-style breadcrumb) ===== */}
+        {/* ===== HERO (Swathi-style breadcrumb) ===== */}
         <section className="relative min-h-[40vh] flex items-center justify-center">
           <div
             className="absolute inset-0 bg-cover bg-center"
@@ -178,7 +176,7 @@ export default function IstharaDining() {
           </div>
         </section>
 
-        {/* ===== Two Column: Left Image + Right Content (exactly like INDSYS) ===== */}
+        {/* ===== Two Column: Left Image + Right Content (same grid as INDSYS) ===== */}
         <section className="py-16">
           <div className="container mx-auto px-6">
             <div className="grid md:grid-cols-5 gap-8">
@@ -208,21 +206,6 @@ export default function IstharaDining() {
                     <ZoomIn className="w-4 h-4" />
                     <span className="text-sm font-medium">View</span>
                   </button>
-                </div>
-
-                {/* CTA under the image */}
-                <div className="mt-4">
-                  <a
-                    href={websiteUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2
-                               border border-gray-300 hover:border-gray-400 bg-white text-gray-900
-                               transition focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400"
-                  >
-                    <ExternalLink className="w-4 h-4" />
-                    View Website
-                  </a>
                 </div>
               </motion.div>
 
@@ -392,7 +375,7 @@ export default function IstharaDining() {
 
       <Footer />
 
-      {/* Lightbox (same as INDSYS) */}
+      {/* Lightbox */}
       <ImageLightbox
         src={sideImage}
         alt="Isthara Multi Dining — Banner"
