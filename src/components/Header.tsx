@@ -1,5 +1,5 @@
 // src/components/Header.tsx
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { useLocation, Link } from "react-router-dom";
 import { Menu, X, ChevronDown } from "lucide-react";
 
@@ -17,14 +17,13 @@ const SERVICES = [
 
 type NavLink = { href: string; label: string };
 
-// include Portfolio and Case Study
 const centerLinks: NavLink[] = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/portfolio", label: "Portfolio" },
   { href: "/case-study", label: "Case Study" },
   { href: "/services", label: "Services" },
-  { href: "/product", label: "Product" }, // no dropdown now (per your ask)
+  { href: "/product", label: "Product" },
 ];
 
 export default function Header() {
@@ -32,10 +31,31 @@ export default function Header() {
 
   const [open, setOpen] = useState(false);
   const [svcOpen, setSvcOpen] = useState(false);
-
   const [svcDesktopOpen, setSvcDesktopOpen] = useState(false);
 
   const closeTimer = useRef<number | null>(null);
+
+  /* ---------------- SCROLL HIDE / SHOW ---------------- */
+  const [showHeader, setShowHeader] = useState(true);
+  const lastScrollY = useRef(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentY = window.scrollY;
+
+      if (currentY > lastScrollY.current && currentY > 80) {
+        setShowHeader(false); // scrolling down → hide
+      } else {
+        setShowHeader(true); // scrolling up → show
+      }
+
+      lastScrollY.current = currentY;
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+  /* ------------------------------------------------------ */
 
   const openDesktopMenu = () => {
     if (closeTimer.current) clearTimeout(closeTimer.current);
@@ -58,7 +78,11 @@ export default function Header() {
     "after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-full after:bg-[#E05D35]";
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50">
+    <header
+      className={`fixed inset-x-0 top-0 z-50 transition-transform duration-300 ${
+        showHeader ? "translate-y-0" : "-translate-y-full"
+      }`}
+    >
       <div className="bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/80 border-b border-black/5 shadow-[0_2px_12px_rgba(0,0,0,0.04)]">
         <div className="container mx-auto px-4">
           <div className="flex h-16 items-center justify-between">
@@ -90,6 +114,7 @@ export default function Header() {
                       >
                         Services <ChevronDown size={16} />
                       </Link>
+
                       {svcDesktopOpen && (
                         <div
                           role="menu"
@@ -118,7 +143,6 @@ export default function Header() {
                   );
                 }
 
-                // Regular items (About, Portfolio, Case Study, Product, Home)
                 return (
                   <Link
                     key={l.href}
@@ -138,14 +162,13 @@ export default function Header() {
               <Link
                 to="/contact"
                 className="inline-flex items-center rounded-full px-4 py-2 text-sm font-semibold text-white
-                  bg-gradient-to-r from-[#E05D35] to-[#f77b4f] shadow-[0_8px_24px_-10px_rgba(224,93,53,0.7)]
-                  hover:shadow-[0_10px_28px_-10px_rgba(224,93,53,0.9)] transition-shadow"
+                bg-gradient-to-r from-[#E05D35] to-[#f77b4f]"
               >
                 Contact
               </Link>
             </div>
 
-            {/* Mobile menu toggle */}
+            {/* Mobile toggle */}
             <button
               className="md:hidden inline-flex h-10 w-10 items-center justify-center rounded-md text-black"
               onClick={() => setOpen((v) => !v)}
@@ -157,17 +180,16 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Mobile Drawer */}
+      {/* Mobile Menu */}
       {open && (
         <div className="md:hidden bg-white border-b border-black/10">
           <nav className="container mx-auto px-4 py-3 flex flex-col gap-1.5">
-            {/* Home, About, Portfolio, Case Study */}
             {["/", "/about", "/portfolio", "/case-study"].map((href) => (
               <Link
                 key={href}
                 to={href}
                 onClick={() => setOpen(false)}
-                className={`px-3 py-2 text-[15px] font-semibold rounded-md ${
+                className={`px-3 py-2 text-[15px] font-semibold ${
                   isActive(href) ? "text-[#E05D35]" : "text-black/90"
                 }`}
               >
@@ -196,8 +218,6 @@ export default function Header() {
                 <button
                   className="px-3 py-2 text-black"
                   onClick={() => setSvcOpen((v) => !v)}
-                  aria-expanded={svcOpen}
-                  aria-label="Toggle services list"
                 >
                   <ChevronDown
                     size={16}
@@ -205,46 +225,38 @@ export default function Header() {
                   />
                 </button>
               </div>
+
               {svcOpen && (
                 <div className="px-2 pb-2">
                   {SERVICES.map((s) => (
                     <Link
                       key={s.slug}
                       to={`/services/${s.slug}`}
-                      className="block rounded-md px-3 py-2 text-sm font-medium text-black/90 hover:bg-black/5"
+                      className="block rounded-md px-3 py-2 text-sm font-medium hover:bg-black/5"
                       onClick={() => setOpen(false)}
                     >
                       {s.title}
                     </Link>
                   ))}
-                  <Link
-                    to="/services"
-                    className="block rounded-md px-3 py-2 text-sm font-semibold text-[#E05D35]"
-                    onClick={() => setOpen(false)}
-                  >
-                    View all services →
-                  </Link>
                 </div>
               )}
             </div>
 
-            {/* Product (no dropdown) */}
+            {/* Product */}
             <Link
               to="/product"
               onClick={() => setOpen(false)}
-              className={`px-3 py-2 text-[15px] font-semibold rounded-md ${
+              className={`px-3 py-2 text-[15px] font-semibold ${
                 isActive("/product") ? "text-[#E05D35]" : "text-black/90"
               }`}
             >
               Product
             </Link>
 
-            {/* Contact */}
             <Link
               to="/contact"
               onClick={() => setOpen(false)}
-              className="mt-1 inline-flex items-center justify-center rounded-full px-4 py-2 text-sm font-semibold text-white
-                bg-gradient-to-r from-[#E05D35] to-[#f77b4f] shadow-[0_8px_24px_-10px_rgba(224,93,53,0.7)]"
+              className="mt-1 inline-flex items-center justify-center rounded-full px-4 py-2 text-sm font-semibold text-white bg-gradient-to-r from-[#E05D35] to-[#f77b4f]"
             >
               Contact
             </Link>
