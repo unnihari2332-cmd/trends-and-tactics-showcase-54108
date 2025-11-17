@@ -13,7 +13,7 @@ import {
   MapPin,
 } from "lucide-react";
 
-const heroBg = "/0011.jpg"; // updated hero image from public
+const heroBg = "/aatral01.jpg"; // updated hero image from public
 
 const METRICS = [
   { label: "Audience Growth", value: "900%", icon: TrendingUp },
