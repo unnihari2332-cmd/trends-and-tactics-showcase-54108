@@ -12,7 +12,9 @@ import {
   Megaphone,
 } from "lucide-react";
 
-const heroBg = "/aatral-hero.jpg"; // ← YOUR NEW HERO IMAGE
+/* ========= Set your hero image here ========= */
+const heroBg = "/aatral01.jpg"; 
+// Upload this in /public as "aatral-hero.jpg"
 
 export default function AatralFoundation() {
   useEffect(() => {
@@ -33,38 +35,41 @@ export default function AatralFoundation() {
       <Header />
 
       <main>
-        {/* ========================================================
-            HERO SECTION (ONLY UPDATE DONE HERE)
-        ========================================================= */}
-        <section className="relative min-h-[40vh] flex items-center justify-center">
+        {/* =======================================================
+            HERO SECTION (Same style as TIPS screenshot)
+        ======================================================== */}
+        <section className="relative h-[55vh] w-full flex items-center justify-center">
+          {/* Full Width Hero Image */}
           <img
             src={heroBg}
             alt="Aatral Foundation"
-            className="absolute inset-0 w-full h-full object-cover"
+            className="absolute inset-0 h-full w-full object-cover"
           />
 
-          <div className="relative z-10 container mx-auto max-w-6xl px-6 pt-28 pb-16 text-center">
-            <nav className="flex items-center justify-center gap-2 text-xs md:text-sm text-white drop-shadow-lg mb-3">
-              <Link to="/" className="hover:opacity-80">
-                Home
-              </Link>
+          {/* Dark Overlay */}
+          <div className="absolute inset-0 bg-black/60"></div>
+
+          {/* Hero Text */}
+          <div className="relative z-10 text-center px-6">
+            {/* Breadcrumb */}
+            <nav className="flex items-center justify-center gap-2 text-xs md:text-sm text-white/80 mb-3">
+              <Link to="/" className="hover:text-white">Home</Link>
               <span>›</span>
-              <Link to="/portfolio" className="hover:opacity-80">
-                Portfolio
-              </Link>
+              <Link to="/portfolio" className="hover:text-white">Portfolio</Link>
               <span>›</span>
-              <span className="font-semibold">Aatral Foundation</span>
+              <span className="text-white font-semibold">Aatral Foundation</span>
             </nav>
 
+            {/* Title */}
             <h1 className="text-3xl md:text-5xl font-semibold text-white drop-shadow-xl">
-              Aatral Foundation — Growth & Social Impact
+              Aatral Foundation
             </h1>
           </div>
         </section>
 
-        {/* ========================================================
-            MAIN CONTENT (UNCHANGED)
-        ========================================================= */}
+        {/* =======================================================
+            MAIN CONTENT (unchanged)
+        ======================================================== */}
         <section className="py-16">
           <div className="container mx-auto px-6 max-w-4xl space-y-10">
             {/* Overview */}
@@ -73,12 +78,11 @@ export default function AatralFoundation() {
                 <Sparkles className="h-5 w-5 text-primary" />
                 <h2 className="text-xl font-semibold">Overview</h2>
               </div>
-
               <p className="text-gray-700 leading-relaxed">
                 Aatral Foundation uplifts communities across Tamil Nadu through
-                educational, social, and humanitarian programs. We created a strong
-                digital presence to communicate their mission and inspire people
-                to join their movement.
+                social, educational, and humanitarian programs. We built a strong
+                digital identity to showcase their service and inspire more people
+                to join their cause.
               </p>
             </div>
 
@@ -88,15 +92,14 @@ export default function AatralFoundation() {
                 <BadgeCheck className="h-5 w-5 text-primary" />
                 <h2 className="text-xl font-semibold">Challenges</h2>
               </div>
-
               <p className="text-gray-700 leading-relaxed">
-                Their achievements and impact were not visible online. There was
-                no central platform to showcase stories, highlight progress, or
-                communicate transparency to donors.
+                Their real-world impact wasn’t visible online. Stories,
+                achievements, and outreach programs were not structured for social
+                media or web, limiting awareness and donor trust.
               </p>
             </div>
 
-            {/* Our Approach */}
+            {/* Approach */}
             <div className="rounded-2xl border bg-white p-6 shadow-sm">
               <div className="flex items-center gap-3 mb-3">
                 <Megaphone className="h-5 w-5 text-primary" />
@@ -110,60 +113,57 @@ export default function AatralFoundation() {
                     <div className="font-semibold">Impact Branding</div>
                   </div>
                   <p className="text-sm text-gray-700">
-                    A narrative-driven identity that puts people and community
-                    transformation at the center.
+                    A narrative-driven identity highlighting community
+                    transformation and real life change.
                   </p>
                 </div>
 
                 <div className="rounded-xl border p-5 bg-white">
                   <div className="flex items-center gap-2 mb-2">
                     <HeartHandshake className="h-5 w-5 text-primary" />
-                    <div className="font-semibold">Storytelling System</div>
+                    <div className="font-semibold">Storytelling Framework</div>
                   </div>
                   <p className="text-sm text-gray-700">
-                    Structured storytelling formats for success stories, events,
-                    volunteer diaries, and student achievements.
+                    Stories of students, families, and volunteers that build trust
+                    and inspire participation.
                   </p>
                 </div>
 
                 <div className="rounded-xl border p-5 bg-white">
                   <div className="flex items-center gap-2 mb-2">
                     <Users className="h-5 w-5 text-primary" />
-                    <div className="font-semibold">Social Media Framework</div>
+                    <div className="font-semibold">Social Media Ecosystem</div>
                   </div>
                   <p className="text-sm text-gray-700">
-                    Templates and content buckets designed for scalable,
-                    consistent posting across platforms.
+                    Content buckets for events, success stories, outreach, and
+                    educational campaigns.
                   </p>
                 </div>
               </div>
             </div>
 
-            {/* Impact Stats */}
+            {/* Impact */}
             <div className="rounded-2xl border bg-white p-6 shadow-sm">
               <h3 className="text-xl font-semibold mb-4">Impact Created</h3>
 
               <div className="grid sm:grid-cols-3 gap-4 mb-4">
-                <div className="bg-gray-50 p-5 rounded-xl text-center border">
+                <div className="text-center p-5 border bg-gray-50 rounded-xl">
                   <div className="text-3xl font-extrabold">900%</div>
                   <p className="text-xs mt-2 text-gray-600">Audience Growth</p>
                 </div>
-
-                <div className="bg-gray-50 p-5 rounded-xl text-center border">
+                <div className="text-center p-5 border bg-gray-50 rounded-xl">
                   <div className="text-3xl font-extrabold">30K+</div>
                   <p className="text-xs mt-2 text-gray-600">Followers</p>
                 </div>
-
-                <div className="bg-gray-50 p-5 rounded-xl text-center border">
+                <div className="text-center p-5 border bg-gray-50 rounded-xl">
                   <div className="text-3xl font-extrabold">7×</div>
                   <p className="text-xs mt-2 text-gray-600">Engagement Rate</p>
                 </div>
               </div>
 
               <p className="text-sm text-gray-700 leading-relaxed">
-                Aatral’s digital efforts elevated their visibility and community
-                engagement, inspiring more people to participate and support their
-                mission.
+                The foundation’s online presence transformed into a movement,
+                inspiring more people to donate, volunteer, and participate.
               </p>
             </div>
 
@@ -173,30 +173,30 @@ export default function AatralFoundation() {
 
               <div className="space-y-3">
                 <div className="flex gap-3">
-                  <div className="w-2 h-2 rounded-full bg-primary mt-2" />
+                  <div className="w-2 h-2 bg-primary rounded-full mt-2" />
                   <p className="text-sm text-gray-700">
-                    Strong NGO identity across digital platforms
+                    Strong and recognisable NGO digital identity
                   </p>
                 </div>
 
                 <div className="flex gap-3">
-                  <div className="w-2 h-2 rounded-full bg-primary mt-2" />
+                  <div className="w-2 h-2 bg-primary rounded-full mt-2" />
                   <p className="text-sm text-gray-700">
-                    Higher volunteer and donor trust
+                    Boosted donor/volunteer trust & participation
                   </p>
                 </div>
 
                 <div className="flex gap-3">
-                  <div className="w-2 h-2 rounded-full bg-primary mt-2" />
+                  <div className="w-2 h-2 bg-primary rounded-full mt-2" />
                   <p className="text-sm text-gray-700">
                     Scalable storytelling content formats
                   </p>
                 </div>
 
                 <div className="flex gap-3">
-                  <div className="w-2 h-2 rounded-full bg-primary mt-2" />
+                  <div className="w-2 h-2 bg-primary rounded-full mt-2" />
                   <p className="text-sm text-gray-700">
-                    Better engagement across all social channels
+                    Better social media engagement for all campaigns
                   </p>
                 </div>
               </div>
