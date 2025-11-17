@@ -34,27 +34,29 @@ const About = () => {
       <Header />
 
       <main>
-        {/* ===== HERO (same image/size, updated breadcrumb style) ===== */}
-        <section className="relative flex items-center justify-center text-center text-white">
+        {/* ===== HERO (same style as Aatral Foundation) ===== */}
+        <section className="relative min-h-[40vh] flex items-center justify-center">
           {/* Background image */}
           <div
             className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: "url('/about02.jpg')" }}
+            style={{
+              backgroundImage: "url('/about02.jpg')",
+              backgroundPosition: "center 30%",
+            }}
           />
-          {/* Overlay */}
-          <div className="absolute inset-0 bg-black/60" />
 
-          <div className="relative z-10 container mx-auto px-4 md:px-6 py-20 md:py-24">
-            {/* Centered breadcrumb like TIPS/portfolio pages */}
-            <nav className="mb-3 flex items-center justify-center gap-2 text-xs md:text-sm text-white/80">
+          {/* Content */}
+          <div className="relative z-10 container mx-auto max-w-6xl px-4 md:px-6 pt-24 md:pt-28 pb-16 text-center">
+            {/* Centered breadcrumb */}
+            <nav className="mb-3 flex items-center justify-center gap-2 text-xs md:text-sm text-white">
               <Link to="/" className="hover:text-white transition-colors">
                 Home
               </Link>
-              <span className="opacity-60">›</span>
+              <span className="opacity-80">›</span>
               <span className="text-white">About Us</span>
             </nav>
 
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-normal">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-normal text-white drop-shadow-lg">
               About Us
             </h1>
           </div>
