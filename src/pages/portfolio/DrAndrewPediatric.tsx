@@ -17,7 +17,7 @@ import {
   Building2,
 } from "lucide-react";
 
-const heroBg = "/0006.jpg";
+const heroBg = "/andrew01.jpg";
 
 /* ================================
    YouTube Auto-Scroller
