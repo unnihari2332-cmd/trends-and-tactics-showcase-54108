@@ -19,7 +19,7 @@ import {
 } from "lucide-react";
 
 const heroBg = "/mainbanners.jpg";
-const sideBanner = "/isthara-sidebanner.png"; // ← LEFT FIXED IMAGE
+const sideBanner = "/isthara sidebanner.png"; // ← LEFT FIXED IMAGE
 
 /* ------------ Small helpers ------------ */
 function CardShell({ title, icon, children }: any) {
