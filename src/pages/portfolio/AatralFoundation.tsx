@@ -1,409 +1,362 @@
 // src/pages/portfolio/AatralFoundation.tsx
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { motion, AnimatePresence } from "framer-motion";
 import {
-  Users,
-  TrendingUp,
-  Share2,
+  Sparkles,
+  BadgeCheck,
+  Globe,
   LineChart,
-  Target,
+  Megaphone,
+  X,
+  ZoomIn,
   HeartHandshake,
-  MapPin,
+  Target,
+  Users,
 } from "lucide-react";
 
-const heroBg = "/aatral01.jpg"; // updated hero image from public
+/* ----------- Images ----------- */
+const heroBg = "/0011.jpg";
+const sideImage = "/Aatral.png";
 
-const METRICS = [
-  { label: "Audience Growth", value: "900%", icon: TrendingUp },
-  { label: "Followers", value: "30K+", icon: Users },
-  { label: "Engagement Rate", value: "7×", icon: LineChart },
-  { label: "Local Awareness", value: "Top Local", icon: Target },
-];
-
-/** ================================
- *  Auto-scrolling Instagram Reels
- *  ================================ */
-function ReelsAutoScroller({
-  ids,
-  intervalMs = 5000,
-}: {
-  ids: string[];
-  intervalMs?: number;
-}) {
-  const trackRef = useRef<HTMLDivElement | null>(null);
-  const [index, setIndex] = useState(0);
-  const timerRef = useRef<number | null>(null);
-
-  useEffect(() => {
-    const el = trackRef.current;
-    if (!el) return;
-    el.scrollTo({ left: index * el.clientWidth, behavior: "smooth" });
-  }, [index]);
-
-  const stop = () => {
-    if (timerRef.current) {
-      window.clearInterval(timerRef.current);
-      timerRef.current = null;
-    }
-  };
-
-  const start = () => {
-    if (timerRef.current || ids.length <= 1) return;
-    timerRef.current = window.setInterval(
-      () => setIndex((i) => (i + 1) % ids.length),
-      intervalMs
-    );
-  };
-
-  useEffect(() => {
-    start();
-    const el = trackRef.current;
-    if (!el) return () => stop();
-
-    const onEnter = () => stop();
-    const onLeave = () => start();
-
-    el.addEventListener("mouseenter", onEnter);
-    el.addEventListener("mouseleave", onLeave);
-
-    return () => {
-      stop();
-      el.removeEventListener("mouseenter", onEnter);
-      el.removeEventListener("mouseleave", onLeave);
-    };
-  }, [ids.length, intervalMs]);
-
+/* ----------- Mini Components (same structure as INDSYS) ----------- */
+function Pillar({ title, desc }: { title: string; desc: string }) {
   return (
-    <div className="relative w-full">
-      <div
-        ref={trackRef}
-        className="
-          overflow-x-hidden
-          snap-x snap-mandatory scroll-smooth
-          rounded-xl border border-gray-200 bg-white
-          w-full max-w-[360px] md:max-w-[380px]
-          mx-auto md:mx-0
-        "
-      >
-        <div className="flex w-full">
-          {ids.map((id) => (
-            <div key={id} className="min-w-full snap-start">
-              <div className="w-full aspect-[9/16]">
-                <iframe
-                  className="w-full h-full"
-                  src={`https://www.instagram.com/reel/${id}/embed`}
-                  allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-                  frameBorder={0}
-                  loading="lazy"
-                />
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* dots */}
-      <div className="mt-3 flex items-center justify-center gap-2">
-        {ids.map((_, i) => (
-          <button
-            key={i}
-            aria-label={`Go to slide ${i + 1}`}
-            onClick={() => setIndex(i)}
-            className={`h-2 w-2 rounded-full transition ${
-              i === index ? "bg-black" : "bg-gray-300"
-            }`}
-          />
-        ))}
-      </div>
+    <div className="rounded-lg border border-gray-200 p-4 bg-white">
+      <div className="font-semibold">{title}</div>
+      <p className="text-gray-700 text-sm mt-1">{desc}</p>
     </div>
   );
 }
 
-export default function AatralFoundation() {
-  useEffect(() => {
-    document.title = "Aatral Foundation – Case Study | Trends & Tactics";
-  }, []);
+function Service({
+  icon,
+  title,
+  desc,
+}: {
+  icon: React.ReactNode;
+  title: string;
+  desc: string;
+}) {
+  return (
+    <div className="rounded-xl border border-gray-200 bg-white p-5">
+      <div className="flex items-center gap-2 mb-2">
+        <span className="text-primary">{icon}</span>
+        <div className="font-semibold">{title}</div>
+      </div>
+      <p className="text-gray-700 text-sm">{desc}</p>
+    </div>
+  );
+}
 
-  const REELS = [
-    "DN135CVwoPW",
-    "DNR0uYqNRkk",
-    // "DL9u2Bbvug7",
-    "DGkp2d0Ph--",
-    "DGVOLnFB79u",
-  ];
+/* ----------- Lightbox ----------- */
+function ImageLightbox({
+  src,
+  alt,
+  open,
+  onClose,
+}: {
+  src: string;
+  alt?: string;
+  open: boolean;
+  onClose: () => void;
+}) {
+  useEffect(() => {
+    if (!open) return;
+    const key = (e: KeyboardEvent) => e.key === "Escape" && onClose();
+    window.addEventListener("keydown", key);
+    return () => window.removeEventListener("keydown", key);
+  }, [open, onClose]);
+
+  useEffect(() => {
+    if (!open) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = prev;
+    };
+  }, [open]);
+
+  return (
+    <AnimatePresence>
+      {open && (
+        <motion.div
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/85"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          onClick={onClose}
+        >
+          <button
+            onClick={onClose}
+            className="fixed top-4 right-4 px-3 py-1.5 bg-white/10 hover:bg-white/20 text-white rounded-md flex items-center gap-2"
+          >
+            <X className="w-5 h-5" /> Close
+          </button>
+
+          <motion.div
+            onClick={(e) => e.stopPropagation()}
+            initial={{ scale: 0.96, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0.96, opacity: 0 }}
+            transition={{ type: "spring", stiffness: 120, damping: 14 }}
+          >
+            <img
+              src={src}
+              alt={alt}
+              className="max-w-[98vw] max-h-[92vh] rounded-lg shadow-2xl object-contain"
+            />
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
+}
+
+/* ----------- MAIN PAGE ----------- */
+export default function AatralFoundation() {
+  const [isLightboxOpen, setLightboxOpen] = useState(false);
+
+  useEffect(() => {
+    document.title = "Aatral Foundation — Case Study | Trends & Tactics";
+  }, []);
 
   return (
     <div
-      className="min-h-screen bg-background text-foreground"
+      className="min-h-screen text-foreground"
       style={{
-        backgroundImage: "url('/sidelogo.jpg')", // side logo like Swathi page
-        backgroundRepeat: "no-repeat",
+        backgroundImage: "url('/sidelogo.jpg')",
         backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
         backgroundPosition: "left center",
         backgroundAttachment: "fixed",
       }}
     >
       <Header />
 
-      <main className="pb-12">
-        {/* ===== HERO (Swathi-style breadcrumb + hero) ===== */}
+      <main>
+        {/* ----------- HERO (NO GRADIENT) ----------- */}
         <section className="relative min-h-[40vh] flex items-center justify-center">
-          <div
-            className="absolute inset-0 bg-cover bg-center"
-            style={{
-              backgroundImage: `url(${heroBg})`,
-              backgroundPosition: "center 30%",
-            }}
+          <img
+            src={heroBg}
+            alt="Aatral"
+            className="absolute inset-0 w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/80" />
 
           <div className="relative z-10 container mx-auto max-w-6xl px-6 pt-28 pb-16 text-center">
-            <nav className="flex items-center justify-center gap-2 text-xs md:text-sm text-white/80 mb-4">
-              <Link to="/" className="hover:text-white transition-colors">
+            <nav className="flex items-center justify-center gap-2 text-xs md:text-sm text-white drop-shadow-lg mb-3">
+              <Link to="/" className="hover:opacity-80">
                 Home
               </Link>
-              <span className="opacity-60">›</span>
-              <Link
-                to="/portfolio"
-                className="hover:text-white transition-colors"
-              >
+              <span>›</span>
+              <Link to="/portfolio" className="hover:opacity-80">
                 Portfolio
               </Link>
-              <span className="opacity-60">›</span>
-              <span className="text-white">Aatral Foundation</span>
+              <span>›</span>
+              <span className="font-semibold">Aatral Foundation</span>
             </nav>
 
-            <h1 className="text-3xl md:text-5xl font-normal text-white">
-              Aatral Foundation — Social Media Growth
+            <h1 className="text-3xl md:text-5xl font-semibold text-white drop-shadow-xl">
+              Aatral Foundation — Growth & Social Impact
             </h1>
           </div>
         </section>
 
-        {/* ===== COMPACT CASE STUDY LAYOUT ===== */}
-        <section className="py-6 md:py-8">
-          <div className="container mx-auto px-4 md:px-6">
-            <div
-              className="
-                grid gap-6 lg:gap-8
-                lg:grid-cols-[minmax(0,2fr)_minmax(0,1.15fr)]
-                items-start
-              "
+        {/* ----------- TWO COLUMN LAYOUT ----------- */}
+        <section className="py-16">
+          <div className="container mx-auto px-6 grid md:grid-cols-5 gap-8">
+            {/* LEFT IMAGE */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              className="md:col-span-2 md:sticky md:top-24 md:h-fit"
             >
-              {/* LEFT COLUMN */}
-              <div className="space-y-4 md:space-y-5">
-                {/* Overview */}
-                <div className="rounded-2xl border border-gray-200 bg-white p-4 md:p-5 shadow-sm">
-                  <div className="flex flex-wrap items-center gap-3 text-[11px] md:text-xs font-semibold uppercase tracking-wide text-teal-600 mb-3">
-                    <span className="inline-flex items-center gap-2">
-                      <HeartHandshake className="h-4 w-4" />
-                      Non-Profit · Community Impact
-                    </span>
-                    <span className="inline-flex items-center gap-2 text-gray-600 normal-case">
-                      <MapPin className="h-4 w-4" />
-                      Erode, Tamil Nadu
-                    </span>
-                    <span className="inline-flex items-center gap-2 text-gray-600 normal-case">
-                      <Users className="h-4 w-4" />
-                      Founder:{" "}
-                      <span className="font-semibold">Aatral Ashok Kumar</span>
-                    </span>
-                  </div>
+              <div className="rounded-2xl overflow-hidden shadow-xl relative">
+                <img
+                  src={sideImage}
+                  alt="Aatral Foundation"
+                  className="w-full h-full object-cover"
+                />
 
-                  <p className="text-gray-700 text-sm md:text-base leading-relaxed">
-                    Complete social-media transformation that amplified a local
-                    NGO’s voice, engagement, and community reach. Starting from{" "}
-                    <strong>3,000 followers</strong>, we implemented a story-led
-                    content strategy and community-first design that scaled the
-                    audience to <strong>30,000+ followers</strong> while
-                    strengthening volunteer and donor pipelines.
-                  </p>
+                <button
+                  onClick={() => setLightboxOpen(true)}
+                  className="absolute top-3 right-3 bg-white/85 hover:bg-white px-3 py-2 rounded-lg border shadow flex items-center gap-2"
+                >
+                  <ZoomIn className="w-4 h-4" />
+                  View
+                </button>
+              </div>
+            </motion.div>
+
+            {/* RIGHT CONTENT */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              className="md:col-span-3 space-y-8"
+            >
+              {/* Overview */}
+              <div className="rounded-2xl border bg-white p-6 shadow-sm">
+                <div className="flex items-center gap-3 mb-3">
+                  <Sparkles className="h-5 w-5 text-primary" />
+                  <h2 className="text-xl font-semibold">Overview</h2>
                 </div>
 
-                {/* Challenge + Approach */}
-                <div className="grid gap-4 md:gap-5 md:grid-cols-2">
-                  {/* Challenge */}
-                  <div className="rounded-2xl border border-gray-200 bg-white p-4 md:p-5">
-                    <h2 className="text-lg md:text-xl font-semibold mb-3 text-black">
-                      Challenge
-                    </h2>
-                    <p className="text-gray-700 text-sm md:text-base leading-relaxed">
-                      Despite impactful on-ground initiatives, Aatral Foundation
-                      had a limited online footprint with just{" "}
-                      <strong>3,000 followers</strong>. Their impact stories
-                      weren’t reaching potential donors, volunteers, and
-                      partners. They needed a cohesive digital identity and
-                      growth framework to scale visibility, trust, and
-                      engagement.
-                    </p>
-                  </div>
+                <p className="text-gray-700 leading-relaxed">
+                  Aatral Foundation supports educational, social, and community
+                  initiatives across Tamil Nadu. We built a digital-first communication
+                  system that highlights impact, enables donor trust, and expands reach
+                  across target communities.
+                </p>
+              </div>
 
-                  {/* Our Approach */}
-                  <div className="rounded-2xl border border-gray-200 bg-white p-4 md:p-5">
-                    <h2 className="text-lg md:text-xl font-semibold mb-3 text-black">
-                      Our Approach
-                    </h2>
-                    <p className="text-gray-700 text-sm md:text-base leading-relaxed mb-3">
-                      We implemented a focused social-media growth strategy that
-                      included:
-                    </p>
-                    <ul className="space-y-1.5 text-gray-700 text-sm md:text-[15px] leading-relaxed">
-                      <li>
-                        •{" "}
-                        <span className="font-semibold">
-                          Visual &amp; Content Rebrand:
-                        </span>{" "}
-                        cohesive identity, color system, and templates aligned
-                        to the mission.
-                      </li>
-                      <li>
-                        •{" "}
-                        <span className="font-semibold">
-                          High-Impact Content Calendar:
-                        </span>{" "}
-                        weekly reels, impact stories, volunteer spotlights, and
-                        BTS content.
-                      </li>
-                      <li>
-                        •{" "}
-                        <span className="font-semibold">
-                          Community Engagement:
-                        </span>{" "}
-                        polls, Q&amp;As, and cause-led campaigns to drive
-                        shares and comments.
-                      </li>
-                      <li>
-                        •{" "}
-                        <span className="font-semibold">
-                          Targeted Local Outreach:
-                        </span>{" "}
-                        geo-targeted boosts and collaborations with local
-                        influencers and NGOs.
-                      </li>
-                      <li>
-                        •{" "}
-                        <span className="font-semibold">
-                          Analytics &amp; Optimization:
-                        </span>{" "}
-                        monthly reviews to refine topics, formats, and posting
-                        windows.
-                      </li>
-                    </ul>
-                  </div>
+              {/* Challenge */}
+              <div className="rounded-2xl border bg-white p-6 shadow-sm">
+                <div className="flex items-center gap-3 mb-3">
+                  <BadgeCheck className="h-5 w-5 text-primary" />
+                  <h2 className="text-xl font-semibold">Challenges</h2>
                 </div>
 
-                {/* Results */}
-                <div className="rounded-2xl border border-gray-200 bg-white p-4 md:p-5">
-                  <h2 className="text-lg md:text-xl font-semibold mb-3 text-black">
-                    Results Achieved
-                  </h2>
-                  <ul className="space-y-2 text-gray-700 text-sm md:text-[15px] leading-relaxed">
-                    <li>
-                      <span className="font-semibold text-black">
-                        900% audience growth
-                      </span>{" "}
-                      – followers scaled from <strong>3,000</strong> to{" "}
-                      <strong>30,000+</strong>.
-                    </li>
-                    <li>
-                      <span className="font-semibold text-black">
-                        7× engagement
-                      </span>{" "}
-                      – significant lift in likes, shares, comments, and video
-                      views.
-                    </li>
-                    <li>
-                      <span className="font-semibold text-black">
-                        Community mobilisation
-                      </span>{" "}
-                      – more volunteer sign-ups and donor inquiries through
-                      impact-led campaigns.
-                    </li>
-                    <li>
-                      <span className="font-semibold text-black">
-                        Recognised local voice
-                      </span>{" "}
-                      – one of the most visible NGOs in the Erode region.
-                    </li>
-                  </ul>
+                <p className="text-gray-700 leading-relaxed">
+                  Awareness was low, and much of their impact storytelling remained
+                  offline. No central digital identity existed to highlight the work,
+                  events, beneficiaries, or progress.
+                </p>
+              </div>
+
+              {/* Approach */}
+              <div className="rounded-2xl border bg-white p-6 shadow-sm">
+                <div className="flex items-center gap-3 mb-3">
+                  <Megaphone className="h-5 w-5 text-primary" />
+                  <h3 className="text-xl font-semibold">Our Approach</h3>
+                </div>
+
+                <div className="space-y-4">
+                  <Service
+                    icon={<Target className="h-5 w-5" />}
+                    title="Impact-Focused Branding"
+                    desc="Created a narrative-driven identity that reflects trust, community and empowerment."
+                  />
+                  <Service
+                    icon={<HeartHandshake className="h-5 w-5" />}
+                    title="Storytelling Framework"
+                    desc="Designed stories around volunteers, beneficiaries, and real community transformation."
+                  />
+                  <Service
+                    icon={<Users className="h-5 w-5" />}
+                    title="Social Presence"
+                    desc="Built Instagram & FB ecosystem with templates, reels, success stories & events."
+                  />
                 </div>
               </div>
 
-              {/* RIGHT COLUMN */}
-              <div className="space-y-4 md:space-y-5">
-                {/* Metrics grid */}
-                <div className="rounded-2xl bg-white border border-gray-200 p-4 md:p-5 shadow-sm">
-                  <h3 className="text-base md:text-lg font-bold mb-4 text-black">
-                    Growth Snapshot
-                  </h3>
-                  <div className="grid grid-cols-2 gap-3">
-                    {METRICS.map(({ label, value, icon: Icon }) => (
-                      <div
-                        key={label}
-                        className="flex flex-col items-center rounded-xl bg-gray-50 border border-gray-200 p-3"
-                      >
-                        <Icon className="h-5 w-5 mb-1.5 text-teal-600" />
-                        <div className="text-base md:text-lg font-bold text-black">
-                          {value}
-                        </div>
-                        <div className="text-[11px] md:text-xs text-gray-600 text-center">
-                          {label}
-                        </div>
-                      </div>
-                    ))}
+              {/* Brand Positioning */}
+              <div className="rounded-2xl border bg-white p-6 shadow-sm">
+                <h3 className="text-xl font-semibold mb-4">
+                  Brand Positioning
+                </h3>
+
+                <div className="space-y-4">
+                  <Pillar
+                    title="Human-Centered"
+                    desc="Stories of children, families, and communities take center stage."
+                  />
+                  <Pillar
+                    title="Transparent & Trustworthy"
+                    desc="Clear communication of donations, events, and outcomes."
+                  />
+                  <Pillar
+                    title="Community-Driven Identity"
+                    desc="Consistent color palette, iconography, and layout for social & web."
+                  />
+                </div>
+              </div>
+
+              {/* Impact */}
+              <div className="rounded-2xl border bg-white p-6 shadow-sm">
+                <h3 className="text-xl font-semibold mb-4">
+                  Impact Created
+                </h3>
+
+                <div className="grid sm:grid-cols-3 gap-4 mb-4">
+                  <div className="bg-gray-50 p-5 rounded-xl text-center border">
+                    <div className="text-3xl font-extrabold">900%</div>
+                    <p className="text-xs mt-2 text-gray-600">
+                      Audience Growth
+                    </p>
+                  </div>
+                  <div className="bg-gray-50 p-5 rounded-xl text-center border">
+                    <div className="text-3xl font-extrabold">30K+</div>
+                    <p className="text-xs mt-2 text-gray-600">
+                      Followers
+                    </p>
+                  </div>
+                  <div className="bg-gray-50 p-5 rounded-xl text-center border">
+                    <div className="text-3xl font-extrabold">7×</div>
+                    <p className="text-xs mt-2 text-gray-600">
+                      Engagement Rate
+                    </p>
                   </div>
                 </div>
 
-                {/* Project Info */}
-                <div className="rounded-2xl bg-white border border-gray-200 p-4 md:p-5 shadow-sm">
-                  <h3 className="text-base md:text-lg font-bold mb-3 text-black">
-                    Project Information
-                  </h3>
-                  <ul className="text-sm md:text-[15px] text-gray-700 space-y-1.5 mb-3">
-                    <li>
-                      <strong>Client:</strong> Aatral Foundation
-                    </li>
-                    <li>
-                      <strong>Founder:</strong> Aatral Ashok Kumar
-                    </li>
-                    <li>
-                      <strong>Location:</strong> Erode, Tamil Nadu
-                    </li>
-                    <li className="inline-flex items-center gap-1">
-                      <Share2 className="h-4 w-4" />
-                      Cross-platform presence with local-first storytelling
-                    </li>
-                  </ul>
-                  <p className="text-xs md:text-sm text-gray-700 leading-relaxed">
-                    A comprehensive social-media transformation aligning brand,
-                    content, community, and analytics—designed to drive
-                    measurable, mission-aligned growth.
+                <div className="rounded-lg bg-gray-50 border p-4">
+                  <p className="text-sm text-gray-700">
+                    Aatral's online brand transformed into a powerful community
+                    movement through consistent design, storytelling, and optimized
+                    reach.
                   </p>
                 </div>
+              </div>
 
-                {/* Video (Reels) */}
-                <div className="rounded-2xl border border-gray-200 bg-white p-4 md:p-5 shadow-sm">
-                  <h3 className="text-base md:text-lg font-semibold mb-3 text-black">
-                    Key Reels
-                  </h3>
-                  <p className="text-xs md:text-sm text-gray-700 mb-3 leading-relaxed">
-                    Short-form videos featuring{" "}
-                    <strong>real beneficiaries, volunteers</strong>, and{" "}
-                    <strong>on-ground work</strong> drove maximum reach and
-                    shares in the local community.
-                  </p>
-                  <div className="flex justify-center md:justify-start">
-                    <ReelsAutoScroller ids={REELS} intervalMs={5000} />
+              {/* Key Results */}
+              <div className="rounded-2xl border bg-white p-6 shadow-sm">
+                <h3 className="text-xl font-semibold mb-4">Key Results</h3>
+
+                <div className="space-y-3">
+                  <div className="flex gap-3">
+                    <div className="w-2 h-2 rounded-full bg-primary mt-2" />
+                    <p className="text-sm text-gray-700">
+                      Strong NGO digital identity & recognition
+                    </p>
+                  </div>
+
+                  <div className="flex gap-3">
+                    <div className="w-2 h-2 rounded-full bg-primary mt-2" />
+                    <p className="text-sm text-gray-700">
+                      Transparent reporting through social content
+                    </p>
+                  </div>
+
+                  <div className="flex gap-3">
+                    <div className="w-2 h-2 rounded-full bg-primary mt-2" />
+                    <p className="text-sm text-gray-700">
+                      Improved donor & volunteer trust
+                    </p>
+                  </div>
+
+                  <div className="flex gap-3">
+                    <div className="w-2 h-2 rounded-full bg-primary mt-2" />
+                    <p className="text-sm text-gray-700">
+                      Engaging storytelling system that scales
+                    </p>
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </section>
       </main>
 
       <Footer />
+
+      {/* Lightbox */}
+      <ImageLightbox
+        src={sideImage}
+        alt="Aatral Foundation"
+        open={isLightboxOpen}
+        onClose={() => setLightboxOpen(false)}
+      />
     </div>
   );
 }
