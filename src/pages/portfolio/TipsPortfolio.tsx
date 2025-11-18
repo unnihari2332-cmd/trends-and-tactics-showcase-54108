@@ -1,6 +1,5 @@
 // src/pages/portfolio/TipsPortfolio.tsx
 import { useRef, useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
@@ -118,7 +117,7 @@ export default function TipsPortfolio() {
     <div className="min-h-screen bg-background text-foreground">
       <Header />
 
-      {/* ===== HERO WITH DIGITAL ADS-STYLE BREADCRUMB ===== */}
+      {/* ===== HERO ===== */}
       <section className="relative min-h-[40vh] flex items-center justify-center">
         <div
           className="absolute inset-0 bg-cover bg-center"
@@ -127,19 +126,6 @@ export default function TipsPortfolio() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/70" />
 
         <div className="relative z-10 container mx-auto max-w-6xl px-6 py-16 text-center">
-          {/* breadcrumb (same style as DigitalAds) */}
-          <nav className="flex items-center justify-center gap-2 text-xs md:text-sm text-white/80 mb-4">
-            <span>
-              Home
-            </span>
-            <span className="opacity-60">›</span>
-            <span>
-              Portfolio
-            </span>
-            <span className="opacity-60">›</span>
-            <span className="text-white">The Indian Public School</span>
-          </nav>
-
           <h1 className="text-3xl md:text-5xl font-normal text-white">
             The Indian Public School
           </h1>
@@ -187,11 +173,24 @@ export default function TipsPortfolio() {
               that included:
             </p>
             <ul className="space-y-2 text-gray-700 text-sm md:text-base leading-relaxed">
-              <li>• Modern, conversion-focused website redesign with intuitive navigation</li>
-              <li>• Comprehensive SEO strategy targeting local education keywords</li>
-              <li>• Strategic social media campaigns showcasing student achievements</li>
-              <li>• Targeted advertising campaigns reaching prospective parents</li>
-              <li>• Brand guidelines ensuring consistent communication across all channels</li>
+              <li>
+                • Modern, conversion-focused website redesign with intuitive
+                navigation
+              </li>
+              <li>
+                • Comprehensive SEO strategy targeting local education keywords
+              </li>
+              <li>
+                • Strategic social media campaigns showcasing student
+                achievements
+              </li>
+              <li>
+                • Targeted advertising campaigns reaching prospective parents
+              </li>
+              <li>
+                • Brand guidelines ensuring consistent communication across all
+                channels
+              </li>
             </ul>
           </div>
         </div>
