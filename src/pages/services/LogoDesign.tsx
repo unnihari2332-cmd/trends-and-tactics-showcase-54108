@@ -3,7 +3,6 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CTASection from "@/components/CTASection";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
 
 export default function LogoDesign() {
   return (
@@ -20,8 +19,7 @@ export default function LogoDesign() {
       <Header />
 
       <main>
-
-        {/* ===== HERO WITH BREADCRUMB (Unified Style) ===== */}
+        {/* ===== HERO WITHOUT BREADCRUMB ===== */}
         <section className="relative min-h-[40vh] flex items-center justify-center">
           <div
             className="absolute inset-0 bg-cover bg-center"
@@ -30,18 +28,6 @@ export default function LogoDesign() {
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/70" />
 
           <div className="relative z-10 container mx-auto max-w-6xl px-6 py-16 text-center">
-
-            {/* Breadcrumb */}
-            <nav className="flex items-center justify-center gap-2 text-xs md:text-sm text-white/80 mb-4">
-              <span>Home</span>
-              <span className="opacity-60">›</span>
-
-              <span>Services</span>
-              <span className="opacity-60">›</span>
-
-              <span className="text-white">Logo Designing</span>
-            </nav>
-
             {/* Title */}
             <h1 className="text-3xl md:text-5xl font-normal text-white">
               Logo Designing
@@ -52,7 +38,6 @@ export default function LogoDesign() {
         {/* ===== INTRO ===== */}
         <section className="py-10 px-6 md:py-12">
           <div className="container mx-auto max-w-7xl grid gap-8 md:grid-cols-2 items-center">
-
             <div className="flex justify-center">
               <img
                 src="/Logodesign.jpg"
@@ -68,18 +53,17 @@ export default function LogoDesign() {
               className="w-full"
             >
               <p className="text-base md:text-2xl font-medium leading-relaxed text-black text-center md:text-left">
-                Create a logo that’s modern, memorable, and timeless. We design identities
-                that capture your brand’s essence and stand out in any market.
+                Create a logo that’s modern, memorable, and timeless. We design
+                identities that capture your brand’s essence and stand out in
+                any market.
               </p>
             </motion.div>
-
           </div>
         </section>
 
         {/* ===== CORE SECTIONS ===== */}
         <section className="py-10 md:py-14 px-6">
           <div className="container mx-auto grid gap-6 md:gap-8 md:grid-cols-2 max-w-6xl">
-
             <motion.article
               initial={{ opacity: 0, y: 14 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -90,8 +74,8 @@ export default function LogoDesign() {
                 Make Your Brand Instantly Recognizable
               </h2>
               <p className="text-black-100">
-                A logo is more than a symbol — it’s the face of your brand. We craft marks
-                that reflect your personality, values, and vision.
+                A logo is more than a symbol — it’s the face of your brand. We
+                craft marks that reflect your personality, values, and vision.
               </p>
             </motion.article>
 
@@ -106,8 +90,8 @@ export default function LogoDesign() {
                 Designs That Speak for Your Brand
               </h2>
               <p className="text-black-100 mb-3">
-                From start-ups to refreshes, we deliver versatile, scalable identities that
-                look great everywhere.
+                From start-ups to refreshes, we deliver versatile, scalable
+                identities that look great everywhere.
               </p>
               <ul className="space-y-2 text-black-100 list-disc pl-6">
                 <li>Discovery, moodboards, and concept exploration</li>
@@ -115,16 +99,13 @@ export default function LogoDesign() {
                 <li>Final artwork, guidelines, and export kits</li>
               </ul>
             </motion.article>
-
           </div>
         </section>
 
         {/* ===== SERVICES ===== */}
         <section className="px-6 pb-6 md:pb-10">
           <div className="container mx-auto max-w-6xl">
-
             <div className="rounded-2xl bg-white/85 backdrop-blur-sm shadow-xl ring-1 ring-black/5 p-6 md:p-8">
-
               <h2 className="text-2xl md:text-3xl font-bold mb-6">
                 Our Logo Design Services Include
               </h2>
@@ -146,18 +127,14 @@ export default function LogoDesign() {
                   </li>
                 ))}
               </ul>
-
             </div>
-
           </div>
         </section>
 
         {/* ===== BENEFITS ===== */}
         <section className="px-6 pb-12 md:pb-16">
           <div className="container mx-auto max-w-6xl">
-
             <div className="rounded-2xl bg-white/85 backdrop-blur-sm shadow-xl ring-1 ring-black/5 p-6 md:p-8">
-
               <h2 className="text-2xl md:text-3xl font-bold mb-6">
                 Benefits With Our Service
               </h2>
@@ -200,9 +177,7 @@ export default function LogoDesign() {
                   </li>
                 ))}
               </ol>
-
             </div>
-
           </div>
         </section>
 
@@ -211,7 +186,6 @@ export default function LogoDesign() {
           heading="Ready to create your iconic brand identity?"
           description="We'll design a memorable, timeless logo that captures your brand's essence and makes a lasting impression."
         />
-
       </main>
 
       <Footer />
