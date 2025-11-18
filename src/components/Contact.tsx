@@ -23,9 +23,9 @@ const Contact = () => {
       icon: MapPin,
       title: "Coimbatore Office",
       text: [
-        "S-2, Thuthiksha Magizhvagam, GKS Nagar,",
-        "Saravanampatti,",
-        "Coimbatore – 641035.",
+        "1st Floor, Vaishnavi Complex,Ranga Konar St,",
+        "Kattoor Main, Kattoor, Ram Nagar,",
+        "Coimbatore – 641009.",
       ],
       iconClass: "text-teal",
     },
