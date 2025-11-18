@@ -1,6 +1,5 @@
 // src/pages/portfolio/NaalaiNamadhe.tsx
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { motion, AnimatePresence } from "framer-motion";
@@ -17,7 +16,7 @@ import {
 } from "lucide-react";
 
 const heroBg = "/nntvmain.jpg"; // 16:9 hero image in /public
-const sideImage = "/NNTV.jpg";  // Portrait/feature shot shown on the left
+const sideImage = "/NNTV.jpg"; // Portrait/feature shot shown on the left
 const websiteUrl = "https://www.naalai-namadhe.com/";
 
 /* ------------ Small presentational helpers ------------ */
@@ -140,7 +139,7 @@ export default function NaalaiNamadhe() {
       <Header />
 
       <main>
-        {/* ===== HERO (Swathi-style breadcrumb + hero) ===== */}
+        {/* ===== HERO (hero only, no breadcrumb) ===== */}
         <section className="relative min-h-[40vh] flex items-center justify-center">
           <div
             className="absolute inset-0 bg-cover bg-center"
@@ -152,18 +151,6 @@ export default function NaalaiNamadhe() {
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/80" />
 
           <div className="relative z-10 container mx-auto max-w-6xl px-6 pt-28 pb-16 text-center">
-            <nav className="mb-4 flex items-center justify-center gap-2 text-xs text-white/80 md:text-sm">
-              <span>
-                Home
-              </span>
-              <span className="opacity-60">›</span>
-              <span>
-                Portfolio
-              </span>
-              <span className="opacity-60">›</span>
-              <span className="text-white">Naalai Namadhe</span>
-            </nav>
-
             <h1 className="text-3xl font-normal text-white md:text-5xl">
               Naalai Namadhe — Official Website Development
             </h1>
