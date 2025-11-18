@@ -1,5 +1,5 @@
 // src/pages/Contact.tsx
-import { useState, FormEvent } from "react";
+import React, { useState, FormEvent, ChangeEvent } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -44,8 +44,18 @@ const Contact = () => {
   ] as const;
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-    // let the form submit to formsubmit.co normally
+    // do NOT preventDefault – allow submission to formsubmit.co
     setShowPopup(true);
+  };
+
+  const handleNameInput = (e: ChangeEvent<HTMLInputElement>) => {
+    // allow only alphabets + space
+    e.target.value = e.target.value.replace(/[^A-Za-z ]/g, "");
+  };
+
+  const handlePhoneInput = (e: ChangeEvent<HTMLInputElement>) => {
+    // allow only digits
+    e.target.value = e.target.value.replace(/[^0-9]/g, "");
   };
 
   return (
@@ -78,7 +88,7 @@ const Contact = () => {
 
         {/* LAYOUT: FORM + DETAILS */}
         <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-8 items-stretch">
-          {/* LEFT: CONTACT FORM */}
+          {/* LEFT: FORM */}
           <div className="glass-card p-6 md:p-7 rounded-2xl h-full">
             <h3 className="text-xl md:text-2xl font-bold text-foreground mb-4">
               Send us a message
@@ -89,7 +99,7 @@ const Contact = () => {
               method="POST"
               onSubmit={handleSubmit}
             >
-              {/* Redirect after success */}
+              {/* Redirect after success (update domain if needed) */}
               <input
                 type="hidden"
                 name="_next"
@@ -99,17 +109,22 @@ const Contact = () => {
               <input type="hidden" name="_captcha" value="false" />
 
               <div className="grid md:grid-cols-2 gap-3">
+                {/* NAME – alphabets only */}
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-1">
                     Name
                   </label>
                   <Input
                     name="name"
-                    placeholder="Your name"
                     required
+                    placeholder="Your name"
+                    pattern="[A-Za-z ]+"
+                    title="Only alphabets allowed"
+                    onInput={handleNameInput}
                   />
                 </div>
 
+                {/* EMAIL */}
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-1">
                     Email
@@ -117,50 +132,46 @@ const Contact = () => {
                   <Input
                     name="email"
                     type="email"
-                    placeholder="your@email.com"
                     required
+                    placeholder="your@email.com"
                   />
                 </div>
               </div>
 
-              {/* PHONE: required + numbers only + 10 digits */}
+              {/* PHONE – numbers only */}
               <div className="mt-3">
                 <label className="block text-sm font-medium text-foreground mb-1">
                   Phone
                 </label>
                 <Input
                   name="phone"
-                  type="text"
                   required
                   maxLength={10}
-                  pattern="[6-9]{1}[0-9]{9}"
-                  title="Enter a valid 10-digit Indian mobile number"
+                  pattern="[0-9]+"
+                  title="Only numbers allowed"
                   placeholder="10-digit mobile number"
-                  onInput={(e: React.ChangeEvent<HTMLInputElement>) => {
-                    e.target.value = e.target.value.replace(/[^0-9]/g, "");
-                  }}
+                  onInput={handlePhoneInput}
                 />
               </div>
 
+              {/* SUBJECT */}
               <div className="mt-3">
                 <label className="block text-sm font-medium text-foreground mb-1">
                   Subject
                 </label>
-                <Input
-                  name="subject"
-                  placeholder="How can we help?"
-                />
+                <Input name="subject" placeholder="How can we help?" />
               </div>
 
+              {/* MESSAGE */}
               <div className="mt-3">
                 <label className="block text-sm font-medium text-foreground mb-1">
                   Message
                 </label>
                 <Textarea
                   name="message"
+                  required
                   placeholder="Tell us about your project..."
                   className="min-h-[120px] resize-y"
-                  required
                 />
               </div>
 
@@ -170,7 +181,7 @@ const Contact = () => {
             </form>
           </div>
 
-          {/* RIGHT: CONTACT DETAILS */}
+          {/* RIGHT: DETAILS */}
           <div className="glass-card p-6 md:p-7 rounded-2xl h-full">
             {details.map(({ icon: Icon, title, text, iconClass }, i) => (
               <div
