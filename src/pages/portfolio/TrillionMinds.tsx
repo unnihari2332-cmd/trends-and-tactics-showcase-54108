@@ -2,7 +2,6 @@
 import { useEffect } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Link } from "react-router-dom";
 import {
   Building2,
   BadgeCheck,
@@ -66,7 +65,7 @@ export default function TrillionMinds() {
       <Header />
 
       <main className="pb-12">
-        {/* ===== HERO WITH BIG BREADCRUMB (LIKE TIPS PAGE) ===== */}
+        {/* ===== HERO (hero only, no breadcrumb) ===== */}
         <section className="relative min-h-[38vh] flex items-center text-white">
           <div
             className="absolute inset-0 bg-cover bg-center"
@@ -78,19 +77,6 @@ export default function TrillionMinds() {
           <div className="absolute inset-0 bg-black/60" />
 
           <div className="relative z-10 container mx-auto px-4 md:px-6 pt-28 pb-16 text-center">
-            {/* Breadcrumb */}
-            <nav className="flex items-center justify-center gap-4 text-[17px] font-normal text-white/85 mb-4">
-              <span>
-                Home
-              </span>
-              <span className="opacity-70">›</span>
-              <span>
-                Portfolio
-              </span>
-              <span className="opacity-70">›</span>
-              <span className="text-white">Trillion Minds</span>
-            </nav>
-
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-normal">
               Trillion Minds — Data-Driven Property Advisory
             </h1>
