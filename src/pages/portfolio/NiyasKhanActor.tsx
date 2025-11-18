@@ -187,7 +187,7 @@ export default function NiyasKhanActor() {
       <Header />
 
       <main>
-        {/* ===== HERO WITH BREADCRUMB (SWATHI STYLE) ===== */}
+        {/* ===== HERO WITHOUT BREADCRUMB ===== */}
         <section className="relative min-h-[40vh] flex items-center justify-center">
           <div
             className="absolute inset-0 bg-cover bg-center"
@@ -199,18 +199,6 @@ export default function NiyasKhanActor() {
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/80" />
 
           <div className="relative z-10 container mx-auto max-w-6xl px-6 pt-28 pb-16 text-center">
-            <nav className="flex items-center justify-center gap-2 text-xs md:text-sm text-white/80 mb-4">
-              <span>
-                Home
-              </span>
-              <span className="opacity-60">›</span>
-              <span>
-                Portfolio
-              </span>
-              <span className="opacity-60">›</span>
-              <span className="text-white">Niyas Khan — Actor</span>
-            </nav>
-
             <h1 className="text-3xl md:text-5xl font-normal text-white">
               Niyas Khan — Actor &amp; Public Figure
             </h1>
