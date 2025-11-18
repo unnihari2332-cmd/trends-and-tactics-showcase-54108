@@ -14,11 +14,11 @@ import {
   Palette,
 } from "lucide-react";
 
-const heroBg = "/DD.png"; // hero image from public
+const heroBg = "/DD.png";
 
-/** ================================
- *  YouTube Auto-Scroller (Swathi style)
- *  ================================ */
+/* ================================
+   YOUTUBE AUTOSCROLLER
+================================ */
 function YouTubeAutoScroller({
   urls,
   intervalMs = 5000,
@@ -37,14 +37,7 @@ function YouTubeAutoScroller({
       let start = u.searchParams.get("t") || "";
       if (start.endsWith("s")) start = start.slice(0, -1);
       const s = Math.max(0, Number(start) || 0);
-      const base = `https://www.youtube.com/embed/${id}`;
-      const params = new URLSearchParams({
-        start: String(s),
-        rel: "0",
-        modestbranding: "1",
-        playsinline: "1",
-      });
-      return `${base}?${params.toString()}`;
+      return `https://www.youtube.com/embed/${id}?start=${s}&rel=0&modestbranding=1&playsinline=1`;
     } catch {
       return raw;
     }
@@ -74,6 +67,7 @@ function YouTubeAutoScroller({
     };
 
     start();
+
     const el = trackRef.current;
     if (!el) return () => stop();
 
@@ -96,20 +90,18 @@ function YouTubeAutoScroller({
     <div className="relative">
       <div
         ref={trackRef}
-        className="overflow-x-hidden snap-x snap-mandatory scroll-smooth rounded-xl border border-gray-200 bg-white"
+        className="overflow-x-hidden snap-x snap-mandatory rounded-xl border border-gray-200 bg-white"
       >
         <div className="flex w-full">
           {urls.map((u, idx) => (
             <div key={idx} className="min-w-full snap-start">
               <div className="w-full aspect-video">
                 <iframe
-                  className="w-full h-full"
                   src={toEmbedUrl(u)}
-                  title={`YouTube video ${idx + 1}`}
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  referrerPolicy="strict-origin-when-cross-origin"
+                  className="w-full h-full"
                   allowFullScreen
                   loading="lazy"
+                  title={`YouTube ${idx + 1}`}
                 />
               </div>
             </div>
@@ -117,12 +109,10 @@ function YouTubeAutoScroller({
         </div>
       </div>
 
-      {/* dots */}
       <div className="mt-3 flex items-center justify-center gap-2">
         {urls.map((_, i) => (
           <button
             key={i}
-            aria-label={`Go to video ${i + 1}`}
             onClick={() => setIndex(i)}
             className={`h-2 w-2 rounded-full transition ${
               i === index ? "bg-black" : "bg-gray-300"
@@ -134,7 +124,9 @@ function YouTubeAutoScroller({
   );
 }
 
-/* ------------ Helpers ------------ */
+/* ================================
+   SMALL COMPONENTS
+================================ */
 function Pillar({ title, desc }: { title: string; desc: string }) {
   return (
     <div className="rounded-lg border border-gray-200 p-4 bg-white">
@@ -164,12 +156,15 @@ function Service({
   );
 }
 
+/* ================================
+   PAGE
+================================ */
 export default function DhiravyamActor() {
   useEffect(() => {
     document.title = "Dhiravyam — Actor | Trends & Tactics";
   }, []);
 
-  const YOUTUBE_VIDEOS: string[] = [
+  const YOUTUBE_VIDEOS = [
     "https://www.youtube.com/watch?v=cioaHpfnL7s",
     "https://www.youtube.com/watch?v=fv-12c3JMv0",
     "https://www.youtube.com/watch?v=t9Ans2lncRk",
@@ -178,20 +173,20 @@ export default function DhiravyamActor() {
 
   return (
     <div
-      className="min-h-screen bg-background text-foreground"
+      className="min-h-screen text-foreground"
       style={{
-        backgroundImage: "url('/sidelogo.jpg')", // side logo like Swathi page
-        backgroundRepeat: "no-repeat",
+        backgroundImage: "url('/sidelogo.jpg')",
         backgroundSize: "cover",
-        backgroundPosition: "left center",
+        backgroundRepeat: "no-repeat",
         backgroundAttachment: "fixed",
+        backgroundPosition: "left center",
       }}
     >
       <Header />
 
       <main>
-        {/* ===== HERO (text slightly lower, breadcrumb removed) ===== */}
-        <section className="relative min-h-[40vh] flex items-center justify-center">
+        {/* HERO — text slightly moved left */}
+        <section className="relative min-h-[40vh] flex items-center justify-start">
           <div
             className="absolute inset-0 bg-cover bg-center"
             style={{
@@ -199,81 +194,80 @@ export default function DhiravyamActor() {
               backgroundPosition: "center 30%",
             }}
           />
+
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/80" />
 
-          <div className="relative z-10 container mx-auto max-w-6xl px-6 pt-32 pb-16 text-center">
-            <h1 className="text-3xl md:text-5xl font-normal text-white">
-              Dhiravyam — Actor &amp; Media Personality
+          <div className="relative z-10 container mx-auto max-w-6xl px-6 pt-32 pb-16 text-left">
+            <h1 className="text-3xl md:text-5xl font-normal text-white ml-10">
+              Dhiravyam — Actor & Media Personality
             </h1>
           </div>
         </section>
 
-        {/* ===== SHORT BIO ===== */}
+        {/* SHORT BIO */}
         <section className="py-10">
           <div className="container mx-auto px-6">
-            <div className="max-w-4xl mx-auto rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+            <div className="max-w-4xl mx-auto bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
               <div className="flex items-center gap-3 mb-3">
                 <User className="h-5 w-5 text-primary" />
                 <h2 className="text-2xl font-semibold">Short Bio</h2>
               </div>
               <p className="text-gray-700 leading-relaxed">
-                A dynamic new talent in Indian cinema, Dhiravyam is known for
-                his magnetic screen presence, versatile performances, and
-                authentic storytelling.
+                A dynamic new talent in Indian cinema, Dhiravyam is known for his
+                magnetic screen presence, versatile performances, and authentic
+                storytelling.
               </p>
             </div>
           </div>
         </section>
 
-        {/* ===== PROFILE & BRAND ===== */}
+        {/* PROFILE + BRAND */}
         <section className="py-8">
-          <div className="container mx-auto px-6">
-            <div className="grid gap-6 md:grid-cols-2">
-              <div className="rounded-2xl border border-gray-200 bg-white p-6">
-                <div className="flex items-center gap-3 mb-3">
-                  <NotebookPen className="h-5 w-5 text-primary" />
-                  <h3 className="text-xl font-semibold">Extended Profile</h3>
-                </div>
-                <p className="text-gray-700 leading-relaxed">
-                  From theatre beginnings to notable on-screen roles, Dhiravyam
-                  combines training and passion to deliver layered, emotionally
-                  compelling portrayals.
-                </p>
+          <div className="container mx-auto px-6 grid gap-6 md:grid-cols-2">
+            <div className="bg-white border border-gray-200 rounded-2xl p-6">
+              <div className="flex items-center gap-3 mb-3">
+                <NotebookPen className="h-5 w-5 text-primary" />
+                <h3 className="text-xl font-semibold">Extended Profile</h3>
+              </div>
+              <p className="text-gray-700 leading-relaxed">
+                From theatre beginnings to notable film and OTT roles, Dhiravyam
+                blends discipline, intuition, and expressive acting to deliver
+                nuanced performances.
+              </p>
+            </div>
+
+            <div className="bg-white border border-gray-200 rounded-2xl p-6">
+              <div className="flex items-center gap-3 mb-3">
+                <Star className="h-5 w-5 text-primary" />
+                <h3 className="text-xl font-semibold">Brand Narrative</h3>
               </div>
 
-              <div className="rounded-2xl border border-gray-200 bg-white p-6">
-                <div className="flex items-center gap-3 mb-3">
-                  <Star className="h-5 w-5 text-primary" />
-                  <h3 className="text-xl font-semibold">Brand Narrative</h3>
-                </div>
-
-                <div className="grid gap-4">
-                  <Pillar
-                    title="Versatility"
-                    desc="Excels in both commercial and character-driven roles."
-                  />
-                  <Pillar
-                    title="Authentic Connection"
-                    desc="Deep emotional realism that resonates with audiences."
-                  />
-                  <Pillar
-                    title="Emerging Star"
-                    desc="Driven by passion, discipline, and continuous craft improvement."
-                  />
-                </div>
+              <div className="grid gap-4">
+                <Pillar
+                  title="Versatility"
+                  desc="Balances commercial appeal and deep character-driven roles."
+                />
+                <Pillar
+                  title="Authenticity"
+                  desc="Natural emotional delivery that connects with audiences."
+                />
+                <Pillar
+                  title="Emerging Talent"
+                  desc="Fast-growing presence in the new-gen cinema ecosystem."
+                />
               </div>
             </div>
           </div>
         </section>
 
-        {/* ===== VIDEO SERVICES ===== */}
+        {/* VIDEO SERVICES */}
         <section className="py-8">
           <div className="container mx-auto px-6">
-            <div className="rounded-2xl border border-gray-200 bg-white p-6">
+            <div className="bg-white border border-gray-200 rounded-2xl p-6">
               <div className="flex items-center gap-3 mb-3">
                 <VideoIcon className="h-5 w-5 text-primary" />
                 <h3 className="text-xl font-semibold">
-                  Video &amp; Editing Services
+                  Video & Editing Services
                 </h3>
               </div>
 
@@ -281,47 +275,47 @@ export default function DhiravyamActor() {
                 <Service
                   icon={<Film className="h-5 w-5" />}
                   title="Cinematic Reels"
-                  desc="30s–60s edits highlighting depth, energy, and emotion."
+                  desc="High-impact edits that showcase depth and emotion."
                 />
                 <Service
                   icon={<Camera className="h-5 w-5" />}
-                  title="BTS Stories"
-                  desc="Raw behind-the-scenes moments crafted into engaging clips."
+                  title="Behind-the-Scenes Clips"
+                  desc="Real raw moments transformed into engaging stories."
                 />
                 <Service
                   icon={<Megaphone className="h-5 w-5" />}
-                  title="Press & Interview Packages"
-                  desc="Fully edited media-ready content tailored for PR rollout."
+                  title="Press Interview Packages"
+                  desc="Clean and polished edits ready for media rollout."
                 />
               </div>
             </div>
           </div>
         </section>
 
-        {/* ===== SOCIAL COPY ===== */}
+        {/* SAMPLE COPY */}
         <section className="py-8">
           <div className="container mx-auto px-6">
-            <div className="rounded-2xl border border-gray-200 bg-white p-6">
+            <div className="bg-white border border-gray-200 rounded-2xl p-6">
               <div className="flex items-center gap-3 mb-3">
                 <Quote className="h-5 w-5 text-primary" />
                 <h3 className="text-xl font-semibold">Sample Social Copy</h3>
               </div>
 
               <div className="grid gap-6 md:grid-cols-2">
-                <div className="rounded-lg border border-gray-200 p-4 bg-gray-50">
-                  <h4 className="font-semibold mb-2">Instagram Bio Idea</h4>
-                  <ul className="space-y-1 text-sm text-gray-800">
+                <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
+                  <h4 className="font-semibold mb-2">Instagram Bio</h4>
+                  <ul className="text-sm space-y-1 text-gray-800">
                     <li>🎬 Actor | Storyteller</li>
-                    <li>✨ Every frame with honesty</li>
-                    <li>📩 PR &amp; collabs: [email]</li>
+                    <li>✨ Frames with emotion & honesty</li>
+                    <li>📩 PR & collabs: [email]</li>
                   </ul>
                 </div>
 
-                <div className="rounded-lg border border-gray-200 p-4 bg-gray-50">
+                <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
                   <h4 className="font-semibold mb-2">Launch Caption</h4>
                   <p className="text-sm text-gray-800">
-                    “Every character teaches me something new. Excited for the
-                    journey ahead. Stay tuned! #Dhiravyam #ActorLife”
+                    “Every role is a new lesson. Honored to grow, create, and
+                    inspire. Here’s to the journey ahead.”
                   </p>
                 </div>
               </div>
@@ -329,33 +323,33 @@ export default function DhiravyamActor() {
           </div>
         </section>
 
-        {/* ===== VISUAL STYLE ===== */}
+        {/* VISUAL STYLE */}
         <section className="py-8">
           <div className="container mx-auto px-6">
-            <div className="rounded-2xl border border-gray-200 bg-white p-6">
+            <div className="bg-white border border-gray-200 rounded-2xl p-6">
               <div className="flex items-center gap-3 mb-3">
                 <Palette className="h-5 w-5 text-primary" />
-                <h3 className="text-xl font-semibold">Key Visual Directions</h3>
+                <h3 className="text-xl font-semibold">Visual Style</h3>
               </div>
 
-              <ul className="space-y-2 text-gray-700">
+              <ul className="text-gray-700 space-y-2">
                 <li>
-                  <span className="font-semibold">Photography:</span> Cinematic,
-                  natural light, expressive portraits.
+                  <span className="font-semibold">Photography:</span> Clean,
+                  cinematic, emotionally expressive.
                 </li>
                 <li>
-                  <span className="font-semibold">Video Mood:</span> High-energy
-                  cuts with emotional depth and clean motion graphics.
+                  <span className="font-semibold">Video Mood:</span> Sharp
+                  transitions, dramatic lighting, expressive movement.
                 </li>
               </ul>
             </div>
           </div>
         </section>
 
-        {/* ===== VIDEOS (LIKE SWATHI PAGE) ===== */}
+        {/* VIDEOS */}
         <section className="py-8 pb-16">
           <div className="container mx-auto px-6">
-            <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+            <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
               <div className="flex items-center gap-3 mb-4">
                 <VideoIcon className="h-5 w-5 text-primary" />
                 <h3 className="text-xl font-semibold">Videos</h3>
