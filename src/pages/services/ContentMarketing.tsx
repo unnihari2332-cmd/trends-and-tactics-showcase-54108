@@ -4,7 +4,6 @@ import Footer from "@/components/Footer";
 import CTASection from "@/components/CTASection";
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import {
   Plus,
   Minus,
@@ -37,24 +36,66 @@ export default function ContentMarketing() {
   ];
 
   const benefitItems = [
-    { icon: Eye, title: "Increased Brand Awareness", body: "By creating valuable, relevant content, we help boost your brand’s visibility and reach." },
-    { icon: Users, title: "Higher Audience Engagement", body: "Our strategies connect with your audience on a deeper level, encouraging interaction and loyalty." },
-    { icon: Sparkles, title: "Improved Lead Generation", body: "Educational, helpful content nurtures interest and drives qualified leads to your business." },
-    { icon: Search, title: "Better SEO Performance", body: "High-quality content improves rankings and grows sustainable organic traffic." },
-    { icon: Smile, title: "Enhanced User Experience", body: "We deliver content that meets user needs, improving satisfaction and stickiness." },
-    { icon: TrendingUp, title: "Long-Term Value", body: "Content marketing compounds over time, providing durable growth and ROI." },
-    { icon: Trophy, title: "Competitive Edge", body: "Tailored content helps you stand out from competitors and win mindshare." },
-    { icon: PiggyBank, title: "Cost-Effective", body: "High ROI by attracting new customers and nurturing existing ones without heavy ad spend." },
+    {
+      icon: Eye,
+      title: "Increased Brand Awareness",
+      body:
+        "By creating valuable, relevant content, we help boost your brand’s visibility and reach.",
+    },
+    {
+      icon: Users,
+      title: "Higher Audience Engagement",
+      body:
+        "Our strategies connect with your audience on a deeper level, encouraging interaction and loyalty.",
+    },
+    {
+      icon: Sparkles,
+      title: "Improved Lead Generation",
+      body:
+        "Educational, helpful content nurtures interest and drives qualified leads to your business.",
+    },
+    {
+      icon: Search,
+      title: "Better SEO Performance",
+      body:
+        "High-quality content improves rankings and grows sustainable organic traffic.",
+    },
+    {
+      icon: Smile,
+      title: "Enhanced User Experience",
+      body:
+        "We deliver content that meets user needs, improving satisfaction and stickiness.",
+    },
+    {
+      icon: TrendingUp,
+      title: "Long-Term Value",
+      body:
+        "Content marketing compounds over time, providing durable growth and ROI.",
+    },
+    {
+      icon: Trophy,
+      title: "Competitive Edge",
+      body:
+        "Tailored content helps you stand out from competitors and win mindshare.",
+    },
+    {
+      icon: PiggyBank,
+      title: "Cost-Effective",
+      body:
+        "High ROI by attracting new customers and nurturing existing ones without heavy ad spend.",
+    },
   ];
 
   const [openIndex, setOpenIndex] = useState<number | null>(null);
-  const toggle = (idx: number) => setOpenIndex((cur) => (cur === idx ? null : idx));
+  const toggle = (idx: number) =>
+    setOpenIndex((cur) => (cur === idx ? null : idx));
 
   return (
     <div
       className="min-h-screen text-foreground"
       style={{
-        backgroundImage: "url('/slidelogo.jpg')",
+        // fixed: use `/sidelogo.jpg` like other pages
+        backgroundImage: "url('/sidelogo.jpg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
@@ -64,7 +105,6 @@ export default function ContentMarketing() {
       <Header />
 
       <main>
-
         {/* ===== HERO WITH BREADCRUMB (Unified Style) ===== */}
         <section className="relative min-h-[40vh] flex items-center justify-center">
           <div
@@ -74,15 +114,12 @@ export default function ContentMarketing() {
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/70" />
 
           <div className="relative z-10 container mx-auto max-w-6xl px-6 py-16 text-center">
-            
             {/* Breadcrumb */}
             <nav className="flex items-center justify-center gap-2 text-xs md:text-sm text-white/80 mb-4">
               <span>Home</span>
               <span className="opacity-60">›</span>
-
               <span>Services</span>
               <span className="opacity-60">›</span>
-
               <span className="text-white">Content Marketing</span>
             </nav>
 
@@ -97,7 +134,6 @@ export default function ContentMarketing() {
         <section className="px-6">
           <div className="container mx-auto max-w-6xl mt-10 mb-12">
             <div className="grid md:grid-cols-2 gap-8 items-center">
-
               <motion.img
                 initial={{ opacity: 0, x: -30 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -114,13 +150,13 @@ export default function ContentMarketing() {
                 className="text-lg md:text-xl font-bold text-center md:text-left leading-relaxed text-black"
               >
                 In today’s fast-paced digital environment, content is king. At{" "}
-                <strong>Trends and Tactics</strong>, we deliver powerful content marketing
-                services in Chennai that build awareness, engage audiences, and drive
-                growth. From blogs and social posts to eBooks and video content, we create,
-                optimize, and distribute high-quality content that earns trust and converts
-                visitors into loyal customers.
+                <strong>Trends and Tactics</strong>, we deliver powerful content
+                marketing services in Chennai that build awareness, engage
+                audiences, and drive growth. From blogs and social posts to
+                eBooks and video content, we create, optimize, and distribute
+                high-quality content that earns trust and converts visitors into
+                loyal customers.
               </motion.p>
-
             </div>
           </div>
         </section>
@@ -128,7 +164,6 @@ export default function ContentMarketing() {
         {/* ===== WE DELIVER THE BEST CONTENT SOLUTIONS ===== */}
         <section className="px-6 pb-6 md:pb-10">
           <div className="container mx-auto max-w-6xl">
-
             <div className="rounded-2xl bg-white/80 backdrop-blur-sm shadow-xl ring-1 ring-black/5 p-6 md:p-8">
               <h2 className="text-2xl md:text-3xl font-bold mb-6">
                 We Deliver the Best Content Solutions
@@ -147,16 +182,13 @@ export default function ContentMarketing() {
                   </li>
                 ))}
               </ul>
-
             </div>
-
           </div>
         </section>
 
         {/* ===== BENEFITS ACCORDION ===== */}
         <section className="px-6 pb-12 md:pb-16 pt-6">
           <div className="container mx-auto max-w-6xl">
-
             <div className="rounded-2xl bg-white/80 backdrop-blur-sm shadow-xl ring-1 ring-black/5 p-6 md:p-8">
               <h2 className="text-2xl md:text-3xl font-bold mb-6">
                 Benefits of Our Content Marketing Services
@@ -168,13 +200,11 @@ export default function ContentMarketing() {
 
                   return (
                     <li key={idx} className="py-4 group">
-
                       <button
                         onClick={() => toggle(idx)}
                         className="flex w-full items-center justify-between text-left"
                       >
                         <div className="flex items-center gap-3">
-
                           <span className="inline-grid place-items-center size-8 rounded-full bg-[#2ecec8] text-white transition-colors duration-300 group-hover:bg-[#E05D35]">
                             <Icon className="w-5 h-5" />
                           </span>
@@ -182,7 +212,6 @@ export default function ContentMarketing() {
                           <span className="text-lg font-semibold text-black">
                             {title}
                           </span>
-
                         </div>
 
                         {isOpen ? (
@@ -190,7 +219,6 @@ export default function ContentMarketing() {
                         ) : (
                           <Plus className="w-5 h-5 text-gray-700" />
                         )}
-
                       </button>
 
                       {isOpen && (
@@ -203,12 +231,10 @@ export default function ContentMarketing() {
                           {body}
                         </motion.p>
                       )}
-
                     </li>
                   );
                 })}
               </ul>
-
             </div>
           </div>
         </section>
@@ -218,7 +244,6 @@ export default function ContentMarketing() {
           heading="Ready to amplify your content strategy?"
           description="We'll craft compelling content that attracts, engages, and converts your target audience across all channels."
         />
-
       </main>
 
       <Footer />
