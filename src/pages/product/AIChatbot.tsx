@@ -2,7 +2,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
 
 const heroBg = "/chatbot01.jpg";
 
@@ -21,7 +20,7 @@ export default function AIChatbot() {
       <Header />
 
       <main>
-        {/* ===== HERO (same style as SmartAccess / Product) ===== */}
+        {/* ===== HERO WITHOUT BREADCRUMB (same style as SmartAccess / Product) ===== */}
         <section className="relative min-h-[38vh] flex items-center text-white">
           <div
             className="absolute inset-0 bg-cover bg-center"
@@ -33,19 +32,6 @@ export default function AIChatbot() {
           <div className="absolute inset-0 bg-black/60" />
 
           <div className="relative z-10 container mx-auto px-4 md:px-6 pt-28 pb-16 text-center">
-            {/* Breadcrumb */}
-            <nav className="flex items-center justify-center gap-4 text-[17px] font-normal text-white/85 mb-4">
-              <span>
-                Home
-              </span>
-              <span className="opacity-70">›</span>
-              <span>
-                Products
-              </span>
-              <span className="opacity-70">›</span>
-              <span className="text-white">AI-Powered Personalized Chatbot</span>
-            </nav>
-
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-normal">
               AI-Powered Personalized Chatbot
             </h1>
@@ -70,8 +56,8 @@ export default function AIChatbot() {
               className="w-full"
             >
               <p className="text-base md:text-2xl font-medium leading-relaxed text-black text-center md:text-left">
-                Experience the future of communication. Unlike scripted bots, our
-                AI learns from every interaction to deliver context-aware,
+                Experience the future of communication. Unlike scripted bots,
+                our AI learns from every interaction to deliver context-aware,
                 personal, and meaningful conversations—at scale.
               </p>
             </motion.div>
