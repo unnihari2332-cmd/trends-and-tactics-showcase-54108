@@ -51,63 +51,62 @@ const Contact = () => {
           </p>
         </div>
 
-        {/* Equal-height columns */}
         <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-8 items-stretch">
-          {/* LEFT: Contact Form */}
+          {/* LEFT FORM */}
           <div className="glass-card p-6 md:p-7 rounded-2xl h-full">
             <h3 className="text-xl md:text-2xl font-bold text-foreground mb-4">
               Send us a message
             </h3>
 
-            <form>
+            <form
+              action="https://formsubmit.co/trendsntactics@gmail.com"
+              method="POST"
+            >
+              {/* REDIRECT TO THANK YOU PAGE */}
+              <input type="hidden" name="_next" value="https://yourdomain.com/thank-you" />
+
+              {/* DISABLE CAPTCHA */}
+              <input type="hidden" name="_captcha" value="false" />
+
               <div className="grid md:grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-sm font-medium text-foreground mb-1">
-                    Name
-                  </label>
-                  <Input placeholder="Your name" />
+                  <label className="block text-sm font-medium mb-1">Name</label>
+                  <Input name="name" placeholder="Your name" required />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-foreground mb-1">
-                    Email
-                  </label>
-                  <Input type="email" placeholder="your@email.com" />
+                  <label className="block text-sm font-medium mb-1">Email</label>
+                  <Input name="email" type="email" placeholder="your@email.com" required />
                 </div>
               </div>
 
-              {/* PHONE NUMBER FIELD ADDED */}
               <div className="mt-3">
-                <label className="block text-sm font-medium text-foreground mb-1">
-                  Phone
-                </label>
-                <Input type="tel" placeholder="+91 00000 00000" />
+                <label className="block text-sm font-medium mb-1">Phone</label>
+                <Input name="phone" type="tel" placeholder="+91 00000 00000" required />
               </div>
 
               <div className="mt-3">
-                <label className="block text-sm font-medium text-foreground mb-1">
-                  Subject
-                </label>
-                <Input placeholder="How can we help?" />
+                <label className="block text-sm font-medium mb-1">Subject</label>
+                <Input name="subject" placeholder="How can we help?" />
               </div>
 
               <div className="mt-3">
-                <label className="block text-sm font-medium text-foreground mb-1">
-                  Message
-                </label>
+                <label className="block text-sm font-medium mb-1">Message</label>
                 <Textarea
+                  name="message"
                   placeholder="Tell us about your project..."
                   className="min-h-[120px] resize-y"
+                  required
                 />
               </div>
 
-              <Button size="lg" className="w-full mt-4">
+              <Button type="submit" size="lg" className="w-full mt-4">
                 Send Message
               </Button>
             </form>
           </div>
 
-          {/* RIGHT: Details */}
+          {/* RIGHT DETAILS */}
           <div className="glass-card p-6 md:p-7 rounded-2xl h-full">
             {details.map(({ icon: Icon, title, text, iconClass }, i) => (
               <div
@@ -119,7 +118,7 @@ const Contact = () => {
               >
                 <Icon className={`h-6 w-6 shrink-0 mt-0.5 ${iconClass}`} />
                 <div className="leading-[1.4]">
-                  <h4 className="text-lg font-semibold text-foreground">{title}</h4>
+                  <h4 className="text-lg font-semibold">{title}</h4>
                   <p className="text-sm md:text-base text-muted-foreground">
                     {text.map((line, idx) => (
                       <span key={idx}>
