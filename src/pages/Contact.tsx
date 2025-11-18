@@ -5,7 +5,6 @@ import Footer from "@/components/Footer";
 import FAQ from "@/components/FAQ";
 import contactHero from "@/assets/contact-hero.jpg";
 import { Mail, Phone, MapPin } from "lucide-react";
-import { Link } from "react-router-dom";
 
 // ---- Contact component (equal height form & cards) ----
 const Contact = () => {
@@ -34,7 +33,8 @@ const Contact = () => {
           <div className="w-full max-w-md rounded-2xl bg-white p-8 text-center shadow-[0_20px_60px_-20px_rgba(0,0,0,0.4)]">
             <h2 className="text-2xl font-bold text-green-600">Thank You!</h2>
             <p className="mt-3 text-gray-700">
-              Your message has been sent successfully. We’ll get back to you soon.
+              Your message has been sent successfully. We’ll get back to you
+              soon.
             </p>
             <button
               type="button"
@@ -260,14 +260,6 @@ const ContactPage = () => (
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/80" />
 
         <div className="relative z-10 container mx-auto max-w-6xl px-6 pt-28 pb-16 text-center">
-          <nav className="mb-4 flex items-center justify-center gap-2 text-xs md:text-sm text-white/80">
-            <Link to="/" className="hover:text-white transition-colors">
-              Home
-            </Link>
-            <span className="opacity-60">›</span>
-            <span className="text-white">Contact Us</span>
-          </nav>
-
           <h1 className="text-3xl md:text-5xl font-normal text-white">
             Contact Us
           </h1>
