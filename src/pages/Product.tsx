@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
-const heroBg = "/smartaccess-hero.jpg";
+const heroBg = "/productbanners.jpg";
 
 export default function Product() {
   return (
