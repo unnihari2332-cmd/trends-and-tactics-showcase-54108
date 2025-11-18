@@ -94,7 +94,6 @@ export default function ContentMarketing() {
     <div
       className="min-h-screen text-foreground"
       style={{
-        // fixed: use `/sidelogo.jpg` like other pages
         backgroundImage: "url('/sidelogo.jpg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
@@ -105,7 +104,7 @@ export default function ContentMarketing() {
       <Header />
 
       <main>
-        {/* ===== HERO WITH BREADCRUMB (Unified Style) ===== */}
+        {/* ===== HERO WITHOUT BREADCRUMB ===== */}
         <section className="relative min-h-[40vh] flex items-center justify-center">
           <div
             className="absolute inset-0 bg-cover bg-center"
@@ -114,16 +113,6 @@ export default function ContentMarketing() {
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/70" />
 
           <div className="relative z-10 container mx-auto max-w-6xl px-6 py-16 text-center">
-            {/* Breadcrumb */}
-            <nav className="flex items-center justify-center gap-2 text-xs md:text-sm text-white/80 mb-4">
-              <span>Home</span>
-              <span className="opacity-60">›</span>
-              <span>Services</span>
-              <span className="opacity-60">›</span>
-              <span className="text-white">Content Marketing</span>
-            </nav>
-
-            {/* Hero Title */}
             <h1 className="text-3xl md:text-5xl font-normal text-white">
               Content Marketing
             </h1>
@@ -239,7 +228,6 @@ export default function ContentMarketing() {
           </div>
         </section>
 
-        {/* ===== CTA ===== */}
         <CTASection
           heading="Ready to amplify your content strategy?"
           description="We'll craft compelling content that attracts, engages, and converts your target audience across all channels."
