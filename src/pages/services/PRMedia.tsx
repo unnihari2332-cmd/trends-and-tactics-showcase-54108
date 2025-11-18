@@ -90,17 +90,14 @@ export default function PRMedia() {
 
             {/* breadcrumb bar */}
             <nav className="flex items-center justify-center gap-2 text-xs md:text-sm text-white/80 mb-4">
-              <Link to="/" className="hover:text-white transition-colors">
+              <span>
                 Home
-              </Link>
+              </span>
               <span className="opacity-60">›</span>
 
-              <Link
-                to="/services"
-                className="hover:text-white transition-colors"
-              >
+              <span>
                 Services
-              </Link>
+              </span>
               <span className="opacity-60">›</span>
 
               <span className="text-white">Public Relations & Media Management</span>

@@ -30,13 +30,13 @@ export default function AIChatbotsAutomation() {
 
           <div className="relative z-10 container mx-auto max-w-6xl px-6 py-16 text-center">
             <nav className="flex items-center justify-center gap-2 text-xs md:text-sm text-white/80 mb-4">
-              <Link to="/" className="hover:text-white transition-colors">
+              <span>
                 Home
-              </Link>
+              </span>
               <span className="opacity-60">›</span>
-              <Link to="/services" className="hover:text-white transition-colors">
+              <span>
                 Services
-              </Link>
+              </span>
               <span className="opacity-60">›</span>
               <span className="text-white">AI Chatbots &amp; Automation</span>
             </nav>

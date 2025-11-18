@@ -153,16 +153,13 @@ export default function NaalaiNamadhe() {
 
           <div className="relative z-10 container mx-auto max-w-6xl px-6 pt-28 pb-16 text-center">
             <nav className="mb-4 flex items-center justify-center gap-2 text-xs text-white/80 md:text-sm">
-              <Link to="/" className="transition-colors hover:text-white">
+              <span>
                 Home
-              </Link>
+              </span>
               <span className="opacity-60">›</span>
-              <Link
-                to="/portfolio"
-                className="transition-colors hover:text-white"
-              >
+              <span>
                 Portfolio
-              </Link>
+              </span>
               <span className="opacity-60">›</span>
               <span className="text-white">Naalai Namadhe</span>
             </nav>

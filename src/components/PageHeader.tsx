@@ -26,12 +26,9 @@ export default function PageHeader({ title, breadcrumbs, bgImage }: PageHeaderPr
             {breadcrumbs.map((crumb, idx) => (
               <div key={idx} className="flex items-center gap-2">
                 {idx > 0 && <ChevronRight className="w-4 h-4 text-white/60" />}
-                <Link
-                  to={crumb.path}
-                  className="text-sm text-white/80 hover:text-white transition-colors"
-                >
+                <span className="text-sm text-white/80">
                   {crumb.label}
-                </Link>
+                </span>
               </div>
             ))}
             <ChevronRight className="w-4 h-4 text-white/60" />
