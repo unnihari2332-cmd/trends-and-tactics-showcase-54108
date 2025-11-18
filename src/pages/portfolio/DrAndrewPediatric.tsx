@@ -185,7 +185,7 @@ export default function DrAndrewPediatric() {
       <Header />
 
       {/* ================================
-           HERO (no gradient overlay)
+           SWATHI KONDE STYLE HERO
          ================================ */}
       <section className="relative min-h-[45vh] flex items-center justify-center">
         <div
@@ -195,7 +195,7 @@ export default function DrAndrewPediatric() {
             backgroundPosition: "center 25%",
           }}
         />
-        {/* Gradient overlay removed */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/70" />
 
         <div className="relative z-10 container mx-auto max-w-6xl px-6 pt-28 md:pt-40 pb-16 text-center">
           <nav className="mt-6 flex items-center justify-center gap-2 text-xs md:text-sm text-white/80 mb-4">
