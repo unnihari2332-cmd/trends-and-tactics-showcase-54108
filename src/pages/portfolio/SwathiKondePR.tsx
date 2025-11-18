@@ -169,7 +169,7 @@ export default function SwathiKondePR() {
     >
       <Header />
 
-      {/* ================= HERO SECTION (breadcrumb removed) ================= */}
+      {/* ================= HERO SECTION ================= */}
       <section className="relative min-h-[40vh] flex items-center justify-center">
         <div
           className="absolute inset-0 bg-cover bg-center"
@@ -180,9 +180,7 @@ export default function SwathiKondePR() {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/70" />
 
-        <div className="relative z-10 container mx-auto max-w-6xl px-6 py-16 text-center">
-          {/* breadcrumb removed */}
-
+        <div className="relative z-10 container mx-auto max-w-6xl px-6 pt-28 md:pt-40 pb-16 text-center">
           <h1 className="text-3xl md:text-5xl font-normal text-white">
             Swathi Konde — Actor & Public Figure
           </h1>
