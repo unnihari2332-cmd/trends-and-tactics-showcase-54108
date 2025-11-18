@@ -21,7 +21,7 @@ export default function Product() {
       <Header />
 
       <main className="pb-12">
-        {/* ===== HERO WITH BIG BREADCRUMB (LIKE OTHER UPDATED PAGES) ===== */}
+        {/* ===== HERO WITHOUT BREADCRUMB ===== */}
         <section className="relative min-h-[38vh] flex items-center text-white">
           <div
             className="absolute inset-0 bg-cover bg-center"
@@ -33,15 +33,6 @@ export default function Product() {
           <div className="absolute inset-0 bg-black/60" />
 
           <div className="relative z-10 container mx-auto px-4 md:px-6 pt-28 pb-16 text-center">
-            {/* Breadcrumb */}
-            <nav className="flex items-center justify-center gap-4 text-[17px] font-normal text-white/85 mb-4">
-              <Link to="/" className="hover:text-white transition">
-                Home
-              </Link>
-              <span className="opacity-70">›</span>
-              <span className="text-white">Products</span>
-            </nav>
-
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-normal">
               Our Products
             </h1>
@@ -68,7 +59,10 @@ export default function Product() {
                 viewport={{ once: true }}
                 className="group rounded-2xl bg-white/90 backdrop-blur-sm ring-1 ring-black/10 shadow-xl overflow-hidden"
               >
-                <Link to="/product/smartaccess" className="block focus:outline-none">
+                <Link
+                  to="/product/smartaccess"
+                  className="block focus:outline-none"
+                >
                   <div className="relative h-64 w-full overflow-hidden">
                     <img
                       src="/biometricbanner01.jpg"
@@ -80,8 +74,8 @@ export default function Product() {
                   <div className="p-6">
                     <h3 className="text-2xl font-semibold">Smart Access Plus</h3>
                     <p className="mt-2 text-black/70 text-base">
-                      Fingerprint-based attendance &amp; HR suite with real-time web
-                      dashboard and payroll/leave integration.
+                      Fingerprint-based attendance &amp; HR suite with real-time
+                      web dashboard and payroll/leave integration.
                     </p>
                     <div className="mt-4 inline-flex items-center text-[#E05D35] font-semibold">
                       Read more →
@@ -97,7 +91,10 @@ export default function Product() {
                 viewport={{ once: true }}
                 className="group rounded-2xl bg-white/90 backdrop-blur-sm ring-1 ring-black/10 shadow-xl overflow-hidden"
               >
-                <Link to="/product/ai-chatbot" className="block focus:outline-none">
+                <Link
+                  to="/product/ai-chatbot"
+                  className="block focus:outline-none"
+                >
                   <div className="relative h-64 w-full overflow-hidden">
                     <img
                       src="/aichat.jpg"
@@ -107,10 +104,12 @@ export default function Product() {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
                   </div>
                   <div className="p-6">
-                    <h3 className="text-2xl font-semibold">AI Personalized Chatbot</h3>
+                    <h3 className="text-2xl font-semibold">
+                      AI Personalized Chatbot
+                    </h3>
                     <p className="mt-2 text-black/70 text-base">
-                      Human-like conversational AI tailored to your brand. Engage customers,
-                      automate support, and boost conversions.
+                      Human-like conversational AI tailored to your brand.
+                      Engage customers, automate support, and boost conversions.
                     </p>
                     <div className="mt-4 inline-flex items-center text-[#E05D35] font-semibold">
                       Read more →
