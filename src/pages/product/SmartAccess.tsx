@@ -35,13 +35,13 @@ export default function SmartAccess() {
           <div className="relative z-10 container mx-auto px-4 md:px-6 pt-28 pb-16 text-center">
             {/* Breadcrumb */}
             <nav className="flex items-center justify-center gap-4 text-[17px] font-normal text-white/85 mb-4">
-              <Link to="/" className="hover:text-white transition">
+              <span>
                 Home
-              </Link>
+              </span>
               <span className="opacity-70">›</span>
-              <Link to="/product" className="hover:text-white transition">
+              <span>
                 Products
-              </Link>
+              </span>
               <span className="opacity-70">›</span>
               <span className="text-white">SmartAccess+</span>
             </nav>

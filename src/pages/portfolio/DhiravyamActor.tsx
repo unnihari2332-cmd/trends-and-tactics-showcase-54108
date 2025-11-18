@@ -205,16 +205,13 @@ export default function DhiravyamActor() {
           <div className="relative z-10 container mx-auto max-w-6xl px-6 pt-28 pb-16 text-center">
             {/* breadcrumb */}
             <nav className="flex items-center justify-center gap-2 text-xs md:text-sm text-white/80 mb-4">
-              <Link to="/" className="hover:text-white transition-colors">
+              <span>
                 Home
-              </Link>
+              </span>
               <span className="opacity-60">›</span>
-              <Link
-                to="/portfolio"
-                className="hover:text-white transition-colors"
-              >
+              <span>
                 Portfolio
-              </Link>
+              </span>
               <span className="opacity-60">›</span>
               <span className="text-white">Dhiravyam — Actor</span>
             </nav>

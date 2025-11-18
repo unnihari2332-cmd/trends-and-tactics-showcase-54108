@@ -183,9 +183,9 @@ export default function SwathiKondePR() {
 
         <div className="relative z-10 container mx-auto max-w-6xl px-6 py-16 text-center">
           <nav className="flex items-center justify-center gap-2 text-xs md:text-sm text-white/80 mb-4">
-            <Link to="/" className="hover:text-white">Home</Link>
+            <span>Home</span>
             <span className="opacity-60">›</span>
-            <Link to="/portfolio" className="hover:text-white">Portfolio</Link>
+            <span>Portfolio</span>
             <span className="opacity-60">›</span>
             <span className="text-white">Swathi Konde — PR & Media Kit</span>
           </nav>

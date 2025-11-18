@@ -88,9 +88,9 @@ export default function DigitalAds() {
           <div className="relative z-10 container mx-auto max-w-6xl px-6 py-16 text-center">
             {/* breadcrumb */}
             <nav className="flex items-center justify-center gap-2 text-xs md:text-sm text-white/80 mb-4">
-              <Link to="/" className="hover:text-white transition-colors">Home</Link>
+              <span>Home</span>
               <span className="opacity-60">›</span>
-              <Link to="/services" className="hover:text-white transition-colors">Services</Link>
+              <span>Services</span>
               <span className="opacity-60">›</span>
               <span className="text-white">Social Media & Paid Ads Marketing</span>
             </nav>
