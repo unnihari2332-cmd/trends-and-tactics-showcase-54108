@@ -3,7 +3,6 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CTASection from "@/components/CTASection";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
 import {
   Search,
   Settings,
@@ -28,32 +27,17 @@ export default function SEO() {
       <Header />
 
       <main>
-
-        {/* ===== UNIFIED HERO WITH BREADCRUMB ===== */}
+        {/* ===== HERO WITHOUT BREADCRUMB ===== */}
         <section className="relative min-h-[40vh] flex items-center justify-center">
           <div
             className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: "url('/chatbot.jpg')" }}
+            style={{ backgroundImage: "url('/seo-search.jpg')" }}
           />
-
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/70" />
 
           <div className="relative z-10 container mx-auto max-w-6xl px-6 py-16 text-center">
-            
-            {/* Breadcrumb */}
-            <nav className="flex items-center justify-center gap-2 text-xs md:text-sm text-white/80 mb-4">
-              <span>Home</span>
-              <span className="opacity-60">›</span>
-
-              <span>Services</span>
-              <span className="opacity-60">›</span>
-
-              <span className="text-white">SEO & Growth Strategy</span>
-            </nav>
-
-            {/* Title */}
             <h1 className="text-3xl md:text-5xl font-normal text-white">
-              SEO & Growth Strategy
+              SEO &amp; Growth Strategy
             </h1>
           </div>
         </section>
@@ -78,12 +62,14 @@ export default function SEO() {
               transition={{ delay: 0.3 }}
               className="mb-10 text-base md:text-lg text-center text-foreground/80 leading-relaxed"
             >
-              In today’s digital world, staying visible online is key. At Trends &amp; Tactics,
-              we use the latest SEO strategies—from AI-driven techniques to mobile-first
-              optimization—to ensure your website ranks where it matters most. With voice
-              search, local SEO, and Core Web Vitals, we help customers find you quickly
-              and easily. Through engaging content, improved user experience, and targeted
-              campaigns, we put your brand right in front of potential customers.
+              In today’s digital world, staying visible online is key. At Trends
+              &amp; Tactics, we use the latest SEO strategies—from AI-driven
+              techniques to mobile-first optimization—to ensure your website
+              ranks where it matters most. With voice search, local SEO, and
+              Core Web Vitals, we help customers find you quickly and easily.
+              Through engaging content, improved user experience, and targeted
+              campaigns, we put your brand right in front of potential
+              customers.
             </motion.p>
           </div>
         </section>
@@ -91,7 +77,6 @@ export default function SEO() {
         {/* ===== STRATEGY CARDS ===== */}
         <section className="py-10 md:py-14 px-6">
           <div className="container mx-auto grid gap-6 md:gap-8 md:grid-cols-2 max-w-6xl">
-
             <motion.article
               initial={{ opacity: 0, y: 14 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -107,8 +92,9 @@ export default function SEO() {
                 </h2>
               </div>
               <p className="text-black/80">
-                Your audience is searching—let’s help them find you first. Smart strategy,
-                optimized content, and consistent execution attract the right traffic that converts.
+                Your audience is searching—let’s help them find you first. Smart
+                strategy, optimized content, and consistent execution attract
+                the right traffic that converts.
               </p>
             </motion.article>
 
@@ -128,35 +114,36 @@ export default function SEO() {
                 </h2>
               </div>
               <p className="text-black/80 mb-3">
-                No two businesses are the same. We customize on-page, technical, and
-                off-page SEO for your industry, audience, and goals.
+                No two businesses are the same. We customize on-page,
+                technical, and off-page SEO for your industry, audience, and
+                goals.
               </p>
 
               <ul className="space-y-2 text-black/80">
                 <li className="flex gap-3">
                   <span className="mt-1 size-3 shrink-0 rounded-full bg-[#2ecec8]" />
-                  On-page optimization, keyword research, information architecture
+                  On-page optimization, keyword research, information
+                  architecture
                 </li>
                 <li className="flex gap-3">
                   <span className="mt-1 size-3 shrink-0 rounded-full bg-[#2ecec8]" />
-                  Technical SEO: Core Web Vitals, schema, sitemaps, internal linking
+                  Technical SEO: Core Web Vitals, schema, sitemaps, internal
+                  linking
                 </li>
                 <li className="flex gap-3">
                   <span className="mt-1 size-3 shrink-0 rounded-full bg-[#2ecec8]" />
-                  Authority building, competitive gap analysis, performance tracking
+                  Authority building, competitive gap analysis, performance
+                  tracking
                 </li>
               </ul>
             </motion.article>
-
           </div>
         </section>
 
         {/* ===== WE SERVE THE BEST WORK ===== */}
         <section className="px-6 pb-6 md:pb-10">
           <div className="container mx-auto max-w-6xl">
-
             <div className="rounded-2xl bg-white/85 backdrop-blur-sm shadow-xl ring-1 ring-black/5 p-6 md:p-8">
-
               <h2 className="text-2xl md:text-3xl font-bold mb-6">
                 We Serve The Best Work
               </h2>
@@ -175,7 +162,7 @@ export default function SEO() {
                 ].map(({ title, icon: Icon }) => (
                   <li
                     key={title}
-                    className="group flex items-start gap-3rounded-xl bg-black/5 p-4 transition-colors hover:bg-black/10"
+                    className="group flex items-start gap-3 rounded-xl bg-black/5 p-4 transition-colors hover:bg-black/10"
                   >
                     <span className="mt-0.5 inline-grid place-items-center size-8 rounded-full bg-[#2ecec8] text-white shrink-0 transition-colors group-hover:bg-[#E05D35]">
                       <Icon className="size-4" />
@@ -184,18 +171,14 @@ export default function SEO() {
                   </li>
                 ))}
               </ul>
-
             </div>
-
           </div>
         </section>
 
         {/* ===== BENEFITS ===== */}
         <section className="px-6 pb-12 md:pb-16">
           <div className="container mx-auto max-w-6xl">
-
             <div className="rounded-2xl bg-white/85 backdrop-blur-sm shadow-xl ring-1 ring-black/5 p-6 md:p-8">
-
               <h2 className="text-2xl md:text-3xl font-bold mb-6">
                 Benefits With Our Service
               </h2>
@@ -243,9 +226,7 @@ export default function SEO() {
                   </li>
                 ))}
               </ol>
-
             </div>
-
           </div>
         </section>
 
@@ -254,7 +235,6 @@ export default function SEO() {
           heading="Ready to dominate search rankings?"
           description="We'll optimize your digital presence with proven SEO strategies that drive organic traffic and sustainable growth."
         />
-
       </main>
 
       <Footer />
