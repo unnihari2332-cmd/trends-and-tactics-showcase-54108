@@ -197,7 +197,7 @@ const Contact = () => {
                 color: "#62C3C1",
                 title: "Coimbatore Office",
                 text:
-                  "S-2, Thuthiksha Magizhvagam, GKS Nagar,\nSaravanampatti, Coimbatore – 641035.",
+                  "1st Floor, Vaishnavi Complex, Ranga Konar St, Kattoor Main, Kattoor, Ram Nagar, Coimbatore, Tamil Nadu 641009",
               },
               {
                 icon: Phone,
