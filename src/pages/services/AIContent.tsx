@@ -4,7 +4,6 @@ import Footer from "@/components/Footer";
 import CTASection from "@/components/CTASection";
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import {
   Plus,
   Minus,
@@ -79,8 +78,7 @@ export default function AIContent() {
       <Header />
 
       <main>
-
-        {/* ===== HERO WITH CUSTOM BREADCRUMB + CENTERED TITLE ===== */}
+        {/* ===== HERO WITH CENTERED TITLE (NO BREADCRUMB) ===== */}
         <section className="relative min-h-[40vh] flex items-center justify-center">
           <div
             className="absolute inset-0 bg-cover bg-center"
@@ -90,21 +88,8 @@ export default function AIContent() {
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/70" />
 
           <div className="relative z-10 container mx-auto max-w-6xl px-6 py-16 text-center">
-            
-            {/* breadcrumb bar */}
-            <nav className="flex items-center justify-center gap-2 text-xs md:text-sm text-white/80 mb-4">
-              <span>Home</span>
-              <span className="opacity-60">›</span>
-
-              <span>Services</span>
-              <span className="opacity-60">›</span>
-
-              <span className="text-white">AI-Driven Branding & Content</span>
-            </nav>
-
-            {/* centered title */}
             <h1 className="text-3xl md:text-5xl font-normal text-white">
-              AI-Driven Branding & Content
+              AI-Driven Branding &amp; Content
             </h1>
           </div>
         </section>
@@ -113,7 +98,6 @@ export default function AIContent() {
         <section className="px-6">
           <div className="container mx-auto max-w-6xl mt-10 mb-12">
             <div className="grid md:grid-cols-2 gap-8 items-center">
-              
               <motion.img
                 initial={{ opacity: 0, x: -30 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -129,9 +113,9 @@ export default function AIContent() {
                 transition={{ delay: 0.3 }}
                 className="text-lg md:text-xl font-bold text-center md:text-left leading-relaxed text-black"
               >
-                Build smarter brands with AI-powered creativity and strategy. We blend
-                data-driven insights with engaging design and content that connects,
-                converts, and inspires trust.
+                Build smarter brands with AI-powered creativity and strategy. We
+                blend data-driven insights with engaging design and content that
+                connects, converts, and inspires trust.
               </motion.p>
             </div>
           </div>
@@ -141,7 +125,9 @@ export default function AIContent() {
         <section className="px-6 pb-6 md:pb-10">
           <div className="container mx-auto max-w-6xl">
             <div className="rounded-2xl bg-white/80 backdrop-blur-sm shadow-xl ring-1 ring-black/5 p-6 md:p-8">
-              <h2 className="text-2xl md:text-3xl font-bold mb-6">We Serve The Best Work</h2>
+              <h2 className="text-2xl md:text-3xl font-bold mb-6">
+                We Serve The Best Work
+              </h2>
 
               <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {serviceItems.map(({ icon: Icon, label }) => (
@@ -164,8 +150,9 @@ export default function AIContent() {
         <section className="px-6 pb-12 md:pb-16">
           <div className="container mx-auto max-w-6xl">
             <div className="rounded-2xl bg-white/80 backdrop-blur-sm shadow-xl ring-1 ring-black/5 p-6 md:p-8">
-
-              <h2 className="text-2xl md:text-3xl font-bold mb-6">Benefits With Our Service</h2>
+              <h2 className="text-2xl md:text-3xl font-bold mb-6">
+                Benefits With Our Service
+              </h2>
 
               <ul className="divide-y divide-gray-200">
                 {benefitItems.map(({ icon: Icon, title, body }, idx) => {
@@ -181,7 +168,9 @@ export default function AIContent() {
                           <span className="inline-grid place-items-center size-8 rounded-full bg-[#2ecec8] text-white transition-colors duration-300 group-hover:bg-[#E05D35]">
                             <Icon className="w-5 h-5" />
                           </span>
-                          <span className="text-lg font-semibold text-black">{title}</span>
+                          <span className="text-lg font-semibold text-black">
+                            {title}
+                          </span>
                         </div>
 
                         {isOpen ? (
@@ -205,7 +194,6 @@ export default function AIContent() {
                   );
                 })}
               </ul>
-
             </div>
           </div>
         </section>
