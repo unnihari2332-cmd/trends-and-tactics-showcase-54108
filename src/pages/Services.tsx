@@ -86,7 +86,7 @@ export default function ServicesPage() {
       <Header />
 
       <main className="relative">
-        {/* HERO (aligned with About page hero) */}
+        {/* HERO (hero only, no breadcrumb) */}
         <section className="relative min-h-[40vh] flex items-center justify-center">
           {/* Background image */}
           <div
@@ -102,16 +102,6 @@ export default function ServicesPage() {
 
           {/* Content */}
           <div className="relative z-10 container mx-auto max-w-6xl px-4 md:px-6 pt-24 md:pt-28 pb-16 text-center">
-            {/* Breadcrumb */}
-            <nav className="flex items-center justify-center gap-4 text-[17px] font-normal text-white/85 mb-4">
-              <Link to="/" className="hover:text-white transition">
-                Home
-              </Link>
-              <span className="opacity-70">›</span>
-              <span className="text-white">Services</span>
-            </nav>
-
-            {/* Title */}
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-normal text-white drop-shadow-lg">
               Our Services
             </h1>
