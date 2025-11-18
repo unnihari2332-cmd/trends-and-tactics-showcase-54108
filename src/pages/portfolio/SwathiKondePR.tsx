@@ -1,6 +1,5 @@
 // src/pages/portfolio/SwathiKondePR.tsx
 import { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import {
@@ -182,14 +181,7 @@ export default function SwathiKondePR() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/70" />
 
         <div className="relative z-10 container mx-auto max-w-6xl px-6 py-16 text-center">
-          <nav className="flex items-center justify-center gap-2 text-xs md:text-sm text-white/80 mb-4">
-            <span>Home</span>
-            <span className="opacity-60">›</span>
-            <span>Portfolio</span>
-            <span className="opacity-60">›</span>
-            <span className="text-white">Swathi Konde — PR & Media Kit</span>
-          </nav>
-
+          {/* breadcrumb removed */}
           <h1 className="text-3xl md:text-5xl font-normal text-white">
             Swathi Konde — Actor & Public Figure
           </h1>
@@ -347,7 +339,8 @@ export default function SwathiKondePR() {
 
             <ul className="space-y-2 text-gray-700 text-sm">
               <li>
-                <strong>Photography:</strong> Clean portraits with soft lighting.
+                <strong>Photography:</strong> Clean portraits with soft
+                lighting.
               </li>
               <li>
                 <strong>Video Mood:</strong> Fast-paced edits, expressive shots.
