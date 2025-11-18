@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 import CTASection from "@/components/CTASection";
 import { motion } from "framer-motion";
 import { useState } from "react";
-import servicesHero from "@/websitehero.jpg";
+import servicesHero from "@/assets/services-hero.jpg";
 import {
   Plus,
   Minus,
