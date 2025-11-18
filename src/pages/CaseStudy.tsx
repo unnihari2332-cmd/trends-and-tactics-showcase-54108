@@ -16,8 +16,8 @@ const clientRoutes: Record<string, string> = {
 
 /* Map client titles to PUBLIC images (place files in /public) */
 const clientImages: Record<string, string> = {
-  "The Indian Public School (TIPS)": "/TIPS.jpg?v=1",
-  "Dr. Andrew Stephen – Pediatrician": "/doctor.jpeg?v=1",
+  "The Indian Public School (TIPS)": "/0008.jpg?v=1",
+  "Dr. Andrew Stephen – Pediatrician": "/0006.jpg?v=1",
   "Isthara Multi Brand Diner": "/isthara.avif?v=1",
 };
 
