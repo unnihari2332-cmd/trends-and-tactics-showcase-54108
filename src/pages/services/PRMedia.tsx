@@ -4,7 +4,6 @@ import Footer from "@/components/Footer";
 import CTASection from "@/components/CTASection";
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import { Plus, Minus } from "lucide-react";
 
 export default function PRMedia() {
@@ -78,7 +77,7 @@ export default function PRMedia() {
       <Header />
 
       <main>
-        {/* ===== HERO WITH UNIFIED BREADCRUMB STYLE ===== */}
+        {/* ===== HERO WITH CENTERED TITLE (NO BREADCRUMB) ===== */}
         <section className="relative min-h-[40vh] flex items-center justify-center">
           <div
             className="absolute inset-0 bg-cover bg-center"
@@ -87,23 +86,6 @@ export default function PRMedia() {
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/70" />
 
           <div className="relative z-10 container mx-auto max-w-6xl px-6 py-16 text-center">
-
-            {/* breadcrumb bar */}
-            <nav className="flex items-center justify-center gap-2 text-xs md:text-sm text-white/80 mb-4">
-              <span>
-                Home
-              </span>
-              <span className="opacity-60">›</span>
-
-              <span>
-                Services
-              </span>
-              <span className="opacity-60">›</span>
-
-              <span className="text-white">Public Relations & Media Management</span>
-            </nav>
-
-            {/* centered title */}
             <h1 className="text-3xl md:text-5xl font-normal text-white">
               Public Relations &amp; Media Management
             </h1>
@@ -114,7 +96,6 @@ export default function PRMedia() {
         <section className="px-6">
           <div className="container mx-auto max-w-6xl mt-10 mb-12">
             <div className="grid md:grid-cols-2 gap-8 items-center">
-
               <motion.img
                 initial={{ opacity: 0, x: -30 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -139,9 +120,7 @@ export default function PRMedia() {
         {/* ===== PR STRATEGY SECTION ===== */}
         <section className="pb-10 px-6">
           <div className="container mx-auto max-w-6xl grid gap-10">
-
             <div className="rounded-2xl bg-white/80 backdrop-blur-sm shadow-xl ring-1 ring-black/5 p-6 md:p-8">
-
               <div className="stat text-center md:text-left">
                 <h2 className="text-2xl font-semibold mb-2">{strategyTitle}</h2>
                 <p className="text-muted-foreground">{strategyBody}</p>
@@ -157,7 +136,6 @@ export default function PRMedia() {
                   ))}
                 </ul>
               </div>
-
             </div>
           </div>
         </section>
@@ -165,9 +143,7 @@ export default function PRMedia() {
         {/* ===== WE SERVE THE BEST WORK ===== */}
         <section className="px-6 pb-6 md:pb-10">
           <div className="container mx-auto max-w-6xl">
-
             <div className="rounded-2xl bg-white/80 backdrop-blur-sm shadow-xl ring-1 ring-black/5 p-6 md:p-8">
-
               <h2 className="text-2xl md:text-3xl font-bold mb-6">
                 We Serve The Best Work
               </h2>
@@ -185,18 +161,14 @@ export default function PRMedia() {
                   </li>
                 ))}
               </ul>
-
             </div>
           </div>
         </section>
 
         {/* ===== BENEFITS ACCORDION ===== */}
         <section className="px-6 pb-12 md:pb-16">
-
           <div className="container mx-auto max-w-6xl">
-
             <div className="rounded-2xl bg-white/80 backdrop-blur-sm shadow-xl ring-1 ring-black/5 p-6 md:p-8">
-
               <h2 className="text-2xl md:text-3xl font-bold mb-6">
                 Benefits With Our Service
               </h2>
@@ -207,7 +179,6 @@ export default function PRMedia() {
 
                   return (
                     <li key={title} className="py-4">
-
                       <button
                         onClick={() => toggle(idx)}
                         className="flex w-full items-center justify-between text-left"
@@ -239,16 +210,12 @@ export default function PRMedia() {
                           {body}
                         </motion.p>
                       )}
-
                     </li>
                   );
                 })}
               </ul>
-
             </div>
-
           </div>
-
         </section>
 
         {/* ===== CTA ===== */}
@@ -256,7 +223,6 @@ export default function PRMedia() {
           heading="Ready to shape your brand narrative?"
           description="We'll build strategic PR campaigns that strengthen your reputation, amplify your voice, and secure media visibility."
         />
-
       </main>
 
       <Footer />
