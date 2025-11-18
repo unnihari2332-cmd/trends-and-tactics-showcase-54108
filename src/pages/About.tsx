@@ -34,7 +34,7 @@ const About = () => {
       <Header />
 
       <main>
-        {/* ===== HERO (same style as Aatral Foundation) ===== */}
+        {/* ===== HERO WITH GRADIENT OVERLAY ===== */}
         <section className="relative min-h-[40vh] flex items-center justify-center">
           {/* Background image */}
           <div
@@ -44,6 +44,9 @@ const About = () => {
               backgroundPosition: "center 30%",
             }}
           />
+
+          {/* Gradient Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/70" />
 
           {/* Content */}
           <div className="relative z-10 container mx-auto max-w-6xl px-4 md:px-6 pt-24 md:pt-28 pb-16 text-center">
@@ -62,7 +65,7 @@ const About = () => {
           </div>
         </section>
 
-        {/* ===== INTRO + VISION & MISSION (pill style) ===== */}
+        {/* ===== INTRO + VISION & MISSION ===== */}
         <section className="py-10 px-6 md:py-12">
           <div className="container mx-auto max-w-7xl grid gap-8 md:grid-cols-2 items-center">
             {/* Image */}
@@ -74,7 +77,7 @@ const About = () => {
               />
             </div>
 
-            {/* Vision + Mission pills */}
+            {/* Vision + Mission */}
             <div className="w-full space-y-6">
               {/* Vision */}
               <div className="relative rounded-[2.5rem] bg-white/90 ring-1 ring-black/10 shadow-xl p-6 md:p-8 flex gap-5 md:gap-7 items-start">
