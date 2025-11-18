@@ -50,14 +50,8 @@ const About = () => {
 
           {/* Content */}
           <div className="relative z-10 container mx-auto max-w-6xl px-4 md:px-6 pt-24 md:pt-28 pb-16 text-center">
-            {/* Centered breadcrumb */}
-            <nav className="mb-3 flex items-center justify-center gap-2 text-xs md:text-sm text-white">
-              <Link to="/" className="hover:text-white transition-colors">
-                Home
-              </Link>
-              <span className="opacity-80">›</span>
-              <span className="text-white">About Us</span>
-            </nav>
+
+            {/* REMOVED BREADCRUMB */}
 
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-normal text-white drop-shadow-lg">
               About Us
