@@ -4,7 +4,6 @@ import Footer from "@/components/Footer";
 import CTASection from "@/components/CTASection";
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import servicesHero from "@/assets/services-hero.jpg";
 import {
   Plus,
@@ -87,7 +86,7 @@ export default function WebAndApp() {
       <Header />
 
       <main>
-        {/* ===== HERO WITH BREADCRUMB (same style as other service pages) ===== */}
+        {/* ===== HERO WITH CENTERED TITLE (NO BREADCRUMB) ===== */}
         <section className="relative min-h-[40vh] flex items-center justify-center">
           <div
             className="absolute inset-0 bg-cover bg-center"
@@ -96,18 +95,6 @@ export default function WebAndApp() {
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/70" />
 
           <div className="relative z-10 container mx-auto max-w-6xl px-6 py-16 text-center">
-            <nav className="flex items-center justify-center gap-2 text-xs md:text-sm text-white/80 mb-4">
-              <span>
-                Home
-              </span>
-              <span className="opacity-60">›</span>
-              <span>
-                Services
-              </span>
-              <span className="opacity-60">›</span>
-              <span className="text-white">Website &amp; App Development</span>
-            </nav>
-
             <h1 className="text-3xl md:text-5xl font-normal text-white">
               Website &amp; App Development
             </h1>
@@ -135,11 +122,11 @@ export default function WebAndApp() {
                 transition={{ delay: 0.3 }}
                 className="text-lg md:text-xl font-bold text-center md:text-left leading-relaxed text-black"
               >
-                In today’s fast-paced digital world, your website is the face of your
-                brand. As Chennai’s trusted web design &amp; development partner, we
-                build visually stunning, high-performance sites that strengthen
-                credibility, spark engagement, and convert visitors into customers—
-                whether you’re a startup or a large enterprise.
+                In today’s fast-paced digital world, your website is the face of
+                your brand. As Chennai’s trusted web design &amp; development
+                partner, we build visually stunning, high-performance sites that
+                strengthen credibility, spark engagement, and convert visitors
+                into customers—whether you’re a startup or a large enterprise.
               </motion.p>
             </div>
           </div>
