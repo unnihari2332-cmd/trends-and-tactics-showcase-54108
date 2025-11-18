@@ -4,7 +4,6 @@ import Footer from "@/components/Footer";
 import CTASection from "@/components/CTASection";
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import {
   Plus,
   Minus,
@@ -28,7 +27,7 @@ import {
   Users,
   Star,
   Layout,
-  Target
+  Target,
 } from "lucide-react";
 
 export default function VideoProduction() {
@@ -51,12 +50,36 @@ export default function VideoProduction() {
   ];
 
   const investItems = [
-    { icon: Eye, title: "Improved Brand Visibility", body: "Our video edits are designed to make your brand stand out, creating a lasting impression on viewers." },
-    { icon: PenTool, title: "Effective Storytelling", body: "We transform raw footage into compelling narratives that communicate your brand’s message with clarity and emotion." },
-    { icon: Users, title: "Increased Engagement", body: "Dynamic, platform-ready edits capture attention quickly and encourage interaction across channels." },
-    { icon: Layout, title: "Optimized User Experience", body: "Thoughtful pacing, clean audio, color, and captions keep viewers watching — and remembering." },
-    { icon: Target, title: "Higher Conversions", body: "Clear calls-to-action and purpose-built edits nudge viewers toward the next step and improve ROI." },
-    { icon: Star, title: "Long-Lasting Impact", body: "Professional polish ensures your content stays top-of-mind long after the video ends." },
+    {
+      icon: Eye,
+      title: "Improved Brand Visibility",
+      body: "Our video edits are designed to make your brand stand out, creating a lasting impression on viewers.",
+    },
+    {
+      icon: PenTool,
+      title: "Effective Storytelling",
+      body: "We transform raw footage into compelling narratives that communicate your brand’s message with clarity and emotion.",
+    },
+    {
+      icon: Users,
+      title: "Increased Engagement",
+      body: "Dynamic, platform-ready edits capture attention quickly and encourage interaction across channels.",
+    },
+    {
+      icon: Layout,
+      title: "Optimized User Experience",
+      body: "Thoughtful pacing, clean audio, color, and captions keep viewers watching — and remembering.",
+    },
+    {
+      icon: Target,
+      title: "Higher Conversions",
+      body: "Clear calls-to-action and purpose-built edits nudge viewers toward the next step and improve ROI.",
+    },
+    {
+      icon: Star,
+      title: "Long-Lasting Impact",
+      body: "Professional polish ensures your content stays top-of-mind long after the video ends.",
+    },
   ];
 
   const [openIndex, setOpenIndex] = useState<number | null>(null);
@@ -77,8 +100,7 @@ export default function VideoProduction() {
       <Header />
 
       <main>
-
-        {/* ===== CUSTOM HERO WITH BREADCRUMB (same style as Digital Ads) ===== */}
+        {/* ===== HERO WITH CENTERED TITLE (NO BREADCRUMB) ===== */}
         <section className="relative min-h-[40vh] flex items-center justify-center">
           <div
             className="absolute inset-0 bg-cover bg-center"
@@ -89,18 +111,8 @@ export default function VideoProduction() {
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/70" />
 
           <div className="relative z-10 container mx-auto max-w-6xl px-6 py-16 text-center">
-            <nav className="flex items-center justify-center gap-2 text-xs md:text-sm text-white/80 mb-4">
-              <span>Home</span>
-              <span className="opacity-60">›</span>
-
-              <span>Services</span>
-              <span className="opacity-60">›</span>
-
-              <span className="text-white">Professional Video Production & Editing</span>
-            </nav>
-
             <h1 className="text-3xl md:text-5xl font-normal text-white">
-              Professional Video Production & Editing
+              Professional Video Production &amp; Editing
             </h1>
           </div>
         </section>
@@ -124,10 +136,10 @@ export default function VideoProduction() {
                 transition={{ delay: 0.3 }}
                 className="text-lg md:text-xl font-bold text-center md:text-left leading-relaxed text-black"
               >
-                Make your brand unforgettable with our expert video editing services in
-                Chennai. Our talented team specializes in crafting dynamic and engaging
-                video content that captivates audiences and helps businesses achieve their
-                marketing goals.
+                Make your brand unforgettable with our expert video editing
+                services in Chennai. Our talented team specializes in crafting
+                dynamic and engaging video content that captivates audiences and
+                helps businesses achieve their marketing goals.
               </motion.p>
             </div>
           </div>
@@ -141,10 +153,11 @@ export default function VideoProduction() {
                 The Art of Video Editing
               </h2>
               <p className="text-muted-foreground">
-                You can produce captivating visual stories that connect with your target
-                audience by using our video editing services. Whether it’s for social
-                media, corporate videos, or commercials, we ensure that every project is
-                adapted to your brand’s message and identity.
+                You can produce captivating visual stories that connect with
+                your target audience by using our video editing services.
+                Whether it’s for social media, corporate videos, or commercials,
+                we ensure that every project is adapted to your brand’s message
+                and identity.
               </p>
             </div>
           </div>
