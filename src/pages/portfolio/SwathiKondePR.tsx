@@ -1,6 +1,5 @@
 // src/pages/portfolio/SwathiKondePR.tsx
 import { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import {
@@ -16,11 +15,11 @@ import {
   Hash,
 } from "lucide-react";
 
-const heroBg = "/Swathi001.png"; // hero image
+const heroBg = "/Swathi001.png";
 
-/** ================================
- *  YouTube Auto-Scroller (full 16:9)
- *  ================================ */
+/* ================================
+   YouTube Auto-Scroller
+   ================================ */
 function YouTubeAutoScroller({
   urls,
   intervalMs = 5000,
@@ -116,7 +115,7 @@ function YouTubeAutoScroller({
   );
 }
 
-/* small helper components */
+/* helpers */
 function Pillar({ title, desc }: { title: string; desc: string }) {
   return (
     <div className="rounded-lg border border-gray-200 p-4 bg-white">
@@ -170,7 +169,7 @@ export default function SwathiKondePR() {
     >
       <Header />
 
-      {/* ===== HERO SECTION ===== */}
+      {/* ================= HERO SECTION (breadcrumb removed) ================= */}
       <section className="relative min-h-[40vh] flex items-center justify-center">
         <div
           className="absolute inset-0 bg-cover bg-center"
@@ -182,26 +181,15 @@ export default function SwathiKondePR() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/70" />
 
         <div className="relative z-10 container mx-auto max-w-6xl px-6 py-16 text-center">
-          {/* breadcrumb with extra top margin to move it down */}
-          <nav className="flex justify-center">
-            <ol className="flex items-center gap-2 text-xs md:text-sm text-gray-200/80 mt-6">
-              <li>
-                <Link to="/portfolio" className="hover:text-white">
-                  Portfolio
-                </Link>
-              </li>
-              <li>/</li>
-              <li className="text-white/90">Swathi Konde – PR & Media Kit</li>
-            </ol>
-          </nav>
+          {/* breadcrumb removed */}
 
-          <h1 className="mt-3 text-3xl md:text-5xl font-normal text-white">
+          <h1 className="text-3xl md:text-5xl font-normal text-white">
             Swathi Konde — Actor & Public Figure
           </h1>
         </div>
       </section>
 
-      {/* ===== Short Bio ===== */}
+      {/* ================= BIO ================= */}
       <section className="py-8">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
@@ -220,7 +208,7 @@ export default function SwathiKondePR() {
         </div>
       </section>
 
-      {/* ===== Extended Profile ===== */}
+      {/* ================= PROFILE ================= */}
       <section className="py-6">
         <div className="container mx-auto px-6 grid gap-6 md:grid-cols-2">
           <div className="rounded-2xl border border-gray-200 bg-white p-6">
@@ -256,7 +244,7 @@ export default function SwathiKondePR() {
             <div className="grid gap-4">
               <Pillar
                 title="Versatile Talent"
-                desc="Effortlessly shifts between commercial and deep character-driven roles."
+                desc="Effortlessly shifts between commercial and character-driven roles."
               />
               <Pillar
                 title="Authentic Connection"
@@ -271,7 +259,7 @@ export default function SwathiKondePR() {
         </div>
       </section>
 
-      {/* ===== PR Strategy ===== */}
+      {/* ================= PR STRATEGY ================= */}
       <section className="py-6">
         <div className="container mx-auto px-6">
           <div className="rounded-2xl border border-gray-200 bg-white p-6">
@@ -289,7 +277,7 @@ export default function SwathiKondePR() {
                 <ul className="list-disc list-inside text-gray-700 space-y-2 text-sm">
                   <li>Press releases aligned with project updates.</li>
                   <li>Feature interviews & talk show presence.</li>
-                  <li>Media tie-ups across entertainment platforms.</li>
+                  <li>Media tie-ups with entertainment platforms.</li>
                 </ul>
               </div>
 
@@ -309,39 +297,37 @@ export default function SwathiKondePR() {
         </div>
       </section>
 
-      {/* ===== Video / Editing Services ===== */}
+      {/* ================= SERVICES ================= */}
       <section className="py-6">
         <div className="container mx-auto px-6">
           <div className="rounded-2xl border border-gray-200 bg-white p-6">
             <div className="flex items-center gap-3 mb-3">
               <VideoIcon className="h-5 w-5 text-primary" />
-              <h3 className="text-xl font-semibold">
-                Video & Editing Services
-              </h3>
+              <h3 className="text-xl font-semibold">Video & Editing Services</h3>
             </div>
 
             <div className="grid gap-6 md:grid-cols-3">
               <Service
                 icon={<Film className="h-5 w-5" />}
                 title="Cinematic Reels"
-                desc="High-impact short edits focusing on emotion & expressions."
+                desc="Emotion-driven short edits with cinematic polish."
               />
               <Service
                 icon={<Camera className="h-5 w-5" />}
                 title="BTS Stories"
-                desc="Quick-turnaround mobile edits from on-set footage."
+                desc="Quick-turnaround edits from on-set footage."
               />
               <Service
                 icon={<Megaphone className="h-5 w-5" />}
                 title="Interview Packages"
-                desc="Clean, polished media-ready interview cuts."
+                desc="Clean, professional media-ready edits."
               />
             </div>
           </div>
         </div>
       </section>
 
-      {/* ===== Key Visual Directions ===== */}
+      {/* ================= VISUALS ================= */}
       <section className="py-6">
         <div className="container mx-auto px-6">
           <div className="rounded-2xl border border-gray-200 bg-white p-6">
@@ -352,11 +338,10 @@ export default function SwathiKondePR() {
 
             <ul className="space-y-2 text-gray-700 text-sm">
               <li>
-                <strong>Photography:</strong> Clean portraits with soft
-                lighting.
+                <strong>Photography:</strong> Clean portraits, soft light.
               </li>
               <li>
-                <strong>Video Mood:</strong> Fast-paced edits, expressive shots.
+                <strong>Video Mood:</strong> Fast-paced expressive cuts.
               </li>
               <li>
                 <strong>Palette:</strong> Warm golds + deep blues.
@@ -366,7 +351,7 @@ export default function SwathiKondePR() {
         </div>
       </section>
 
-      {/* ===== Videos ===== */}
+      {/* ================= VIDEOS ================= */}
       <section className="py-6 pb-16">
         <div className="container mx-auto px-6">
           <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
