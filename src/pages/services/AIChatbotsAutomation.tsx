@@ -3,7 +3,6 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CTASection from "@/components/CTASection";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
 
 export default function AIChatbotsAutomation() {
   return (
@@ -20,7 +19,7 @@ export default function AIChatbotsAutomation() {
       <Header />
 
       <main>
-        {/* ===== HERO WITH BREADCRUMB (same style as other service pages) ===== */}
+        {/* ===== HERO WITH CENTERED TITLE (NO BREADCRUMB) ===== */}
         <section className="relative min-h-[40vh] flex items-center justify-center">
           <div
             className="absolute inset-0 bg-cover bg-center"
@@ -29,18 +28,6 @@ export default function AIChatbotsAutomation() {
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/70" />
 
           <div className="relative z-10 container mx-auto max-w-6xl px-6 py-16 text-center">
-            <nav className="flex items-center justify-center gap-2 text-xs md:text-sm text-white/80 mb-4">
-              <span>
-                Home
-              </span>
-              <span className="opacity-60">›</span>
-              <span>
-                Services
-              </span>
-              <span className="opacity-60">›</span>
-              <span className="text-white">AI Chatbots &amp; Automation</span>
-            </nav>
-
             <h1 className="text-3xl md:text-5xl font-normal text-white">
               AI Chatbots &amp; Automation
             </h1>
@@ -65,9 +52,9 @@ export default function AIChatbotsAutomation() {
               className="w-full"
             >
               <p className="text-base md:text-2xl font-medium leading-relaxed text-black text-center md:text-left">
-                Enhance customer engagement with AI chatbots and automation that deliver
-                instant, personalized responses. Smarter workflows mean faster support,
-                stronger connections, and measurable growth.
+                Enhance customer engagement with AI chatbots and automation that
+                deliver instant, personalized responses. Smarter workflows mean
+                faster support, stronger connections, and measurable growth.
               </p>
             </motion.div>
           </div>
@@ -91,8 +78,9 @@ export default function AIChatbotsAutomation() {
                 </h2>
               </div>
               <p className="text-black-100">
-                Brands need intelligence as much as creativity. Our AI-driven systems
-                blend data and design to automate engagement and boost outcomes.
+                Brands need intelligence as much as creativity. Our AI-driven
+                systems blend data and design to automate engagement and boost
+                outcomes.
               </p>
             </motion.article>
 
@@ -112,8 +100,8 @@ export default function AIChatbotsAutomation() {
                 </h2>
               </div>
               <p className="text-black-100 mb-3">
-                We craft experiences powered by AI — from analyzing audience behavior to
-                personalizing campaigns at scale.
+                We craft experiences powered by AI — from analyzing audience
+                behavior to personalizing campaigns at scale.
               </p>
               <ul className="space-y-2 text-black-100">
                 <li className="flex gap-3">
@@ -126,7 +114,8 @@ export default function AIChatbotsAutomation() {
                 </li>
                 <li className="flex gap-3">
                   <span className="mt-1 size-3 shrink-0 rounded-full bg-[#2ecec8]" />
-                  Blogs, social posts, videos, and ad creatives that engage &amp; convert
+                  Blogs, social posts, videos, and ad creatives that engage
+                  &amp; convert
                 </li>
               </ul>
             </motion.article>
