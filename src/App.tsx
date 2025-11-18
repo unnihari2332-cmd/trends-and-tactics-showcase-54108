@@ -17,6 +17,7 @@ import Services from "./pages/Services";
 import Contact from "./pages/Contact";
 import FAQ from "./pages/FAQ";
 import Product from "./pages/Product";
+import ThankYou from "./pages/ThankYou"; // ✅ ADD THIS
 
 /* ---------- Product detail pages ---------- */
 import SmartAccess from "./pages/product/SmartAccess";
@@ -105,6 +106,8 @@ const App = () => (
           <Route path="/case-study" element={<CaseStudy />} />
           <Route path="/faq" element={<FAQ />} />
           <Route path="/contact" element={<Contact />} />
+          {/* ✅ Thank you route for formsubmit.co redirect */}
+          <Route path="/thank-you" element={<ThankYou />} />
 
           {/* Products */}
           <Route path="/product" element={<Product />} />
