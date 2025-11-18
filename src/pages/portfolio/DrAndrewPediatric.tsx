@@ -185,7 +185,7 @@ export default function DrAndrewPediatric() {
       <Header />
 
       {/* ================================
-           SWATHI KONDE STYLE HERO
+           SWATHI KONDE STYLE HERO (NO BREADCRUMB)
          ================================ */}
       <section className="relative min-h-[45vh] flex items-center justify-center">
         <div
@@ -198,16 +198,6 @@ export default function DrAndrewPediatric() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/70" />
 
         <div className="relative z-10 container mx-auto max-w-6xl px-6 pt-28 md:pt-40 pb-16 text-center">
-          <nav className="mt-6 flex items-center justify-center gap-2 text-xs md:text-sm text-white/80 mb-4">
-            <span>Home</span>
-            <span className="opacity-60">›</span>
-
-            <span>Portfolio</span>
-            <span className="opacity-60">›</span>
-
-            <span className="text-white">Dr. Andrew — Pediatric</span>
-          </nav>
-
           <h1 className="text-3xl md:text-5xl font-normal text-white">
             Dr. Andrew Stephen — Pediatric Personal Branding
           </h1>
@@ -318,9 +308,8 @@ export default function DrAndrewPediatric() {
               <li className="flex gap-3">
                 <BookOpen className="h-5 w-5 mt-1 text-teal-600" />
                 <p>
-                  <strong>Storytelling Campaigns:</strong>
-                  {" "}
-                  “Healthy Starts Here” – short videos on preventive care journeys.
+                  <strong>Storytelling Campaigns:</strong> “Healthy Starts Here” – short videos on
+                  preventive care journeys.
                 </p>
               </li>
             </ul>
