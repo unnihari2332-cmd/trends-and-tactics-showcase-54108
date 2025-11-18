@@ -147,7 +147,7 @@ export default function AatralFoundation() {
       <Header />
 
       <main className="pb-12">
-        {/* ===== HERO (no gradient overlay) ===== */}
+        {/* ===== HERO (no gradient overlay, breadcrumb removed) ===== */}
         <section className="relative min-h-[40vh] flex items-center justify-center">
           <div
             className="absolute inset-0 bg-cover bg-center"
@@ -158,18 +158,6 @@ export default function AatralFoundation() {
           />
 
           <div className="relative z-10 container mx-auto max-w-6xl px-6 pt-28 pb-16 text-center">
-            <nav className="flex items-center justify-center gap-2 text-xs md:text-sm text-white mb-4">
-              <span>
-                Home
-              </span>
-              <span className="opacity-80">›</span>
-              <span>
-                Portfolio
-              </span>
-              <span className="opacity-80">›</span>
-              <span className="text-white">Aatral Foundation</span>
-            </nav>
-
             <h1 className="text-3xl md:text-5xl font-normal text-white drop-shadow-lg">
               Aatral Foundation — Social Media Growth
             </h1>
@@ -291,7 +279,7 @@ export default function AatralFoundation() {
                       We implemented a focused social-media growth strategy that
                       included:
                     </p>
-                    <ul className="space-y-1.5 text-gray-700 text-sm md:text-[15px] leading-relaxed">
+                    <ul className="space-y-1.5 text-gray-700 text-sm md:text[15px] leading-relaxed">
                       <li>
                         •{" "}
                         <span className="font-semibold">
