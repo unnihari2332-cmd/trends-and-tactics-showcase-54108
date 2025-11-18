@@ -1,6 +1,5 @@
 // src/pages/portfolio/DrAndrewPediatric.tsx
 import { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import {
@@ -186,25 +185,24 @@ export default function DrAndrewPediatric() {
       <Header />
 
       {/* ================================
-           SWATHI KONDE STYLE HERO
+           HERO (no gradient overlay)
          ================================ */}
       <section className="relative min-h-[45vh] flex items-center justify-center">
         <div
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${heroBg})`, backgroundPosition: "center 25%" }}
+          style={{
+            backgroundImage: `url(${heroBg})`,
+            backgroundPosition: "center 25%",
+          }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/70" />
+        {/* Gradient overlay removed */}
 
-        <div className="relative z-10 container mx-auto max-w-6xl px-6 pt-28 pb-16 text-center">
-          <nav className="flex items-center justify-center gap-2 text-xs md:text-sm text-white/80 mb-4">
-            <span>
-              Home
-            </span>
+        <div className="relative z-10 container mx-auto max-w-6xl px-6 pt-28 md:pt-40 pb-16 text-center">
+          <nav className="mt-6 flex items-center justify-center gap-2 text-xs md:text-sm text-white/80 mb-4">
+            <span>Home</span>
             <span className="opacity-60">›</span>
 
-            <span>
-              Portfolio
-            </span>
+            <span>Portfolio</span>
             <span className="opacity-60">›</span>
 
             <span className="text-white">Dr. Andrew — Pediatric</span>
@@ -320,7 +318,8 @@ export default function DrAndrewPediatric() {
               <li className="flex gap-3">
                 <BookOpen className="h-5 w-5 mt-1 text-teal-600" />
                 <p>
-                  <strong>Storytelling Campaigns:</strong>  
+                  <strong>Storytelling Campaigns:</strong>
+                  {" "}
                   “Healthy Starts Here” – short videos on preventive care journeys.
                 </p>
               </li>
