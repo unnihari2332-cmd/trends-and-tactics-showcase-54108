@@ -1,6 +1,5 @@
 // src/pages/portfolio/INDSYS.tsx
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { motion, AnimatePresence } from "framer-motion";
@@ -145,7 +144,7 @@ export default function INDSYS() {
       <Header />
 
       <main>
-        {/* ===== HERO (SWATHI-STYLE BREADCRUMB) ===== */}
+        {/* ===== HERO (WITHOUT BREADCRUMB) ===== */}
         <section className="relative min-h-[40vh] flex items-center justify-center">
           <div
             className="absolute inset-0 bg-cover bg-center"
@@ -157,18 +156,6 @@ export default function INDSYS() {
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/80" />
 
           <div className="relative z-10 container mx-auto max-w-6xl px-6 pt-28 pb-16 text-center">
-            <nav className="flex items-center justify-center gap-2 text-xs md:text-sm text-white/80 mb-4">
-              <span>
-                Home
-              </span>
-              <span className="opacity-60">›</span>
-              <span>
-                Portfolio
-              </span>
-              <span className="opacity-60">›</span>
-              <span className="text-white">INDSYS</span>
-            </nav>
-
             <h1 className="text-3xl md:text-5xl font-normal text-white">
               INDSYS — Advanced Water Treatment Systems
             </h1>
