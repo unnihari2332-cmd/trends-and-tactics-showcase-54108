@@ -185,7 +185,7 @@ export default function DhiravyamActor() {
       <Header />
 
       <main>
-        {/* HERO — text slightly moved left */}
+        {/* HERO — text slightly left, lower on mobile */}
         <section className="relative min-h-[40vh] flex items-center justify-start">
           <div
             className="absolute inset-0 bg-cover bg-center"
@@ -197,9 +197,9 @@ export default function DhiravyamActor() {
 
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/80" />
 
-          <div className="relative z-10 container mx-auto max-w-6xl px-6 pt-32 pb-16 text-left">
+          <div className="relative z-10 container mx-auto max-w-6xl px-6 pt-40 md:pt-32 pb-16 text-left">
             <h1 className="text-3xl md:text-5xl font-normal text-white ml-10">
-              Dhiravyam — Actor & Media Personality
+              Dhiravyam — Actor &amp; Media Personality
             </h1>
           </div>
         </section>
@@ -213,9 +213,9 @@ export default function DhiravyamActor() {
                 <h2 className="text-2xl font-semibold">Short Bio</h2>
               </div>
               <p className="text-gray-700 leading-relaxed">
-                A dynamic new talent in Indian cinema, Dhiravyam is known for his
-                magnetic screen presence, versatile performances, and authentic
-                storytelling.
+                A dynamic new talent in Indian cinema, Dhiravyam is known for
+                his magnetic screen presence, versatile performances, and
+                authentic storytelling.
               </p>
             </div>
           </div>
@@ -267,7 +267,7 @@ export default function DhiravyamActor() {
               <div className="flex items-center gap-3 mb-3">
                 <VideoIcon className="h-5 w-5 text-primary" />
                 <h3 className="text-xl font-semibold">
-                  Video & Editing Services
+                  Video &amp; Editing Services
                 </h3>
               </div>
 
@@ -306,8 +306,8 @@ export default function DhiravyamActor() {
                   <h4 className="font-semibold mb-2">Instagram Bio</h4>
                   <ul className="text-sm space-y-1 text-gray-800">
                     <li>🎬 Actor | Storyteller</li>
-                    <li>✨ Frames with emotion & honesty</li>
-                    <li>📩 PR & collabs: [email]</li>
+                    <li>✨ Frames with emotion &amp; honesty</li>
+                    <li>📩 PR &amp; collabs: [email]</li>
                   </ul>
                 </div>
 
