@@ -1,12 +1,37 @@
 // src/components/Footer.tsx
+
+import { useState, useEffect } from "react";
 import { Facebook, Instagram, Linkedin, MapPin, Phone, Mail } from "lucide-react";
 
+const officeData = [
+  {
+    title: "Chennai Office",
+    address:
+      "Flat No. 4, A Wing, 5th Floor, Gemini Square, 442, Anna Salai, Chennai – 600006.",
+  },
+  {
+    title: "Coimbatore Office",
+    address:
+      "1st Floor, Vaishnavi Complex, Ranga Konar St, Kattoor Main, Kattoor, Ram Nagar, Coimbatore – 641009.",
+  },
+];
+
 const Footer = () => {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prev) => (prev + 1) % officeData.length);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <footer className="bg-[#232A3A] text-white">
       <div className="py-16">
         <div className="container mx-auto px-6 max-w-7xl">
-          
+
           {/* Top grid */}
           <div className="grid gap-10 lg:grid-cols-12 items-start">
 
@@ -67,36 +92,26 @@ const Footer = () => {
               </ul>
             </div>
 
-            {/* Offices - Single Row with Scroll */}
+            {/* Offices with Auto Scroll */}
             <div className="lg:col-span-5">
               <h4 className="text-lg font-semibold mb-4">Our Offices</h4>
 
               <div className="space-y-5 text-[15px] leading-relaxed">
 
-                {/* Chennai Office */}
-                <div className="flex gap-3 overflow-x-auto whitespace-nowrap scrollbar-thin scrollbar-thumb-white/20 scrollbar-track-transparent pb-2">
+                {/* AUTO SCROLL BLOCK */}
+                <div
+                  key={index}
+                  className="flex gap-3 transition-opacity duration-700 ease-in-out"
+                >
                   <MapPin className="h-5 w-5 text-teal shrink-0 mt-1" />
                   <div>
-                    <h5 className="font-semibold">Chennai Office</h5>
-                    <p className="text-white/80 inline-block">
-                      Flat No. 4, A Wing, 5th Floor, Gemini Square, 442, Anna Salai, Chennai – 600006.
-                    </p>
-                  </div>
-                </div>
-
-                {/* Coimbatore Office */}
-                <div className="flex gap-3 overflow-x-auto whitespace-nowrap scrollbar-thin scrollbar-thumb-white/20 scrollbar-track-transparent pb-2">
-                  <MapPin className="h-5 w-5 text-teal shrink-0 mt-1" />
-                  <div>
-                    <h5 className="font-semibold">Coimbatore Office</h5>
-                    <p className="text-white/80 inline-block">
-                      1st Floor, Vaishnavi Complex, Ranga Konar St, Kattoor Main, Kattoor, Ram Nagar, Coimbatore – 641009.
-                    </p>
+                    <h5 className="font-semibold">{officeData[index].title}</h5>
+                    <p className="text-white/80 inline-block">{officeData[index].address}</p>
                   </div>
                 </div>
 
                 {/* Phone */}
-                <div className="flex gap-3 overflow-x-auto whitespace-nowrap scrollbar-thin scrollbar-thumb-white/20 scrollbar-track-transparent pb-2">
+                <div className="flex gap-3">
                   <Phone className="h-5 w-5 text-orange shrink-0 mt-1" />
                   <div>
                     <h5 className="font-semibold">Call Us</h5>
@@ -105,7 +120,7 @@ const Footer = () => {
                 </div>
 
                 {/* Email */}
-                <div className="flex gap-3 overflow-x-auto whitespace-nowrap scrollbar-thin scrollbar-thumb-white/20 scrollbar-track-transparent pb-2">
+                <div className="flex gap-3">
                   <Mail className="h-5 w-5 text-teal shrink-0 mt-1" />
                   <div>
                     <h5 className="font-semibold">Email Us</h5>
@@ -117,18 +132,14 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Divider + bottom bar */}
+          {/* Divider + Bottom */}
           <div className="mt-12 border-t border-white/15 pt-8">
             <p className="text-white/60 text-sm text-center">
               © {new Date().getFullYear()} Trends & Tactics. All rights reserved.
               <span className="mx-2">|</span>
-              <a href="#" className="hover:text-white transition-colors">
-                Privacy Policy
-              </a>
+              <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
               <span className="mx-2">|</span>
-              <a href="#" className="hover:text-white transition-colors">
-                Terms of Service
-              </a>
+              <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
             </p>
           </div>
 
