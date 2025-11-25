@@ -1,5 +1,5 @@
 // src/components/Footer.tsx
-import { Facebook, Instagram, Linkedin } from "lucide-react";
+import { Facebook, Instagram, Linkedin, MapPin, Phone, Mail } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -35,7 +35,6 @@ const Footer = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/15 hover:bg-white/25 transition-colors"
-                    aria-label={href}
                   >
                     <Icon className="h-5 w-5" />
                   </a>
@@ -66,32 +65,56 @@ const Footer = () => {
               </ul>
             </div>
 
-            {/* Our Services – all 9 in a 2x2 responsive grid */}
+            {/* Address Section (Replaces Our Services Section) */}
             <div className="lg:col-span-5">
-              <h4 className="text-lg font-semibold mb-4">Our Services</h4>
-              {/* Mobile: single column; lg+: two columns, auto rows */}
-              <ul className="grid grid-cols-2 gap-x-8 gap-y-3 text-[15px] leading-relaxed">
-                {[
-                  ["Digital Marketing & Paid Ads", "/services/digital-ads"],
-                  ["Video Production & Editing", "/services/video-production"],
-                  ["AI-Driven Branding & Content", "/services/ai-content"],
-                  ["AI Chatbots & Automation", "/services/ai-chatbots-automation"],
-                  ["Website & App Development", "/services/web-and-app"],
-                  ["SEO & Growth Strategy", "/services/seo"],
-                  ["PR & Media Management", "/services/pr-media"],
-                  ["Content Marketing", "/services/content-marketing"],
-                  ["Logo Designing", "/services/logo-design"],
-                ].map(([label, href]) => (
-                  <li key={href}>
-                    <a
-                      href={href}
-                      className="block whitespace-nowrap text-white/80 hover:text-white transition-colors"
-                    >
-                      {label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
+              <h4 className="text-lg font-semibold mb-4">Our Offices</h4>
+              <div className="space-y-5 text-[15px] leading-relaxed">
+
+                {/* Chennai Office */}
+                <div className="flex gap-3">
+                  <MapPin className="h-5 w-5 text-teal shrink-0 mt-1" />
+                  <div>
+                    <h5 className="font-semibold">Chennai Office</h5>
+                    <p className="text-white/80">
+                      Flat No. 4, A Wing, 5th Floor, Gemini Square,<br />
+                      442, Anna Salai,<br />
+                      Chennai – 600006.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Coimbatore Office */}
+                <div className="flex gap-3">
+                  <MapPin className="h-5 w-5 text-teal shrink-0 mt-1" />
+                  <div>
+                    <h5 className="font-semibold">Coimbatore Office</h5>
+                    <p className="text-white/80">
+                      1st Floor, Vaishnavi Complex, Ranga Konar St,<br />
+                      Kattoor Main, Kattoor, Ram Nagar,<br />
+                      Coimbatore – 641009.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Phone */}
+                <div className="flex gap-3">
+                  <Phone className="h-5 w-5 text-orange shrink-0 mt-1" />
+                  <div>
+                    <h5 className="font-semibold">Call Us</h5>
+                    <p className="text-white/80">+91 9944601656</p>
+                  </div>
+                </div>
+
+                {/* Email */}
+                <div className="flex gap-3">
+                  <Mail className="h-5 w-5 text-teal shrink-0 mt-1" />
+                  <div>
+                    <h5 className="font-semibold">Email Us</h5>
+                    <p className="text-white/80">trendsntactics@gmail.com</p>
+                  </div>
+                </div>
+
+              </div>
             </div>
           </div>
 
@@ -109,6 +132,7 @@ const Footer = () => {
               </a>
             </p>
           </div>
+
         </div>
       </div>
     </footer>
