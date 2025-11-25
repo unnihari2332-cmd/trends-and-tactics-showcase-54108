@@ -21,7 +21,7 @@ const Footer = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentOfficeIndex((prev) => (prev + 1) % OFFICES.length);
-    }, 5000); // 5 seconds
+    }, 2000); // 2 seconds
 
     return () => clearInterval(interval);
   }, []);
@@ -32,42 +32,24 @@ const Footer = () => {
     <footer className="bg-[#232A3A] text-white">
       <div className="py-16">
         <div className="container mx-auto px-6 max-w-7xl">
-          {/* Top grid */}
           <div className="grid gap-10 lg:grid-cols-12 items-start">
-            {/* Brand + logo */}
+            
+            {/* Brand */}
             <div className="lg:col-span-4">
-              <a
-                href="/"
-                aria-label="Trends & Tactics Home"
-                className="inline-block"
-              >
-                <img
-                  src="/Assetwhite.png"
-                  alt="Trends & Tactics Logo"
-                  className="h-12 w-auto mb-5"
-                />
+              <a href="/" aria-label="Trends & Tactics Home" className="inline-block">
+                <img src="/Assetwhite.png" alt="Trends & Tactics Logo" className="h-12 w-auto mb-5" />
               </a>
 
               <p className="text-white/80 max-w-md leading-relaxed">
-                Your one-stop partner for marketing, branding, and digital
-                success. We craft winning campaigns that turn ideas into
-                results.
+                Your one-stop partner for marketing, branding, and digital success.
+                We craft winning campaigns that turn ideas into results.
               </p>
 
               <div className="mt-6 flex items-center gap-3">
                 {[
-                  {
-                    Icon: Facebook,
-                    href: "https://www.facebook.com/trendsntactics",
-                  },
-                  {
-                    Icon: Instagram,
-                    href: "https://www.instagram.com/trendsntactics/",
-                  },
-                  {
-                    Icon: Linkedin,
-                    href: "https://www.linkedin.com/company/trends-tactics/",
-                  },
+                  { Icon: Facebook, href: "https://www.facebook.com/trendsntactics" },
+                  { Icon: Instagram, href: "https://www.instagram.com/trendsntactics/" },
+                  { Icon: Linkedin, href: "https://www.linkedin.com/company/trends-tactics/" },
                 ].map(({ Icon, href }) => (
                   <a
                     key={href}
@@ -85,7 +67,7 @@ const Footer = () => {
             {/* Quick Links */}
             <div className="lg:col-span-3">
               <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
-              <ul className="space-y-2.5 text-[15px] leading-relaxed">
+              <ul className="space-y-2.5 text-[15px]">
                 {[
                   ["About Us", "/about"],
                   ["Services", "/services"],
@@ -94,10 +76,7 @@ const Footer = () => {
                   ["Contact", "/contact"],
                 ].map(([label, href]) => (
                   <li key={href}>
-                    <a
-                      href={href}
-                      className="block text-white/80 hover:text-white transition-colors"
-                    >
+                    <a href={href} className="text-white/80 hover:text-white transition-colors">
                       {label}
                     </a>
                   </li>
@@ -105,19 +84,18 @@ const Footer = () => {
               </ul>
             </div>
 
-            {/* Offices with auto-scroll between Chennai & Coimbatore */}
+            {/* Auto-scroll offices */}
             <div className="lg:col-span-5">
               <h4 className="text-lg font-semibold mb-4">Our Offices</h4>
 
               <div className="space-y-5 text-[15px] leading-relaxed">
+
                 {/* Auto-switching office block */}
-                <div className="flex gap-3">
+                <div className="flex gap-3 transition-opacity duration-300">
                   <MapPin className="h-5 w-5 text-teal shrink-0 mt-1" />
                   <div>
                     <h5 className="font-semibold">{currentOffice.title}</h5>
-                    <p className="text-white/80 inline-block">
-                      {currentOffice.address}
-                    </p>
+                    <p className="text-white/80">{currentOffice.address}</p>
                   </div>
                 </div>
 
@@ -126,9 +104,7 @@ const Footer = () => {
                   <Phone className="h-5 w-5 text-orange shrink-0 mt-1" />
                   <div>
                     <h5 className="font-semibold">Call Us</h5>
-                    <p className="text-white/80 inline-block">
-                      +91 9944601656
-                    </p>
+                    <p className="text-white/80">+91 9944601656</p>
                   </div>
                 </div>
 
@@ -137,30 +113,25 @@ const Footer = () => {
                   <Mail className="h-5 w-5 text-teal shrink-0 mt-1" />
                   <div>
                     <h5 className="font-semibold">Email Us</h5>
-                    <p className="text-white/80 inline-block">
-                      trendsntactics@gmail.com
-                    </p>
+                    <p className="text-white/80">trendsntactics@gmail.com</p>
                   </div>
                 </div>
+
               </div>
             </div>
           </div>
 
-          {/* Divider + bottom bar */}
+          {/* Footer Bottom */}
           <div className="mt-12 border-t border-white/15 pt-8">
             <p className="text-white/60 text-sm text-center">
-              © {new Date().getFullYear()} Trends & Tactics. All rights
-              reserved.
+              © {new Date().getFullYear()} Trends & Tactics. All rights reserved.
               <span className="mx-2">|</span>
-              <a href="#" className="hover:text-white transition-colors">
-                Privacy Policy
-              </a>
+              <a href="#" className="hover:text-white">Privacy Policy</a>
               <span className="mx-2">|</span>
-              <a href="#" className="hover:text-white transition-colors">
-                Terms of Service
-              </a>
+              <a href="#" className="hover:text-white">Terms of Service</a>
             </p>
           </div>
+
         </div>
       </div>
     </footer>
