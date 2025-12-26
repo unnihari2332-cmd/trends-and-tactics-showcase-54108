@@ -23,9 +23,9 @@ const Contact = () => {
       icon: MapPin,
       title: "Coimbatore Office",
       text: [
-        "1st Floor, Vaishnavi Complex,Ranga Konar St,",
-        "Kattoor Main, Kattoor, Ram Nagar,",
-        "Coimbatore – 641009.",
+        "No.7/1, Indra Nagar,Ellai Thottam,",
+        "Sowripalayam, Coimbatore,",
+        "Tamil Nadu - 641028.", 
       ],
       iconClass: "text-teal",
     },
