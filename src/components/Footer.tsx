@@ -11,7 +11,7 @@ const OFFICES = [
   {
     title: "Coimbatore Office",
     address:
-      "1st Floor, Vaishnavi Complex, Ranga Konar St, Kattoor Main, Kattoor, Ram Nagar, Coimbatore – 641009.",
+      "No.7/1, Indra Nagar,Ellai Thottam, Sowripalayam, Coimbatore, Coimbatore, Tamil Nadu, 641028.",
   },
 ];
 
