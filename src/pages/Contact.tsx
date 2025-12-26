@@ -197,7 +197,7 @@ const Contact = () => {
                 color: "#62C3C1",
                 title: "Coimbatore Office",
                 text:
-                  "1st Floor, Vaishnavi Complex, Ranga Konar St, Kattoor Main, Kattoor, Ram Nagar, Coimbatore, Tamil Nadu 641009",
+                  "No.7/1, Indra Nagar,Ellai Thottam, Sowripalayam, Coimbatore, Coimbatore, Tamil Nadu, 641028.",
               },
               {
                 icon: Phone,
