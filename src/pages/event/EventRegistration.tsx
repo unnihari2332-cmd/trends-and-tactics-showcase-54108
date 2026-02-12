@@ -1,12 +1,20 @@
+import { useEffect } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Sparkles, CalendarHeart } from "lucide-react";
 
 const EventComingSoon = () => {
+
+  // SEO Meta Title
+  useEffect(() => {
+    document.title = "HerFest-2026";
+  }, []);
+
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-br from-pink-50 via-purple-50 to-orange-50">
-
+      
+      <Header />
 
       <main className="flex-1 flex items-center justify-center px-4 py-20">
         <div className="max-w-5xl w-full text-center">
@@ -55,7 +63,7 @@ const EventComingSoon = () => {
         </div>
       </main>
 
-     
+      <Footer />
     </div>
   );
 };
