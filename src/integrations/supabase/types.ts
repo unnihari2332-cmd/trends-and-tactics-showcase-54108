@@ -14,7 +14,42 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      event_registrations: {
+        Row: {
+          created_at: string
+          email: string
+          event_name: string
+          full_name: string
+          id: string
+          payment_amount: number
+          payment_status: string
+          phone: string
+          upi_transaction_id: string | null
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          event_name: string
+          full_name: string
+          id?: string
+          payment_amount: number
+          payment_status?: string
+          phone: string
+          upi_transaction_id?: string | null
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          event_name?: string
+          full_name?: string
+          id?: string
+          payment_amount?: number
+          payment_status?: string
+          phone?: string
+          upi_transaction_id?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
