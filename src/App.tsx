@@ -63,6 +63,11 @@ import ContentMarketing from "./pages/services/ContentMarketing";
 import LogoDesign from "./pages/services/LogoDesign";
 import GrowthConsulting from "./pages/services/GrowthConsulting";
 
+/* ---------- Event pages ---------- */
+import EventRegistration from "./pages/event/EventRegistration";
+import RegistrationSuccess from "./pages/event/RegistrationSuccess";
+import RegistrationFailed from "./pages/event/RegistrationFailed";
+
 /* ---------- 404 ---------- */
 function NotFound() {
   return (
@@ -184,6 +189,11 @@ const App = () => (
           <Route path="/portfolio/grubpe" element={<Grubpe />} />
           <Route path="/portfolio/quick-rack" element={<QuickRack />} />
           <Route path="/portfolio/oecl" element={<OECLPortfolio />} />
+
+          {/* Event registration */}
+          <Route path="/event/registrations" element={<EventRegistration />} />
+          <Route path="/event/registration-success" element={<RegistrationSuccess />} />
+          <Route path="/event/registration-failed" element={<RegistrationFailed />} />
 
           {/* Client pages */}
           <Route path="/clients/TIPS" element={<TIPS />} />
