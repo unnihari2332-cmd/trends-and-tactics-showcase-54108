@@ -35,7 +35,7 @@ const EventComingSoon = () => {
           {/* Event Image */}
           <div className="mt-12 flex justify-center">
             <img
-              src="/women-kids-event.jpg"
+              src="/text copy.png"
               alt="Women and Kids Event"
               className="rounded-3xl shadow-2xl max-h-[400px] object-cover"
             />
