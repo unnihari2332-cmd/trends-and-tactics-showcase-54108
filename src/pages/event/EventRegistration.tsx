@@ -18,7 +18,7 @@ const registrationSchema = z.object({
   paymentAmount: z.number().min(1, "Amount must be at least ₹1"),
 });
 
-const UPI_ID = "yourupi@bank"; // Replace with actual UPI ID
+const UPI_ID = "karthikjungleemara-2@oksbi";
 const BUSINESS_NAME = "EventRegistration";
 
 type Step = "form" | "processing" | "confirm" | "txn_id";
