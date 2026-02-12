@@ -14,7 +14,7 @@ const EventComingSoon = () => {
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-br from-pink-50 via-purple-50 to-orange-50">
       
-      <Header />
+    
 
       <main className="flex-1 flex items-center justify-center px-4 py-20">
         <div className="max-w-5xl w-full text-center">
@@ -63,7 +63,7 @@ const EventComingSoon = () => {
         </div>
       </main>
 
-      <Footer />
+
     </div>
   );
 };
