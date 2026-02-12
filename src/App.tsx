@@ -191,7 +191,7 @@ const App = () => (
           <Route path="/portfolio/oecl" element={<OECLPortfolio />} />
 
           {/* Event registration */}
-          <Route path="/event/registrations" element={<EventRegistration />} />
+          <Route path="/awards/HerFest-2026" element={<EventRegistration />} />
           <Route path="/event/registration-success" element={<RegistrationSuccess />} />
           <Route path="/event/registration-failed" element={<RegistrationFailed />} />
 
