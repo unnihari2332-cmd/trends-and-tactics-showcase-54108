@@ -61,11 +61,13 @@ const EventRegistration = () => {
     return true;
   };
 
+  const upiPaymentUrl = (() => {
+    const amount = Number(form.paymentAmount);
+    return `upi://pay?pa=${encodeURIComponent(UPI_ID)}&pn=${encodeURIComponent(BUSINESS_NAME)}&am=${amount}&cu=INR&tn=${encodeURIComponent(form.eventName)}`;
+  })();
+
   const handlePayNow = () => {
     if (!validateForm()) return;
-    const amount = Number(form.paymentAmount);
-    const upiUrl = `upi://pay?pa=${encodeURIComponent(UPI_ID)}&pn=${encodeURIComponent(BUSINESS_NAME)}&am=${amount}&cu=INR&tn=${encodeURIComponent(form.eventName)}`;
-    window.location.href = upiUrl;
     setStep("processing");
     // After a brief delay, show confirm buttons
     setTimeout(() => setStep("confirm"), 3000);
@@ -158,6 +160,7 @@ const EventRegistration = () => {
                 <Loader2 className="w-10 h-10 animate-spin text-primary" />
                 <p className="text-lg font-medium text-foreground">Processing Payment...</p>
                 <p className="text-sm text-muted-foreground">Complete the payment in your UPI app and return here.</p>
+                <a href={upiPaymentUrl} className="text-primary underline text-sm mt-2">Open UPI App</a>
               </div>
             )}
 
