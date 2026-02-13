@@ -4,32 +4,6 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import Herclan from "@/components/Herclan";
 
-const rainbowColors = [
-  "text-red-500",
-  "text-orange-500",
-  "text-yellow-500",
-  "text-green-500",
-  "text-blue-500",
-  "text-indigo-500",
-  "text-purple-500",
-];
-
-const AnimatedRainbowText = ({ text }) => {
-  return (
-    <h1 className="text-3xl md:text-6xl font-extrabold flex flex-wrap justify-center gap-1">
-      {text.split("").map((char, index) => (
-        <span
-          key={index}
-          className={`${rainbowColors[index % rainbowColors.length]} animate-bounce inline-block`}
-          style={{ animationDelay: `${index * 0.05}s` }}
-        >
-          {char === " " ? "\u00A0" : char}
-        </span>
-      ))}
-    </h1>
-  );
-};
-
 const EventComingSoon = () => {
   useEffect(() => {
     document.title = "HerFest-2026";
@@ -37,7 +11,6 @@ const EventComingSoon = () => {
 
   return (
     <div className="min-h-screen flex flex-col relative overflow-hidden">
-      <Header />
 
       {/* Desktop Video */}
       <video
@@ -69,17 +42,19 @@ const EventComingSoon = () => {
         
         {/* Event Logo */}
         <img
-          src="/event-logo.png"
+          src="/text copy.png"
           alt="Event Logo"
           className="w-28 md:w-40 mb-6"
         />
 
-        {/* Animated Rainbow Text */}
-        <AnimatedRainbowText text="HerFest 2026" />
+        {/* White Bold Heading */}
+        <h1 className="text-2xl md:text-5xl font-extrabold text-white leading-tight">
+          OMR’s Biggest Women’s Day Celebration Presented by
+        </h1>
 
         {/* Company Logo */}
         <img
-          src="/company-logo.png"
+          src="/Her clan.png"
           alt="Company Logo"
           className="w-24 md:w-32 mt-8"
         />
@@ -96,7 +71,7 @@ const EventComingSoon = () => {
       </main>
 
       <Herclan />
-      <Footer />
+      
     </div>
   );
 };
