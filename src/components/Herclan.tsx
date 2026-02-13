@@ -28,7 +28,7 @@ const HoverCardTeam = () => {
 
   return (
     <section className="relative w-full py-24 overflow-hidden bg-gradient-to-br from-pink-50 via-purple-50 to-indigo-50">
-
+      
       {/* Decorative Pattern */}
       <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_20%_30%,#f472b6,transparent_40%),radial-gradient(circle_at_80%_70%,#818cf8,transparent_40%)]" />
 
@@ -68,10 +68,10 @@ const HoverCardTeam = () => {
                   className="absolute inset-0 w-full h-full object-cover"
                 />
 
-                {/* Text Area (Glass Style instead of dark overlay) */}
-                <div className="absolute bottom-0 left-0 right-0 p-6 backdrop-blur-md bg-white/30">
+                {/* Text Area */}
+                <div className="absolute bottom-0 left-0 right-0 p-6 backdrop-blur-md bg-black/30">
                   <h2
-                    className={`font-bold text-gray-900 transition-all duration-300 ${
+                    className={`font-bold text-white transition-all duration-300 ${
                       isActive ? "text-3xl" : "text-xl"
                     }`}
                   >
@@ -79,7 +79,7 @@ const HoverCardTeam = () => {
                   </h2>
 
                   {isActive && (
-                    <p className="mt-1 text-sm text-gray-700">
+                    <p className="mt-1 text-sm text-white/90">
                       {member.profession}
                     </p>
                   )}
