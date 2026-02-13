@@ -47,7 +47,7 @@ const EventComingSoon = () => {
         playsInline
         className="hidden md:block absolute w-full h-full object-cover"
       >
-        <source src="/web.mp4" type="video/mp4" />
+        <source src="/bluegradient8k.mp4" type="video/mp4" />
       </video>
 
       {/* Mobile Video */}
@@ -58,7 +58,7 @@ const EventComingSoon = () => {
         playsInline
         className="block md:hidden absolute w-full h-full object-cover"
       >
-        <source src="/mobile.mp4" type="video/mp4" />
+        <source src="/bluegradient8k.mp4" type="video/mp4" />
       </video>
 
       {/* Overlay */}
