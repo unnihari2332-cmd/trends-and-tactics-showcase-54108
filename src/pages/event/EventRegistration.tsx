@@ -53,13 +53,16 @@ const EventComingSoon = () => {
           />
 
           <div className="mt-10">
-            <Button
-              src="https://forms.gle/puwLxbxj6mvaPhUy6"
-              size="lg"
-              className="px-8 py-6 text-lg bg-gradient-to-r from-pink-500 via-purple-500 to-orange-400 hover:opacity-90 text-white rounded-xl shadow-lg"
-            >
-              Register Now
-            </Button>
+           <Button
+  size="lg"
+  onClick={() =>
+    window.open("https://forms.gle/puwLxbxj6mvaPhUy6", "_blank")
+  }
+  className="px-8 py-6 text-lg bg-gradient-to-r from-pink-500 via-purple-500 to-orange-400 hover:opacity-90 text-white rounded-xl shadow-lg"
+>
+  Register Now
+</Button>
+
              
           </div>
 
