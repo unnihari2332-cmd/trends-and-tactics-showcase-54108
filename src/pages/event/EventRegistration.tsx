@@ -63,7 +63,9 @@ const EventComingSoon = () => {
 
         </div>
       </main>
+      <div>
     </Herclan>
+      </div>
     
     </div>
   );
