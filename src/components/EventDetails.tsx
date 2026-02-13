@@ -2,7 +2,7 @@ import React from "react";
 
 const EventDetailsSection = () => {
   return (
-    <section className="w-full py-16 md:py-24 bg-gray-50">
+    <section className="relative z-20 w-full py-16 md:py-24 bg-white">
       <div className="max-w-6xl mx-auto px-4">
 
         {/* Title */}
