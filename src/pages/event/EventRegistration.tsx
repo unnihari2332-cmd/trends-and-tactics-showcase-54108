@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Sparkles, CalendarHeart } from "lucide-react";
+import Herclan from "@/components/Herclan";
 
 const EventComingSoon = () => {
 
@@ -62,8 +63,8 @@ const EventComingSoon = () => {
 
         </div>
       </main>
-
-
+    </Herclan>
+    
     </div>
   );
 };
