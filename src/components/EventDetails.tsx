@@ -42,18 +42,7 @@ const EventDetailsSection = () => {
               </p>
             </div>
 
-            <div className="bg-white rounded-3xl p-6 shadow-md">
-              <h3 className="text-xl font-semibold mb-2">Presented By</h3>
-              <p className="font-medium">HER Clan</p>
-              <a
-                href="https://instagram.com/her_clan_chennai"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-pink-500 hover:underline"
-              >
-                @her_clan_chennai
-              </a>
-            </div>
+      
 
           </div>
 
