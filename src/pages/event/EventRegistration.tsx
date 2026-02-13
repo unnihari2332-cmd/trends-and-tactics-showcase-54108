@@ -6,6 +6,7 @@ import Herclan from "@/components/Herclan";
 import Guest from "@/components/Guest";
 import Activities from "@/components/Activities";
 import EventDetails from "@/components/EventDetails";
+import Collabration from "@/components/Collabration";
 
 const EventComingSoon = () => {
   useEffect(() => {
@@ -74,8 +75,9 @@ const EventComingSoon = () => {
       </main>
       <Guest />
       <Activities />
-      <EventDetails />
       <Herclan />
+      <EventDetails />
+      <Collabration />
       
       
     </div>
