@@ -27,14 +27,7 @@ const HoverCardTeam = () => {
   const [activeIndex, setActiveIndex] = useState(null);
 
   return (
-    <section className="relative w-full py-16 md:py-24 overflow-hidden bg-gradient-to-br from-pink-50 via-purple-50 to-indigo-50">
-
-      {/* Decorative Pattern */}
-      <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_20%_30%,#f472b6,transparent_40%),radial-gradient(circle_at_80%_70%,#818cf8,transparent_40%)]" />
-
-      {/* Floating Blur Shapes */}
-      <div className="absolute -top-24 -left-24 w-72 h-72 md:w-80 md:h-80 bg-pink-300 rounded-full blur-3xl opacity-30" />
-      <div className="absolute top-40 -right-24 w-72 h-72 md:w-80 md:h-80 bg-indigo-300 rounded-full blur-3xl opacity-30" />
+    <section className="relative w-full py-16 md:py-24 overflow-hidden bg-white">
 
       {/* Title */}
       <div className="text-center mb-14 md:mb-20 relative z-10 px-4">
@@ -48,8 +41,8 @@ const HoverCardTeam = () => {
       </div>
 
       {/* Cards */}
-      <div className="w-full flex justify-center relative z-10 px-4">
-        <div className="flex flex-col md:flex-row gap-5 md:gap-6 w-full max-w-6xl">
+      <div className="relative z-10 px-4">
+        <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-center items-center gap-5 md:gap-6">
 
           {members.map((member, index) => {
             const isActive = index === activeIndex;
@@ -59,9 +52,7 @@ const HoverCardTeam = () => {
                 key={index}
                 onMouseEnter={() => setActiveIndex(index)}
                 onMouseLeave={() => setActiveIndex(null)}
-                onClick={() =>
-                  setActiveIndex(isActive ? null : index)
-                }
+                onClick={() => setActiveIndex(isActive ? null : index)}
                 className={`
                   relative overflow-hidden rounded-3xl cursor-pointer
                   transition-all duration-500 ease-in-out
@@ -92,7 +83,7 @@ const HoverCardTeam = () => {
                     {member.name}
                   </h2>
 
-                  {(isActive || window.innerWidth < 768) && (
+                  {isActive && (
                     <p className="mt-1 text-sm text-white/90">
                       {member.profession}
                     </p>
@@ -101,6 +92,7 @@ const HoverCardTeam = () => {
               </div>
             );
           })}
+
         </div>
       </div>
     </section>
