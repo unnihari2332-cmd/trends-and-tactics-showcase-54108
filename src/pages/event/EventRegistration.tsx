@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import Herclan from "@/components/Herclan";
 import Guest from "@/components/Guest";
+import Activities from "@/components/Activities";
 
 const EventComingSoon = () => {
   useEffect(() => {
@@ -72,6 +73,7 @@ const EventComingSoon = () => {
       </main>
       <Guest />
       <Herclan />
+      <Activities />
       
     </div>
   );
