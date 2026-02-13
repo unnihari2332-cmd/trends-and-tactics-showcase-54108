@@ -14,72 +14,63 @@ const EventComingSoon = () => {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col relative overflow-hidden">
+    <div className="relative min-h-screen overflow-hidden">
 
-      {/* Desktop Video */}
+      {/* ✅ GLOBAL BACKGROUND VIDEO */}
       <video
         autoPlay
         loop
         muted
         playsInline
-        className="hidden md:block absolute w-full h-full object-cover"
-      >
-        <source src="/bluegradient8k.mp4" type="video/mp4" />
-      </video>
-
-      {/* Mobile Video */}
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="block md:hidden absolute w-full h-full object-cover"
+        className="fixed inset-0 w-full h-full object-cover -z-10"
       >
         <source src="/bluegradient8k.mp4" type="video/mp4" />
       </video>
 
       {/* Overlay */}
-      <div className="absolute inset-0 bg-black/40" />
+      <div className="fixed inset-0 bg-black/40 -z-10" />
 
-      {/* Content */}
-      <main className="relative z-10 flex-1 flex flex-col items-center justify-center px-4 text-center text-white">
-        
-        {/* Event Logo */}
-        <img
-          src="/text copy.png"
-          alt="Event Logo"
-          className="w-28 md:w-40 mb-6"
-        />
+      {/* Page Content */}
+      <div className="relative z-10">
 
-        {/* White Bold Heading */}
-        <h1 className="text-2xl md:text-5xl font-extrabold text-white leading-tight">
-          OMR’s Biggest Women’s Day Celebration Presented by
-        </h1>
+        {/* HERO SECTION */}
+        <main className="min-h-screen flex flex-col items-center justify-center px-4 text-center text-white">
+          
+          <img
+            src="/text copy.png"
+            alt="Event Logo"
+            className="w-28 md:w-40 mb-6"
+          />
 
-        {/* Company Logo */}
-        <img
-          src="/Her clan.png"
-          alt="Company Logo"
-          className="w-24 md:w-32 mt-8"
-        />
+          <h1 className="text-2xl md:text-5xl font-extrabold leading-tight">
+            OMR’s Biggest Women’s Day Celebration Presented by
+          </h1>
 
-        {/* Registration Button */}
-        <div className="mt-10">
-          <Button
-            size="lg"
-            className="px-8 py-6 text-lg bg-gradient-to-r from-pink-500 via-purple-500 to-orange-400 hover:opacity-90 text-white rounded-xl shadow-lg"
-          >
-            Register Now
-          </Button>
-        </div>
-      </main>
-      <Guest />
-      <Activities />
-      <Herclan />
-      <EventDetails />
-      <Collabration />
-      
-      
+          <img
+            src="/Her clan.png"
+            alt="Company Logo"
+            className="w-24 md:w-32 mt-8"
+          />
+
+          <div className="mt-10">
+            <Button
+              size="lg"
+              className="px-8 py-6 text-lg bg-gradient-to-r from-pink-500 via-purple-500 to-orange-400 hover:opacity-90 text-white rounded-xl shadow-lg"
+            >
+              Register Now
+            </Button>
+          </div>
+
+        </main>
+
+        {/* OTHER SECTIONS */}
+        <Guest />
+        <Activities />
+        <Herclan />
+        <EventDetails />
+        <Collabration />
+
+      </div>
     </div>
   );
 };
