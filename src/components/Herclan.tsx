@@ -28,11 +28,11 @@ const members = [
 ];
 
 const HoverCardTeam = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(3);
 
   return (
-    <div className="w-full flex justify-center py-20 bg-gray-100">
-      <div className="flex gap-6">
+    <section className="w-full px-4 md:px-10 lg:px-20 py-16 bg-gray-100">
+      <div className="flex gap-6 w-full">
         {members.map((member, index) => {
           const isActive = index === activeIndex;
 
@@ -40,21 +40,18 @@ const HoverCardTeam = () => {
             <div
               key={index}
               onMouseEnter={() => setActiveIndex(index)}
-              className={`relative overflow-hidden rounded-3xl cursor-pointer transition-all duration-500 ease-in-out ${
-                isActive ? "w-[320px]" : "w-[180px]"
-              } h-[420px] shadow-lg`}
+              className={`relative overflow-hidden rounded-3xl cursor-pointer transition-all duration-500 ease-in-out
+              ${isActive ? "flex-[2]" : "flex-1"}
+              h-[420px] shadow-lg`}
             >
-              {/* Background Image */}
               <img
                 src={member.image}
                 alt={member.name}
                 className="absolute inset-0 w-full h-full object-cover"
               />
 
-              {/* Overlay */}
               <div className="absolute inset-0 bg-black/40" />
 
-              {/* Content */}
               <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
                 <h2
                   className={`font-bold transition-all duration-300 ${
@@ -74,7 +71,7 @@ const HoverCardTeam = () => {
           );
         })}
       </div>
-    </div>
+    </section>
   );
 };
 
