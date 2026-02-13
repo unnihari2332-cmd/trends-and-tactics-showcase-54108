@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import Herclan from "@/components/Herclan";
 import Guest from "@/components/Guest";
 import Activities from "@/components/Activities";
+import EventDetails from "@/components/EventDetails";
 
 const EventComingSoon = () => {
   useEffect(() => {
