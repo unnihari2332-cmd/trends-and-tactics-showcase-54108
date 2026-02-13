@@ -11,36 +11,48 @@ const partners = [
 
 const CollaborationScroll = () => {
   return (
-    <section className="w-full py-14 md:py-20 bg-white overflow-hidden">
-      <div className="max-w-6xl mx-auto px-4">
+    <section className="relative w-full py-14 md:py-20 bg-black overflow-hidden z-10">
+      
+      {/* Title */}
+      <div className="max-w-6xl mx-auto px-4 text-center mb-10 md:mb-14">
+        <h2 className="text-2xl md:text-4xl font-bold text-white">
+          In Collaboration With
+        </h2>
+      </div>
 
-        {/* Title */}
-        <div className="text-center mb-10 md:mb-14">
-          <h2 className="text-2xl md:text-4xl font-bold text-gray-800">
-            In Collaboration With
-          </h2>
+      {/* Logos Scroll */}
+      <div className="relative w-full overflow-hidden">
+        <div className="flex gap-14 animate-scroll whitespace-nowrap items-center">
+
+          {[...partners, ...partners].map((partner, index) => (
+            <div
+              key={index}
+              className="flex items-center justify-center min-w-[150px]"
+            >
+              <img
+                src={partner.logo}
+                alt={partner.name}
+                className="h-14 md:h-16 object-contain"
+              />
+            </div>
+          ))}
+
         </div>
+      </div>
 
-        {/* Scrolling Logos */}
-        <div className="relative w-full overflow-hidden">
-
-          <div className="flex gap-12 animate-scroll whitespace-nowrap">
-
-            {[...partners, ...partners].map((partner, index) => (
-              <div
-                key={index}
-                className="flex items-center justify-center min-w-[150px] opacity-80 hover:opacity-100 transition"
-              >
-                <img
-                  src={partner.logo}
-                  alt={partner.name}
-                  className="h-14 md:h-16 object-contain"
-                />
-              </div>
-            ))}
-
-          </div>
-        </div>
+      {/* Footer Credit */}
+      <div className="text-center mt-12">
+        <p className="text-gray-300 text-sm">
+          Designed by{" "}
+          <a
+            href="https://www.trendsandtactics.in/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white font-semibold hover:underline"
+          >
+            Trends & Tactics
+          </a>
+        </p>
       </div>
 
       {/* Scroll Animation */}
@@ -56,6 +68,7 @@ const CollaborationScroll = () => {
           }
         `}
       </style>
+
     </section>
   );
 };
