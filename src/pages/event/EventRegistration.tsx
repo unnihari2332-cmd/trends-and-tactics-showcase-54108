@@ -74,8 +74,9 @@ const EventComingSoon = () => {
       </main>
       <Guest />
       <Activities />
-      <Herclan />
       <EventDetails />
+      <Herclan />
+      
       
     </div>
   );
