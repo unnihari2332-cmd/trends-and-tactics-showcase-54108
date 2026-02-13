@@ -59,12 +59,13 @@ const EventComingSoon = () => {
             >
               Register Now
             </Button>
+             <Guest />
           </div>
 
         </main>
 
         {/* OTHER SECTIONS */}
-        <Guest />
+       
         <Activities />
         <Herclan />
         <EventDetails />
