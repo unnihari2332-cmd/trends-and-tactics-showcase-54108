@@ -22,7 +22,7 @@ const guests = [
       "Director – Operations & Finance",
       "Dr. Kamakshi Memorial Hospital",
     ],
-    image: "https://www.trendsandtactics.in/kamakshi.png",
+    image: "https://www.trendsandtactics.in/kamakshi1.png",
     gradient: "from-purple-500 via-indigo-400 to-blue-400",
   },
 ];
