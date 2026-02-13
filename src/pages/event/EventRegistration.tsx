@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import Herclan from "@/components/Herclan";
+import Guest from "@/components/Guest";
 
 const EventComingSoon = () => {
   useEffect(() => {
@@ -69,7 +70,7 @@ const EventComingSoon = () => {
           </Button>
         </div>
       </main>
-
+      <Guest />
       <Herclan />
       
     </div>
