@@ -11,10 +11,8 @@ const guests = [
       "Influencer",
     ],
     images: [
-      "https://via.placeholder.com/300x350",
-      "https://via.placeholder.com/300x350",
-      "https://via.placeholder.com/300x350",
-      "https://via.placeholder.com/300x350",
+      "https://www.trendsandtactics.in/kamakshi.jpeg",
+
     ],
     gradient: "from-pink-500 via-rose-400 to-orange-400",
   },
@@ -28,10 +26,8 @@ const guests = [
       "Dr. Kamakshi Memorial Hospital",
     ],
     images: [
-      "https://via.placeholder.com/300x350",
-      "https://via.placeholder.com/300x350",
-      "https://via.placeholder.com/300x350",
-      "https://via.placeholder.com/300x350",
+      "https://www.trendsandtactics.in/sujatha.jpeg",
+      
     ],
     gradient: "from-purple-500 via-indigo-400 to-blue-400",
   },
