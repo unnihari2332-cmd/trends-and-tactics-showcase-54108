@@ -12,59 +12,39 @@ const EventDetailsSection = () => {
           </h2>
         </div>
 
-        {/* Content Grid */}
-        <div className="grid md:grid-cols-2 gap-10">
+        <div className="grid md:grid-cols-2 gap-10 items-start">
 
           {/* LEFT CONTENT */}
-          <div className="space-y-8">
+          <div className="space-y-6">
 
-            {/* Date & Time */}
             <div className="bg-white rounded-3xl p-6 shadow-md">
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">
-                Date & Time
-              </h3>
-              <p className="text-gray-600">📅 08 March 2026</p>
-              <p className="text-gray-600">🗓 Sunday</p>
-              <p className="text-gray-600">⏰ 05:00 PM onwards</p>
+              <h3 className="text-xl font-semibold mb-2">Date & Time</h3>
+              <p>📅 08 March 2026</p>
+              <p>🗓 Sunday</p>
+              <p>⏰ 05:00 PM onwards</p>
             </div>
 
-            {/* Venue */}
             <div className="bg-white rounded-3xl p-6 shadow-md">
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">
-                Venue
-              </h3>
-              <p className="text-gray-600">
-                Vivira Mall, Hotfut Turf, Navalur
-              </p>
+              <h3 className="text-xl font-semibold mb-2">Venue</h3>
+              <p>Vivira Mall, Hotfut Turf, Navalur</p>
             </div>
 
-            {/* Participation */}
             <div className="bg-white rounded-3xl p-6 shadow-md">
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">
-                Participation
-              </h3>
-              <p className="text-gray-600">
-                Open for Women & Kids
-              </p>
+              <h3 className="text-xl font-semibold mb-2">Participation</h3>
+              <p>Open for Women & Kids</p>
             </div>
 
-            {/* Tagline */}
             <div className="bg-gradient-to-br from-pink-500 to-purple-600 text-white rounded-3xl p-6 shadow-md">
-              <h3 className="text-xl font-semibold mb-3">
-                Message
-              </h3>
-              <p className="italic leading-relaxed">
-                “Let’s come together to celebrate women who rise together.
-                When women support women, powerful things happen.”
+              <h3 className="text-xl font-semibold mb-2">Message</h3>
+              <p className="italic">
+                Let’s come together to celebrate women who rise together.
+                When women support women, powerful things happen.
               </p>
             </div>
 
-            {/* Organizer */}
             <div className="bg-white rounded-3xl p-6 shadow-md">
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">
-                Presented By
-              </h3>
-              <p className="text-gray-600 font-medium">HER Clan</p>
+              <h3 className="text-xl font-semibold mb-2">Presented By</h3>
+              <p className="font-medium">HER Clan</p>
               <a
                 href="https://instagram.com/her_clan_chennai"
                 target="_blank"
@@ -77,15 +57,17 @@ const EventDetailsSection = () => {
 
           </div>
 
-          {/* RIGHT MAP */}
-          <div className="rounded-3xl overflow-hidden shadow-lg h-[350px] md:h-full">
-            <iframe
-              title="Event Location"
-              src="https://www.google.com/maps?q=Vivira+Mall+Navalur&output=embed"
-              className="w-full h-full border-0"
-              allowFullScreen=""
-              loading="lazy"
-            />
+          {/* RIGHT GOOGLE MAP */}
+          <div className="w-full">
+            <div className="rounded-3xl overflow-hidden shadow-lg h-[350px] md:h-[450px]">
+              <iframe
+                title="Vivira Mall Location"
+                src="https://www.google.com/maps?q=Vivira+Mall+Navalur&output=embed"
+                className="w-full h-full border-0"
+                loading="lazy"
+                allowFullScreen
+              ></iframe>
+            </div>
           </div>
 
         </div>
