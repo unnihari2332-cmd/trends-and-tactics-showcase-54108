@@ -37,7 +37,7 @@ const EventComingSoon = () => {
 
   return (
     <div className="min-h-screen flex flex-col relative overflow-hidden">
-    
+      <Header />
 
       {/* Desktop Video */}
       <video
@@ -69,7 +69,7 @@ const EventComingSoon = () => {
         
         {/* Event Logo */}
         <img
-          src="/text copy.png"
+          src="/event-logo.png"
           alt="Event Logo"
           className="w-28 md:w-40 mb-6"
         />
@@ -79,7 +79,7 @@ const EventComingSoon = () => {
 
         {/* Company Logo */}
         <img
-          src="/Her clan.png"
+          src="/company-logo.png"
           alt="Company Logo"
           className="w-24 md:w-32 mt-8"
         />
@@ -96,7 +96,7 @@ const EventComingSoon = () => {
       </main>
 
       <Herclan />
-      
+      <Footer />
     </div>
   );
 };
