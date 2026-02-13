@@ -64,7 +64,7 @@ const EventComingSoon = () => {
         </div>
       </main>
       <div>
-    </Herclan>
+    <Herclan />
       </div>
     
     </div>
