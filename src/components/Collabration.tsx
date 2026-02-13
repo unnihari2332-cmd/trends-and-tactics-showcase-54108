@@ -1,12 +1,12 @@
 import React from "react";
 
 const partners = [
-  { name: "Company 1", logo: "https://via.placeholder.com/140x70" },
-  { name: "Company 2", logo: "https://via.placeholder.com/140x70" },
-  { name: "Company 3", logo: "https://via.placeholder.com/140x70" },
-  { name: "Company 4", logo: "https://via.placeholder.com/140x70" },
-  { name: "Company 5", logo: "https://via.placeholder.com/140x70" },
-  { name: "Company 6", logo: "https://via.placeholder.com/140x70" },
+  { name: "Hotfut", logo: "/hotfut.png" },
+  { name: "JFX Productions", logo: "/JFX Productions.png" },
+  { name: "JOIS", logo: "/JOIS.png" },
+  { name: "Trends & Tactics", logo: "/Trends & Tactics.png" },
+  { name: "Vibee Academy", logo: "/vibeeacademy.png" },
+  { name: "Vivira Mall", logo: "/vivaramall.png" },
 ];
 
 const CollaborationScroll = () => {
@@ -26,16 +26,15 @@ const CollaborationScroll = () => {
 
           <div className="flex gap-12 animate-scroll whitespace-nowrap">
 
-            {/* Duplicate logos for infinite scroll */}
             {[...partners, ...partners].map((partner, index) => (
               <div
                 key={index}
-                className="flex items-center justify-center min-w-[140px] opacity-80 hover:opacity-100 transition"
+                className="flex items-center justify-center min-w-[150px] opacity-80 hover:opacity-100 transition"
               >
                 <img
                   src={partner.logo}
                   alt={partner.name}
-                  className="h-12 md:h-16 object-contain"
+                  className="h-14 md:h-16 object-contain"
                 />
               </div>
             ))}
@@ -44,7 +43,7 @@ const CollaborationScroll = () => {
         </div>
       </div>
 
-      {/* Animation Style */}
+      {/* Scroll Animation */}
       <style>
         {`
           @keyframes scroll {
