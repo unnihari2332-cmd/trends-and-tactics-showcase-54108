@@ -11,7 +11,7 @@ const guests = [
       "Influencer",
     ],
     images: [
-      "https://www.trendsandtactics.in/kamakshi.jpeg",
+      "https://www.trendsandtactics.in/kamakshi.png",
 
     ],
     gradient: "from-pink-500 via-rose-400 to-orange-400",
@@ -26,7 +26,7 @@ const guests = [
       "Dr. Kamakshi Memorial Hospital",
     ],
     images: [
-      "https://www.trendsandtactics.in/sujatha.jpeg",
+      "https://www.trendsandtactics.in/sujatha.png",
       
     ],
     gradient: "from-purple-500 via-indigo-400 to-blue-400",
