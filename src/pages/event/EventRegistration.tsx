@@ -47,7 +47,7 @@ const EventComingSoon = () => {
         playsInline
         className="hidden md:block absolute w-full h-full object-cover"
       >
-        <source src="/desktop-event-video.mp4" type="video/mp4" />
+        <source src="/web.mp4" type="video/mp4" />
       </video>
 
       {/* Mobile Video */}
@@ -58,7 +58,7 @@ const EventComingSoon = () => {
         playsInline
         className="block md:hidden absolute w-full h-full object-cover"
       >
-        <source src="/mobile-event-video.mp4" type="video/mp4" />
+        <source src="/mobile.mp4" type="video/mp4" />
       </video>
 
       {/* Overlay */}
@@ -69,7 +69,7 @@ const EventComingSoon = () => {
         
         {/* Event Logo */}
         <img
-          src="/event-logo.png"
+          src="/text copy.png"
           alt="Event Logo"
           className="w-28 md:w-40 mb-6"
         />
