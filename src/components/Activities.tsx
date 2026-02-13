@@ -12,16 +12,19 @@ const activities = [
 
 const ActivitiesHighlights = () => {
   return (
-    <section className="relative w-full py-16 md:py-24 bg-white z-10">
-      
-      <div className="max-w-6xl mx-auto px-4">
+    <section className="relative w-full py-16 md:py-24 z-10">
+
+      {/* Overlay for readability */}
+      <div className="absolute inset-0 bg-black/40 backdrop-blur-sm"></div>
+
+      <div className="relative max-w-6xl mx-auto px-4">
 
         {/* Title */}
-        <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold text-gray-800">
+        <div className="text-center mb-12 md:mb-16 text-white">
+          <h2 className="text-3xl md:text-5xl font-bold">
             Activities / Highlights
           </h2>
-          <p className="text-gray-500 mt-3 text-sm md:text-base">
+          <p className="mt-3 text-sm md:text-base text-gray-200">
             Exciting experiences planned for the event
           </p>
         </div>
@@ -36,13 +39,14 @@ const ActivitiesHighlights = () => {
                 key={index}
                 className="rounded-3xl p-[2px] bg-gradient-to-br hover:scale-[1.03] transition duration-300"
               >
-                <div className="bg-white rounded-3xl p-8 shadow-md h-full flex flex-col items-center text-center">
+                {/* Glass Card */}
+                <div className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-3xl p-8 shadow-lg h-full flex flex-col items-center text-center">
 
                   <div className={`w-14 h-14 flex items-center justify-center rounded-2xl bg-gradient-to-br ${activity.gradient} text-white mb-5`}>
                     <Icon size={28} />
                   </div>
 
-                  <h3 className="text-lg md:text-xl font-semibold text-gray-800">
+                  <h3 className="text-lg md:text-xl font-semibold text-white">
                     {activity.title}
                   </h3>
 
