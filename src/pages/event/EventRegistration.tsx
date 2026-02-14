@@ -24,7 +24,7 @@ const EventComingSoon = () => {
         playsInline
         className="fixed inset-0 w-full h-full object-cover -z-10"
       >
-        <source src="/bluegradient8k.mp4" type="video/mp4" />
+        <source src="/bghero.mp4" type="video/mp4" />
       </video>
 
       {/* Overlay */}
