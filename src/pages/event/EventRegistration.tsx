@@ -36,7 +36,7 @@ const EventComingSoon = () => {
         {/* HERO SECTION */}
         <main className="min-h-screen flex flex-col items-center justify-center px-4 text-center text-white">
 
-          {/* First Logo - Bigger */}
+          {/* First Logo */}
           <img
             src="/text copy.png"
             alt="Event Logo"
@@ -45,20 +45,26 @@ const EventComingSoon = () => {
 
           {/* Heading */}
           <h1 className="leading-tight font-extrabold">
+            
             <span className="block text-3xl md:text-6xl">
               OMR's
             </span>
 
             <span className="block text-2xl md:text-5xl mt-2">
-              Biggest Women’s Day Celebration 
+              Biggest Women’s Day Celebration
             </span>
 
-            <span className="block text-sm md:text-lg mt-2 font-medium">
-             Presented by
+            {/* Signature Font Applied Only Here */}
+            <span
+              className="block text-lg md:text-2xl mt-3"
+              style={{ fontFamily: "'Great Vibes', cursive" }}
+            >
+              Presented by
             </span>
+
           </h1>
 
-          {/* Second Logo - Slightly Bigger */}
+          {/* Second Logo */}
           <img
             src="/Her clan.png"
             alt="Company Logo"
