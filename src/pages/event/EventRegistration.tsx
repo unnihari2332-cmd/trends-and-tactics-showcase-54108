@@ -50,11 +50,11 @@ const EventComingSoon = () => {
             </span>
 
             <span className="block text-2xl md:text-5xl mt-2">
-              Biggest Women’s Day Celebration Presented
+              Biggest Women’s Day Celebration 
             </span>
 
             <span className="block text-sm md:text-lg mt-2 font-medium">
-              by
+             Presented by
             </span>
           </h1>
 
