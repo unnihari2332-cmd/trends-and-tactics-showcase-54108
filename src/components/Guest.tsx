@@ -29,16 +29,15 @@ const guests = [
 
 const GuestOfHonourSection = () => {
   return (
-    <section className="relative w-full py-16 md:py-24 bg-white overflow-hidden">
+    <section className="relative w-full py-16 md:py-24 overflow-hidden">
 
-      {/* Soft Background Glow */}
-      <div className="absolute -top-32 left-0 w-96 h-96 bg-pink-200 rounded-full blur-3xl opacity-30"></div>
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-indigo-200 rounded-full blur-3xl opacity-30"></div>
+      {/* Optional soft glow (still works over video) */}
+      <div className="absolute -top-32 left-0 w-96 h-96 bg-pink-500 rounded-full blur-3xl opacity-20"></div>
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-indigo-500 rounded-full blur-3xl opacity-20"></div>
 
-      <div className="max-w-6xl mx-auto px-4 space-y-14 md:space-y-20">
+      <div className="max-w-6xl mx-auto px-4 space-y-14 md:space-y-20 relative z-10">
 
         {guests.map((guest, index) => {
-
           const reverse = index % 2 !== 0;
 
           return (
@@ -52,7 +51,7 @@ const GuestOfHonourSection = () => {
               {/* IMAGE */}
               <div className="flex justify-center">
                 <div
-                  className={`p-[3px] rounded-3xl bg-gradient-to-br ${guest.gradient} shadow-lg`}
+                  className={`p-[3px] rounded-3xl bg-gradient-to-br ${guest.gradient} shadow-xl`}
                 >
                   <img
                     src={guest.image}
@@ -67,13 +66,14 @@ const GuestOfHonourSection = () => {
                 <div
                   className={`rounded-3xl bg-gradient-to-br ${guest.gradient} p-[2px]`}
                 >
-                  <div className="bg-white rounded-3xl p-6 md:p-8 shadow-lg">
+                  {/* Glass Effect Card (No White Background) */}
+                  <div className="backdrop-blur-md bg-black/40 rounded-3xl p-6 md:p-8 shadow-xl">
 
-                    <p className="text-xs uppercase tracking-widest text-gray-500 font-semibold">
+                    <p className="text-xs uppercase tracking-widest text-gray-300 font-semibold">
                       {guest.title}
                     </p>
 
-                    <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mt-2">
+                    <h2 className="text-2xl md:text-3xl font-bold text-white mt-2">
                       {guest.name}
                     </h2>
 
@@ -81,7 +81,7 @@ const GuestOfHonourSection = () => {
                       {guest.roles.map((role, rIndex) => (
                         <li
                           key={rIndex}
-                          className="text-gray-600 text-sm md:text-base flex gap-3"
+                          className="text-gray-200 text-sm md:text-base flex gap-3"
                         >
                           <span className="mt-2 w-2 h-2 rounded-full bg-gradient-to-r from-pink-500 to-purple-500"></span>
                           {role}
