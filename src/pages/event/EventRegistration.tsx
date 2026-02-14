@@ -16,7 +16,7 @@ const EventComingSoon = () => {
   return (
     <div className="relative min-h-screen overflow-hidden">
 
-      {/* ✅ GLOBAL BACKGROUND VIDEO */}
+      {/* GLOBAL BACKGROUND VIDEO */}
       <video
         autoPlay
         loop
@@ -35,41 +35,53 @@ const EventComingSoon = () => {
 
         {/* HERO SECTION */}
         <main className="min-h-screen flex flex-col items-center justify-center px-4 text-center text-white">
-          
+
+          {/* First Logo - Bigger */}
           <img
             src="/text copy.png"
             alt="Event Logo"
-            className="w-28 md:w-40 mb-6"
+            className="w-40 md:w-64 mb-8"
           />
 
-          <h1 className="text-2xl md:text-5xl font-extrabold leading-tight">
-            OMR’s Biggest Women’s Day Celebration Presented by
+          {/* Heading */}
+          <h1 className="leading-tight font-extrabold">
+            <span className="block text-3xl md:text-6xl">
+              OMR's
+            </span>
+
+            <span className="block text-2xl md:text-5xl mt-2">
+              Biggest Women’s Day Celebration Presented
+            </span>
+
+            <span className="block text-sm md:text-lg mt-2 font-medium">
+              by
+            </span>
           </h1>
 
+          {/* Second Logo - Slightly Bigger */}
           <img
             src="/Her clan.png"
             alt="Company Logo"
-            className="w-24 md:w-32 mt-8"
+            className="w-32 md:w-44 mt-6"
           />
 
+          {/* Register Button */}
           <div className="mt-10">
-           <Button
-  size="lg"
-  onClick={() =>
-    window.open("https://forms.gle/puwLxbxj6mvaPhUy6", "_blank")
-  }
-  className="px-8 py-6 text-lg bg-gradient-to-r from-pink-500 via-purple-500 to-orange-400 hover:opacity-90 text-white rounded-xl shadow-lg"
->
-  Register Now
-</Button>
-
-             
+            <Button
+              size="lg"
+              onClick={() =>
+                window.open("https://forms.gle/puwLxbxj6mvaPhUy6", "_blank")
+              }
+              className="px-8 py-6 text-lg bg-gradient-to-r from-pink-500 via-purple-500 to-orange-400 hover:opacity-90 text-white rounded-xl shadow-lg"
+            >
+              Register Now
+            </Button>
           </div>
 
         </main>
 
         {/* OTHER SECTIONS */}
-         <Guest />
+        <Guest />
         <Activities />
         <Herclan />
         <EventDetails />
