@@ -14,9 +14,6 @@ const ActivitiesHighlights = () => {
   return (
     <section className="relative w-full py-16 md:py-24 z-10">
 
-      {/* Overlay for readability */}
-      <div className="absolute inset-0 bg-black/40 backdrop-blur-sm"></div>
-
       <div className="relative max-w-6xl mx-auto px-4">
 
         {/* Title */}
