@@ -196,6 +196,9 @@ const App = () => (
           <Route path="/event/registration-success" element={<RegistrationSuccess />} />
           <Route path="/event/registration-failed" element={<RegistrationFailed />} />
 
+          {/* Marathon Certificate */}
+          <Route path="/marathon" element={<Marathon />} />
+
           {/* Client pages */}
           <Route path="/clients/TIPS" element={<TIPS />} />
           <Route path="/clients/DrAndrew" element={<DrAndrew />} />
