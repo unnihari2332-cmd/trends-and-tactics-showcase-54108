@@ -67,6 +67,7 @@ import GrowthConsulting from "./pages/services/GrowthConsulting";
 import EventRegistration from "./pages/event/EventRegistration";
 import RegistrationSuccess from "./pages/event/RegistrationSuccess";
 import RegistrationFailed from "./pages/event/RegistrationFailed";
+import Marathon from "./pages/Marathon";
 
 /* ---------- 404 ---------- */
 function NotFound() {
@@ -194,6 +195,9 @@ const App = () => (
           <Route path="/awards/HerFest-2026" element={<EventRegistration />} />
           <Route path="/event/registration-success" element={<RegistrationSuccess />} />
           <Route path="/event/registration-failed" element={<RegistrationFailed />} />
+
+          {/* Marathon Certificate */}
+          <Route path="/marathon" element={<Marathon />} />
 
           {/* Client pages */}
           <Route path="/clients/TIPS" element={<TIPS />} />
