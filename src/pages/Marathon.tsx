@@ -22,9 +22,9 @@ const CertificateContent = ({ fullName }: { fullName: string }) => (
     {/* Name overlay positioned on the underlined space */}
     <div style={{
       position: "absolute",
-      top: "48%",
-      left: "50%",
-      transform: "translate(-50%, -50%)",
+      top: "45%",
+      left: "0",
+      width: "100%",
       fontSize: "36px",
       fontWeight: 700,
       fontFamily: "'Georgia', 'Times New Roman', serif",
