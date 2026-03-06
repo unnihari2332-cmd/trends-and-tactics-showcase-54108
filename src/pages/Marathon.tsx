@@ -68,6 +68,10 @@ const Marathon = () => {
       useCORS: true,
       width: CERT_W,
       height: CERT_H,
+      windowWidth: CERT_W,
+      windowHeight: CERT_H,
+      scrollX: 0,
+      scrollY: 0,
     });
     const imgData = canvas.toDataURL("image/png");
     const pdf = new jsPDF({ orientation: "landscape", unit: "mm", format: "a4" });
