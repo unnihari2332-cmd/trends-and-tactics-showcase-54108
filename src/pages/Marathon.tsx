@@ -22,7 +22,7 @@ const CertificateContent = ({ fullName, distance }: { fullName: string; distance
     {/* Name overlay positioned on the underlined space */}
     <div style={{
       position: "absolute",
-      top: "40%",
+      top: "44%",
       left: "0",
       width: "100%",
       fontSize: "36px",
