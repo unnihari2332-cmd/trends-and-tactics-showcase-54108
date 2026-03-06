@@ -50,6 +50,30 @@ export type Database = {
         }
         Relationships: []
       }
+      marathon_registrations: {
+        Row: {
+          created_at: string
+          distance_km: number
+          full_name: string
+          id: string
+          phone: string
+        }
+        Insert: {
+          created_at?: string
+          distance_km: number
+          full_name: string
+          id?: string
+          phone: string
+        }
+        Update: {
+          created_at?: string
+          distance_km?: number
+          full_name?: string
+          id?: string
+          phone?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
