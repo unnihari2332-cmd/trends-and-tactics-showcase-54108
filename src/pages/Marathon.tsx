@@ -7,26 +7,35 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { Download, Award } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
 
 const Marathon = () => {
   const [formData, setFormData] = useState({ fullName: "", phone: "", distance: "" });
   const [submitted, setSubmitted] = useState(false);
+  const [saving, setSaving] = useState(false);
   const certificateRef = useRef<HTMLDivElement>(null);
 
-  const currentDate = new Date().toLocaleDateString("en-IN", {
-    day: "numeric", month: "long", year: "numeric",
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (formData.fullName && formData.phone && formData.distance) {
+      setSaving(true);
+      try {
+        await (supabase as any).from("marathon_registrations").insert({
+          full_name: formData.fullName,
+          phone: formData.phone,
+          distance_km: parseFloat(formData.distance),
+        });
+      } catch (err) {
+        console.error("Failed to save registration:", err);
+      }
+      setSaving(false);
       setSubmitted(true);
     }
   };
 
   const downloadPDF = async () => {
     if (!certificateRef.current) return;
-    const canvas = await html2canvas(certificateRef.current, { scale: 3, useCORS: true });
+    const canvas = await html2canvas(certificateRef.current, { scale: 3, useCORS: true, backgroundColor: null });
     const imgData = canvas.toDataURL("image/png");
     const pdf = new jsPDF({ orientation: "landscape", unit: "mm", format: "a4" });
     const pdfW = pdf.internal.pageSize.getWidth();
@@ -34,6 +43,55 @@ const Marathon = () => {
     pdf.addImage(imgData, "PNG", 0, 0, pdfW, pdfH);
     pdf.save(`${formData.fullName.replace(/\s+/g, "_")}_Marathon_Certificate.pdf`);
   };
+
+  // Corner ornament SVG
+  const CornerOrnament = ({ style }: { style: React.CSSProperties }) => (
+    <div style={{ position: "absolute", width: "60px", height: "60px", ...style }}>
+      <svg viewBox="0 0 60 60" width="60" height="60">
+        <rect x="2" y="2" width="56" height="56" rx="4" fill="none" stroke="#9a8c2c" strokeWidth="2" />
+        <circle cx="30" cy="30" r="16" fill="none" stroke="#9a8c2c" strokeWidth="1.5" />
+        <line x1="2" y1="2" x2="20" y2="20" stroke="#9a8c2c" strokeWidth="1.5" />
+        <line x1="58" y1="2" x2="40" y2="20" stroke="#9a8c2c" strokeWidth="1.5" />
+        <line x1="2" y1="58" x2="20" y2="40" stroke="#9a8c2c" strokeWidth="1.5" />
+        <line x1="58" y1="58" x2="40" y2="40" stroke="#9a8c2c" strokeWidth="1.5" />
+      </svg>
+    </div>
+  );
+
+  // Medal SVG
+  const MedalSVG = () => (
+    <svg viewBox="0 0 120 160" width="120" height="160">
+      {/* Ribbons */}
+      <polygon points="40,80 20,160 50,130 60,80" fill="#8B7D2B" />
+      <polygon points="80,80 100,160 70,130 60,80" fill="#6B5D1B" />
+      {/* Medal circle outer */}
+      <circle cx="60" cy="55" r="45" fill="url(#medalGrad)" stroke="#8B7D2B" strokeWidth="2" />
+      {/* Medal teeth */}
+      {Array.from({ length: 28 }).map((_, i) => {
+        const angle = (i * 360) / 28;
+        const rad = (angle * Math.PI) / 180;
+        const x1 = 60 + 42 * Math.cos(rad);
+        const y1 = 55 + 42 * Math.sin(rad);
+        const x2 = 60 + 48 * Math.cos(rad);
+        const y2 = 55 + 48 * Math.sin(rad);
+        return <line key={i} x1={x1} y1={y1} x2={x2} y2={y2} stroke="#8B7D2B" strokeWidth="2" />;
+      })}
+      {/* Inner circle */}
+      <circle cx="60" cy="55" r="32" fill="url(#medalInner)" />
+      <defs>
+        <radialGradient id="medalGrad" cx="40%" cy="35%">
+          <stop offset="0%" stopColor="#D4A017" />
+          <stop offset="50%" stopColor="#B8860B" />
+          <stop offset="100%" stopColor="#8B6914" />
+        </radialGradient>
+        <radialGradient id="medalInner" cx="40%" cy="35%">
+          <stop offset="0%" stopColor="#E8C547" />
+          <stop offset="50%" stopColor="#C9A227" />
+          <stop offset="100%" stopColor="#A68B1B" />
+        </radialGradient>
+      </defs>
+    </svg>
+  );
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
@@ -57,9 +115,11 @@ const Marathon = () => {
               </div>
               <div className="space-y-2">
                 <Label htmlFor="distance">Marathon Distance (KM)</Label>
-                <Input id="distance" type="number" min="1" required placeholder="e.g. 42" value={formData.distance} onChange={e => setFormData(p => ({ ...p, distance: e.target.value }))} />
+                <Input id="distance" type="number" min="1" required placeholder="e.g. 5" value={formData.distance} onChange={e => setFormData(p => ({ ...p, distance: e.target.value }))} />
               </div>
-              <Button type="submit" className="w-full" size="lg">Generate Certificate</Button>
+              <Button type="submit" className="w-full" size="lg" disabled={saving}>
+                {saving ? "Saving..." : "Generate Certificate"}
+              </Button>
             </form>
           </div>
         ) : (
@@ -73,90 +133,110 @@ const Marathon = () => {
               </Button>
             </div>
 
-            {/* Certificate */}
+            {/* Responsive wrapper */}
             <div className="flex justify-center overflow-auto">
-              <div
-                ref={certificateRef}
-                style={{
-                  width: "1122px",
-                  height: "793px",
-                  background: "linear-gradient(135deg, #fffbe6 0%, #fff7e0 50%, #fff3d0 100%)",
-                  position: "relative",
-                  fontFamily: "'Georgia', 'Times New Roman', serif",
-                  overflow: "hidden",
-                }}
-              >
-                {/* Outer border */}
-                <div style={{
-                  position: "absolute", inset: "16px",
-                  border: "4px solid #b8860b",
-                  borderRadius: "12px",
-                }} />
-                {/* Inner border */}
-                <div style={{
-                  position: "absolute", inset: "28px",
-                  border: "2px solid #daa520",
-                  borderRadius: "8px",
-                }} />
-                {/* Corner ornaments */}
-                {["top-left", "top-right", "bottom-left", "bottom-right"].map(pos => {
-                  const isTop = pos.includes("top");
-                  const isLeft = pos.includes("left");
-                  return (
-                    <div key={pos} style={{
-                      position: "absolute",
-                      [isTop ? "top" : "bottom"]: "20px",
-                      [isLeft ? "left" : "right"]: "20px",
-                      width: "60px", height: "60px",
-                      borderTop: isTop ? "4px solid #b8860b" : "none",
-                      borderBottom: !isTop ? "4px solid #b8860b" : "none",
-                      borderLeft: isLeft ? "4px solid #b8860b" : "none",
-                      borderRight: !isLeft ? "4px solid #b8860b" : "none",
-                      borderRadius: "4px",
+              <div className="w-full max-w-[1122px]" style={{ aspectRatio: "1122/793" }}>
+                <div style={{ width: "1122px", height: "793px", transformOrigin: "top left" }} className="scale-[0.3] sm:scale-[0.5] md:scale-[0.7] lg:scale-[0.85] xl:scale-100 origin-top-left">
+                  <div
+                    ref={certificateRef}
+                    style={{
+                      width: "1122px",
+                      height: "793px",
+                      background: "#f5f0e8",
+                      position: "relative",
+                      fontFamily: "'Georgia', 'Times New Roman', serif",
+                      overflow: "hidden",
+                    }}
+                  >
+                    {/* Outer gold border */}
+                    <div style={{
+                      position: "absolute", inset: "14px",
+                      border: "3px solid #9a8c2c",
                     }} />
-                  );
-                })}
+                    {/* Inner dotted border */}
+                    <div style={{
+                      position: "absolute", inset: "22px",
+                      border: "1.5px dashed #c4a35a",
+                    }} />
 
-                {/* Content */}
-                <div style={{
-                  position: "absolute", inset: "50px",
-                  display: "flex", flexDirection: "column",
-                  alignItems: "center", justifyContent: "center",
-                  textAlign: "center", gap: "8px",
-                }}>
-                  <div style={{ fontSize: "16px", letterSpacing: "6px", color: "#b8860b", textTransform: "uppercase", fontWeight: 600 }}>
-                    Certificate of Participation
-                  </div>
-                  <h2 style={{ fontSize: "42px", fontWeight: 700, color: "#1a1a1a", margin: "4px 0", lineHeight: 1.1 }}>
-                    Marathon Participation Certificate
-                  </h2>
-                  <div style={{ width: "200px", height: "3px", background: "linear-gradient(90deg, transparent, #b8860b, transparent)", margin: "8px 0" }} />
-                  <p style={{ fontSize: "18px", color: "#555", margin: "4px 0" }}>This is to certify that</p>
-                  <p style={{ fontSize: "38px", fontWeight: 700, color: "#b8860b", fontStyle: "italic", margin: "4px 0" }}>
-                    {formData.fullName}
-                  </p>
-                  <p style={{ fontSize: "17px", color: "#555", margin: "2px 0" }}>
-                    Phone: {formData.phone}
-                  </p>
-                  <p style={{ fontSize: "18px", color: "#333", margin: "8px 0", maxWidth: "600px", lineHeight: 1.5 }}>
-                    has successfully participated in the marathon and completed a distance of
-                  </p>
-                  <p style={{ fontSize: "48px", fontWeight: 800, color: "#E05D35", margin: "0" }}>
-                    {formData.distance} KM
-                  </p>
-                  <div style={{ width: "200px", height: "3px", background: "linear-gradient(90deg, transparent, #b8860b, transparent)", margin: "12px 0" }} />
-                  <p style={{ fontSize: "16px", color: "#777" }}>
-                    Date: {currentDate}
-                  </p>
+                    {/* Corner ornaments */}
+                    <CornerOrnament style={{ top: "6px", left: "6px" }} />
+                    <CornerOrnament style={{ top: "6px", right: "6px", transform: "scaleX(-1)" }} />
+                    <CornerOrnament style={{ bottom: "6px", left: "6px", transform: "scaleY(-1)" }} />
+                    <CornerOrnament style={{ bottom: "6px", right: "6px", transform: "scale(-1)" }} />
 
-                  <div style={{ display: "flex", justifyContent: "space-between", width: "80%", marginTop: "28px" }}>
-                    <div style={{ textAlign: "center" }}>
-                      <div style={{ width: "180px", borderBottom: "2px solid #b8860b", marginBottom: "6px" }} />
-                      <span style={{ fontSize: "13px", color: "#888" }}>Event Organizer</span>
-                    </div>
-                    <div style={{ textAlign: "center" }}>
-                      <div style={{ width: "180px", borderBottom: "2px solid #b8860b", marginBottom: "6px" }} />
-                      <span style={{ fontSize: "13px", color: "#888" }}>Authorized Signature</span>
+                    {/* Content */}
+                    <div style={{
+                      position: "absolute", inset: "40px",
+                      display: "flex", flexDirection: "column",
+                      alignItems: "center",
+                      textAlign: "center",
+                      paddingTop: "50px",
+                    }}>
+                      {/* CERTIFICATE title */}
+                      <h1 style={{
+                        fontSize: "64px",
+                        fontWeight: 700,
+                        color: "#5a1a1a",
+                        fontStyle: "italic",
+                        textDecoration: "underline",
+                        textDecorationColor: "#5a1a1a",
+                        textUnderlineOffset: "8px",
+                        margin: 0,
+                        letterSpacing: "4px",
+                      }}>
+                        CERTIFICATE
+                      </h1>
+
+                      {/* of Participation */}
+                      <p style={{
+                        fontSize: "28px",
+                        fontStyle: "italic",
+                        color: "#333",
+                        margin: "8px 0 0 0",
+                      }}>
+                        of Participation
+                      </p>
+
+                      {/* Main text */}
+                      <p style={{
+                        fontSize: "26px",
+                        fontWeight: 700,
+                        color: "#1a1a1a",
+                        margin: "30px 0 0 0",
+                        maxWidth: "700px",
+                        lineHeight: 1.5,
+                      }}>
+                        We are proudly present this For participants
+                        <br />in Women's day marathon that we organized
+                        <br />on 08/03/2026
+                      </p>
+
+                      {/* Participant name */}
+                      <p style={{
+                        fontSize: "32px",
+                        fontWeight: 700,
+                        color: "#9a8c2c",
+                        fontStyle: "italic",
+                        margin: "20px 0 0 0",
+                      }}>
+                        {formData.fullName}
+                      </p>
+
+                      {/* Distance */}
+                      <p style={{
+                        fontSize: "24px",
+                        fontWeight: 600,
+                        color: "#5a1a1a",
+                        margin: "8px 0 0 0",
+                      }}>
+                        Distance: {formData.distance} KM
+                      </p>
+
+                      {/* Medal */}
+                      <div style={{ marginTop: "20px" }}>
+                        <MedalSVG />
+                      </div>
                     </div>
                   </div>
                 </div>
