@@ -20,7 +20,7 @@ const Marathon = () => {
     if (formData.fullName && formData.phone && formData.distance) {
       setSaving(true);
       try {
-        await supabase.from("marathon_registrations").insert({
+        await (supabase as any).from("marathon_registrations").insert({
           full_name: formData.fullName,
           phone: formData.phone,
           distance_km: parseFloat(formData.distance),
