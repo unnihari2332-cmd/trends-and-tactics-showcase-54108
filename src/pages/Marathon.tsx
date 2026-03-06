@@ -10,7 +10,7 @@ import { supabase } from "@/integrations/supabase/client";
 const CERT_W = 1122;
 const CERT_H = 793;
 
-const CertificateContent = ({ fullName }: { fullName: string }) => (
+const CertificateContent = ({ fullName, distance }: { fullName: string; distance: string }) => (
   <div style={{
     width: `${CERT_W}px`,
     height: `${CERT_H}px`,
@@ -22,7 +22,7 @@ const CertificateContent = ({ fullName }: { fullName: string }) => (
     {/* Name overlay positioned on the underlined space */}
     <div style={{
       position: "absolute",
-      top: "45%",
+      top: "40%",
       left: "0",
       width: "100%",
       fontSize: "36px",
@@ -31,8 +31,9 @@ const CertificateContent = ({ fullName }: { fullName: string }) => (
       color: "#1a1a1a",
       textAlign: "center",
       whiteSpace: "nowrap",
+      lineHeight: "1",
     }}>
-      {fullName}
+      {fullName} - {distance} KM
     </div>
   </div>
 );
@@ -143,7 +144,7 @@ const Marathon = () => {
                       }
                     }}
                   >
-                    <CertificateContent fullName={formData.fullName} />
+                    <CertificateContent fullName={formData.fullName} distance={formData.distance} />
                   </div>
                 </div>
               </div>
@@ -152,7 +153,7 @@ const Marathon = () => {
             {/* Hidden full-size certificate for PDF capture */}
             <div style={{ position: "fixed", left: "-9999px", top: 0 }} aria-hidden="true">
               <div ref={pdfCertRef}>
-                <CertificateContent fullName={formData.fullName} />
+                <CertificateContent fullName={formData.fullName} distance={formData.distance} />
               </div>
             </div>
           </div>
