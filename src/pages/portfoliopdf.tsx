@@ -8,7 +8,7 @@ export default function PortfolioPage() {
 
       <main className="flex-1 pt-20">
         <iframe
-          src="/"
+          src="/Portfoliopdf.pdf"
           title="Portfolio PDF"
           className="w-full h-[calc(100vh-80px)] border-0"
         />
