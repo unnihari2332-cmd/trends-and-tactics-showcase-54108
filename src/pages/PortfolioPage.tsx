@@ -1,24 +1,20 @@
-import { Document, Page, pdfjs } from "react-pdf";
-import "react-pdf/dist/Page/AnnotationLayer.css";
-import "react-pdf/dist/Page/TextLayer.css";
-
-pdfjs.GlobalWorkerOptions.workerSrc = new URL(
-  "pdfjs-dist/build/pdf.worker.min.mjs",
-  import.meta.url
-).toString();
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 export default function PortfolioPage() {
   return (
-    <div className="pt-20">
-      <Document file="/Portfoliopdf.pdf">
-        {Array.from(new Array(18), (_, i) => (
-          <Page
-            key={i}
-            pageNumber={i + 1}
-            width={1000}
-          />
-        ))}
-      </Document>
+    <div className="min-h-screen flex flex-col bg-white">
+      <Header />
+
+      <main className="flex-1 pt-20">
+        <embed
+          src="/Portfoliopdf.pdf"
+          type="application/pdf"
+          className="w-full h-screen"
+        />
+      </main>
+
+      <Footer />
     </div>
   );
 }
