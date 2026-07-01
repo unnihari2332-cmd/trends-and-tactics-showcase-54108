@@ -15,6 +15,7 @@ import Portfolio from "./pages/Portfolio";
 import CaseStudy from "./pages/CaseStudy";
 import Services from "./pages/Services";
 import Contact from "./pages/Contact";
+import Contact from "./pages/portfoliopdf";
 import FAQ from "./pages/FAQ";
 import Product from "./pages/Product";
 import ThankYou from "./pages/ThankYou"; // ✅ ADD THIS
@@ -134,6 +135,7 @@ const App = () => (
           <Route path="/services/content-marketing" element={<ContentMarketing />} />
           <Route path="/services/logo-design" element={<LogoDesign />} />
           <Route path="/services/growth-consulting" element={<GrowthConsulting />} />
+          <Route path="/portfolio-pdf" element={<portfoliopdf />} />
 
           {/* Aatral Foundation + legacy redirect */}
           <Route path="/portfolio/aatral-foundation" element={<AatralFoundation />} />
