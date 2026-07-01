@@ -15,7 +15,7 @@ import Portfolio from "./pages/Portfolio";
 import CaseStudy from "./pages/CaseStudy";
 import Services from "./pages/Services";
 import Contact from "./pages/Contact";
-import portfoliopdf from "./pages/portfoliopdf";
+import PortfolioPage from "./pages/PortfolioPage";
 import FAQ from "./pages/FAQ";
 import Product from "./pages/Product";
 import ThankYou from "./pages/ThankYou"; // ✅ ADD THIS
@@ -115,7 +115,7 @@ const App = () => (
           <Route path="/contact" element={<Contact />} />
           {/* ✅ Thank you route for formsubmit.co redirect */}
           <Route path="/thank-you" element={<ThankYou />} />
-          <Route path="/portfolio-pdf" element={<portfoliopdf />} />
+          <Route path="/portfolio-pdf" element={<PortfolioPage />} />
 
           {/* Products */}
           <Route path="/product" element={<Product />} />
