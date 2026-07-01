@@ -115,6 +115,7 @@ const App = () => (
           <Route path="/contact" element={<Contact />} />
           {/* ✅ Thank you route for formsubmit.co redirect */}
           <Route path="/thank-you" element={<ThankYou />} />
+          <Route path="/portfolio-pdf" element={<portfoliopdf />} />
 
           {/* Products */}
           <Route path="/product" element={<Product />} />
@@ -135,7 +136,6 @@ const App = () => (
           <Route path="/services/content-marketing" element={<ContentMarketing />} />
           <Route path="/services/logo-design" element={<LogoDesign />} />
           <Route path="/services/growth-consulting" element={<GrowthConsulting />} />
-          <Route path="/portfolio-pdf" element={<portfoliopdf />} />
 
           {/* Aatral Foundation + legacy redirect */}
           <Route path="/portfolio/aatral-foundation" element={<AatralFoundation />} />
