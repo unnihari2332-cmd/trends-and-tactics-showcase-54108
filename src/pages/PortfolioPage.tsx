@@ -3,14 +3,14 @@ import Footer from "@/components/Footer";
 
 export default function PortfolioPage() {
   return (
-    <div className="min-h-screen bg-white flex flex-col">
+    <div className="min-h-screen flex flex-col bg-white">
       <Header />
 
       <main className="flex-1 pt-20">
-        <iframe
+        <embed
           src="/Portfoliopdf.pdf"
-          title="Portfolio PDF"
-          className="w-full h-[calc(100vh-80px)] border-0"
+          type="application/pdf"
+          className="w-full h-screen"
         />
       </main>
 
