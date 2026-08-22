@@ -190,7 +190,7 @@ const Contact = () => {
                 color: "#62C3C1",
                 title: "Chennai Office",
                 text:
-                  "Flat No. 4, A Wing, 5th Floor, Gemini Square,\n442, Anna Salai, Chennai – 600006.",
+                  "No.10, 1st floor, 9th Cross St, Kamaraj Colony, Kodambakkam, Chennai, Tamil Nadu, 600024",
               },
               {
                 icon: MapPin,
