@@ -26,10 +26,16 @@ const NalamAwards2026 = () => {
           {/* Header Banner */}
           <div className="text-center mb-10 space-y-4">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-orange-100/80 text-[#E05D35] text-sm font-semibold tracking-wide shadow-sm">
-              <Award className="w-4 h-4 text-[#E05D35]" />
-              <span>Healthcare Excellence Awards 2026</span>
-              <Sparkles className="w-3.5 h-3.5 text-[#E05D35]" />
-            </div>
+  <img
+    src="/nalam.png‎"
+    alt="Healthcare Excellence Awards"
+    className="w-5 h-5 object-contain"
+  />
+
+  <span>Healthcare Excellence Awards 2026</span>
+
+  <Sparkles className="w-3.5 h-3.5 text-[#E05D35]" />
+</div>
 
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-gray-900 leading-tight">
               நலம் விருதுகள் 2026
