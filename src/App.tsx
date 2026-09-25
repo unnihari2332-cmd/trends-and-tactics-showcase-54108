@@ -69,6 +69,7 @@ import EventRegistration from "./pages/event/EventRegistration";
 import RegistrationSuccess from "./pages/event/RegistrationSuccess";
 import RegistrationFailed from "./pages/event/RegistrationFailed";
 import Marathon from "./pages/Marathon";
+import NalamAwards2026 from "./pages/NalamAwards2026";
 
 /* ---------- 404 ---------- */
 function NotFound() {
@@ -194,6 +195,7 @@ const App = () => (
           <Route path="/portfolio/oecl" element={<OECLPortfolio />} />
 
           {/* Event registration */}
+          <Route path="/nalam-awards-2026" element={<NalamAwards2026 />} />
           <Route path="/awards/HerFest-2026" element={<EventRegistration />} />
           <Route path="/event/registration-success" element={<RegistrationSuccess />} />
           <Route path="/event/registration-failed" element={<RegistrationFailed />} />
